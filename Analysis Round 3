@@ -1,0 +1,477 @@
+# THIRD ANALYSIS OF THE IIE GENAI SURVEY DATA
+
+## Your Role
+
+You are an expert in analysing raw survey data and turning this information into insightful & actionable artefacts, reports and presentations.
+
+## Background - The Survey
+
+We have conducted a **Survey** at a **Private Tertiary Education Institute** ('private' as in non-governmental, but they are listed on the Johannesburg Stock Exchange) in South Africa with 2,660 staff members, 52% are **Academic Staff** (1,390 in total) and 42% are **Non-academic Staff** (1270 in total). The name of the Institute is **The Institute of Advanced Education ('The IIE')**.
+
+In total we have received 331 completed surveys from the **Respondents**, which is a **Participation Rate** of 12.4%. Of those 331, 62% are from Academic Staff (14.7% Participation Rate, total 204) and 38% from other Non-Academic Staff (10.0% Participation Rate, total 127).
+
+**In your analysis you need to take this Participation Rate into consideration!** The statistical significance of this sample is Adequate with a **Margin of Error** of ±5.4% at 95% confidence level.
+
+## Background - Objectives
+
+The Survey was commissioned by the **Head: Education Technology and Innovation** with a view of generating the relevant inputs for the development of a **Generative AI ('GenAi') Strategy & Implementation Plan**. 
+
+More specifically, the **Overarching Goal** of the Survey is to establish:
+
+- **Behaviour** - What is the **Baseline** current usage of **GenAi Tools** by the various **Respondent Groups**, as well as the 'perceived and/or observed current usage of GenAi Tools by Students as per the Academic Staff.
+
+- **Attitude** - What are the feelings (both positive and negative) of the various Respondent Groups vis-a-vis the use of GenAi Tools in their work, and in the case of Academic Staff of the desirability of GenAi Tools usage by Students.
+
+- Any **Correlations** between socio-demographic variables (mostly work experience as a proxy for age, confidence in their ability to use GenAi Tools and their general IT proficiency) and the individual Respondents' Attitude and Behaviour. 
+
+- **Statistically Meaningful Differences** in Attitude and Behaviour between the **Brands/Departments** as well as between the various Respondent Groups and the Students.
+
+- The **Needs** of the Respondents with regards assistance that will enable them to take more advantage of GenAi Tools.
+
+- The **Expected Steady State** usage of GenAi Tools across the board, based on the Analyses, Correlations and Differences, provided the Needs can be met.
+
+- **Recommendations** that will enable the Institute the maximally benefit from the organisation-wide deployment of GenAi Tools.
+
+## Respondent Groups
+
+Bear in mind that there are two **Respondent Groups** as per question 1.10:
+
+- **Academic Staff**, which consists of the following two **Roles**: 
+  -  Lecturer, Developer or Supervisor, and
+  -  Academic Management (Dean, Head of Faculty or Head of Programme).
+- **Non-academic Staff**, which consists of the following two Roles:
+  - General Management, and
+  - Operations & Support Staff.
+
+Depending on their role in the Institute, Respondents were channeled through one of two different surveys:
+
+   Academic Staff
+
+   - Section 1 - Personal use of GenAi tools
+   - Section 2 - Teaching (use of GenAi tools by LECTURERS, DEVELOPERS & SUPERVISORS)
+   - Section 3 - Learning (use of GenAi tools by STUDENTS)
+   - Section 6 - Your role (Academic Staff)
+   - Section 7 - Open questions
+
+   Non-academic Staff
+
+   - Section 1 - Personal use of GenAi tools
+   - Section 4 - Administration (use of GenAi tools for ADMINISTRATION purposes)
+   - Section 5 - Your role (Non-academic staff)
+   - Section 7 - Open questions
+
+## Brands & Departments
+
+The various **Brands/Departments** that make up The Institute are:
+
+- IIE Varsity College
+- IIE MSA
+- IIE Vega School
+- IIE Rosebank College
+- IIE School of Hospitality & Service Management
+- Central Academic Team
+
+## Your Task
+
+It is your main task to interpret the Survey Data and:
+
+- Provide **Insights**, as well as
+- Formulate Recommendations based on these Insights.
+
+### Definition of Insight
+
+An Insight:
+
+- Consists of one or more facts that is/are backed by the survey data.
+- Can be summarised in an declarative statement.
+- Is relevant to the Overarching Goal and Objectives of the survey.
+
+A set of Insights in turn can lead to a actionable Recommendation. 
+
+### Important Note!
+
+Even though your analysis needs to be **Unbiased**, you need to **Highlight Insights & Recommendation** that are particularly important for the **Senior Leadership** of this Institute. 
+
+This is of vital importance since they will be the final arbiters of whether or not to retain our services as consultants to design and deploy their GenAi strategy. This is as much a presentation of a survey results as well as a sales pitch.
+
+## Source Information
+
+Attached to this prompt is the **Base Information**:
+
+- Raw data: "250829 Google Forms - Generative AI in Tertiary Education ALL.xlsx'
+- Guide with questions: '250901 IEE Survey v4.pdf'
+
+## Instructions
+
+You need to use your **Upgraded File Creation and Analysis** tools (which are part of my Claude Max subscription) to conduct the required analyses, create the Insights and prepare the various **Deliverables**. 
+
+Furthermore, you need to:
+
+1. Study the attached Source Information, and check data accuracy & completeness.
+2. Create the Deliverables as per underneath.
+
+### Caution
+
+Firstly, please be aware of the **Ecological Fallacy**: Don't try to infer Correlations and Differences from aggregated data since group summaries don’t reveal the joint distribution at the individual level. Only look at the raw source data.
+
+Also, you need to pay particular attention to the following questions (which are all the ones where respondents could give more than one answer - "tick all that apply"):
+
+- 6.1
+- 6.2
+- 7.4
+
+For the avoidance of doubt, I don't want you to look at the combinations (such as for 6.1 - NQF level 5 and 7), but rather at each individual occurrence. This means that the sum total of answers to these questions could be larger than the total number of respondents.
+
+Finally: In the past you tabulated for question 1.1 the total counts of all tools. But you need to separate the counts out for each individual tool, such as ChatGPT, Gemini, Claude, Grok, etc. The same applies to other, similar questions. We don't want the grand total, but the subtotals for each sub question.
+
+## Deliverables - Dashboard
+
+We need one overarching Artefact (the '**Dashboard**') that has 10 **Tabs**. Each Tab should cover the relevant Insights derived from the collected and accumulated data, as well as your own **Knowledge**.
+
+The 10 Tabs are as follows:
+
+1. Executive Summary
+2. Respondents Overview
+3. Overall Adoption
+4. Academic Staff
+5. Students
+6. Non-Academic Staff
+7. Comparative Analysis
+8. Staff Ideas
+9. Required Assistance
+10. Recommendations
+
+### Technical Requirements
+
+**IMPORTANT**: Complete ALL Artefacts in a single response. Do not ask for clarification - proceed with your best interpretation.
+
+The Dashboard needs to meet the following **General Specifications**:
+
+   - **Type**: React components with modern styling (Tailwind CSS or inline styles).
+   - **Structure**: Multi-page dashboard with navigation.
+   - **Visualisations**: Include charts, graphs, and visual elements where appropriate and/or as indicated.
+   - **Responsiveness**: Mobile-friendly design.
+   - **Interactivity**: Navigation between sections, expandable content, hover effects.
+
+Further **Detailed Specifications** are as follows:
+
+   1. **Main Dashboard (Landing Page)**:
+      - Create an executive summary artifact with key highlights.
+      - Include navigation menu for all Tabs.
+      - Add visual overview with key statistics.
+      - Use professional color scheme consistent with educational themes.
+
+   2. **Tab-Specific Artefacts**:
+      - Include relevant data visualisations (charts, graphs, progress bars).
+      - Highlight key insights and statistics prominently, as identified by you or indicated by me.
+      - Use consistent design language across all Tabs. For example, make sure that the 'Key Insights' Content Panel at the beginnning of each sub-section looks the same across all Tabs. Also, make sure that all charts, graphs and other visualisations of the same sort look the same from a design standpoint. 
+      - Avoid using similar colours for different data (categories) in data visualisations in the same Tab. We need to avoid confusion.
+      - Use appropriate sizing and placement of each element in a Tab; the design needs to look professional and pleasing.
+
+   3. **Navigation System**:
+      - Implement smooth navigation between Tabs.
+      - Include breadcrumb navigation.
+      - Add Tab indicators/progress tracking.
+
+   4. **Special Handling for Final Section**:
+      - For Recommendations, focus ONLY on Overall Recommendations.
+      - Exclude specific action plan details.
+      - Present recommendations in clear, prioritised format.
+
+   5. **Data Presentation Best Practices**:
+      - Use appropriate chart types for different data, unless I specifically indicate a certain type.
+      - Include the actual data points, percentages, comparisons, and trends.
+      - Make Insights immediately visible.
+      - Use professional formatting and typography.
+
+The Success Criteria that I value are as follows:
+
+    Your artifacts should be:
+    - ✅ Complete and functional in one response.
+    - ✅ Professionally designed and visually appealing.
+    - ✅ Easy to navigate and understand.
+    - ✅ Accurately representing the survey data.
+    - ✅ Suitable for presentation to the Institute's leadership
+
+**Begin by creating the main Dashboard Artefact, then proceed with each Tab Artefacts. Complete everything in this single interaction.** 
+
+### 1. Executive Summary
+
+This Tab should be a summary of the Key Findings as presented under each Tab, from 2 through 10.
+
+The actual layout and visualisations will be driven the Insights from each of the Tabs.
+
+For now, you have a fair degree of leeway here, but you probably first need to complete the other 9 Tabs, before you can design this one. 
+
+### 2. Respondents Overview
+
+2.1 **Key Findings**
+
+Summarise the Insights of the various sub-sections 2.2 through 2.8 underneath in a Content Panel with bullet points.
+
+2.2 **Sample**
+
+Summarise the key statistics of the Respondents as outlined in the Section 'Background - The Survey' above.
+
+2.2 **Brand/Department**
+
+Show Breakdown of Respondents by Brand/Department across all Respondent Groups (pie chart with numbers and percentages) - from question 1.9.
+
+2.3 **Respondent Groups**
+
+Show Breakdown of Respondents by Respondent Groups across all Brands/Departments (pie chart with numbers and percentages) - from question 1.10.
+
+Chart 2.4 and 2.5 should be shown side by side.
+
+2.5 **Combined breakdown**
+
+Show the Respondents by Brand/Department and Respondent Categories in two Tables:
+
+   - Columns are the two Respondent Groups, and
+   - Rows are the Brands/Departments.
+
+The First Table should show absolute numbers, whereas the second table shows percentages with the total number of respondents at 100%. The Tables should be shown side by side.
+
+2.6 **Faculty**
+
+This pertains to question 6.2 and only applies to Academic Staff. Create a horizontal bar chart with the count of members of a Faculty in descending order from top to bottom:
+
+- Faculty on y-axis.
+- Absolute count per category on x-axis.
+- Add labels to axes or make legend, whatever suits lay-out best.
+- Bear in mind that you need to look at each category individually, so the number of total counts of all categories could be higher than the number of Academic Staff Respondents.
+
+2.7 **Work Experience**
+
+Create a Histogram of Respondents by Work Experience, both at IIE and at other organisations. Break the work experience down in Bins of 5 years (from questions 5.2, 5.3, 6.3 and 6.4) as follows:
+
+  - 0 - 5 years
+  - 6 -10
+  - 11 - 15
+  - Etc.
+
+Create four histograms:
+
+   - Academic Staff - work experience at IIE
+   - Academic Staff - work experience elsewhere
+   - Non-academic staff - work experience at IIE
+   - Non-academic staff - work experience elsewhere
+
+The two Academic Staff histograms should be side by side, and so should be the two histograms for Non-academic Staff.
+
+2.8 **IT Proficiency**
+
+This pertains to questions 5.4 and 6.5. Create a Stacked Vertical Bar Chart. On the y-axis the four categories of Proficiency, and on the x-axis the Academic and Non-Academic Staff count per category. It should be in percentages and both totals should be 100%.
+
+### 3. Overall Adoption
+
+3.1 **Key Findings**
+
+Create a Content Panel with key findings in bullets from sub-sections 3.2 through 3.7. I can already see some possible key findings:
+
+   - Adoption: at home, for work and possible discrepancy between them.
+   - Top tools, and tools that are being avoided.
+   - Top concerns, top benefits and discrepancies between them. 
+   - Top activities, and possible discrepancy with concerns (if despite concerns GenAi tools are used for certain activities, or vice versa, where despite benefits GenAi tools are not used for certain activities.).
+   - Insights about the use of Meta tools, reasoning models and AI agents. 
+
+3.2 **Adoption Breakdown** 
+
+Three pie charts next to each other with whether they have used GenAi tools. Show n = total respondents and percentages in the charts (from question 1.1):
+
+   - For work 
+   - For personal use
+   - And for those that have used it: for both, or for either work or for personal use (clearly indicated how many people the total is, which is likely less than total number of respondents.)
+
+3.2 **Tool Dominance** 
+
+Create full width vertical bar chart with top 10 tools in ascending order from left to right. Put underneath relevant observations, such as tools that large number of people would never use. It is important to note that the number of people that have used it, but no longer, actually have to be added to the overall number of people that have used the tool. For the top-5 tools show 5 pie charts that show the breakdown of free and paid versions of **current users** (so exclude the ones that said "yes, but no longer") - from question 1.1.
+
+3.3 **Activities** 
+
+Show horizontal bar chart with all 6 activities in descending order from top to bottom. Put underneath relevant observations, such as activities for which a large number of people would never use GenAi Tools. We are only capturing the people that have used the tools. It is important to note that the number of people that have used it, but no longer, actually have to be added to the overall number of people that have used a Tool for such an Activity. Show n = total relevant respondents - from question 1.3.
+
+3.4 **Concerns**
+
+Show a stacked horizontal bar chart for each concern (each bar totals out to 100%). Concerns are on y-axis, proportions (disagree, neutral and agree) on x-axis. Discern underneath in one or more bullet points the sentiment analysis. Show n = total relevant respondents - from question 1.4.
+
+3.5 **Benefits**
+
+Show a stacked horizontal bar chart for each benefit (each bar totals out to 100%). Benefits are on y-axis, proportions (disagree, neutral and agree) on x-axis. Discern underneath in one or more bullet points the sentiment analysis. Show n = total relevant respondents - from question 1.5.
+
+3.6 **Meta Tools** 
+
+Show stacked vertical bar chart. On x-axis the tool (no, maybe, yes), on y-axis (tools). Put absolute numbers in each part of the bar chart, and totals on top of each bar chart.That way we can see the totals for No, maybe and Yes. Discern underneath in one or more bullet points the sentiment analysis. Show n = total relevant respondents - from question 1.6.
+
+3.7 **AI Reasoning Models and AI Agents**
+
+Two vertical bar charts next to each other with the totals for each answer category (no & never, not yet, etc.). Show n = total relevant respondents - from questions 1.7 and 1.8.
+
+### 4. Academic Staff
+
+4.1 **Key Findings**
+
+Create a Content Panel with key findings in bullets from sub-sections 4.2 through 4.8.
+
+4.2 **Usage by Academic Staff**
+
+Two horizontal bar charts next two each other, one for Attitude (should they be allowed to use it - question 2.1) and one for Behaviour (are they already using it - question 2.4). Each bar chart should have at the y-axis the teaching application (curriculum planning, etc.) and at the x-axis their feeling (no & never, not yet, etc.). All bars should total to 100%, and within each bar you need to show the percentage. Underneath the two bar charts show your insights, and most importantly any discrepancies between Attitude and Behaviour. Show n = total relevant respondents.
+
+4.3 **Concerns of Academic Staff**
+
+Show a stacked horizontal bar chart for each concern (each bar totals out to 100%). Concerns are on y-axis, proportions (disagree, neutral and agree) on x-axis. Discern underneath in one or more bullet points the sentiment analysis. Show n = total relevant respondents - from question 2.2.
+
+4.4 **Benefits perceived by Academic Staff**
+
+Show a stacked horizontal bar chart for each benefit (each bar totals out to 100%). Benefits are on y-axis, proportions (disagree, neutral and agree) on x-axis. Discern underneath in one or more bullet points the sentiment analysis. Show n = total relevant respondents - from question 2.3.
+
+4.5 **Types of Tools used by Academic Staff**
+
+Show horizontal bar chart with all 10 Types of Tools in descending order from top to bottom. Put underneath relevant observations, such Types of Tools for which a large number of people would never use GenAi Tools. We are only capturing the people that have used the tools. It is important to note that the number of people that have used it, but no longer, actually have to be added to the overall number of people that have used a Tool for such an Application. Show n = total relevant respondents - from question 2.5.
+
+4.6 **Code Editor Use by Academic Staff**
+
+Create a pie chart. From question 2.6. Show percentages. Show n = total relevant respondents.
+
+4.7 **Disclosure by Academic Staff**
+
+Create a pie chart. From question 2.8. Show percentages. Show n = total relevant respondents.
+
+4.8 **Confidence of Academic Staff**
+
+Create a pie chart. From question 2.7. Show percentages. Show n = total relevant respondents.
+
+Pie Charts 4.6 through 4.8 should be placed next to each other.
+
+### 5. Students
+ 
+5.1 **Key Findings**
+
+Create a Content Panel with key findings in bullets from sub-sections 5.2 through 5.7.
+
+5.2 **Usage by Students as perceived by Academic Staff**
+
+Two vertical bar charts next two each other, one for Attitude (should they be allowed to use it - question 3.1 ) and one for Behaviour (Do Academic Staff believe Students are already using it - question 3.5 ). Each bar chart should have at the y-axis the learning application (personalised learning support, etc.) and at the x-axis the feeling of the Academic Staff (no & never, not yet, etc.). All bars should total to 100%, and within each bar you need to show the percentage. Underneath the two bar charts show your insights, and most importantly any discrepancies between Attitude and Behaviour. Show n = total relevant respondents.
+
+5.3 **Concerns of Academic Staff**
+
+Show a stacked horizontal bar chart for each concern (each bar totals out to 100%). Concerns are on y-axis, proportions (disagree, neutral and agree) on x-axis. Discern underneath in one or more bullet points the sentiment analysis. Show n = total relevant respondents - from question 3.2.
+
+5.4 **Benefits perceived by Academic Staff**
+
+Show a stacked horizontal bar chart for each benefit (each bar totals out to 100%). Benefits are on y-axis, proportions (disagree, neutral and agree) on x-axis. Discern underneath in one or more bullet points the sentiment analysis. Show n = total relevant respondents - from question 3.3.
+
+5.4 **Types of Tools used by Academic Staff**
+
+Show horizontal bar chart with all 10 Types of Tools in descending order from top to bottom. We are only capturing Yes answers. Show n = total relevant respondents - from question 3.6.
+
+5.5 **Abuse by Students as perceived by Academic Staff**
+
+Show a stacked horizontal bar chart for each concern (each bar totals out to 100%). Concerns are on y-axis, proportions (disagree, neutral and agree) on x-axis. Discern underneath in one or more bullet points the sentiment analysis. Show n = total relevant respondents - from question 3.4.
+
+Next to it, show it horizontal bar chart with all 5 Types of Abuse in descending order from top to bottom. We are only capturing Yes answers. Show n = total relevant respondents - from question 3.7.
+
+5.6 **AI Agent Usage by Students as perceived by Academic Staff**
+
+Create a pie chart. From question 3.8. Show percentages. Show n = total relevant respondents.
+
+5.7 **Student Assessment**
+
+Create a pie chart. From question 3.9. Show percentages. Show n = total relevant respondents.
+
+### 6. Non-Academic Staff
+
+6.1 **Key Findings**
+
+Create a Content Panel with key findings in bullets from sub-sections 6.2 through 6.5.
+
+6.2 **Usage by Non-Academic Staff** 
+
+Two horizontal bar charts next two each other, one for Attitude (should they be allowed to use it - question 4.1) and one for Behaviour (are they already using it - question 4.4). Each bar chart should have at the y-axis the department for question 4.1 (General Management, etc.) and application for question 4.4 (online research, etc.) and at the x-axis their feeling (no & never, not yet, etc.). Please note that both charts have different categories for x- and y-axes. All bars should total to 100%, and within each bar you need to show the percentage. Underneath the two bar charts show your insights, and most importantly any discrepancies between Attitude and Behaviour. Show n = total relevant respondents for each chart.
+
+6.3 **Concerns of Non-Academic Staff**
+
+Show a stacked horizontal bar chart for each concern (each bar totals out to 100%). Concerns are on y-axis, proportions (disagree, neutral and agree) on x-axis. Discern underneath in one or more bullet points the sentiment analysis. Show n = total relevant respondents - from question 4.2.
+
+6.4 **Benefits perceived by Non-Academic Staff**
+
+Show a stacked horizontal bar chart for each benefit (each bar totals out to 100%). Benefits are on y-axis, proportions (disagree, neutral and agree) on x-axis. Discern underneath in one or more bullet points the sentiment analysis. Show n = total relevant respondents - from question 4.3.
+
+6.5 **Types of Tools use by Non-Academic Staff**
+
+Show horizontal bar chart with all 10 Types of Tools in descending order from top to bottom. Put underneath relevant observations, such Types of Tools for which a large number of people would never use GenAi Tools. We are only capturing the people that have used the tools. It is important to note that the number of people that have used it, but no longer, actually have to be added to the overall number of people that have used a Tool for such an Application. Show n = total relevant respondents - from question 6.5.
+
+### 7. Comparative Analysis
+
+**Upfront Note**: These sub-sections don't pertain to any individual question, but require you to peruse the entire data set.
+
+7.1 **Key Insights**
+
+Summarise the Insights of the Content Panels in sub-sections 7.2 through 7.3 underneath in a Content Panel with bullet points.
+
+7.2 **Correlations**
+
+Please go through the data set and find statistically significant correlations that predict Attitude and Behaviour vis-a-vis GenAi Tools and their usage.
+
+Explain why you think the behaviour is statistically significant in lay terms.
+
+Also, explain the Correlation in lay terms.
+
+Use the most appropriate visualisations.
+
+As examples I can think of
+
+- Confidence in the use of GenAi Tools by Academic Staff.
+- General IT Proficiency. 
+- Overal Work Experience (as a proxy for age). 
+
+**But do you own analysis.**
+
+7.3 **Differences**
+
+Find remarkable, and statistically significant **Differences** between Academic and Non-Academic Staff as well as between Brands/Departments. 
+
+Explain why you think the Differences are statistically significant in lay terms.
+
+Also, explain what the implications are of these Differences in practices and for Strategy Development & Implementation.
+
+Use the most appropriate visualisations.
+
+### 8. Ideas 
+
+**Upfront Note**: The Content Panels of sub-sections 8.2 through 8.4 need to have a different look and feel from the Content Panel of sub-section 8.1 (which confirms to the standard look and feel for 'Key Insight' Content Panels).
+
+8.1 **Key Insights**
+
+Summarise the Insights of the Content Panels in sub-sections 8.2 through 8.4 underneath in a Content Panel with bullet points.
+
+8.2 **Uses that you want The IIE to support**
+
+Question 7.1 contains open answers. Conduct a sentiment analysis of the open answers and highlight some of the common ideas that occur often. Also, if you find exceptional ideas (if even sporadically) they are worth mentioning as well under a separate heading. Create a Content Panel with bullet points.
+
+8.3 **Ideas that would make your job easier**
+
+Question 7.2 contains open answers. Conduct a sentiment analysis of the open answers and highlight some of the common ideas that occur often. Also, if you find exceptional ideas (if even sporadically) they are worth mentioning as well under a separate heading. Create a Content Panel with bullet points.
+
+8.4 **Ideas for Agents that could help you or The IIE**
+
+Question 7.4 contains open answers. Conduct a sentiment analysis of the open answers and highlight some of the common ideas that occur often. Also, if you find exceptional ideas (if even sporadically) they are worth mentioning as well under a separate heading. Create a Content Panel with bullet points.
+
+### 9. Required Assistance
+
+9.1 **Key insights**
+
+Summarise insights of the bar chart in sub-section 9.2 underneath in a Content Panel with bullet points.
+
+9.2 **Needs**
+
+Use data from question 7.4. Create a horizontal bar chart with horizontal bars for each category of assistance required (because the category labels are long), in descending order from top to bottom:
+
+   - Assistance categories on y-axis.
+   - Absolute count per category on x-axis.
+   - Add labels to axes or make legend, whatever suits lay-out best.
+   - Bear in mind that you need to look at each category individually, so the number of total counts of all categories could be higher than the number of Respondents.
+
+### 10. Recommendations
+
+Based on the Insights you found, and the Dashboard created, provided some high level recommendations for short, medium and long-term interventions. 
