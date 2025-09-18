@@ -27,9 +27,7 @@ if [ ! -d node_modules/react ] || [ ! -d node_modules/react-dom ] || [ ! -d node
   npm install --silent react@18.3.1 react-dom@18.3.1 esbuild@0.21.5
 fi
 
-DIST_DIR="$ROOT_DIR/dist"
-mkdir -p "$DIST_DIR"
-cp "$ROOT_DIR/index.html" "$DIST_DIR/index.html"
+OUT_JS="$ROOT_DIR/app.js"
 
 printf '\n🚀  Launching esbuild dev server on http://localhost:8000 (Ctrl+C to stop)\n'
 exec npx esbuild main.jsx \
@@ -37,7 +35,7 @@ exec npx esbuild main.jsx \
   --jsx=automatic \
   --loader:.json=json \
   --define:process.env.NODE_ENV='"development"' \
-  --outfile="$DIST_DIR/app.js" \
-  --servedir="$DIST_DIR" \
+  --outfile="$OUT_JS" \
+  --servedir="$ROOT_DIR" \
   --target=es2018 \
   --log-level=info
