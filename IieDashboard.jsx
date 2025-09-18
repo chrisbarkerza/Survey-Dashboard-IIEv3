@@ -16,7 +16,7 @@ const TABS = [
 
 const palette = {
   // Light, professional theme (inspired by details.html)
-  background: '#f1f5f9', // slate-100
+  background: '#e2e8f0', // slate-200: slightly darker for container contrast
   surface: '#ffffff',
   panel: '#f8fafc',
   accent: '#38bdf8',
@@ -167,13 +167,13 @@ function TabNavigation({ activeTab, onSelect }) {
             style={{
               padding: '12px 18px',
               borderRadius: '999px',
-              border: 'none',
+              border: isActive ? '1px solid rgba(56,189,248,0.4)' : '1px solid rgba(2,6,23,0.1)',
               cursor: 'pointer',
-              background: isActive ? palette.accent : '#1f2937',
-              color: palette.text,
-              fontWeight: 600,
+              background: isActive ? palette.accent : '#f1f5f9',
+              color: isActive ? '#0b1220' : palette.text,
+              fontWeight: 700,
               letterSpacing: '0.02em',
-              boxShadow: isActive ? '0 12px 24px rgba(56, 189, 248, 0.35)' : 'none',
+              boxShadow: isActive ? '0 10px 20px rgba(56,189,248,0.25)' : '0 2px 6px rgba(2,6,23,0.06)',
               transition: 'all 0.2s ease'
             }}
           >
@@ -192,7 +192,7 @@ function TabProgress({ activeTab }) {
       {TABS.map((tab, idx) => {
         const isActive = idx === activeIndex;
         const isComplete = idx < activeIndex;
-        const background = isActive ? palette.accent : isComplete ? 'rgba(56, 189, 248, 0.35)' : '#1f2937';
+        const background = isActive ? palette.accent : isComplete ? 'rgba(56, 189, 248, 0.35)' : '#e2e8f0';
         return (
           <div
             key={tab.id}
@@ -201,7 +201,7 @@ function TabProgress({ activeTab }) {
               height: '18px',
               borderRadius: '50%',
               background,
-              border: '1px solid rgba(148, 163, 184, 0.4)',
+              border: '1px solid rgba(2,6,23,0.08)',
               boxShadow: isActive ? '0 0 12px rgba(56, 189, 248, 0.5)' : 'none'
             }}
             title={tab.label}
@@ -408,19 +408,27 @@ function StackedBarGroup({ title, data, colorPalette, footnote }) {
 
 function StackedColumnChart({ title, series, colorPalette, footnote }) {
   const legendKeys = Object.keys(colorPalette);
+  const cols = Math.max(1, series.length);
+  const grid = {
+    display: 'grid',
+    gridTemplateColumns: `repeat(${cols}, minmax(160px, 1fr))`,
+    gap: '24px'
+  };
   return (
     <div style={sectionStyle}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
-      <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-end', flexWrap: 'wrap' }}>
+      {/* Row 1: bars only (fixed height, equal columns) */}
+      <div style={{ ...grid, alignItems: 'end' }}>
         {series.map((item) => (
-          <div key={item.label} style={{ flex: '1 1 160px', textAlign: 'center' }}>
+          <div key={item.label} style={{ height: '220px', display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
             <div style={{
               display: 'flex',
               flexDirection: 'column-reverse',
-              height: '220px',
+              height: '100%',
+              width: '80%',
               borderRadius: '14px',
               overflow: 'hidden',
-              background: '#243044'
+              background: '#e2e8f0'
             }}>
               {item.segments.map((segment) => (
                 <div
@@ -440,11 +448,18 @@ function StackedColumnChart({ title, series, colorPalette, footnote }) {
                 </div>
               ))}
             </div>
-            <div style={{ marginTop: '10px', color: palette.text }}>{item.label}</div>
-            <div style={{ color: palette.textMuted, fontSize: '12px' }}>n = {formatValue(item.total)}</div>
           </div>
         ))}
       </div>
+      {/* Row 2: labels only (equal columns, top-aligned, center text) */}
+      <div style={{ ...grid, marginTop: '10px' }}>
+        {series.map((item) => (
+          <div key={item.label} style={{ textAlign: 'center', alignSelf: 'start', color: palette.text }}>
+            {item.label}
+          </div>
+        ))}
+      </div>
+      {/* Legend */}
       <div style={{ marginTop: '16px', display: 'flex', gap: '16px', flexWrap: 'wrap', color: palette.textMuted, fontSize: '13px' }}>
         {legendKeys.map((key) => (
           <div key={key} style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
@@ -458,12 +473,18 @@ function StackedColumnChart({ title, series, colorPalette, footnote }) {
   );
 }
 
-function VerticalBarChart({ title, data, colorScale, footnote }) {
+function VerticalBarChart({ title, data, colorScale, footnote, columns }) {
   const maxValue = Math.max(...data.map((d) => d.value));
   return (
     <div style={sectionStyle}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
-      <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-end', flexWrap: 'wrap' }}>
+      <div style={{
+        display: columns ? 'grid' : 'flex',
+        gridTemplateColumns: columns ? `repeat(${columns}, minmax(140px, 1fr))` : undefined,
+        gap: '24px',
+        alignItems: 'flex-end',
+        flexWrap: columns ? undefined : 'wrap'
+      }}>
         {data.map((item, idx) => {
           const heightPercent = maxValue ? (item.value / maxValue) * 100 : 0;
           return (
@@ -560,8 +581,8 @@ function StatBadge({ label, value, emphasis }) {
       style={{
         padding: '16px',
         borderRadius: '16px',
-        background: emphasis ? 'rgba(56, 189, 248, 0.12)' : '#1f2a3b',
-        border: emphasis ? '1px solid rgba(56, 189, 248, 0.4)' : '1px solid rgba(148, 163, 184, 0.15)',
+        background: emphasis ? 'rgba(56, 189, 248, 0.12)' : palette.surface,
+        border: emphasis ? '1px solid rgba(56, 189, 248, 0.35)' : '1px solid rgba(2, 6, 23, 0.08)',
         flex: 1,
         minWidth: '180px'
       }}
@@ -991,15 +1012,22 @@ function IieDashboard() {
             percent: item.total ? (item.counts[option] || 0) / item.total * 100 : 0
           }))
         }));
+        const labelShort = {
+          'No, not yet': 'Not yet',
+          'Yes, I do': 'Yes',
+          'I am thinking about it': 'Thinking',
+          'Yes, but no longer': 'Yes (past)',
+          'No & I will never (on principle)': 'Never'
+        };
         const reasoningCounts = dashboardData.overallAdoption.reasoningModels;
         const reasoningData = Object.entries(reasoningCounts.counts).map(([label, value]) => ({
-          label,
+          label: labelShort[label] || label,
           value,
           valueLabel: `${value}`
         }));
         const agentsCounts = dashboardData.overallAdoption.aiAgents;
         const agentData = Object.entries(agentsCounts.counts).map(([label, value]) => ({
-          label,
+          label: labelShort[label] || label,
           value,
           valueLabel: `${value}`
         }));
@@ -1028,15 +1056,15 @@ function IieDashboard() {
               colorScale={() => palette.accent}
               footnote={`n = ${activitiesTotal} respondents (multiple selections allowed)`}
             />
-            <StackedBarGroup
+            <StackedColumnChart
               title="Concerns about GenAI"
-              data={dashboardData.overallAdoption.concerns}
+              series={dashboardData.overallAdoption.concerns.map((row) => ({ label: row.label, total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
               colorPalette={likertColors}
               footnote={`n = ${dashboardData.overallAdoption.concerns[0]?.total || 0} respondents`}
             />
-            <StackedBarGroup
+            <StackedColumnChart
               title="Perceived Benefits of GenAI"
-              data={dashboardData.overallAdoption.benefits}
+              series={dashboardData.overallAdoption.benefits.map((row) => ({ label: row.label, total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
               colorPalette={likertColors}
               footnote={`n = ${dashboardData.overallAdoption.benefits[0]?.total || 0} respondents`}
             />
@@ -1051,13 +1079,15 @@ function IieDashboard() {
                 title="AI Reasoning Models Adoption"
                 data={reasoningData}
                 colorScale={() => palette.accent}
-                footnote={`n = ${reasoningCounts.total} respondents`}
+                footnote={`n = ${reasoningCounts.total} respondents • Legend: Not yet, Yes, Thinking, Yes (past), Never`}
+                columns={5}
               />
               <VerticalBarChart
                 title="AI Agents Adoption"
                 data={agentData}
                 colorScale={() => palette.accentAlt}
-                footnote={`n = ${agentsCounts.total} respondents`}
+                footnote={`n = ${agentsCounts.total} respondents • Legend: Not yet, Yes, Thinking, Yes (past), Never`}
+                columns={5}
               />
             </div>
           </div>
@@ -1073,15 +1103,15 @@ function IieDashboard() {
               right={dashboardData.academicStaff.behaviours}
               colors={attitudeColors}
             />
-            <StackedBarGroup
+            <StackedColumnChart
               title="Academic Concerns"
-              data={dashboardData.academicStaff.concerns}
+              series={dashboardData.academicStaff.concerns.map((row) => ({ label: row.label, total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
               colorPalette={likertColors}
               footnote={`n = ${dashboardData.academicStaff.concerns[0]?.total || 0} respondents`}
             />
-            <StackedBarGroup
+            <StackedColumnChart
               title="Academic Benefits"
-              data={dashboardData.academicStaff.benefits}
+              series={dashboardData.academicStaff.benefits.map((row) => ({ label: row.label, total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
               colorPalette={likertColors}
               footnote={`n = ${dashboardData.academicStaff.benefits[0]?.total || 0} respondents`}
             />
@@ -1377,8 +1407,6 @@ function IieDashboard() {
         </a>
       </header>
       <TabNavigation activeTab={activeTab} onSelect={setActiveTab} />
-      <TabProgress activeTab={activeTab} />
-      <Breadcrumbs activeTab={activeTab} />
       {renderTab()}
     </div>
   );

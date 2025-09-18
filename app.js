@@ -10660,8 +10660,8 @@
   ];
   var palette = {
     // Light, professional theme (inspired by details.html)
-    background: "#f1f5f9",
-    // slate-100
+    background: "#e2e8f0",
+    // slate-200: slightly darker for container contrast
     surface: "#ffffff",
     panel: "#f8fafc",
     accent: "#38bdf8",
@@ -10777,13 +10777,13 @@
               style: {
                 padding: "12px 18px",
                 borderRadius: "999px",
-                border: "none",
+                border: isActive ? "1px solid rgba(56,189,248,0.4)" : "1px solid rgba(2,6,23,0.1)",
                 cursor: "pointer",
-                background: isActive ? palette.accent : "#1f2937",
-                color: palette.text,
-                fontWeight: 600,
+                background: isActive ? palette.accent : "#f1f5f9",
+                color: isActive ? "#0b1220" : palette.text,
+                fontWeight: 700,
                 letterSpacing: "0.02em",
-                boxShadow: isActive ? "0 12px 24px rgba(56, 189, 248, 0.35)" : "none",
+                boxShadow: isActive ? "0 10px 20px rgba(56,189,248,0.25)" : "0 2px 6px rgba(2,6,23,0.06)",
                 transition: "all 0.2s ease"
               },
               children: tab.label
@@ -10793,37 +10793,6 @@
         })
       }
     );
-  }
-  function TabProgress({ activeTab }) {
-    const activeIndex = TABS.findIndex((tab) => tab.id === activeTab);
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: "6px", marginBottom: "24px", flexWrap: "wrap" }, children: TABS.map((tab, idx) => {
-      const isActive = idx === activeIndex;
-      const isComplete = idx < activeIndex;
-      const background = isActive ? palette.accent : isComplete ? "rgba(56, 189, 248, 0.35)" : "#1f2937";
-      return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-        "div",
-        {
-          style: {
-            width: "18px",
-            height: "18px",
-            borderRadius: "50%",
-            background,
-            border: "1px solid rgba(148, 163, 184, 0.4)",
-            boxShadow: isActive ? "0 0 12px rgba(56, 189, 248, 0.5)" : "none"
-          },
-          title: tab.label
-        },
-        tab.id
-      );
-    }) });
-  }
-  function Breadcrumbs({ activeTab }) {
-    const index = TABS.findIndex((tab) => tab.id === activeTab);
-    const trail = TABS.slice(0, index + 1);
-    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", alignItems: "center", gap: "8px", marginBottom: "18px", color: palette.textMuted }, children: trail.map((tab, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(import_react.default.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: tab.label }),
-      idx < trail.length - 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { opacity: 0.5 }, children: "/" })
-    ] }, tab.id)) });
   }
   function PieChart({ title, data, size = 160, subtitle, footnote, legendPosition = "side" }) {
     const total = data.reduce((sum, item) => sum + item.value, 0);
@@ -10985,39 +10954,40 @@
   }
   function StackedColumnChart({ title, series, colorPalette, footnote }) {
     const legendKeys = Object.keys(colorPalette);
+    const cols = Math.max(1, series.length);
+    const grid = {
+      display: "grid",
+      gridTemplateColumns: `repeat(${cols}, minmax(160px, 1fr))`,
+      gap: "24px"
+    };
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: sectionStyle, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { style: { ...headingStyle, fontSize: "18px" }, children: title }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: "24px", alignItems: "flex-end", flexWrap: "wrap" }, children: series.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: "1 1 160px", textAlign: "center" }, children: [
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
-          display: "flex",
-          flexDirection: "column-reverse",
-          height: "220px",
-          borderRadius: "14px",
-          overflow: "hidden",
-          background: "#243044"
-        }, children: item.segments.map((segment) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-          "div",
-          {
-            style: {
-              height: `${segment.percent}%`,
-              background: colorPalette[segment.label] || palette.accent,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              color: "#0f172a",
-              fontSize: "12px",
-              fontWeight: 600
-            },
-            children: segment.percent >= 12 ? `${segment.percent.toFixed(0)}%` : ""
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { ...grid, alignItems: "end" }, children: series.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { height: "220px", display: "flex", alignItems: "flex-end", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+        display: "flex",
+        flexDirection: "column-reverse",
+        height: "100%",
+        width: "80%",
+        borderRadius: "14px",
+        overflow: "hidden",
+        background: "#e2e8f0"
+      }, children: item.segments.map((segment) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        "div",
+        {
+          style: {
+            height: `${segment.percent}%`,
+            background: colorPalette[segment.label] || palette.accent,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "#0f172a",
+            fontSize: "12px",
+            fontWeight: 600
           },
-          segment.label
-        )) }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { marginTop: "10px", color: palette.text }, children: item.label }),
-        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { color: palette.textMuted, fontSize: "12px" }, children: [
-          "n = ",
-          formatValue(item.total)
-        ] })
-      ] }, item.label)) }),
+          children: segment.percent >= 12 ? `${segment.percent.toFixed(0)}%` : ""
+        },
+        segment.label
+      )) }) }, item.label)) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { ...grid, marginTop: "10px" }, children: series.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { textAlign: "center", alignSelf: "start", color: palette.text }, children: item.label }, item.label)) }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { marginTop: "16px", display: "flex", gap: "16px", flexWrap: "wrap", color: palette.textMuted, fontSize: "13px" }, children: legendKeys.map((key) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: "8px" }, children: [
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: "12px", height: "12px", borderRadius: "4px", background: colorPalette[key] } }),
         /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: key })
@@ -11025,11 +10995,17 @@
       footnote && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: palette.textMuted, marginTop: "12px", fontSize: "13px" }, children: footnote })
     ] });
   }
-  function VerticalBarChart({ title, data, colorScale, footnote }) {
+  function VerticalBarChart({ title, data, colorScale, footnote, columns }) {
     const maxValue = Math.max(...data.map((d) => d.value));
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: sectionStyle, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { style: { ...headingStyle, fontSize: "18px" }, children: title }),
-      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: "24px", alignItems: "flex-end", flexWrap: "wrap" }, children: data.map((item, idx) => {
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+        display: columns ? "grid" : "flex",
+        gridTemplateColumns: columns ? `repeat(${columns}, minmax(140px, 1fr))` : void 0,
+        gap: "24px",
+        alignItems: "flex-end",
+        flexWrap: columns ? void 0 : "wrap"
+      }, children: data.map((item, idx) => {
         const heightPercent = maxValue ? item.value / maxValue * 100 : 0;
         return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: "1 1 140px", textAlign: "center", display: "grid", gridTemplateRows: "220px auto auto", rowGap: "8px" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { height: "220px", display: "flex", alignItems: "flex-end", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -11089,8 +11065,8 @@
         style: {
           padding: "16px",
           borderRadius: "16px",
-          background: emphasis ? "rgba(56, 189, 248, 0.12)" : "#1f2a3b",
-          border: emphasis ? "1px solid rgba(56, 189, 248, 0.4)" : "1px solid rgba(148, 163, 184, 0.15)",
+          background: emphasis ? "rgba(56, 189, 248, 0.12)" : palette.surface,
+          border: emphasis ? "1px solid rgba(56, 189, 248, 0.35)" : "1px solid rgba(2, 6, 23, 0.08)",
           flex: 1,
           minWidth: "180px"
         },
@@ -11478,15 +11454,22 @@
               percent: item.total ? (item.counts[option] || 0) / item.total * 100 : 0
             }))
           }));
+          const labelShort = {
+            "No, not yet": "Not yet",
+            "Yes, I do": "Yes",
+            "I am thinking about it": "Thinking",
+            "Yes, but no longer": "Yes (past)",
+            "No & I will never (on principle)": "Never"
+          };
           const reasoningCounts = dashboard_data_default.overallAdoption.reasoningModels;
           const reasoningData = Object.entries(reasoningCounts.counts).map(([label, value]) => ({
-            label,
+            label: labelShort[label] || label,
             value,
             valueLabel: `${value}`
           }));
           const agentsCounts = dashboard_data_default.overallAdoption.aiAgents;
           const agentData = Object.entries(agentsCounts.counts).map(([label, value]) => ({
-            label,
+            label: labelShort[label] || label,
             value,
             valueLabel: `${value}`
           }));
@@ -11513,19 +11496,19 @@
               }
             ),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              StackedBarGroup,
+              StackedColumnChart,
               {
                 title: "Concerns about GenAI",
-                data: dashboard_data_default.overallAdoption.concerns,
+                series: dashboard_data_default.overallAdoption.concerns.map((row) => ({ label: row.label, total: row.total, segments: Object.entries(row.percentages).map(([k, v]) => ({ label: k, percent: v })) })),
                 colorPalette: likertColors,
                 footnote: `n = ${((_b = dashboard_data_default.overallAdoption.concerns[0]) == null ? void 0 : _b.total) || 0} respondents`
               }
             ),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              StackedBarGroup,
+              StackedColumnChart,
               {
                 title: "Perceived Benefits of GenAI",
-                data: dashboard_data_default.overallAdoption.benefits,
+                series: dashboard_data_default.overallAdoption.benefits.map((row) => ({ label: row.label, total: row.total, segments: Object.entries(row.percentages).map(([k, v]) => ({ label: k, percent: v })) })),
                 colorPalette: likertColors,
                 footnote: `n = ${((_c = dashboard_data_default.overallAdoption.benefits[0]) == null ? void 0 : _c.total) || 0} respondents`
               }
@@ -11546,7 +11529,8 @@
                   title: "AI Reasoning Models Adoption",
                   data: reasoningData,
                   colorScale: () => palette.accent,
-                  footnote: `n = ${reasoningCounts.total} respondents`
+                  footnote: `n = ${reasoningCounts.total} respondents \u2022 Legend: Not yet, Yes, Thinking, Yes (past), Never`,
+                  columns: 5
                 }
               ),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -11555,7 +11539,8 @@
                   title: "AI Agents Adoption",
                   data: agentData,
                   colorScale: () => palette.accentAlt,
-                  footnote: `n = ${agentsCounts.total} respondents`
+                  footnote: `n = ${agentsCounts.total} respondents \u2022 Legend: Not yet, Yes, Thinking, Yes (past), Never`,
+                  columns: 5
                 }
               )
             ] })
@@ -11574,19 +11559,19 @@
               }
             ),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              StackedBarGroup,
+              StackedColumnChart,
               {
                 title: "Academic Concerns",
-                data: dashboard_data_default.academicStaff.concerns,
+                series: dashboard_data_default.academicStaff.concerns.map((row) => ({ label: row.label, total: row.total, segments: Object.entries(row.percentages).map(([k, v]) => ({ label: k, percent: v })) })),
                 colorPalette: likertColors,
                 footnote: `n = ${((_d = dashboard_data_default.academicStaff.concerns[0]) == null ? void 0 : _d.total) || 0} respondents`
               }
             ),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              StackedBarGroup,
+              StackedColumnChart,
               {
                 title: "Academic Benefits",
-                data: dashboard_data_default.academicStaff.benefits,
+                series: dashboard_data_default.academicStaff.benefits.map((row) => ({ label: row.label, total: row.total, segments: Object.entries(row.percentages).map(([k, v]) => ({ label: k, percent: v })) })),
                 colorPalette: likertColors,
                 footnote: `n = ${((_e = dashboard_data_default.academicStaff.benefits[0]) == null ? void 0 : _e.total) || 0} respondents`
               }
@@ -11940,8 +11925,6 @@
             }
           ),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TabNavigation, { activeTab, onSelect: setActiveTab }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TabProgress, { activeTab }),
-          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Breadcrumbs, { activeTab }),
           renderTab()
         ]
       }
