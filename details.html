@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIE Survey Data Explorer</title>
+    <!-- CDN Libraries for enhanced functionality -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/countup.js@2.0.8/dist/countUp.umd.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lucide/0.263.1/lucide.min.css">
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    <style>
+        :root {
+            --saheti-navy: #000000;
+            --saheti-blue: #4a90a4;
+            --saheti-light-blue: #a8dadc;
+            --saheti-gold: #c8102e;
+            --saheti-light-gold: #e63946;
+            --saheti-cream: #e6f3f5;
+            --saheti-charcoal: #495057;
+            --saheti-light-gray: #e9ecef;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, var(--saheti-light-gray) 0%, var(--saheti-charcoal) 20%, var(--saheti-light-gray) 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .saheti-card {
+            background: var(--saheti-cream);
+            backdrop-filter: blur(10px);
+            border: 2px solid var(--saheti-gold);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .saheti-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(200, 16, 46, 0.2), 0 10px 10px -5px rgba(200, 16, 46, 0.1);
+            border-color: var(--saheti-light-gold);
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .saheti-gradient-text {
+            background: linear-gradient(135deg, var(--saheti-navy), var(--saheti-gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .details-btn {
+            background: linear-gradient(135deg, var(--saheti-blue), var(--saheti-light-blue));
+            color: white;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(74, 144, 164, 0.3);
+            border: 1px solid var(--saheti-gold);
+        }
+
+        .details-btn:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(74, 144, 164, 0.4);
+            background: linear-gradient(135deg, var(--saheti-light-blue), var(--saheti-blue));
+            border-color: var(--saheti-light-gold);
+        }
+
+        .nav-arrow {
+            background: linear-gradient(135deg, var(--saheti-navy), var(--saheti-blue));
+            color: white;
+            border: none;
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: bold;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 4px 12px rgba(26, 54, 93, 0.2);
+        }
+
+        .nav-arrow:hover {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(26, 54, 93, 0.3);
+        }
+
+        .nav-arrow:disabled {
+            background: #cbd5e0;
+            color: #a0aec0;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        .tab-button {
+            background: rgba(181, 163, 106, 0.1);
+            color: var(--saheti-navy);
+            border: 2px solid rgba(181, 163, 106, 0.3);
+            padding: 12px 18px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .tab-button:hover {
+            background: rgba(181, 163, 106, 0.2);
+            border-color: var(--saheti-gold);
+            transform: translateY(-1px);
+        }
+
+        .tab-button.active {
+            background: linear-gradient(135deg, var(--saheti-navy), var(--saheti-blue));
+            color: white;
+            border-color: var(--saheti-navy);
+            box-shadow: 0 4px 12px rgba(26, 54, 93, 0.3);
+        }
+
+        .school-button {
+            background: rgba(200, 16, 46, 0.1);
+            color: var(--saheti-navy);
+            border: 2px solid rgba(200, 16, 46, 0.3);
+            padding: 10px 16px;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            white-space: nowrap;
+        }
+
+        .school-button:hover {
+            background: rgba(200, 16, 46, 0.2);
+            border-color: var(--saheti-gold);
+            transform: translateY(-1px);
+        }
+
+        .school-button.active {
+            background: linear-gradient(135deg, var(--saheti-gold), var(--saheti-light-gold));
+            color: var(--saheti-navy);
+            border-color: var(--saheti-gold);
+            box-shadow: 0 4px 12px rgba(200, 16, 46, 0.3);
+        }
+
+        .select-enhanced {
+            background: white;
+            border: 2px solid rgba(181, 163, 106, 0.3);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 4px rgba(181, 163, 106, 0.1);
+        }
+
+        .select-enhanced:focus {
+            outline: none;
+            border-color: var(--saheti-gold);
+            box-shadow: 0 0 0 3px rgba(181, 163, 106, 0.2);
+        }
+
+        .dashboard {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            padding-top: 40px;
+        }
+
+        .header-animation {
+            animation: slideInFromTop 0.8s ease-out;
+        }
+
+        @keyframes slideInFromTop {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .slide-in-right {
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        @keyframes slideInRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        .data-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(181, 163, 106, 0.2);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .data-container:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 25px -5px rgba(26, 54, 93, 0.1), 0 10px 10px -5px rgba(26, 54, 93, 0.04);
+            border-color: var(--saheti-gold);
+        }
+
+        .data-header {
+            background: #f8f9fa;
+            padding: 20px;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .question-title {
+            font-size: 1.3em;
+            color: #000000;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            word-wrap: break-word;
+            overflow-wrap: break-word;
+        }
+
+        .question-subtitle {
+            color: #6c757d;
+            font-size: 0.95em;
+            line-height: 1.4;
+        }
+
+        .data-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+
+        .chart-section {
+            position: relative;
+        }
+
+        .chart-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            min-height: 300px;
+        }
+
+        .table-section {
+            position: relative;
+        }
+
+        .table-container {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .data-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #000000;
+            position: sticky;
+            top: 0;
+        }
+
+        .data-table tr:hover {
+            background: rgba(49, 130, 206, 0.05);
+        }
+
+        .filter-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #000000, #4a90a4);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+
+        .no-data {
+            text-align: center;
+            color: #6c757d;
+            font-style: italic;
+            padding: 40px;
+        }
+
+        .text-responses {
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .text-response-item {
+            background: #f8f9fa;
+            padding: 15px;
+            margin-bottom: 10px;
+            border-radius: 8px;
+            border-left: 4px solid #4a90a4;
+        }
+
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #6c757d;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                padding: 10px;
+            }
+            
+            .control-group {
+                grid-template-columns: 1fr;
+            }
+            
+            .data-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-bar {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white shadow-lg border-b border-red-500 header-animation">
+        <div class="max-w-7xl mx-auto px-4 py-6">
+            <div class="flex justify-between items-center">
+                <div>
+                    <h1 class="text-4xl font-bold saheti-gradient-text">IIE Survey Data Explorer</h1>
+                    <p class="text-gray-600 mt-2 text-lg">Interactive analysis of GenAI survey responses with filtering and visualization</p>
+                </div>
+                <a href="index.html" class="details-btn px-6 py-3 rounded-lg flex items-center space-x-2 slide-in-right">
+                    <i data-lucide="arrow-left" class="w-5 h-5"></i>
+                    <span>View Summary Data</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <div class="dashboard">
+
+        <!-- Controls Section -->
+        <div class="saheti-card rounded-xl shadow-lg p-6 mb-8">
+            <div class="space-y-6">
+                <!-- Question Selection Row -->
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center space-x-4">
+                        <label for="questionSelect" class="text-lg font-semibold text-gray-700">Select Question:</label>
+                        <div class="flex items-center space-x-2">
+                            <button id="prevQuestion" class="nav-arrow" title="Previous Question">
+                                <i data-lucide="chevron-left" class="w-5 h-5"></i>
+                            </button>
+                            <button id="nextQuestion" class="nav-arrow" title="Next Question">
+                                <i data-lucide="chevron-right" class="w-5 h-5"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Staff Type Filter Tabs -->
+                    <div class="flex space-x-2">
+                        <button class="tab-button active" data-filter="all">All Staff</button>
+                        <button class="tab-button" data-filter="academic">Academic Staff</button>
+                        <button class="tab-button" data-filter="non-teaching">Non-teaching Staff</button>
+                    </div>
+                </div>
+                <!-- School/Brand Filter Row -->
+                <div>
+                    <div class="flex items-center justify-between">
+                        <label class="text-lg font-semibold text-gray-700">Filter by School/Brand:</label>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="school-button active" data-school="all">All Schools</button>
+                            <button class="school-button" data-school="varsity">Varsity College</button>
+                            <button class="school-button" data-school="rosebank">Rosebank College</button>
+                            <button class="school-button" data-school="vega">Vega School</button>
+                            <button class="school-button" data-school="msa">MSA</button>
+                            <button class="school-button" data-school="hospitality">Hospitality & Service</button>
+                            <button class="school-button" data-school="central">Central Academic</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Dropdown Row -->
+                <div>
+                    <select id="questionSelect" class="select-enhanced w-full">
+                        <option value="">Choose a question...</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div class="data-container">
+            <div class="data-header">
+                <div class="question-title" id="currentQuestionTitle">Select a question to begin</div>
+                <div class="question-subtitle" id="currentQuestionSubtitle">Choose from the dropdown above to explore the survey data</div>
+                <div id="filterBadge" class="filter-badge" style="display: none;"></div>
+            </div>
+
+            <div class="data-content">
+                <div class="chart-section">
+                    <div class="chart-container">
+                        <canvas id="mainChart" style="display: none;"></canvas>
+                        <div id="chartPlaceholder" class="no-data">Chart will appear here once you select a question</div>
+                    </div>
+                </div>
+
+                <div class="table-section">
+                    <div class="table-container">
+                        <div id="tablePlaceholder" class="no-data">Data table will appear here once you select a question</div>
+                        <div id="tableContent" style="display: none;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let surveyData = [];
+        let currentChart = null;
+        let currentQuestion = '';
+        let currentFilter = 'all';
+        let currentSchoolFilter = 'all';
+        let questionOptions = [];
+        let roleColumnName = '';
+        let schoolColumnName = '';
+
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+
+        // Helper function to create gradients for Chart.js
+        function createGradient(ctx, color1, color2) {
+            const gradient = ctx.createLinearGradient(0, 0, 0, 400);
+            gradient.addColorStop(0, color1);
+            gradient.addColorStop(1, color2);
+            return gradient;
+        }
+
+        // Helper function to get SAHETI theme colors for charts
+        function getSahetiColors(ctx, count) {
+            const colors = [];
+            switch (count) {
+                case 1:
+                    colors.push('#000000'); // Theme black
+                    break;
+                case 2:
+                    colors.push('#000000'); // Theme black
+                    colors.push('#c8102e'); // Theme red
+                    break;
+                case 3:
+                    colors.push('#000000'); // Theme black
+                    colors.push(createGradient(ctx, '#4a90a4', '#c8102e')); // Half blue half red
+                    colors.push('#c8102e'); // Theme red
+                    break;
+                case 4:
+                    colors.push('#000000'); // Theme black
+                    colors.push(createGradient(ctx, '#4a90a4', '#c8102e')); // Half blue half red
+                    colors.push('#c8102e'); // Theme red
+                    colors.push(createGradient(ctx, '#c8102e', '#4a90a4')); // Half red half blue
+                    break;
+                case 5:
+                default:
+                    colors.push('#000000'); // Theme black
+                    colors.push(createGradient(ctx, '#4a90a4', '#c8102e')); // Half blue half red
+                    colors.push('#c8102e'); // Theme red
+                    colors.push(createGradient(ctx, '#c8102e', '#4a90a4')); // Half red half blue
+                    colors.push('rgba(220, 53, 69, 0.5)'); // Theme 50% red
+                    break;
+            }
+            return colors;
+        }
+
+        // Color schemes for charts - Red to Green progression with further reduced saturation and 80% visibility
+        const colorSchemes = {
+            primary: ['rgba(180, 120, 125, 0.8)', 'rgba(200, 140, 120, 0.8)', 'rgba(200, 170, 110, 0.8)', 'rgba(150, 170, 120, 0.8)', 'rgba(120, 160, 140, 0.8)'],
+            one_column: ['rgba(180, 120, 125, 0.8)'], // Very Muted Red
+            two_column: ['rgba(180, 120, 125, 0.8)', 'rgba(120, 160, 140, 0.8)'], // Very Muted Red, Very Muted Green
+            three_column: ['rgba(180, 120, 125, 0.8)', 'rgba(200, 170, 110, 0.8)', 'rgba(120, 160, 140, 0.8)'], // Very Muted Red, Very Muted Orange, Very Muted Green (colors 1,3,5)
+            four_column: ['rgba(180, 120, 125, 0.8)', 'rgba(200, 140, 120, 0.8)', 'rgba(200, 170, 110, 0.8)', 'rgba(120, 160, 140, 0.8)'], // Drop color 4 (colors 1,2,3,5)
+            five_column: ['rgba(180, 120, 125, 0.8)', 'rgba(200, 140, 120, 0.8)', 'rgba(200, 170, 110, 0.8)', 'rgba(150, 170, 120, 0.8)', 'rgba(120, 160, 140, 0.8)'], // All 5 colors
+            six_plus_column: ['rgba(100, 130, 150, 0.8)'] // Very Muted Blue for horizontal bars
+        };
+
+        // Load and parse CSV data
+        async function loadData() {
+            try {
+                console.log('Loading IIE.csv...');
+                const response = await fetch('./IIE.csv');
+                
+                if (!response.ok) {
+                    throw new Error(`Failed to load CSV: ${response.status} ${response.statusText}`);
+                }
+                
+                let csvText = await response.text();
+                console.log('CSV loaded successfully:', csvText.substring(0, 100) + '...');
+                
+                // Remove BOM if present
+                if (csvText.charCodeAt(0) === 0xFEFF) {
+                    csvText = csvText.slice(1);
+                    console.log('BOM removed from CSV');
+                }
+                
+                // Normalize line endings to \n
+                csvText = csvText.replace(/\r\n/g, '\n').replace(/\r/g, '\n');
+                
+                // Parse CSV using robust parser
+                const parsedData = parseCSV(csvText);
+                
+                if (parsedData.length === 0) {
+                    throw new Error('No data found in CSV');
+                }
+                
+                const headers = parsedData[0];
+                surveyData = [];
+                
+                for (let i = 1; i < parsedData.length; i++) {
+                    const values = parsedData[i];
+                    if (values && values.length > 0) {
+                        const row = {};
+                        headers.forEach((header, index) => {
+                            row[header] = values[index] || '';
+                        });
+                        surveyData.push(row);
+                    }
+                }
+                
+                console.log('Headers loaded:', headers);
+                console.log('Total rows loaded:', surveyData.length);
+                console.log('First row data:', surveyData[0]);
+                
+                // Find the role column by searching for partial match
+                const roleColumnPattern = 'Which of the following best describes your role';
+                roleColumnName = headers.find(h => h.includes(roleColumnPattern));
+                console.log('Found role column:', roleColumnName);
+                console.log('Sample role values:', surveyData.slice(0, 5).map(row => row[roleColumnName]));
+                
+                // Find the school column by searching for partial match
+                const schoolColumnPattern = 'At which brand/department do you work';
+                schoolColumnName = headers.find(h => h.includes(schoolColumnPattern));
+                console.log('Found school column:', schoolColumnName);
+                console.log('Sample school values:', surveyData.slice(0, 5).map(row => row[schoolColumnName]));
+                
+                populateQuestionDropdown(headers);
+                updateStats();
+                
+                // Fix: Trigger initial display after data loads
+                if (currentQuestion) {
+                    document.getElementById('currentQuestionTitle').textContent = currentQuestion;
+                    document.getElementById('currentQuestionSubtitle').textContent = 'Analysis of responses with current filter applied';
+                    updateFilterBadge();
+                    analyzeAndDisplay();
+                    updateFilteredCount();
+                }
+                
+            } catch (error) {
+                console.error('Error loading data:', error);
+                document.getElementById('currentQuestionTitle').textContent = 'Error loading data';
+                document.getElementById('currentQuestionSubtitle').textContent = 'Please check that IIE.csv is in the same directory. Open browser console for details.';
+            }
+        }
+
+        // Robust CSV parser that handles quotes, newlines, and edge cases
+        function parseCSV(csvText) {
+            const rows = [];
+            let currentRow = [];
+            let currentField = '';
+            let inQuotes = false;
+            let i = 0;
+            
+            while (i < csvText.length) {
+                const char = csvText[i];
+                const nextChar = csvText[i + 1];
+                
+                if (char === '"') {
+                    if (inQuotes) {
+                        // Check if it's an escaped quote ("")
+                        if (nextChar === '"') {
+                            currentField += '"';
+                            i += 2;
+                            continue;
+                        } else {
+                            // End of quoted field
+                            inQuotes = false;
+                            i++;
+                            continue;
+                        }
+                    } else {
+                        // Start of quoted field
+                        inQuotes = true;
+                        i++;
+                        continue;
+                    }
+                }
+                
+                if (!inQuotes) {
+                    if (char === ',') {
+                        // End of field
+                        currentRow.push(currentField);
+                        currentField = '';
+                        i++;
+                        continue;
+                    } else if (char === '\n') {
+                        // End of row
+                        currentRow.push(currentField);
+                        if (currentRow.length > 0 && currentRow.some(field => field.trim() !== '')) {
+                            rows.push(currentRow);
+                        }
+                        currentRow = [];
+                        currentField = '';
+                        i++;
+                        continue;
+                    }
+                }
+                
+                // Regular character
+                currentField += char;
+                i++;
+            }
+            
+            // Handle last field and row
+            if (currentField !== '' || currentRow.length > 0) {
+                currentRow.push(currentField);
+                if (currentRow.length > 0 && currentRow.some(field => field.trim() !== '')) {
+                    rows.push(currentRow);
+                }
+            }
+            
+            return rows;
+        }
+
+        // Populate question dropdown
+        function populateQuestionDropdown(headers) {
+            const select = document.getElementById('questionSelect');
+            select.innerHTML = '<option value="">Choose a question...</option>';
+            
+            // Filter out non-question columns
+            questionOptions = headers.filter(header => 
+                !header.toLowerCase().includes('timestamp') && 
+                header.trim() !== ''
+            );
+            
+            questionOptions.forEach(header => {
+                const option = document.createElement('option');
+                option.value = header;
+                option.textContent = truncateText(header, 150);
+                select.appendChild(option);
+            });
+            
+            // Auto-select the first question (Q1)
+            if (questionOptions.length > 0) {
+                select.value = questionOptions[0];
+                currentQuestion = questionOptions[0];
+                onQuestionChange();
+            }
+            
+            updateNavigationButtons();
+        }
+
+        // Truncate text for display
+        function truncateText(text, maxLength) {
+            if (text.length <= maxLength) return text;
+            return text.substring(0, maxLength) + '...';
+        }
+
+        // Classify role based on question 1.10 values
+        function classifyRole(roleValue) {
+            if (!roleValue) return null;
+            
+            const role = roleValue.trim();
+            
+            // Academic staff types
+            if (role.includes('Academic Management') || 
+                role.includes('Dean') || 
+                role.includes('Head of Faculty') || 
+                role.includes('Head of Programme') ||
+                role.includes('Lecturer') || 
+                role.includes('Developer') || 
+                role.includes('Supervisor')) {
+                return 'academic';
+            }
+            
+            // Non-teaching staff types
+            if (role.includes('General Management') || 
+                role.includes('Operations') || 
+                role.includes('Support Staff')) {
+                return 'non-academic';
+            }
+            
+            return null;
+        }
+
+        // Update statistics
+        function updateStats() {
+            const academicCount = surveyData.filter(row => 
+                classifyRole(row[roleColumnName]) === 'academic'
+            ).length;
+            const nonTeachingCount = surveyData.filter(row => 
+                classifyRole(row[roleColumnName]) === 'non-academic'
+            ).length;
+            const totalCount = academicCount + nonTeachingCount;
+            
+            // Only update if elements exist
+            const totalEl = document.getElementById('totalResponses');
+            if (totalEl) totalEl.textContent = totalCount;
+            
+            const academicEl = document.getElementById('academicCount');
+            if (academicEl) academicEl.textContent = academicCount;
+            
+            const nonTeachingEl = document.getElementById('nonTeachingCount');
+            if (nonTeachingEl) nonTeachingEl.textContent = nonTeachingCount;
+            
+            updateFilteredCount();
+        }
+
+        // Update filtered count
+        function updateFilteredCount() {
+            const filteredData = getFilteredData();
+            const filteredEl = document.getElementById('filteredCount');
+            if (filteredEl) filteredEl.textContent = filteredData.length;
+        }
+
+        // Get filtered data based on current filters (both staff type and school)
+        function getFilteredData() {
+            console.log(`Filtering data: staffFilter="${currentFilter}", schoolFilter="${currentSchoolFilter}"`);
+            console.log(`School column name: "${schoolColumnName}"`);
+            console.log(`Role column name: "${roleColumnName}"`);
+            console.log(`Total survey data rows: ${surveyData.length}`);
+            
+            // Debug: Show available columns
+            if (surveyData.length > 0) {
+                console.log('Available column headers:', Object.keys(surveyData[0]));
+                console.log('School column exists?', schoolColumnName in surveyData[0]);
+                console.log('First row school value:', surveyData[0][schoolColumnName]);
+            }
+            
+            const filtered = surveyData.filter(row => {
+                // Staff type filter
+                let staffMatch = true;
+                if (currentFilter !== 'all') {
+                    const roleClassification = classifyRole(row[roleColumnName]);
+                    if (currentFilter === 'academic') {
+                        staffMatch = roleClassification === 'academic';
+                    } else if (currentFilter === 'non-teaching') {
+                        staffMatch = roleClassification === 'non-academic';
+                    }
+                }
+                
+                // School filter
+                let schoolMatch = true;
+                if (currentSchoolFilter !== 'all') {
+                    const schoolValue = row[schoolColumnName];
+                    schoolMatch = matchesSchoolFilter(schoolValue, currentSchoolFilter);
+                }
+                
+                return staffMatch && schoolMatch;
+            });
+            
+            console.log(`Filtered results: ${filtered.length} rows`);
+            return filtered;
+        }
+
+        // Helper function to match school filter
+        function matchesSchoolFilter(schoolValue, filter) {
+            console.log(`Matching school: "${schoolValue}" against filter: "${filter}"`);
+            if (!schoolValue) {
+                console.log('No school value, returning false');
+                return false;
+            }
+            
+            let result = false;
+            // Use exact matching with the actual CSV values
+            switch (filter) {
+                case 'varsity':
+                    result = schoolValue === 'IIE Varsity College';
+                    break;
+                case 'rosebank':
+                    result = schoolValue === 'IIE Rosebank College';
+                    break;
+                case 'vega':
+                    result = schoolValue === 'IIE Vega School';
+                    break;
+                case 'msa':
+                    result = schoolValue === 'IIE MSA';
+                    break;
+                case 'hospitality':
+                    result = schoolValue === 'IIE School of Hospitality & Service Management';
+                    break;
+                case 'central':
+                    result = schoolValue === 'Central Academic Team';
+                    break;
+                default:
+                    result = true;
+                    break;
+            }
+            console.log(`Match result: ${result}`);
+            return result;
+        }
+
+        // Helper function to find matching column by first 5 characters
+        function findMatchingColumn(questionHeader, row) {
+            if (!questionHeader || !row) return null;
+            
+            const questionPrefix = questionHeader.substring(0, 5).toLowerCase();
+            console.log(`Looking for column matching prefix: "${questionPrefix}" for question: "${questionHeader}"`);
+            
+            // First try exact match (for backward compatibility)
+            if (row.hasOwnProperty(questionHeader)) {
+                console.log(`Found exact match for column: "${questionHeader}"`);
+                return questionHeader;
+            }
+            
+            // Then try prefix matching
+            const columns = Object.keys(row);
+            for (const col of columns) {
+                const colPrefix = col.substring(0, 5).toLowerCase();
+                if (colPrefix === questionPrefix) {
+                    console.log(`Found prefix match: "${col}" matches "${questionHeader}" by prefix "${questionPrefix}"`);
+                    return col;
+                }
+            }
+            
+            console.log(`No match found for question: "${questionHeader}" with prefix "${questionPrefix}"`);
+            return null;
+        }
+
+        // Analyze question data
+        function analyzeQuestion(questionHeader) {
+            const filteredData = getFilteredData();
+            
+            // Find the matching column using 5-character prefix
+            let matchingColumn = null;
+            if (filteredData.length > 0) {
+                matchingColumn = findMatchingColumn(questionHeader, filteredData[0]);
+            }
+            
+            if (!matchingColumn) {
+                console.log(`No matching column found for question: "${questionHeader}"`);
+                return {
+                    responses: [],
+                    counts: {},
+                    total: 0,
+                    unique: 0
+                };
+            }
+            
+            const responses = filteredData.map(row => row[matchingColumn]).filter(r => r && r.trim() !== '');
+            
+            console.log(`Analyzing question "${questionHeader}" with filter "${currentFilter}"`);
+            console.log(`Using column "${matchingColumn}" for data extraction`);
+            console.log(`Filtered data length: ${filteredData.length}, Valid responses: ${responses.length}`);
+            
+            // Count response frequencies
+            const counts = {};
+            responses.forEach(response => {
+                const cleaned = response.trim();
+                counts[cleaned] = (counts[cleaned] || 0) + 1;
+            });
+            
+            return {
+                responses,
+                counts,
+                total: responses.length,
+                unique: Object.keys(counts).length
+            };
+        }
+
+        // Helper function to extract numerical order from response labels
+        function extractResponseNumber(label) {
+            // Extract leading number from responses like "1. Strongly Disagree", "2. No", "5. Yes, I pay"
+            const match = label.match(/^(\d+)\.?\s*/);
+            return match ? parseInt(match[1]) : null;
+        }
+
+        // Helper function to detect if a question asks for numeric responses
+        function isNumericResponseQuestion(questionHeader) {
+            return /^\d+\.\d+\)\s*How many/i.test(questionHeader);
+        }
+
+        // Helper function to extract numeric value from response text
+        function extractNumericValue(responseText) {
+            if (!responseText || responseText.trim() === '') return null;
+            const match = responseText.match(/^(\d+)/);
+            return match ? parseInt(match[1]) : null;
+        }
+
+        // Helper function to sort responses numerically for "How many..." questions
+        function sortNumericResponses(entries) {
+            return entries.sort(([labelA,], [labelB,]) => {
+                const numA = extractNumericValue(labelA);
+                const numB = extractNumericValue(labelB);
+                
+                if (numA !== null && numB !== null) {
+                    return numA - numB;
+                }
+                
+                if (numA !== null && numB === null) return -1;
+                if (numA === null && numB !== null) return 1;
+                
+                return labelA.localeCompare(labelB);
+            });
+        }
+
+        // Parse comma-separated text responses and create counts
+        function parseCommaSeparatedResponses(responses) {
+            const counts = {};
+            
+            responses.forEach(response => {
+                if (response && response.trim() !== '') {
+                    const items = response.split(/[,;\n]/)
+                        .map(item => item.trim())
+                        .filter(item => item.length > 0);
+                    
+                    items.forEach(item => {
+                        const cleanItem = item.replace(/^["']|["']$/g, '').trim();
+                        if (cleanItem.length > 0) {
+                            counts[cleanItem] = (counts[cleanItem] || 0) + 1;
+                        }
+                    });
+                }
+            });
+            
+            return {
+                responses: responses,
+                counts: counts,
+                total: Object.values(counts).reduce((sum, count) => sum + count, 0),
+                unique: Object.keys(counts).length
+            };
+        }
+
+        // Determine chart type based on question and responses
+        function determineChartType(questionHeader, analysis) {
+            const responses = Object.keys(analysis.counts);
+            
+            // 6 or more unique responses: horizontal bar chart
+            if (analysis.unique >= 6) {
+                return 'horizontal_bar';
+            }
+            
+            // 1-5 unique responses: vertical bar chart
+            return 'bar';
+        }
+
+        // Create horizontal bar chart for 6+ unique responses
+        function createHorizontalBarChart(questionHeader, analysis) {
+            const ctx = document.getElementById('mainChart');
+            
+            // Destroy existing chart
+            if (currentChart) {
+                currentChart.destroy();
+            }
+            
+            // Check if this is a text response question that needs comma parsing
+            let processedAnalysis = analysis;
+            if (analysis.unique >= 6) {
+                const filteredData = getFilteredData();
+                let matchingColumn = null;
+                if (filteredData.length > 0) {
+                    matchingColumn = findMatchingColumn(questionHeader, filteredData[0]);
+                }
+                if (matchingColumn) {
+                    const responses = filteredData.map(row => row[matchingColumn]).filter(r => r && r.trim() !== '');
+                    processedAnalysis = parseCommaSeparatedResponses(responses);
+                }
+            }
+            
+            // Prepare data
+            let sortedEntries = Object.entries(processedAnalysis.counts);
+            
+            // Apply numeric sorting for "How many..." questions
+            if (isNumericResponseQuestion(questionHeader)) {
+                sortedEntries = sortNumericResponses(sortedEntries);
+            } else {
+                // Sort by response count (descending) for better visualization
+                sortedEntries.sort(([,a], [,b]) => b - a);
+            }
+            
+            const labels = sortedEntries.map(([label,]) => truncateText(label, 30));
+            const data = sortedEntries.map(([,count]) => count);
+            
+            const backgroundColor = colorSchemes.six_plus_column[0];
+            
+            const chartConfig = {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Responses',
+                        data: data,
+                        backgroundColor: backgroundColor,
+                        borderColor: backgroundColor,
+                        borderWidth: 1,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const total = data.reduce((a, b) => a + b, 0);
+                                    const percentage = ((context.parsed.x * 100) / total).toFixed(1);
+                                    return `${context.label}: ${context.parsed.x} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        },
+                        y: {
+                            ticks: {
+                                callback: function(value, index, values) {
+                                    const label = this.getLabelForValue(value);
+                                    const maxLength = 35;
+                                    if (label.length <= maxLength) return label;
+                                    
+                                    const words = label.split(' ');
+                                    const lines = [];
+                                    let currentLine = '';
+                                    
+                                    for (const word of words) {
+                                        if ((currentLine + ' ' + word).length <= maxLength) {
+                                            currentLine += (currentLine ? ' ' : '') + word;
+                                        } else {
+                                            if (currentLine) lines.push(currentLine);
+                                            currentLine = word;
+                                        }
+                                    }
+                                    if (currentLine) lines.push(currentLine);
+                                    
+                                    return lines;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            currentChart = new Chart(ctx, chartConfig);
+            
+            // Show chart
+            document.getElementById('mainChart').style.display = 'block';
+            document.getElementById('chartPlaceholder').style.display = 'none';
+        }
+
+        // Create chart based on analysis
+        function createChart(questionHeader, analysis) {
+            const chartType = determineChartType(questionHeader, analysis);
+            
+            if (chartType === 'horizontal_bar') {
+                // Create horizontal bar chart for 6+ unique responses
+                createHorizontalBarChart(questionHeader, analysis);
+                return;
+            }
+            
+            const ctx = document.getElementById('mainChart');
+            
+            // Destroy existing chart
+            if (currentChart) {
+                currentChart.destroy();
+            }
+            
+            // Prepare data
+            const labels = Object.keys(analysis.counts);
+            const data = Object.values(analysis.counts);
+            
+            // Sort by numerical order of responses for better visualization
+            const combined = labels.map((label, i) => ({ label, count: data[i] }));
+            combined.sort((a, b) => {
+                // Try to extract numbers from response labels for natural ordering
+                const aNum = extractResponseNumber(a.label);
+                const bNum = extractResponseNumber(b.label);
+                if (aNum !== null && bNum !== null) {
+                    return aNum - bNum;  // Numerical order
+                }
+                return a.label.localeCompare(b.label);  // Alphabetical fallback
+            });
+            
+            const sortedLabels = combined.map(item => truncateText(item.label, 30));
+            const sortedData = combined.map(item => item.count);
+            
+            // Determine colors based on number of responses
+            let colors;
+            switch (sortedData.length) {
+                case 1:
+                    colors = colorSchemes.one_column;
+                    break;
+                case 2:
+                    colors = colorSchemes.two_column;
+                    break;
+                case 3:
+                    colors = colorSchemes.three_column;
+                    break;
+                case 4:
+                    colors = colorSchemes.four_column;
+                    break;
+                case 5:
+                    colors = colorSchemes.five_column;
+                    break;
+                default:
+                    colors = colorSchemes.primary.slice(0, sortedData.length);
+            }
+            
+            const chartConfig = {
+                type: 'bar',
+                data: {
+                    labels: sortedLabels,
+                    datasets: [{
+                        label: 'Responses',
+                        data: sortedData,
+                        backgroundColor: colors,
+                        borderColor: colors,
+                        borderWidth: 1,
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const total = sortedData.reduce((a, b) => a + b, 0);
+                                    const percentage = ((context.parsed.y * 100) / total).toFixed(1);
+                                    return `${context.label}: ${context.parsed.y} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                stepSize: 1
+                            }
+                        },
+                        x: {
+                            ticks: {
+                                maxRotation: 0,
+                                minRotation: 0,
+                                callback: function(value, index, values) {
+                                    const label = this.getLabelForValue(value);
+                                    const maxLength = 15;
+                                    if (label.length <= maxLength) return label;
+                                    
+                                    const words = label.split(' ');
+                                    const lines = [];
+                                    let currentLine = '';
+                                    
+                                    for (const word of words) {
+                                        if ((currentLine + ' ' + word).length <= maxLength) {
+                                            currentLine += (currentLine ? ' ' : '') + word;
+                                        } else {
+                                            if (currentLine) lines.push(currentLine);
+                                            currentLine = word;
+                                        }
+                                    }
+                                    if (currentLine) lines.push(currentLine);
+                                    
+                                    return lines;
+                                }
+                            }
+                        }
+                    }
+                }
+            };
+            
+            currentChart = new Chart(ctx, chartConfig);
+            
+            // Show chart
+            document.getElementById('mainChart').style.display = 'block';
+            document.getElementById('chartPlaceholder').style.display = 'none';
+        }
+
+        // Display text responses
+        function displayTextResponses(responses) {
+            const chartContainer = document.querySelector('.chart-container');
+            chartContainer.innerHTML = '<h4>Text Responses:</h4><div class="text-responses"></div>';
+            
+            const textContainer = chartContainer.querySelector('.text-responses');
+            
+            if (responses.length === 0) {
+                textContainer.innerHTML = '<div class="no-data">No text responses found</div>';
+                return;
+            }
+            
+            const uniqueResponses = [...new Set(responses.filter(r => r.trim() !== ''))];
+            
+            uniqueResponses.forEach(response => {
+                const div = document.createElement('div');
+                div.className = 'text-response-item';
+                div.textContent = response;
+                textContainer.appendChild(div);
+            });
+            
+            document.getElementById('chartPlaceholder').style.display = 'none';
+        }
+
+        // Create data table
+        function createTable(questionHeader, analysis) {
+            const tableContent = document.getElementById('tableContent');
+            
+            // Create table
+            const table = document.createElement('table');
+            table.className = 'data-table';
+            
+            // Create header
+            const thead = document.createElement('thead');
+            const headerRow = document.createElement('tr');
+            ['Response', 'Count', 'Percentage'].forEach(text => {
+                const th = document.createElement('th');
+                th.textContent = text;
+                headerRow.appendChild(th);
+            });
+            thead.appendChild(headerRow);
+            table.appendChild(thead);
+            
+            // Create body
+            const tbody = document.createElement('tbody');
+            const total = analysis.total;
+            
+            // Sort by numerical order of responses
+            let sortedEntries = Object.entries(analysis.counts);
+            
+            // Apply numeric sorting for "How many..." questions
+            if (isNumericResponseQuestion(questionHeader)) {
+                sortedEntries = sortNumericResponses(sortedEntries);
+            } else {
+                // Use existing response number ordering for standard questions
+                sortedEntries.sort(([labelA,], [labelB,]) => {
+                    const aNum = extractResponseNumber(labelA);
+                    const bNum = extractResponseNumber(labelB); 
+                    if (aNum !== null && bNum !== null) {
+                        return aNum - bNum;  // Numerical order
+                    }
+                    return labelA.localeCompare(labelB);  // Alphabetical fallback
+                });
+            }
+            
+            sortedEntries.forEach(([response, count]) => {
+                const row = document.createElement('tr');
+                
+                const responseCell = document.createElement('td');
+                responseCell.textContent = response;
+                row.appendChild(responseCell);
+                
+                const countCell = document.createElement('td');
+                countCell.textContent = count;
+                row.appendChild(countCell);
+                
+                const percentCell = document.createElement('td');
+                percentCell.textContent = `${((count / total) * 100).toFixed(1)}%`;
+                row.appendChild(percentCell);
+                
+                tbody.appendChild(row);
+            });
+            
+            // Add total row
+            const totalRow = document.createElement('tr');
+            totalRow.style.borderTop = '2px solid var(--saheti-gold)';
+            totalRow.style.fontWeight = 'bold';
+            totalRow.style.backgroundColor = 'rgba(181, 163, 106, 0.1)';
+            
+            const totalResponseCell = document.createElement('td');
+            totalResponseCell.textContent = 'TOTAL';
+            totalResponseCell.style.color = 'var(--saheti-navy)';
+            totalRow.appendChild(totalResponseCell);
+            
+            const totalCountCell = document.createElement('td');
+            totalCountCell.textContent = total;
+            totalCountCell.style.color = 'var(--saheti-navy)';
+            totalRow.appendChild(totalCountCell);
+            
+            const totalPercentCell = document.createElement('td');
+            totalPercentCell.textContent = '100.0%';
+            totalPercentCell.style.color = 'var(--saheti-navy)';
+            totalRow.appendChild(totalPercentCell);
+            
+            tbody.appendChild(totalRow);
+            
+            table.appendChild(tbody);
+            tableContent.innerHTML = '';
+            tableContent.appendChild(table);
+            
+            // Show table
+            document.getElementById('tableContent').style.display = 'block';
+            document.getElementById('tablePlaceholder').style.display = 'none';
+        }
+
+        // Handle question selection
+        function onQuestionChange() {
+            const select = document.getElementById('questionSelect');
+            currentQuestion = select.value;
+            
+            if (!currentQuestion) {
+                resetDisplay();
+                updateNavigationButtons();
+                return;
+            }
+            
+            // Update display
+            document.getElementById('currentQuestionTitle').textContent = currentQuestion;
+            document.getElementById('currentQuestionSubtitle').textContent = `Analysis of responses with current filter applied`;
+            
+            updateFilterBadge();
+            analyzeAndDisplay();
+            updateFilteredCount();
+            updateNavigationButtons();
+        }
+
+        // Update navigation button states
+        function updateNavigationButtons() {
+            const prevBtn = document.getElementById('prevQuestion');
+            const nextBtn = document.getElementById('nextQuestion');
+            
+            if (questionOptions.length === 0) {
+                prevBtn.disabled = true;
+                nextBtn.disabled = true;
+                return;
+            }
+            
+            const currentIndex = questionOptions.indexOf(currentQuestion);
+            
+            prevBtn.disabled = currentIndex <= 0;
+            nextBtn.disabled = currentIndex >= questionOptions.length - 1 || currentIndex === -1;
+        }
+
+        // Navigate to previous question
+        function navigateToPrevious() {
+            if (questionOptions.length === 0) return;
+            
+            const currentIndex = questionOptions.indexOf(currentQuestion);
+            if (currentIndex > 0) {
+                const prevQuestion = questionOptions[currentIndex - 1];
+                const select = document.getElementById('questionSelect');
+                select.value = prevQuestion;
+                onQuestionChange();
+            }
+        }
+
+        // Navigate to next question
+        function navigateToNext() {
+            if (questionOptions.length === 0) return;
+            
+            const currentIndex = questionOptions.indexOf(currentQuestion);
+            if (currentIndex >= -1 && currentIndex < questionOptions.length - 1) {
+                const nextQuestion = questionOptions[currentIndex + 1];
+                const select = document.getElementById('questionSelect');
+                select.value = nextQuestion;
+                onQuestionChange();
+            }
+        }
+
+        // Handle tab change
+        function onTabChange(filterValue) {
+            currentFilter = filterValue;
+            
+            console.log('Tab changed to:', filterValue);
+            
+            // Update active tab
+            document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-filter="${filterValue}"]`).classList.add('active');
+            
+            updateFilterBadge();
+            updateFilteredCount();
+            
+            // ALWAYS trigger analysis if we have a question - this should refresh the chart and table
+            if (currentQuestion) {
+                console.log('Re-analyzing with new filter for question:', currentQuestion);
+                analyzeAndDisplay();
+            } else {
+                console.log('No question selected, but filter changed');
+            }
+        }
+
+        function onSchoolChange(schoolValue) {
+            currentSchoolFilter = schoolValue;
+            
+            console.log('School filter changed to:', schoolValue);
+            
+            // Update active school button
+            document.querySelectorAll('.school-button').forEach(btn => btn.classList.remove('active'));
+            document.querySelector(`[data-school="${schoolValue}"]`).classList.add('active');
+            
+            updateFilterBadge();
+            updateFilteredCount();
+            
+            // ALWAYS trigger analysis if we have a question - this should refresh the chart and table
+            if (currentQuestion) {
+                console.log('Re-analyzing with new school filter for question:', currentQuestion);
+                analyzeAndDisplay();
+            } else {
+                console.log('No question selected, but school filter changed');
+            }
+        }
+
+        // Update filter badge
+        function updateFilterBadge() {
+            const badge = document.getElementById('filterBadge');
+            
+            let filters = [];
+            
+            // Add staff type filter
+            if (currentFilter === 'academic') {
+                filters.push('Academic Staff');
+            } else if (currentFilter === 'non-teaching') {
+                filters.push('Non-teaching Staff');
+            }
+            
+            // Add school filter
+            if (currentSchoolFilter !== 'all') {
+                const schoolNames = {
+                    'varsity': 'Varsity College',
+                    'rosebank': 'Rosebank College', 
+                    'vega': 'Vega School',
+                    'msa': 'MSA',
+                    'hospitality': 'Hospitality & Service',
+                    'central': 'Central Academic'
+                };
+                filters.push(schoolNames[currentSchoolFilter]);
+            }
+            
+            if (filters.length === 0) {
+                badge.style.display = 'none';
+            } else {
+                badge.style.display = 'inline-block';
+                badge.textContent = filters.join(' • ') + ' Only';
+            }
+        }
+
+        // Analyze and display current question
+        function analyzeAndDisplay() {
+            console.log('analyzeAndDisplay called for question:', currentQuestion, 'filter:', currentFilter);
+            if (!currentQuestion) return;
+            
+            let analysis = analyzeQuestion(currentQuestion);
+            
+            if (analysis.total === 0) {
+                resetDisplay();
+                document.getElementById('currentQuestionSubtitle').textContent = 'No responses found for this question with current filter';
+                return;
+            }
+            
+            // For questions with many unique responses, try parsing as comma-separated text
+            if (analysis.unique >= 6) {
+                const filteredData = getFilteredData();
+                let matchingColumn = null;
+                if (filteredData.length > 0) {
+                    matchingColumn = findMatchingColumn(currentQuestion, filteredData[0]);
+                }
+                if (matchingColumn) {
+                    const responses = filteredData.map(row => row[matchingColumn]).filter(r => r && r.trim() !== '');
+                    const parsedAnalysis = parseCommaSeparatedResponses(responses);
+                    
+                    // Use parsed analysis if it results in fewer unique items (indicates successful parsing)
+                    if (parsedAnalysis.unique < analysis.unique && parsedAnalysis.unique > 0) {
+                        analysis = parsedAnalysis;
+                    }
+                }
+            }
+            
+            createChart(currentQuestion, analysis);
+            createTable(currentQuestion, analysis);
+        }
+
+        // Reset display
+        function resetDisplay() {
+            // Hide chart and table
+            document.getElementById('mainChart').style.display = 'none';
+            document.getElementById('chartPlaceholder').style.display = 'block';
+            document.getElementById('tableContent').style.display = 'none';
+            document.getElementById('tablePlaceholder').style.display = 'block';
+            
+            // Destroy chart
+            if (currentChart) {
+                currentChart.destroy();
+                currentChart = null;
+            }
+        }
+
+        // Event listeners
+        document.getElementById('questionSelect').addEventListener('change', onQuestionChange);
+        document.getElementById('prevQuestion').addEventListener('click', navigateToPrevious);
+        document.getElementById('nextQuestion').addEventListener('click', navigateToNext);
+        
+        // Tab button listeners - with debugging
+        document.querySelectorAll('.tab-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                console.log('Tab button clicked:', button.dataset.filter);
+                e.preventDefault();
+                onTabChange(button.dataset.filter);
+            });
+        });
+
+        // School button listeners
+        document.querySelectorAll('.school-button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                console.log('School button clicked:', button.dataset.school);
+                e.preventDefault();
+                onSchoolChange(button.dataset.school);
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            // Initialize Lucide icons
+            lucide.createIcons();
+            loadData();
+        });
+    </script>
+</body>
+</html>
