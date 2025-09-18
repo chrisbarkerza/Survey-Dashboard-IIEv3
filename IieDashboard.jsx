@@ -347,10 +347,8 @@ function HorizontalBarChart({ title, data, unit = 'count', maxValue, colorScale,
 function AutoBarChart({ title, data, colorScale, unit = 'count', footnote }) {
   const items = data || [];
   if (items.length <= 5) {
-    const vData = items.map((d) => ({ label: d.label, value: d.value, valueLabel: unit === 'percent' ? formatPercent(d.value) : undefined, context: d.context }));
-    return (
-      <VerticalBarChart title={title} data={vData} colorScale={colorScale} footnote={footnote} />
-    );
+    const vData = items.map((d) => ({ label: d.label, value: d.value, context: d.context }));
+    return <VerticalBarChart title={title} data={vData} colorScale={colorScale} footnote={footnote} unit={unit} />;
   }
   return <HorizontalBarChart title={title} data={items} colorScale={colorScale} unit={unit} footnote={footnote} />;
 }
@@ -473,7 +471,7 @@ function StackedColumnChart({ title, series, colorPalette, footnote }) {
   );
 }
 
-function VerticalBarChart({ title, data, colorScale, footnote, columns }) {
+function VerticalBarChart({ title, data, colorScale, footnote, columns, unit = 'count' }) {
   const maxValue = Math.max(...data.map((d) => d.value));
   return (
     <div style={sectionStyle}>
@@ -501,7 +499,7 @@ function VerticalBarChart({ title, data, colorScale, footnote, columns }) {
                   }}
                 >
                   <span style={{ position: 'absolute', top: '-24px', width: '100%', fontSize: '13px', color: palette.text }}>
-                    {item.valueLabel || formatPercent(item.value)}
+                    {item.valueLabel ?? (unit === 'percent' ? formatPercent(item.value) : formatValue(item.value))}
                   </span>
                 </div>
               </div>

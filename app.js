@@ -10905,8 +10905,8 @@
   function AutoBarChart({ title, data, colorScale, unit = "count", footnote }) {
     const items = data || [];
     if (items.length <= 5) {
-      const vData = items.map((d) => ({ label: d.label, value: d.value, valueLabel: unit === "percent" ? formatPercent(d.value) : void 0, context: d.context }));
-      return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(VerticalBarChart, { title, data: vData, colorScale, footnote });
+      const vData = items.map((d) => ({ label: d.label, value: d.value, context: d.context }));
+      return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(VerticalBarChart, { title, data: vData, colorScale, footnote, unit });
     }
     return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(HorizontalBarChart, { title, data: items, colorScale, unit, footnote });
   }
@@ -10995,7 +10995,7 @@
       footnote && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: palette.textMuted, marginTop: "12px", fontSize: "13px" }, children: footnote })
     ] });
   }
-  function VerticalBarChart({ title, data, colorScale, footnote, columns }) {
+  function VerticalBarChart({ title, data, colorScale, footnote, columns, unit = "count" }) {
     const maxValue = Math.max(...data.map((d) => d.value));
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: sectionStyle, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { style: { ...headingStyle, fontSize: "18px" }, children: title }),
@@ -11006,6 +11006,7 @@
         alignItems: "flex-end",
         flexWrap: columns ? void 0 : "wrap"
       }, children: data.map((item, idx) => {
+        var _a;
         const heightPercent = maxValue ? item.value / maxValue * 100 : 0;
         return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: "1 1 140px", textAlign: "center", display: "grid", gridTemplateRows: "220px auto auto", rowGap: "8px" }, children: [
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { height: "220px", display: "flex", alignItems: "flex-end", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -11019,7 +11020,7 @@
                 borderRadius: "12px 12px 4px 4px",
                 position: "relative"
               },
-              children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { position: "absolute", top: "-24px", width: "100%", fontSize: "13px", color: palette.text }, children: item.valueLabel || formatPercent(item.value) })
+              children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { position: "absolute", top: "-24px", width: "100%", fontSize: "13px", color: palette.text }, children: (_a = item.valueLabel) != null ? _a : unit === "percent" ? formatPercent(item.value) : formatValue(item.value) })
             }
           ) }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: palette.text, minHeight: "36px" }, children: item.label }),
