@@ -1,0 +1,3287 @@
+{
+  "respondents": {
+    "totalRespondents": 331,
+    "academicCount": 204,
+    "nonAcademicCount": 127,
+    "brandCounts": [
+      {
+        "label": "IIE Varsity College",
+        "count": 171
+      },
+      {
+        "label": "IIE Rosebank College",
+        "count": 96
+      },
+      {
+        "label": "IIE Vega School",
+        "count": 45
+      },
+      {
+        "label": "IIE MSA",
+        "count": 16
+      },
+      {
+        "label": "IIE School of Hospitality & Service Management",
+        "count": 2
+      },
+      {
+        "label": "Central Academic Team",
+        "count": 1
+      }
+    ],
+    "groupCounts": [
+      {
+        "label": "Academic",
+        "count": 204
+      },
+      {
+        "label": "Non-academic",
+        "count": 127
+      }
+    ],
+    "brandGroupCounts": [
+      {
+        "brand": "IIE Varsity College",
+        "Academic": 99,
+        "Non-academic": 72,
+        "Total": 171
+      },
+      {
+        "brand": "IIE Rosebank College",
+        "Academic": 61,
+        "Non-academic": 35,
+        "Total": 96
+      },
+      {
+        "brand": "IIE Vega School",
+        "Academic": 35,
+        "Non-academic": 10,
+        "Total": 45
+      },
+      {
+        "brand": "IIE MSA",
+        "Academic": 8,
+        "Non-academic": 8,
+        "Total": 16
+      },
+      {
+        "brand": "IIE School of Hospitality & Service Management",
+        "Academic": 0,
+        "Non-academic": 2,
+        "Total": 2
+      },
+      {
+        "brand": "Central Academic Team",
+        "Academic": 1,
+        "Non-academic": 0,
+        "Total": 1
+      }
+    ],
+    "brandGroupPercentages": [
+      {
+        "brand": "IIE Varsity College",
+        "Academic": 57.9,
+        "Non-academic": 42.1
+      },
+      {
+        "brand": "IIE Rosebank College",
+        "Academic": 63.5,
+        "Non-academic": 36.5
+      },
+      {
+        "brand": "IIE Vega School",
+        "Academic": 77.8,
+        "Non-academic": 22.2
+      },
+      {
+        "brand": "IIE MSA",
+        "Academic": 50.0,
+        "Non-academic": 50.0
+      },
+      {
+        "brand": "IIE School of Hospitality & Service Management",
+        "Academic": 0.0,
+        "Non-academic": 100.0
+      },
+      {
+        "brand": "Central Academic Team",
+        "Academic": 100.0,
+        "Non-academic": 0.0
+      }
+    ],
+    "facultyCounts": [
+      {
+        "label": "Faculty of Commerce",
+        "count": 74
+      },
+      {
+        "label": "Faculty of Humanities and Social Science",
+        "count": 54
+      },
+      {
+        "label": "Faculty of Information and Communications Technology",
+        "count": 40
+      },
+      {
+        "label": "Faculty of Education",
+        "count": 39
+      },
+      {
+        "label": "IIE Vega School",
+        "count": 27
+      },
+      {
+        "label": "Faculty of Law",
+        "count": 19
+      },
+      {
+        "label": "Faculty of Finance & Accounting",
+        "count": 8
+      }
+    ],
+    "experience": {
+      "academic": {
+        "iie": [
+          {
+            "bin": "0-5",
+            "count": 119
+          },
+          {
+            "bin": "6-10",
+            "count": 49
+          },
+          {
+            "bin": "11-15",
+            "count": 20
+          },
+          {
+            "bin": "16-20",
+            "count": 14
+          },
+          {
+            "bin": "21-25",
+            "count": 1
+          },
+          {
+            "bin": "46+",
+            "count": 1
+          }
+        ],
+        "elsewhere": [
+          {
+            "bin": "0-5",
+            "count": 121
+          },
+          {
+            "bin": "6-10",
+            "count": 39
+          },
+          {
+            "bin": "11-15",
+            "count": 21
+          },
+          {
+            "bin": "16-20",
+            "count": 10
+          },
+          {
+            "bin": "21-25",
+            "count": 5
+          },
+          {
+            "bin": "26-30",
+            "count": 5
+          },
+          {
+            "bin": "31-35",
+            "count": 1
+          },
+          {
+            "bin": "36-40",
+            "count": 1
+          },
+          {
+            "bin": "46+",
+            "count": 1
+          }
+        ]
+      },
+      "nonAcademic": {
+        "iie": [
+          {
+            "bin": "0-5",
+            "count": 73
+          },
+          {
+            "bin": "6-10",
+            "count": 25
+          },
+          {
+            "bin": "11-15",
+            "count": 18
+          },
+          {
+            "bin": "16-20",
+            "count": 9
+          },
+          {
+            "bin": "21-25",
+            "count": 1
+          },
+          {
+            "bin": "26-30",
+            "count": 1
+          }
+        ],
+        "elsewhere": [
+          {
+            "bin": "0-5",
+            "count": 58
+          },
+          {
+            "bin": "6-10",
+            "count": 34
+          },
+          {
+            "bin": "11-15",
+            "count": 18
+          },
+          {
+            "bin": "16-20",
+            "count": 10
+          },
+          {
+            "bin": "21-25",
+            "count": 5
+          },
+          {
+            "bin": "26-30",
+            "count": 1
+          },
+          {
+            "bin": "36-40",
+            "count": 1
+          }
+        ]
+      }
+    },
+    "itProficiency": {
+      "academic": {
+        "counts": {
+          "Low, I don't use computers often.": 0,
+          "Moderate, I use a PC for most of my work.": 74,
+          "Advanced, I can assist others to solve their problems.": 102,
+          "High, I could work in an IT department.": 28
+        },
+        "percentages": {
+          "Low, I don't use computers often.": 0.0,
+          "Moderate, I use a PC for most of my work.": 36.3,
+          "Advanced, I can assist others to solve their problems.": 50.0,
+          "High, I could work in an IT department.": 13.7
+        },
+        "total": 204
+      },
+      "nonAcademic": {
+        "counts": {
+          "Low, I don't use computers often.": 2,
+          "Moderate, I use a PC for most of my work.": 44,
+          "Advanced, I can assist others to solve their problems.": 66,
+          "High, I could work in an IT department.": 15
+        },
+        "percentages": {
+          "Low, I don't use computers often.": 1.6,
+          "Moderate, I use a PC for most of my work.": 34.6,
+          "Advanced, I can assist others to solve their problems.": 52.0,
+          "High, I could work in an IT department.": 11.8
+        },
+        "total": 127
+      }
+    }
+  },
+  "overallAdoption": {
+    "toolStats": [
+      {
+        "used": 306,
+        "current": 295,
+        "currentFree": 261,
+        "currentPaid": 34,
+        "never": 5,
+        "notYet": 20,
+        "thinking": 0,
+        "tool": "ChatGPT",
+        "total": 331,
+        "raw": {
+          "Yes, but free version": 261,
+          "Yes, I pay for a subscription": 34,
+          "No, not yet": 20,
+          "Yes, but no longer": 11,
+          "No & I will never (on principle)": 5
+        }
+      },
+      {
+        "used": 192,
+        "current": 165,
+        "currentFree": 155,
+        "currentPaid": 10,
+        "never": 35,
+        "notYet": 104,
+        "thinking": 0,
+        "tool": "Meta AI (via Whatsapp, Facebook and/or Instagram)",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 35,
+          "No, not yet": 104,
+          "Yes, but free version": 155,
+          "Yes, I pay for a subscription": 10,
+          "Yes, but no longer": 27
+        }
+      },
+      {
+        "used": 171,
+        "current": 156,
+        "currentFree": 146,
+        "currentPaid": 10,
+        "never": 25,
+        "notYet": 135,
+        "thinking": 0,
+        "tool": "Copilot",
+        "total": 331,
+        "raw": {
+          "Yes, but free version": 146,
+          "No, not yet": 135,
+          "Yes, I pay for a subscription": 10,
+          "Yes, but no longer": 15,
+          "No & I will never (on principle)": 25
+        }
+      },
+      {
+        "used": 132,
+        "current": 109,
+        "currentFree": 105,
+        "currentPaid": 4,
+        "never": 26,
+        "notYet": 173,
+        "thinking": 0,
+        "tool": "Gemini",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 26,
+          "No, not yet": 173,
+          "Yes, but free version": 105,
+          "Yes, but no longer": 23,
+          "Yes, I pay for a subscription": 4
+        }
+      },
+      {
+        "used": 79,
+        "current": 61,
+        "currentFree": 57,
+        "currentPaid": 4,
+        "never": 35,
+        "notYet": 217,
+        "thinking": 0,
+        "tool": "DeepSeek",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 35,
+          "No, not yet": 217,
+          "Yes, but free version": 57,
+          "Yes, I pay for a subscription": 4,
+          "Yes, but no longer": 18
+        }
+      },
+      {
+        "used": 62,
+        "current": 60,
+        "currentFree": 55,
+        "currentPaid": 5,
+        "never": 41,
+        "notYet": 228,
+        "thinking": 0,
+        "tool": "NotebookLM",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 41,
+          "No, not yet": 228,
+          "Yes, but free version": 55,
+          "Yes, I pay for a subscription": 5,
+          "Yes, but no longer": 2
+        }
+      },
+      {
+        "used": 60,
+        "current": 48,
+        "currentFree": 47,
+        "currentPaid": 1,
+        "never": 37,
+        "notYet": 234,
+        "thinking": 0,
+        "tool": "Perplexity",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 37,
+          "No, not yet": 234,
+          "Yes, but free version": 47,
+          "Yes, but no longer": 12,
+          "Yes, I pay for a subscription": 1
+        }
+      },
+      {
+        "used": 60,
+        "current": 48,
+        "currentFree": 46,
+        "currentPaid": 2,
+        "never": 46,
+        "notYet": 225,
+        "thinking": 0,
+        "tool": "Grok",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 46,
+          "Yes, but no longer": 12,
+          "No, not yet": 225,
+          "Yes, but free version": 46,
+          "Yes, I pay for a subscription": 2
+        }
+      },
+      {
+        "used": 39,
+        "current": 34,
+        "currentFree": 32,
+        "currentPaid": 2,
+        "never": 38,
+        "notYet": 254,
+        "thinking": 0,
+        "tool": "Claude",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 38,
+          "No, not yet": 254,
+          "Yes, but free version": 32,
+          "Yes, but no longer": 5,
+          "Yes, I pay for a subscription": 2
+        }
+      },
+      {
+        "used": 35,
+        "current": 34,
+        "currentFree": 24,
+        "currentPaid": 10,
+        "never": 55,
+        "notYet": 241,
+        "thinking": 0,
+        "tool": "Other",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 55,
+          "No, not yet": 241,
+          "Yes, but free version": 24,
+          "Yes, I pay for a subscription": 10,
+          "Yes, but no longer": 1
+        }
+      },
+      {
+        "used": 29,
+        "current": 17,
+        "currentFree": 15,
+        "currentPaid": 2,
+        "never": 41,
+        "notYet": 261,
+        "thinking": 0,
+        "tool": "Midjourney",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 41,
+          "No, not yet": 261,
+          "Yes, but no longer": 12,
+          "Yes, but free version": 15,
+          "Yes, I pay for a subscription": 2
+        }
+      },
+      {
+        "used": 25,
+        "current": 21,
+        "currentFree": 20,
+        "currentPaid": 1,
+        "never": 38,
+        "notYet": 268,
+        "thinking": 0,
+        "tool": "Github Copilot",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 38,
+          "No, not yet": 268,
+          "Yes, but free version": 20,
+          "Yes, but no longer": 4,
+          "Yes, I pay for a subscription": 1
+        }
+      },
+      {
+        "used": 13,
+        "current": 8,
+        "currentFree": 7,
+        "currentPaid": 1,
+        "never": 44,
+        "notYet": 274,
+        "thinking": 0,
+        "tool": "Stable Diffusion",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 44,
+          "No, not yet": 274,
+          "Yes, but free version": 7,
+          "Yes, but no longer": 5,
+          "Yes, I pay for a subscription": 1
+        }
+      },
+      {
+        "used": 13,
+        "current": 11,
+        "currentFree": 8,
+        "currentPaid": 3,
+        "never": 43,
+        "notYet": 275,
+        "thinking": 0,
+        "tool": "ElevenLabs",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 43,
+          "No, not yet": 275,
+          "Yes, I pay for a subscription": 3,
+          "Yes, but free version": 8,
+          "Yes, but no longer": 2
+        }
+      },
+      {
+        "used": 12,
+        "current": 7,
+        "currentFree": 6,
+        "currentPaid": 1,
+        "never": 41,
+        "notYet": 278,
+        "thinking": 0,
+        "tool": "Veo",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 41,
+          "No, not yet": 278,
+          "Yes, but free version": 6,
+          "Yes, but no longer": 5,
+          "Yes, I pay for a subscription": 1
+        }
+      },
+      {
+        "used": 12,
+        "current": 10,
+        "currentFree": 10,
+        "currentPaid": 0,
+        "never": 43,
+        "notYet": 276,
+        "thinking": 0,
+        "tool": "MagicSchool",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 43,
+          "No, not yet": 276,
+          "Yes, but free version": 10,
+          "Yes, but no longer": 2
+        }
+      },
+      {
+        "used": 10,
+        "current": 7,
+        "currentFree": 7,
+        "currentPaid": 0,
+        "never": 43,
+        "notYet": 278,
+        "thinking": 0,
+        "tool": "Khanmigo",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 43,
+          "No, not yet": 278,
+          "Yes, but free version": 7,
+          "Yes, but no longer": 3
+        }
+      },
+      {
+        "used": 8,
+        "current": 5,
+        "currentFree": 4,
+        "currentPaid": 1,
+        "never": 44,
+        "notYet": 279,
+        "thinking": 0,
+        "tool": "Runway",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 44,
+          "No, not yet": 279,
+          "Yes, but no longer": 3,
+          "Yes, but free version": 4,
+          "Yes, I pay for a subscription": 1
+        }
+      },
+      {
+        "used": 8,
+        "current": 5,
+        "currentFree": 5,
+        "currentPaid": 0,
+        "never": 44,
+        "notYet": 279,
+        "thinking": 0,
+        "tool": "Replit",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 44,
+          "No, not yet": 279,
+          "Yes, but free version": 5,
+          "Yes, but no longer": 3
+        }
+      },
+      {
+        "used": 8,
+        "current": 6,
+        "currentFree": 6,
+        "currentPaid": 0,
+        "never": 43,
+        "notYet": 280,
+        "thinking": 0,
+        "tool": "Mindjoy",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 43,
+          "No, not yet": 280,
+          "Yes, but free version": 6,
+          "Yes, but no longer": 2
+        }
+      },
+      {
+        "used": 7,
+        "current": 3,
+        "currentFree": 2,
+        "currentPaid": 1,
+        "never": 43,
+        "notYet": 281,
+        "thinking": 0,
+        "tool": "Cursor",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 43,
+          "No, not yet": 281,
+          "Yes, but free version": 2,
+          "Yes, but no longer": 4,
+          "Yes, I pay for a subscription": 1
+        }
+      },
+      {
+        "used": 7,
+        "current": 5,
+        "currentFree": 4,
+        "currentPaid": 1,
+        "never": 43,
+        "notYet": 281,
+        "thinking": 0,
+        "tool": "Windsurf",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 43,
+          "No, not yet": 281,
+          "Yes, but free version": 4,
+          "Yes, but no longer": 2,
+          "Yes, I pay for a subscription": 1
+        }
+      }
+    ],
+    "topTools": [
+      {
+        "used": 306,
+        "current": 295,
+        "currentFree": 261,
+        "currentPaid": 34,
+        "never": 5,
+        "notYet": 20,
+        "thinking": 0,
+        "tool": "ChatGPT",
+        "total": 331,
+        "raw": {
+          "Yes, but free version": 261,
+          "Yes, I pay for a subscription": 34,
+          "No, not yet": 20,
+          "Yes, but no longer": 11,
+          "No & I will never (on principle)": 5
+        }
+      },
+      {
+        "used": 192,
+        "current": 165,
+        "currentFree": 155,
+        "currentPaid": 10,
+        "never": 35,
+        "notYet": 104,
+        "thinking": 0,
+        "tool": "Meta AI (via Whatsapp, Facebook and/or Instagram)",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 35,
+          "No, not yet": 104,
+          "Yes, but free version": 155,
+          "Yes, I pay for a subscription": 10,
+          "Yes, but no longer": 27
+        }
+      },
+      {
+        "used": 171,
+        "current": 156,
+        "currentFree": 146,
+        "currentPaid": 10,
+        "never": 25,
+        "notYet": 135,
+        "thinking": 0,
+        "tool": "Copilot",
+        "total": 331,
+        "raw": {
+          "Yes, but free version": 146,
+          "No, not yet": 135,
+          "Yes, I pay for a subscription": 10,
+          "Yes, but no longer": 15,
+          "No & I will never (on principle)": 25
+        }
+      },
+      {
+        "used": 132,
+        "current": 109,
+        "currentFree": 105,
+        "currentPaid": 4,
+        "never": 26,
+        "notYet": 173,
+        "thinking": 0,
+        "tool": "Gemini",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 26,
+          "No, not yet": 173,
+          "Yes, but free version": 105,
+          "Yes, but no longer": 23,
+          "Yes, I pay for a subscription": 4
+        }
+      },
+      {
+        "used": 79,
+        "current": 61,
+        "currentFree": 57,
+        "currentPaid": 4,
+        "never": 35,
+        "notYet": 217,
+        "thinking": 0,
+        "tool": "DeepSeek",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 35,
+          "No, not yet": 217,
+          "Yes, but free version": 57,
+          "Yes, I pay for a subscription": 4,
+          "Yes, but no longer": 18
+        }
+      },
+      {
+        "used": 62,
+        "current": 60,
+        "currentFree": 55,
+        "currentPaid": 5,
+        "never": 41,
+        "notYet": 228,
+        "thinking": 0,
+        "tool": "NotebookLM",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 41,
+          "No, not yet": 228,
+          "Yes, but free version": 55,
+          "Yes, I pay for a subscription": 5,
+          "Yes, but no longer": 2
+        }
+      },
+      {
+        "used": 60,
+        "current": 48,
+        "currentFree": 47,
+        "currentPaid": 1,
+        "never": 37,
+        "notYet": 234,
+        "thinking": 0,
+        "tool": "Perplexity",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 37,
+          "No, not yet": 234,
+          "Yes, but free version": 47,
+          "Yes, but no longer": 12,
+          "Yes, I pay for a subscription": 1
+        }
+      },
+      {
+        "used": 60,
+        "current": 48,
+        "currentFree": 46,
+        "currentPaid": 2,
+        "never": 46,
+        "notYet": 225,
+        "thinking": 0,
+        "tool": "Grok",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 46,
+          "Yes, but no longer": 12,
+          "No, not yet": 225,
+          "Yes, but free version": 46,
+          "Yes, I pay for a subscription": 2
+        }
+      },
+      {
+        "used": 39,
+        "current": 34,
+        "currentFree": 32,
+        "currentPaid": 2,
+        "never": 38,
+        "notYet": 254,
+        "thinking": 0,
+        "tool": "Claude",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 38,
+          "No, not yet": 254,
+          "Yes, but free version": 32,
+          "Yes, but no longer": 5,
+          "Yes, I pay for a subscription": 2
+        }
+      },
+      {
+        "used": 35,
+        "current": 34,
+        "currentFree": 24,
+        "currentPaid": 10,
+        "never": 55,
+        "notYet": 241,
+        "thinking": 0,
+        "tool": "Other",
+        "total": 331,
+        "raw": {
+          "No & I will never (on principle)": 55,
+          "No, not yet": 241,
+          "Yes, but free version": 24,
+          "Yes, I pay for a subscription": 10,
+          "Yes, but no longer": 1
+        }
+      }
+    ],
+    "topCurrentBreakdown": [
+      {
+        "tool": "ChatGPT",
+        "currentFree": 261,
+        "currentPaid": 34,
+        "currentTotal": 295
+      },
+      {
+        "tool": "Meta AI (via Whatsapp, Facebook and/or Instagram)",
+        "currentFree": 155,
+        "currentPaid": 10,
+        "currentTotal": 165
+      },
+      {
+        "tool": "Copilot",
+        "currentFree": 146,
+        "currentPaid": 10,
+        "currentTotal": 156
+      },
+      {
+        "tool": "Gemini",
+        "currentFree": 105,
+        "currentPaid": 4,
+        "currentTotal": 109
+      },
+      {
+        "tool": "DeepSeek",
+        "currentFree": 57,
+        "currentPaid": 4,
+        "currentTotal": 61
+      }
+    ],
+    "adoptionWork": {
+      "counts": {
+        "No & I will never (on principle)": 11,
+        "No, not yet": 37,
+        "Yes, but no longer": 14,
+        "I am thinking about it": 14,
+        "Yes, I do": 255
+      },
+      "percentages": {
+        "No & I will never (on principle)": 3.3,
+        "No, not yet": 11.2,
+        "Yes, but no longer": 4.2,
+        "I am thinking about it": 4.2,
+        "Yes, I do": 77.0
+      },
+      "total": 331
+    },
+    "adoptionPersonal": {
+      "counts": {
+        "No & I will never (on principle)": 5,
+        "No, not yet": 14,
+        "Yes, but no longer": 16,
+        "I am thinking about it": 9,
+        "Yes, I do": 287
+      },
+      "percentages": {
+        "No & I will never (on principle)": 1.5,
+        "No, not yet": 4.2,
+        "Yes, but no longer": 4.8,
+        "I am thinking about it": 2.7,
+        "Yes, I do": 86.7
+      },
+      "total": 331
+    },
+    "adoptionBoth": {
+      "counts": {
+        "Both work & personal": 263,
+        "Work only": 6,
+        "Personal only": 40
+      },
+      "total": 309
+    },
+    "activities": [
+      {
+        "label": "(Online) research - fact checking, learning, understanding, market research, academic research, business intelligence, etc.",
+        "used": 270,
+        "never": 9,
+        "thinking": 12,
+        "notYet": 40
+      },
+      {
+        "label": "Text creation & manipulation - writing, proofing, reviewing, summarising & translating of emails, documents, contracts, reports, etc.",
+        "used": 229,
+        "never": 21,
+        "thinking": 24,
+        "notYet": 57
+      },
+      {
+        "label": "Educational purposes  - creating lesson plans & content, tutoring, test creation, marking, etc.",
+        "used": 177,
+        "never": 27,
+        "thinking": 25,
+        "notYet": 102
+      },
+      {
+        "label": "Meeting preparation & recording - agenda setting, note-taking, creation of summaries & action lists, etc.",
+        "used": 143,
+        "never": 23,
+        "thinking": 37,
+        "notYet": 128
+      },
+      {
+        "label": "Media creation & manipulation - making & editing of images, video, sound & designs for presentations, documents, marketing materials, etc.",
+        "used": 141,
+        "never": 28,
+        "thinking": 35,
+        "notYet": 127
+      },
+      {
+        "label": "Technical tasks  - data, statistical & financial analysis, coding, web development, cyber security, system administration, etc.",
+        "used": 97,
+        "never": 33,
+        "thinking": 37,
+        "notYet": 164
+      }
+    ],
+    "concerns": [
+      {
+        "label": "Poor quality & unreliability of output - creates 'unnatural' text, is inaccurate, takes shortcuts, makes up facts ('hallucinations'), etc.",
+        "counts": {
+          "Disagree": 53,
+          "Neutral": 117,
+          "Agree": 161
+        },
+        "percentages": {
+          "Disagree": 16.0,
+          "Neutral": 35.3,
+          "Agree": 48.6
+        },
+        "total": 331
+      },
+      {
+        "label": "High technical hurdles of adoption - is difficult to use, has steep learning curve, is costly to implement, etc.",
+        "counts": {
+          "Disagree": 140,
+          "Neutral": 128,
+          "Agree": 63
+        },
+        "percentages": {
+          "Disagree": 42.3,
+          "Neutral": 38.7,
+          "Agree": 19.0
+        },
+        "total": 331
+      },
+      {
+        "label": "Ethical issues associated with use - has privacy concerns, triggers cheating & plagiarism, faces legal constraints, etc.",
+        "counts": {
+          "Disagree": 22,
+          "Neutral": 87,
+          "Agree": 222
+        },
+        "percentages": {
+          "Disagree": 6.6,
+          "Neutral": 26.3,
+          "Agree": 67.1
+        },
+        "total": 331
+      },
+      {
+        "label": "Adverse impact on people's jobs - threatens job security, requires additional training, creates extra work stress, etc.",
+        "counts": {
+          "Disagree": 74,
+          "Neutral": 137,
+          "Agree": 120
+        },
+        "percentages": {
+          "Disagree": 22.4,
+          "Neutral": 41.4,
+          "Agree": 36.3
+        },
+        "total": 331
+      }
+    ],
+    "benefits": [
+      {
+        "label": "Improved efficiency - makes work easier & faster, increases quantity of output, helps people to get more done in less time, etc.",
+        "counts": {
+          "Disagree": 16,
+          "Neutral": 49,
+          "Agree": 266
+        },
+        "percentages": {
+          "Disagree": 4.8,
+          "Neutral": 14.8,
+          "Agree": 80.4
+        },
+        "total": 331
+      },
+      {
+        "label": "Better quality - raises bar at which people can operate, reduces errors, improves quality of output, improves customer service, etc.",
+        "counts": {
+          "Disagree": 44,
+          "Neutral": 104,
+          "Agree": 183
+        },
+        "percentages": {
+          "Disagree": 13.3,
+          "Neutral": 31.4,
+          "Agree": 55.3
+        },
+        "total": 331
+      },
+      {
+        "label": "Improved decision-making - enhances knowledge and insight, leads to more effective planning, optimises resource allocation, etc.",
+        "counts": {
+          "Disagree": 31,
+          "Neutral": 108,
+          "Agree": 192
+        },
+        "percentages": {
+          "Disagree": 9.4,
+          "Neutral": 32.6,
+          "Agree": 58.0
+        },
+        "total": 331
+      },
+      {
+        "label": "More automation - reduces (time spent on) meaningless tasks, frees up capacity for more value-add, meaningful & enjoyable activities, etc.",
+        "counts": {
+          "Disagree": 20,
+          "Neutral": 66,
+          "Agree": 245
+        },
+        "percentages": {
+          "Disagree": 6.0,
+          "Neutral": 19.9,
+          "Agree": 74.0
+        },
+        "total": 331
+      },
+      {
+        "label": "Enhanced creativity  - expands the mind, generates fresh ideas, explores unique solutions, etc.",
+        "counts": {
+          "Disagree": 41,
+          "Neutral": 83,
+          "Agree": 207
+        },
+        "percentages": {
+          "Disagree": 12.4,
+          "Neutral": 25.1,
+          "Agree": 62.5
+        },
+        "total": 331
+      }
+    ],
+    "metaUsage": [
+      {
+        "label": "In WhatsApp",
+        "counts": {
+          "No": 108,
+          "Maybe": 95,
+          "Yes": 128
+        },
+        "total": 331
+      },
+      {
+        "label": "In Facebook",
+        "counts": {
+          "No": 172,
+          "Maybe": 92,
+          "Yes": 67
+        },
+        "total": 331
+      },
+      {
+        "label": "In Instagram",
+        "counts": {
+          "No": 173,
+          "Maybe": 92,
+          "Yes": 66
+        },
+        "total": 331
+      },
+      {
+        "label": "On Meta website",
+        "counts": {
+          "No": 141,
+          "Maybe": 119,
+          "Yes": 71
+        },
+        "total": 331
+      }
+    ],
+    "reasoningModels": {
+      "counts": {
+        "No, not yet": 184,
+        "Yes, I do": 83,
+        "I am thinking about it": 39,
+        "Yes, but no longer": 6,
+        "No & I will never (on principle)": 19
+      },
+      "total": 331
+    },
+    "aiAgents": {
+      "counts": {
+        "No, not yet": 192,
+        "Yes, I do": 77,
+        "I am thinking about it": 37,
+        "No & I will never (on principle)": 20,
+        "Yes, but no longer": 5
+      },
+      "total": 331
+    }
+  },
+  "academicStaff": {
+    "attitudes": [
+      {
+        "label": "Curriculum planning & implementation - creating lesson plans, determining learning objectives, finding real-world use cases & applications, etc.",
+        "counts": {
+          "Never": 10,
+          "No opinion": 19,
+          "Yes": 175
+        },
+        "percentages": {
+          "Never": 4.9,
+          "No opinion": 9.3,
+          "Yes": 85.8
+        },
+        "total": 204
+      },
+      {
+        "label": "Content creation - creating & testing learning materials, visual aids, presentations, study guides, etc.",
+        "counts": {
+          "Never": 7,
+          "No opinion": 22,
+          "Yes": 175
+        },
+        "percentages": {
+          "Never": 3.4,
+          "No opinion": 10.8,
+          "Yes": 85.8
+        },
+        "total": 204
+      },
+      {
+        "label": "Student assessment & feedback - preparing and conducting (ad-hoc) tests, automate marking of homework & tests, creating personalised reports, implementing progress tracking methods, etc.",
+        "counts": {
+          "Never": 39,
+          "No opinion": 33,
+          "Yes": 132
+        },
+        "percentages": {
+          "Never": 19.1,
+          "No opinion": 16.2,
+          "Yes": 64.7
+        },
+        "total": 204
+      },
+      {
+        "label": "Documentation & communication - creating personalised reports & parent communication, preparing for lecturer-student meetings, etc.",
+        "counts": {
+          "Never": 41,
+          "No opinion": 39,
+          "Yes": 124
+        },
+        "percentages": {
+          "Never": 20.1,
+          "No opinion": 19.1,
+          "Yes": 60.8
+        },
+        "total": 204
+      }
+    ],
+    "behaviours": [
+      {
+        "label": "Curriculum planning & implementation - creating lesson plans, determining learning objectives, finding real-world case studies & applications, etc.",
+        "counts": {
+          "No & I will never (on principle)": 8,
+          "No, not yet": 54,
+          "Yes, but no longer": 5,
+          "I am thinking about it": 26,
+          "Yes, I do": 111
+        },
+        "percentages": {
+          "No & I will never (on principle)": 3.9,
+          "No, not yet": 26.5,
+          "Yes, but no longer": 2.5,
+          "I am thinking about it": 12.7,
+          "Yes, I do": 54.4
+        },
+        "total": 204
+      },
+      {
+        "label": "Content creation - creating & testing learning materials, visual aids, presentations, study guides, etc.",
+        "counts": {
+          "No & I will never (on principle)": 9,
+          "No, not yet": 42,
+          "Yes, but no longer": 6,
+          "I am thinking about it": 23,
+          "Yes, I do": 124
+        },
+        "percentages": {
+          "No & I will never (on principle)": 4.4,
+          "No, not yet": 20.6,
+          "Yes, but no longer": 2.9,
+          "I am thinking about it": 11.3,
+          "Yes, I do": 60.8
+        },
+        "total": 204
+      },
+      {
+        "label": "Student assessment & feedback - preparing and conducting (ad-hoc) tests, automate marking of homework & tests, creating personalised reports, implementing progress tracking methods, etc.",
+        "counts": {
+          "No & I will never (on principle)": 28,
+          "No, not yet": 79,
+          "Yes, but no longer": 4,
+          "I am thinking about it": 36,
+          "Yes, I do": 57
+        },
+        "percentages": {
+          "No & I will never (on principle)": 13.7,
+          "No, not yet": 38.7,
+          "Yes, but no longer": 2.0,
+          "I am thinking about it": 17.6,
+          "Yes, I do": 27.9
+        },
+        "total": 204
+      },
+      {
+        "label": "Documentation & communication - creating personalised reports & parent communication, preparing for lecturer-student meetings, etc.",
+        "counts": {
+          "No & I will never (on principle)": 33,
+          "No, not yet": 82,
+          "Yes, but no longer": 4,
+          "I am thinking about it": 31,
+          "Yes, I do": 54
+        },
+        "percentages": {
+          "No & I will never (on principle)": 16.2,
+          "No, not yet": 40.2,
+          "Yes, but no longer": 2.0,
+          "I am thinking about it": 15.2,
+          "Yes, I do": 26.5
+        },
+        "total": 204
+      }
+    ],
+    "concerns": [
+      {
+        "label": "Teaching material reliability - risk of GenAi tools generating incorrect content (or of inconsistent quality) when creating lesson plans, or providing unreliable answers for exam questions or misleading explanations for complex topics, etc.",
+        "counts": {
+          "Disagree": 13,
+          "Neutral": 57,
+          "Agree": 134
+        },
+        "percentages": {
+          "Disagree": 6.4,
+          "Neutral": 27.9,
+          "Agree": 65.7
+        },
+        "total": 204
+      },
+      {
+        "label": "Technical teaching hurdles - fears of large number of GenAi tools to test, of large amount of time spent learning new tools, and difficulty integrating new platforms into existing teaching practices, etc.",
+        "counts": {
+          "Disagree": 43,
+          "Neutral": 72,
+          "Agree": 89
+        },
+        "percentages": {
+          "Disagree": 21.1,
+          "Neutral": 35.3,
+          "Agree": 43.6
+        },
+        "total": 204
+      },
+      {
+        "label": "Professional ethics & accountability - uncertainty about acceptable AI use, concerns about intellectual property rights, questions about transparency when using GenAi-assisted grading, etc.",
+        "counts": {
+          "Disagree": 13,
+          "Neutral": 56,
+          "Agree": 135
+        },
+        "percentages": {
+          "Disagree": 6.4,
+          "Neutral": 27.5,
+          "Agree": 66.2
+        },
+        "total": 204
+      },
+      {
+        "label": "Professional role uncertainty - danger of reduced value of  teaching experience, pressure to constantly adapt teaching methods, stress from shifting classroom dynamics, anxiety about skill obsolescence, etc.",
+        "counts": {
+          "Disagree": 35,
+          "Neutral": 66,
+          "Agree": 103
+        },
+        "percentages": {
+          "Disagree": 17.2,
+          "Neutral": 32.4,
+          "Agree": 50.5
+        },
+        "total": 204
+      }
+    ],
+    "benefits": [
+      {
+        "label": "Teaching preparation efficiency - faster creation of lesson plans, quick generation of different exercises, rapid adaptation of materials for different academic levels, etc.",
+        "counts": {
+          "Disagree": 7,
+          "Neutral": 22,
+          "Agree": 175
+        },
+        "percentages": {
+          "Disagree": 3.4,
+          "Neutral": 10.8,
+          "Agree": 85.8
+        },
+        "total": 204
+      },
+      {
+        "label": "Enhanced teaching materials - more diverse examples for concepts, better-structured lesson plans, richer vocabulary in instructions, more polished educational resources, etc.",
+        "counts": {
+          "Disagree": 8,
+          "Neutral": 33,
+          "Agree": 163
+        },
+        "percentages": {
+          "Disagree": 3.9,
+          "Neutral": 16.2,
+          "Agree": 79.9
+        },
+        "total": 204
+      },
+      {
+        "label": "Professional development support - personalised teaching approach suggestions, quick access to pedagogical research summaries, insights into alternative teaching approaches, efficient curriculum mapping, etc.",
+        "counts": {
+          "Disagree": 14,
+          "Neutral": 46,
+          "Agree": 144
+        },
+        "percentages": {
+          "Disagree": 6.9,
+          "Neutral": 22.5,
+          "Agree": 70.6
+        },
+        "total": 204
+      },
+      {
+        "label": "Administrative relief - automated progress report writing, quick parent communication drafts, streamlined documentation, simplified record-keeping, etc.",
+        "counts": {
+          "Disagree": 20,
+          "Neutral": 45,
+          "Agree": 139
+        },
+        "percentages": {
+          "Disagree": 9.8,
+          "Neutral": 22.1,
+          "Agree": 68.1
+        },
+        "total": 204
+      },
+      {
+        "label": "Instructional creativity - novel lesson activity ideas, fresh approaches to explaining concepts, innovative project prompts, unique classroom exercise formats, etc.",
+        "counts": {
+          "Disagree": 18,
+          "Neutral": 44,
+          "Agree": 142
+        },
+        "percentages": {
+          "Disagree": 8.8,
+          "Neutral": 21.6,
+          "Agree": 69.6
+        },
+        "total": 204
+      }
+    ],
+    "toolTypes": [
+      {
+        "label": "Conversational AI tools (Chatbots) - e.g. ChatGPT, Claude, Gemini, Copilot, Grok, Meta AI, etc.",
+        "used": 154,
+        "never": 7
+      },
+      {
+        "label": "Search tools - Perplexity, ChatGPT Search, Claude Search, Gemini Search, Grok Search, etc.",
+        "used": 148,
+        "never": 5
+      },
+      {
+        "label": "Image creation & manipulation tools - Midjourney, Stable Diffusion, Leonardo AI, Images with ChatGPT, Imagen, etc.",
+        "used": 87,
+        "never": 11
+      },
+      {
+        "label": "Meeting  tools  - Copilot in Teams, Otter.ai, Zoom AI Companion, Take Notes with Gemini, etc.",
+        "used": 81,
+        "never": 8
+      },
+      {
+        "label": "AI Agents - ChatGPT Agent, Manus AI, Comet Web Browser, etc.",
+        "used": 73,
+        "never": 14
+      },
+      {
+        "label": "Reasoning models - OpenAI o3 or o4 , Gemini 2.5 Pro, Claude 4, Grok 4, DeepSeek R1, etc.",
+        "used": 66,
+        "never": 12
+      },
+      {
+        "label": "Education platforms - Khanmigo, MagicSchool, Mindjoy, MagicSchool.ai, NotebookLM, etc.",
+        "used": 58,
+        "never": 15
+      },
+      {
+        "label": "Video creation & manipulation tools - Runway, HeyGen, Synthesia, Pika, Adobe Firefly, Veo, Kling, etc.",
+        "used": 48,
+        "never": 17
+      },
+      {
+        "label": "Code generation tools - Github Copilot, Cursor, Windsurf, Replit, Lovable, ChatGPT, Claude, Cursor, Windsurf, etc.",
+        "used": 48,
+        "never": 19
+      },
+      {
+        "label": "Audio creation & manipulation tools - ElevenLabs, Suno, Udio, etc.",
+        "used": 37,
+        "never": 17
+      }
+    ],
+    "codeEditors": {
+      "counts": {
+        "No, not yet": 165,
+        "No & I will never (on principle)": 13,
+        "I am thinking about it": 15,
+        "Yes, I do": 11
+      },
+      "total": 204
+    },
+    "confidence": {
+      "counts": {
+        "Neutral": 32,
+        "Somewhat confident": 72,
+        "Very confident": 51,
+        "Not confident": 14,
+        "Somewhat unsure": 35
+      },
+      "total": 204
+    },
+    "disclosure": {
+      "counts": {
+        "No & I will never (on principle)": 18,
+        "No, not yet": 45,
+        "Not applicable": 39,
+        "Sometimes": 54,
+        "Yes, I do": 48
+      },
+      "total": 204
+    }
+  },
+  "students": {
+    "attitudes": [
+      {
+        "label": "Personalised learning support - preparing concept explanations in preferred style, devising mathematical problem guidance, seeking real-world application examples & use cases, etc.",
+        "counts": {
+          "Never": 17,
+          "No opinion": 20,
+          "Yes": 167
+        },
+        "percentages": {
+          "Never": 8.3,
+          "No opinion": 9.8,
+          "Yes": 81.9
+        },
+        "total": 204
+      },
+      {
+        "label": "Study material generation - creating study guides, preparing revision notes, devising practice questions at chosen level, etc.",
+        "counts": {
+          "Never": 20,
+          "No opinion": 35,
+          "Yes": 149
+        },
+        "percentages": {
+          "Never": 9.8,
+          "No opinion": 17.2,
+          "Yes": 73.0
+        },
+        "total": 204
+      },
+      {
+        "label": "Academic planning & research - planning assignments, conducting & summarising research, creating supporting visual aids for inclusion in assignments, etc.",
+        "counts": {
+          "Never": 28,
+          "No opinion": 33,
+          "Yes": 143
+        },
+        "percentages": {
+          "Never": 13.7,
+          "No opinion": 16.2,
+          "Yes": 70.1
+        },
+        "total": 204
+      },
+      {
+        "label": "Self-assessment & improvement - creating interactive rehearsal quizzes, seeking essay feedback & improvement suggestions, etc.",
+        "counts": {
+          "Never": 11,
+          "No opinion": 28,
+          "Yes": 165
+        },
+        "percentages": {
+          "Never": 5.4,
+          "No opinion": 13.7,
+          "Yes": 80.9
+        },
+        "total": 204
+      }
+    ],
+    "behaviours": [
+      {
+        "label": "Personalised learning support - preparing concept explanations in preferred style, devising mathematical problem guidance, seeking real-world application examples & use cases, etc.",
+        "counts": {
+          "No": 11,
+          "I don't know": 0,
+          "Yes": 130
+        },
+        "percentages": {
+          "No": 5.4,
+          "I don't know": 0.0,
+          "Yes": 63.7
+        },
+        "total": 204
+      },
+      {
+        "label": "Study material generation - creating study guides, preparing revision notes, devising practice questions at chosen level, etc.",
+        "counts": {
+          "No": 18,
+          "I don't know": 0,
+          "Yes": 96
+        },
+        "percentages": {
+          "No": 8.8,
+          "I don't know": 0.0,
+          "Yes": 47.1
+        },
+        "total": 204
+      },
+      {
+        "label": "Academic planning & research - planning assignments, conducting & summarising research, creating supporting visual aids for inclusion in assignments, etc.",
+        "counts": {
+          "No": 13,
+          "I don't know": 0,
+          "Yes": 117
+        },
+        "percentages": {
+          "No": 6.4,
+          "I don't know": 0.0,
+          "Yes": 57.4
+        },
+        "total": 204
+      },
+      {
+        "label": "Self-assessment & improvement - creating interactive rehearsal quizzes, seeking essay feedback & improvement suggestions, etc.",
+        "counts": {
+          "No": 17,
+          "I don't know": 0,
+          "Yes": 87
+        },
+        "percentages": {
+          "No": 8.3,
+          "I don't know": 0.0,
+          "Yes": 42.6
+        },
+        "total": 204
+      }
+    ],
+    "concerns": [
+      {
+        "label": "Student output reliability issues - Students submitting GenAi-generated work with factual errors, inability to distinguish genuine student work from GenAi work,  difficulty in assessing true student understanding, etc.",
+        "counts": {
+          "Disagree": 5,
+          "Neutral": 32,
+          "Agree": 167
+        },
+        "percentages": {
+          "Disagree": 2.5,
+          "Neutral": 15.7,
+          "Agree": 81.9
+        },
+        "total": 204
+      },
+      {
+        "label": "Student usage barriers - unequal access to GenAi by learners, time spent explaining GenAi tool use & fixing problems instead of teaching subject matter, managing different levels of GenAi tool proficiency in class, etc.",
+        "counts": {
+          "Disagree": 11,
+          "Neutral": 43,
+          "Agree": 150
+        },
+        "percentages": {
+          "Disagree": 5.4,
+          "Neutral": 21.1,
+          "Agree": 73.5
+        },
+        "total": 204
+      },
+      {
+        "label": "Academic honesty management - difficulty detecting GenAi-assisted cheating, time spent investigating suspected GenAi use, challenges in enforcing AI usage policies, etc.",
+        "counts": {
+          "Disagree": 8,
+          "Neutral": 31,
+          "Agree": 165
+        },
+        "percentages": {
+          "Disagree": 3.9,
+          "Neutral": 15.2,
+          "Agree": 80.9
+        },
+        "total": 204
+      },
+      {
+        "label": "Learning assessment challenges - uncertainty about learners' true capabilities & progress, difficulty in grading GenAi-aided work fairly, complications in providing accurate student feedback, etc.",
+        "counts": {
+          "Disagree": 7,
+          "Neutral": 36,
+          "Agree": 161
+        },
+        "percentages": {
+          "Disagree": 3.4,
+          "Neutral": 17.6,
+          "Agree": 78.9
+        },
+        "total": 204
+      }
+    ],
+    "benefits": [
+      {
+        "label": "Student work efficiency monitoring - Students completing routine tasks & homework assignments faster allowing  for richer classroom debates & letting lecturers focus on testing real understanding, etc.",
+        "counts": {
+          "Disagree": 37,
+          "Neutral": 60,
+          "Agree": 107
+        },
+        "percentages": {
+          "Disagree": 18.1,
+          "Neutral": 29.4,
+          "Agree": 52.5
+        },
+        "total": 204
+      },
+      {
+        "label": "Student work quality improvement - teachers having better structured Student essays to review, more polished Student presentations to assess & clearer student explanations to evaluate, etc.",
+        "counts": {
+          "Disagree": 48,
+          "Neutral": 64,
+          "Agree": 92
+        },
+        "percentages": {
+          "Disagree": 23.5,
+          "Neutral": 31.4,
+          "Agree": 45.1
+        },
+        "total": 204
+      },
+      {
+        "label": "Student learning strategy enhancement - Students having multiple inputs for class discussion, finding broader (research) perspectives for assignments & conducting better planning to guide their studies, etc.",
+        "counts": {
+          "Disagree": 21,
+          "Neutral": 66,
+          "Agree": 117
+        },
+        "percentages": {
+          "Disagree": 10.3,
+          "Neutral": 32.4,
+          "Agree": 57.4
+        },
+        "total": 204
+      },
+      {
+        "label": "Basic skills automation benefits - Students using GenAi tools for learning basic concepts (and correcting basic mistakes) allowing lecturers more time for teaching advanced topics & easier identification of genuine learning gaps, etc.",
+        "counts": {
+          "Disagree": 30,
+          "Neutral": 59,
+          "Agree": 115
+        },
+        "percentages": {
+          "Disagree": 14.7,
+          "Neutral": 28.9,
+          "Agree": 56.4
+        },
+        "total": 204
+      },
+      {
+        "label": "Student creative development - Students developing more varied approaches/responses/perspectives to classroom discussions & exploring innovative problem-solving methods for assignments, etc.",
+        "counts": {
+          "Disagree": 42,
+          "Neutral": 56,
+          "Agree": 106
+        },
+        "percentages": {
+          "Disagree": 20.6,
+          "Neutral": 27.5,
+          "Agree": 52.0
+        },
+        "total": 204
+      }
+    ],
+    "tools": [
+      {
+        "label": "Conversational AI tools (Chatbots) - e.g. ChatGPT, Claude, Gemini, Copilot, Grok, Meta AI, etc.",
+        "count": 152
+      },
+      {
+        "label": "Search tools - Perplexity, ChatGPT Search, Claude Search, Gemini Search, Grok Search, etc.",
+        "count": 126
+      },
+      {
+        "label": "Image creation & manipulation tools - Midjourney, Stable Diffusion, Leonardo AI, Images with ChatGPT, Imagen, etc.",
+        "count": 67
+      },
+      {
+        "label": "Reasoning models - OpenAI o3 or o4 , Gemini 2.5 Pro, Claude 4, Grok 4, DeepSeek R1, etc.",
+        "count": 64
+      },
+      {
+        "label": "AI Agents - ChatGPT Agent, Manus AI, Comet Web Browser, etc.",
+        "count": 61
+      },
+      {
+        "label": "Code generation tools - Github Copilot, Cursor, Windsurf, Replit, Lovable, ChatGPT, Claude, etc.",
+        "count": 53
+      },
+      {
+        "label": "Meeting  tools  - Copilot in Teams, Otter.ai, Zoom AI Companion, Take Notes with Gemini, etc.",
+        "count": 51
+      },
+      {
+        "label": "Video creation & manipulation tools - Runway, HeyGen, Synthesia, Pika, Adobe Firefly, Veo, Kling, etc.",
+        "count": 43
+      },
+      {
+        "label": "Education platforms - Khanmigo, MagicSchool, Mindjoy, MagicSchool, NotebookLM, etc.",
+        "count": 38
+      },
+      {
+        "label": "Audio creation & manipulation tools - ElevenLabs, Suno, Udio, etc.",
+        "count": 33
+      }
+    ],
+    "abuseConcerns": [
+      {
+        "label": "Using AI to complete (homework) assignments without understanding.",
+        "counts": {
+          "Disagree": 5,
+          "Neutral": 13,
+          "Agree": 186
+        },
+        "percentages": {
+          "Disagree": 2.5,
+          "Neutral": 6.4,
+          "Agree": 91.2
+        },
+        "total": 204
+      },
+      {
+        "label": "Copying AI-generated content without proper attribution and/or informing the lecturers and/or when it is explicitly not allowed.",
+        "counts": {
+          "Disagree": 3,
+          "Neutral": 17,
+          "Agree": 184
+        },
+        "percentages": {
+          "Disagree": 1.5,
+          "Neutral": 8.3,
+          "Agree": 90.2
+        },
+        "total": 204
+      },
+      {
+        "label": "Over-reliance leading to reduced critical thinking & other fundamental skills.",
+        "counts": {
+          "Disagree": 4,
+          "Neutral": 19,
+          "Agree": 181
+        },
+        "percentages": {
+          "Disagree": 2.0,
+          "Neutral": 9.3,
+          "Agree": 88.7
+        },
+        "total": 204
+      },
+      {
+        "label": "Getting AI to solve tests/exam questions instead of learning and/or inflating grades.",
+        "counts": {
+          "Disagree": 6,
+          "Neutral": 17,
+          "Agree": 181
+        },
+        "percentages": {
+          "Disagree": 2.9,
+          "Neutral": 8.3,
+          "Agree": 88.7
+        },
+        "total": 204
+      },
+      {
+        "label": "Finding ways around plagiarism & AI detection systems.",
+        "counts": {
+          "Disagree": 9,
+          "Neutral": 21,
+          "Agree": 174
+        },
+        "percentages": {
+          "Disagree": 4.4,
+          "Neutral": 10.3,
+          "Agree": 85.3
+        },
+        "total": 204
+      }
+    ],
+    "abuseTypes": [
+      {
+        "label": "Copying AI-generated content without proper attribution and/or informing the lecturer and/or when it is explicitly not allowed.",
+        "count": 188
+      },
+      {
+        "label": "Using AI to complete (homework) assignments without understanding.",
+        "count": 185
+      },
+      {
+        "label": "Over-reliance leading to reduced critical thinking & other fundamental skills.",
+        "count": 178
+      },
+      {
+        "label": "Finding ways around plagiarism & AI detection systems.",
+        "count": 174
+      },
+      {
+        "label": "Getting AI to solve tests/exam questions instead of learning and/or inflating grades.",
+        "count": 164
+      }
+    ],
+    "agents": {
+      "counts": {
+        "Yes": 141,
+        "I don't know": 56,
+        "No": 7
+      },
+      "total": 204
+    },
+    "assessment": {
+      "counts": {
+        "Yes, I do": 73,
+        "I am thinking about it": 35,
+        "No, not yet": 48,
+        "Not applicable": 44,
+        "No & I will never (on principle)": 4
+      },
+      "total": 204
+    }
+  },
+  "nonAcademicStaff": {
+    "attitudes": [
+      {
+        "label": "General Management",
+        "counts": {
+          "Never": 15,
+          "No opinion": 30,
+          "Yes": 82
+        },
+        "percentages": {
+          "Never": 11.8,
+          "No opinion": 23.6,
+          "Yes": 64.6
+        },
+        "total": 127
+      },
+      {
+        "label": "Academic Management (Dean, Head of Faculty & Head of Programme)",
+        "counts": {
+          "Never": 17,
+          "No opinion": 44,
+          "Yes": 66
+        },
+        "percentages": {
+          "Never": 13.4,
+          "No opinion": 34.6,
+          "Yes": 52.0
+        },
+        "total": 127
+      },
+      {
+        "label": "Operations & Support Staff",
+        "counts": {
+          "Never": 11,
+          "No opinion": 12,
+          "Yes": 104
+        },
+        "percentages": {
+          "Never": 8.7,
+          "No opinion": 9.4,
+          "Yes": 81.9
+        },
+        "total": 127
+      }
+    ],
+    "behaviours": [
+      {
+        "label": "(Online) research - fact checking, learning, understanding, market research, academic research, business intelligence, etc.",
+        "counts": {
+          "No & I will never (on principle)": 12,
+          "No, not yet": 36,
+          "Yes, but no longer": 6,
+          "I am thinking about it": 6,
+          "Yes, I do": 67
+        },
+        "percentages": {
+          "No & I will never (on principle)": 9.4,
+          "No, not yet": 28.3,
+          "Yes, but no longer": 4.7,
+          "I am thinking about it": 4.7,
+          "Yes, I do": 52.8
+        },
+        "total": 127
+      },
+      {
+        "label": "Text creation & manipulation - writing, proofing, reviewing, summarising & translating of emails, documents, contracts, reports, etc.",
+        "counts": {
+          "No & I will never (on principle)": 11,
+          "No, not yet": 34,
+          "Yes, but no longer": 4,
+          "I am thinking about it": 8,
+          "Yes, I do": 70
+        },
+        "percentages": {
+          "No & I will never (on principle)": 8.7,
+          "No, not yet": 26.8,
+          "Yes, but no longer": 3.1,
+          "I am thinking about it": 6.3,
+          "Yes, I do": 55.1
+        },
+        "total": 127
+      },
+      {
+        "label": "Meeting preparation & recording - agenda setting, note-taking, creation of summaries & action lists, etc.",
+        "counts": {
+          "No & I will never (on principle)": 9,
+          "No, not yet": 64,
+          "Yes, but no longer": 4,
+          "I am thinking about it": 16,
+          "Yes, I do": 34
+        },
+        "percentages": {
+          "No & I will never (on principle)": 7.1,
+          "No, not yet": 50.4,
+          "Yes, but no longer": 3.1,
+          "I am thinking about it": 12.6,
+          "Yes, I do": 26.8
+        },
+        "total": 127
+      },
+      {
+        "label": "Media creation & manipulation - making & editing of images, video, sound & designs for presentations, documents, marketing materials, etc.",
+        "counts": {
+          "No & I will never (on principle)": 14,
+          "No, not yet": 63,
+          "Yes, but no longer": 6,
+          "I am thinking about it": 6,
+          "Yes, I do": 38
+        },
+        "percentages": {
+          "No & I will never (on principle)": 11.0,
+          "No, not yet": 49.6,
+          "Yes, but no longer": 4.7,
+          "I am thinking about it": 4.7,
+          "Yes, I do": 29.9
+        },
+        "total": 127
+      },
+      {
+        "label": "Technical tasks  - data, statistical & financial analysis, coding, web development, cyber security, system administration, etc.",
+        "counts": {
+          "No & I will never (on principle)": 18,
+          "No, not yet": 72,
+          "Yes, but no longer": 4,
+          "I am thinking about it": 14,
+          "Yes, I do": 19
+        },
+        "percentages": {
+          "No & I will never (on principle)": 14.2,
+          "No, not yet": 56.7,
+          "Yes, but no longer": 3.1,
+          "I am thinking about it": 11.0,
+          "Yes, I do": 15.0
+        },
+        "total": 127
+      }
+    ],
+    "concerns": [
+      {
+        "label": "Poor quality & unreliability of output - creates 'unnatural' text, is inaccurate, takes shortcuts, makes up facts ('hallucinations'), etc.",
+        "counts": {
+          "Disagree": 25,
+          "Neutral": 56,
+          "Agree": 46
+        },
+        "percentages": {
+          "Disagree": 19.7,
+          "Neutral": 44.1,
+          "Agree": 36.2
+        },
+        "total": 127
+      },
+      {
+        "label": "High technical hurdles of adoption - is difficult to use, has steep learning curve, is costly to implement, etc.",
+        "counts": {
+          "Disagree": 45,
+          "Neutral": 57,
+          "Agree": 25
+        },
+        "percentages": {
+          "Disagree": 35.4,
+          "Neutral": 44.9,
+          "Agree": 19.7
+        },
+        "total": 127
+      },
+      {
+        "label": "Ethical issues associated with use - has privacy concerns, triggers cheating & plagiarism, faces legal constraints, etc.",
+        "counts": {
+          "Disagree": 10,
+          "Neutral": 35,
+          "Agree": 82
+        },
+        "percentages": {
+          "Disagree": 7.9,
+          "Neutral": 27.6,
+          "Agree": 64.6
+        },
+        "total": 127
+      },
+      {
+        "label": "Adverse impact on people's jobs - threatens job security, requires additional training, creates extra work stress, etc.",
+        "counts": {
+          "Disagree": 26,
+          "Neutral": 54,
+          "Agree": 47
+        },
+        "percentages": {
+          "Disagree": 20.5,
+          "Neutral": 42.5,
+          "Agree": 37.0
+        },
+        "total": 127
+      }
+    ],
+    "benefits": [
+      {
+        "label": "Improved efficiency - makes work easier & faster, increases quantity of output, helps people to get more done in less time, etc.",
+        "counts": {
+          "Disagree": 3,
+          "Neutral": 23,
+          "Agree": 101
+        },
+        "percentages": {
+          "Disagree": 2.4,
+          "Neutral": 18.1,
+          "Agree": 79.5
+        },
+        "total": 127
+      },
+      {
+        "label": "Better quality - raises bar at which people can operate, reduces errors, improves quality of output, improves customer service, etc.",
+        "counts": {
+          "Disagree": 10,
+          "Neutral": 46,
+          "Agree": 71
+        },
+        "percentages": {
+          "Disagree": 7.9,
+          "Neutral": 36.2,
+          "Agree": 55.9
+        },
+        "total": 127
+      },
+      {
+        "label": "Improved decision-making - enhances knowledge and insight, leads to more effective planning, optimises resource allocation, etc.",
+        "counts": {
+          "Disagree": 10,
+          "Neutral": 43,
+          "Agree": 74
+        },
+        "percentages": {
+          "Disagree": 7.9,
+          "Neutral": 33.9,
+          "Agree": 58.3
+        },
+        "total": 127
+      },
+      {
+        "label": "More automation - reduces (time spent on) meaningless tasks, frees up capacity for more value-add, meaningful & enjoyable activities, etc.",
+        "counts": {
+          "Disagree": 4,
+          "Neutral": 30,
+          "Agree": 93
+        },
+        "percentages": {
+          "Disagree": 3.1,
+          "Neutral": 23.6,
+          "Agree": 73.2
+        },
+        "total": 127
+      },
+      {
+        "label": "Enhanced creativity  - expands the mind, generates fresh ideas, explores unique solutions, etc.",
+        "counts": {
+          "Disagree": 13,
+          "Neutral": 35,
+          "Agree": 79
+        },
+        "percentages": {
+          "Disagree": 10.2,
+          "Neutral": 27.6,
+          "Agree": 62.2
+        },
+        "total": 127
+      }
+    ],
+    "toolTypes": [
+      {
+        "label": "Conversational AI tools (Chatbots) - e.g. ChatGPT, Claude, Gemini, Copilot, Grok, Meta AI, etc.",
+        "used": 95,
+        "never": 7
+      },
+      {
+        "label": "Search tools - Perplexity, ChatGPT Search, Claude Search, Gemini Search, Grok Search, etc.",
+        "used": 63,
+        "never": 8
+      },
+      {
+        "label": "Meeting  tools  - Copilot in Teams, Otter.ai, Zoom AI Companion, Take Notes with Gemini, etc.",
+        "used": 45,
+        "never": 9
+      },
+      {
+        "label": "AI Agents - ChatGPT Agent, Manus AI, Comet Web Browser, etc.",
+        "used": 41,
+        "never": 11
+      },
+      {
+        "label": "Image creation & manipulation tools - Midjourney, Stable Diffusion, Leonardo AI, Images with ChatGPT, Imagen, etc.",
+        "used": 34,
+        "never": 14
+      },
+      {
+        "label": "Code generation tools - Github Copilot, Cursor, Windsurf, Replit, Lovable, ChatGPT, Claude, etc.",
+        "used": 24,
+        "never": 13
+      },
+      {
+        "label": "Reasoning models - OpenAI o3 or o4 , Gemini 2.5 Pro, Claude 4, Grok 4, DeepSeek R1, etc.",
+        "used": 19,
+        "never": 14
+      },
+      {
+        "label": "Video creation & manipulation tools - Runway, HeyGen, Synthesia, Pika, Adobe Firefly, Veo, Kling, etc.",
+        "used": 16,
+        "never": 13
+      },
+      {
+        "label": "Audio creation & manipulation tools - ElevenLabs, Suno, Udio, etc.",
+        "used": 13,
+        "never": 14
+      },
+      {
+        "label": "Education platforms - Khanmigo, MagicSchool, Mindjoy, etc.",
+        "used": 12,
+        "never": 12
+      }
+    ]
+  },
+  "comparative": {
+    "itProficiency": {
+      "correlation": {
+        "overall": {
+          "r": 0.105,
+          "n": 331,
+          "ci95": [
+            -0.003,
+            0.211
+          ],
+          "significant": false
+        },
+        "academic": {
+          "r": 0.093,
+          "n": 204,
+          "ci95": [
+            -0.045,
+            0.228
+          ],
+          "significant": false
+        },
+        "nonAcademic": {
+          "r": 0.115,
+          "n": 127,
+          "ci95": [
+            -0.06,
+            0.284
+          ],
+          "significant": false
+        }
+      },
+      "byLevel": [
+        {
+          "level": "Low, I don't use computers often.",
+          "adoptionRate": 0.0,
+          "adopters": 0,
+          "total": 2
+        },
+        {
+          "level": "Moderate, I use a PC for most of my work.",
+          "adoptionRate": 72.9,
+          "adopters": 86,
+          "total": 118
+        },
+        {
+          "level": "Advanced, I can assist others to solve their problems.",
+          "adoptionRate": 79.8,
+          "adopters": 134,
+          "total": 168
+        },
+        {
+          "level": "High, I could work in an IT department.",
+          "adoptionRate": 81.4,
+          "adopters": 35,
+          "total": 43
+        }
+      ]
+    },
+    "confidenceTeaching": {
+      "correlation": {
+        "r": 0.476,
+        "n": 204,
+        "ci95": [
+          0.362,
+          0.576
+        ],
+        "significant": true
+      },
+      "byLevel": {
+        "Not confident": {
+          "averageUsage": 0.79,
+          "medianUsage": 0,
+          "respondents": 14
+        },
+        "Somewhat unsure": {
+          "averageUsage": 0.71,
+          "medianUsage": 0,
+          "respondents": 35
+        },
+        "Neutral": {
+          "averageUsage": 1.16,
+          "medianUsage": 1,
+          "respondents": 32
+        },
+        "Somewhat confident": {
+          "averageUsage": 2.06,
+          "medianUsage": 2,
+          "respondents": 72
+        },
+        "Very confident": {
+          "averageUsage": 2.45,
+          "medianUsage": 2,
+          "respondents": 51
+        }
+      }
+    },
+    "brandAdoption": {
+      "rates": [
+        {
+          "brand": "Central Academic Team",
+          "currentYes": 1,
+          "other": 0,
+          "adoptionRate": 100.0,
+          "total": 1
+        },
+        {
+          "brand": "IIE School of Hospitality & Service Management",
+          "currentYes": 2,
+          "other": 0,
+          "adoptionRate": 100.0,
+          "total": 2
+        },
+        {
+          "brand": "IIE Vega School",
+          "currentYes": 37,
+          "other": 8,
+          "adoptionRate": 82.2,
+          "total": 45
+        },
+        {
+          "brand": "IIE Varsity College",
+          "currentYes": 139,
+          "other": 32,
+          "adoptionRate": 81.3,
+          "total": 171
+        },
+        {
+          "brand": "IIE MSA",
+          "currentYes": 11,
+          "other": 5,
+          "adoptionRate": 68.8,
+          "total": 16
+        },
+        {
+          "brand": "IIE Rosebank College",
+          "currentYes": 65,
+          "other": 31,
+          "adoptionRate": 67.7,
+          "total": 96
+        }
+      ],
+      "chiSquare": {
+        "chiSquare": 8.668,
+        "df": 5,
+        "critical95": 11.07,
+        "significant": false
+      },
+      "effectSize": 0.162
+    },
+    "groupAdoption": {
+      "academic": {
+        "yes": 175,
+        "other": 29,
+        "rate": 85.8
+      },
+      "nonAcademic": {
+        "yes": 80,
+        "other": 47,
+        "rate": 63.0
+      },
+      "chiSquare": {
+        "chiSquare": 22.987,
+        "df": 1,
+        "critical95": 3.841,
+        "significant": true
+      },
+      "effectSize": 0.264
+    }
+  },
+  "ideas": {
+    "uses": [
+      "AI generative texts, pure copy and paste",
+      "Creating questions from the content you feed to the AI tool.",
+      "To create additional teaching and learning resources.",
+      "N/A",
+      "I have used generative AI for writing, teaching, and data work, and with better support from the institution like proper tools, training, and systems, it could work more effectively and on a larger scale to fit my study and work needs.",
+      "Unsure",
+      "Tutoring, Self Quiz (YouLearn ai), research assistance, lesson prep, marking, my colleagues use Canva and the video creating a lot, activities/test/case study creation (QA control for accuarcy is required)",
+      "Access to paid GenAI to aid the training of lecturers and students to use AI ethically.  Especially research AIs.",
+      "I\u201a\u00c4\u00f4ve found Generative AI valuable for enhancing teaching materials, developing engaging class activities and streamlining administrative tasks. I\u201a\u00c4\u00f4d like the institution to support access to reliable AI tools, training for effective use, and integration into teaching and learning systems.",
+      "Platforms like copilot for slide creation, AI tracking and communication tools in ARC to help track at risk students, non-completion etc.",
+      "It helps me process multiple projects at once and helps me work out where to to focus my energy.",
+      "I am going to be perfectly honest, I just don't know what applications and uses are out there. I have used AI to improve grammar on emails, and for inspired teaching I created a video. I also used ChatGPT when I was lecturing BUEL6212 to make fun scenarios around students' business ventures. I have not had much meaningful engagement with AI outside of that.",
+      "Using AI as an AI research agent and as an AI personal assistant for everyday administration.",
+      "It also saves me a lot of time with admin, like drafting emails or reports. I\u201a\u00c4\u00f4d love for the institution to support this further by giving us secure access, some clear guidelines, and training so staff and students can use it confidently, and by looking at ways to build it into our learning systems so everyone can benefit.",
+      "Taking meeting minutes for example MeetGeek",
+      "For research",
+      "Ethical ways to use AI to enhance productivity",
+      "Development of activities, and scaffolding of writing to enhance writing practices.",
+      "GenAI has definitely streamlined my doctoral research, improved my academic writing, and supported creative project development. I\u201a\u00c4\u00f4d like our Institution to enhance access to advanced GenAI tools, integrate them into coursework, and offer training on ethical ands responsible use, ensuring all students can benefit from these technologies in learning, collaboration, and innovation across disciplines.",
+      "For undergraduate students, class attendance tracking.  For Master's students, Notebook LM (at an advanced stage of their degree, not in the beginning).  However, there are other non-AI software in the postgraduate space that require investment, such as PLS_SEM, AMOS and SPSS.",
+      "I use Gen AI to develop practical projects for creative formative assessments and for rubrics. BUT I have developed a model, based on extensive research that informs my thinking and I put a lot of critical thought into the assessments. I co-create with Gen AI",
+      "Grammarly - to support editing of research output. The institution could make the paid version available to improve productivity in minimum time. Consider the add in paid version of Classpoint in PowerPoint to support the delivery of lectures in ensuring lectures are interactive.",
+      "Assist with development of material/ assessments (use as a guideline); current trends/ relevant material for certain topics or categories.",
+      "I use Claude a lot, and Chat GPT - both have been really helpful for research, and my own studies. Getting us work accounts for these (or similar tools - but NOT Grok) would be helpful. I do have ethical concerns (primarily environmental impact), but so long as we're mindful of this and aknowledge it as an institution I would be happy.",
+      "AI to assist with research",
+      "I have found GenAI very useful in my work as a lecturer and researcher, particularly for designing engaging learning activities, reframing complex concepts, and drafting feedback for students. It has also supported my research by helping me brainstorm questions, refine abstracts, and synthesise large volumes of literature more efficiently. On the administrative side, I use it to draft communication and prepare outlines, which saves time and allows me to focus more on teaching and mentoring. With institutional support in the form of training, reliable platforms, and clear ethical guidelines, these applications could be scaled and used more effectively to enhance both staff and student success",
+      "Ethical desk research. Ethical summarizing of journal articles. Ethical use of Thematic Analysis tools. Ethical use of data analysis tools. Ethical use of project planning tools.",
+      "subscription to some of the GenAI tools may be beneficial.",
+      "Helping in understanding the research material that is given to students, when used correctly. It should be used to foster and encourage critical thinking and imagination.",
+      "I have been investigating creating a custom GPT engine that could export a ready-to-use word document for assignments, specifically the rubrics section - as this takes up so much of our time.",
+      "Help with rubric creation and streamlining briefs",
+      "Many of my research & teaching tasks with GenAI are self-sufficient/explanatory and can be done via freemium applications. The biggest support would be for the institution to catch up and develop an Open Education movement that can support CoPs and educational resource and practice sharing. Reconsider CoP networks (an LMS/ARC is not an effective platform as it is less permanent than Microsoft) and better data repositories and curation/sharing practices. SharePoint could work but requires QA/oversight (librarians to assist in curating and maintaining). ARCs LOR could also work but that will need well-organised training, teamwork & commitment by Librarians and Academic Support Teams.\nThe only way I see to further enhance effectiveness, scalability (across lecturers/staff), or alignment with tasks/goals using GenAI is to increase time/reduce work duties (often redundant admin tasks and overly complex or outdated workflow processes) that get in the way. The institution over the last 2 years has been adding too many extra duties (admin/QA tasks) that are overloading campuses already constrained capacities - this effects our ability to focus on quality (instead of the tick box that we often see presented) CoPs, research and innovation. With a lack of capacity there is an increase in unofficial overtime that academics are doing (beyond what they have already being doing) to explore and develop their education practices with GenAI (i.e., unpaid labour). The institution needs to increase campus capacity by reviewing roles to reduce work duties, or to increase capacity/budgets for new roles - i.e., campus Academic Integrity teams, a campus academic researcher position (not an extra role/task/duty). This will lighted the already constrained academic teams for time to research, test and develop new (and potentially innovative or critical) practices of using GenAI for various educational or admin tasks.",
+      "N/A",
+      "Ai research that supports the students in their critical thinking and not simply be copy and pasted into their work.",
+      "Pedagogy and student-centred learning customisation.",
+      "CANVA and Chat Gpt license and other. I am paying it out of my own pocket and I use it mainly for work.",
+      "Application of AI Agents",
+      "Marketing automation",
+      "non",
+      "Stronger positioning as a leader in digital education innovation, with scalable, future-ready infrastructure.",
+      "Training and Development, Business and processes efficiencies,  eradicate manual computing",
+      "None",
+      "NA",
+      "Admin",
+      "AI use in email generation, data analysis for example on at-risk modules and in some cases, departmental planning for the year ahead",
+      "Training, Innovation, Policies and procedures",
+      "Paid for ChatGPT and Perplexity will help advance my tasks",
+      "It assists with customer service, predominantly by reviewing drafted emails to ensure correct spelling and grammar. This helps ensure our communication is professional and positions us to put our best foot forward when engaging with customers.",
+      "N/A",
+      "Email generation. Meeting agendas etc. - General admin.",
+      "The use of AI for resources tailored to the Distance Learning environment",
+      "Process automation agents",
+      "Troubleshooting",
+      "None yet",
+      "None",
+      "Create a policy explainer / knowledge base agent where staff and students can ask \u201a\u00c4\u00faWhat\u201a\u00c4\u00f4s the rule for X?\u201a\u00c4\u00f9 and get an instant, accurate summary. Reading calendars, deadlines, and inboxes to generate daily \u201a\u00c4\u00faTop 5 priorities\u201a\u00c4\u00f9 lists.",
+      "stream line tasks to save time. Assist in reporting needs",
+      "Flag students who are performing academically lower than the average so the the student relations team can contact these student immediately for support and not first have to investigate. Also, the use of a ChatGBT function for our students to use to answer basic questions of policy for example.",
+      "The design or drafting of legal documentation in preparation for students moot court simulations",
+      "Using AI to assist in analysing data such as pass rates and throughput rates. It even suggests possible interventions to address areas of concern and consolidates the data in a simplified way.",
+      "I have found Generative AI highly useful for quickly creating and refining teaching materials, summarising complex academic content for student-friendly delivery. It has also been valuable for automating routine tasks such as email drafting, document formatting, and producing visual aids for lectures. I want the institution to support and enhance these uses by providing access to institution-approved AI platforms integrated with our LMS, offering training on responsible and ethical use, and ensuring that AI tools are customised to align with our curriculum standards and research needs.",
+      "Nothing yet",
+      "Makes it easier to get examples",
+      "assisting with research and assessment development",
+      "ntr",
+      "n/a",
+      "N/A",
+      "A lot",
+      "Using AI to enhance the quality of internal documents",
+      "nothing",
+      "Academic \n\nPersonalised Learning Materials \u201a\u00c4\u00ec Generate case studies, quizzes, lecture notes, and simplified explanations for students at different levels.\n\nStudent Feedback & Assessment \u201a\u00c4\u00ec Provide first-draft feedback on assignments, suggest improvements, or create rubrics to save lecturers\u201a\u00c4\u00f4 time.\n\nLanguage & Accessibility \u201a\u00c4\u00ec Translate material into multiple languages, simplify complex concepts, and convert text into more accessible formats.\n\nResearch Assistance \u201a\u00c4\u00ec Support literature reviews, summarisation of journal articles, and even initial structuring of proposals, particularly the research practice students. \n\nAdministrative Efficiency\n\nDrafting Official Documents \u201a\u00c4\u00ec Speeches, proposals, reports, and policy summaries prepared more efficiently, although this might also contribute to students being lazy \n\nSurvey & Data Analysis \u201a\u00c4\u00ec Automate analysis of student surveys, highlight trends, and suggest actions.\n\nScheduling & Planning \u201a\u00c4\u00ec Streamline timetable or event planning with smart automation, it will even motivate more students to attend classes \n\n Student Engagement & Skills Development\n\nTutoring & Revision \u201a\u00c4\u00ec AI-powered study guides, flashcards, or simulations to reinforce classroom learning.\n\nCareer Development \u201a\u00c4\u00ec Assist students with CV writing, interview prep, and entrepreneurial ideas as some 3rd years are getting ready for work.\n\nInnovation Labs \u201a\u00c4\u00ec Encourage students to co-create projects (apps, business ideas, research) using GenAI as a creative partner.\n\n Community & Institutional Growth\n\nMarketing & Outreach \u201a\u00c4\u00ec Generate professional content for newsletters, social media, and community engagement.\n\nPartnerships & Proposals \u201a\u00c4\u00ec Draft partnership documents, sponsorship proposals, and project justifications.\n\nInclusivity \u201a\u00c4\u00ec Ensure that all students, including those with disabilities, benefit from personalized learning pathways.",
+      "None",
+      "Have workshops or a course on arc on how to use AI academically",
+      "Not applicable",
+      "Nothing, AI is not good.",
+      "Cite this for me ,to help students reference",
+      "Creating meaningful diagrams and AI videos with visuals for clear understanding",
+      "None",
+      "Research Support \u201a\u00c4\u00ec I use GenAI to summarize academic articles, extract key insights, and generate literature reviews. This helps me process large volumes of information more efficiently.\n\nAcademic Writing & Drafting \u201a\u00c4\u00ec AI assists in structuring essays, reports, and presentations by providing outlines, grammar support, and recommendations for clearer expression.\n\nIdea Generation & Problem-Solving \u201a\u00c4\u00ec I rely on AI tools for brainstorming research topics, refining arguments, and exploring multiple perspectives on a subject.",
+      "Drafting reports, lecture notes, and presentations quickly.\n\nSummarising research articles or student submissions for faster review.\n\nCreating quizzes, exercises, and scenario-based questions.\n\nInstitutional support could provide secure platforms, standardized templates, and integration with LMS (learning management systems) to scale usage safely and effectively.",
+      "I would like institutional support for generative AI in content creation, data analysis, and personalized learning. Enhancing resources and infrastructure would improve effectiveness and scalability, aligning AI applications with our goals.",
+      "infrastructure",
+      "I use GenAI for drafting content, creating teaching materials, and research support, and institutional backing with training, access, and integration would make it more effective.",
+      "I think that we can salvage the use of generative AI to enhance our lesson preparation. For me i used AI to get \"Fun Fact\", \"Did you know\", and quizzes for my slides to maximize learning experience. Also, case studies that can help identify areas of the lesson that is applicable in real life.",
+      "N/A",
+      "Marking",
+      "You\u201a\u00c4\u00f4ve used GenAI for teaching (content creation, assessments, simulations), research (summaries, literature reviews, data analysis), and admin (document prep, communication). Institutional support could include infrastructure (licensed tools, LMS integration), training, and scalable systems.",
+      "Copilot helps a lot in Programming modules, however it is helpful when integrated with Github so VMs should have that.",
+      "providing personalised tutoring support to students,enhance learning and productivity on the side of the students",
+      "Notebook LM",
+      "Train students on how to use AI effectively",
+      "Microsoft Copilot",
+      "They can guide one to complete a task",
+      "Paid GenAI infrastructure",
+      "By offering real-time, customized feedback, explanations, and tutoring, generative AI has demonstrated remarkable efficacy in facilitating individualized learning.  Through concept development, literature reviews, and summarizing, it can increase the productivity of research.  Faculty and staff can save a great deal of time by streamlining administrative duties including writing emails, reports, and proposals.  GenAI promotes creativity and experimentation in creative fields by assisting with writing, design, and media production.  To guarantee that all students and employees have equitable access to these advantages, I would like the school to make investments in ethical AI training, infrastructure, and access.",
+      "I use ChatGPT and Copilot and I find it an efficient tool writing essays, reports and motivations. It will help if the institute support this type of interaction with AI",
+      "Proper use of the tools available",
+      "explaining concepts and summarizing articles",
+      "It professionalizes my work especially when sending emails or writing reports.",
+      "Enhance academic writing",
+      "TO ENHANCE MY WRITTING SKILL",
+      "Include it in ice tasks",
+      "GenAI could be used to automate administrative tasks, create personalized learning experiences, and support research with data analysis. Institutional support could enhance these applications through investment in robust infrastructure, continuous training, and integration with existing systems, ensuring seamless, secure, and scalable use that aligns with institutional objectives.",
+      "Content, assessment and rubric creation and enrichment; brainstorming; proofreading, etc. Properly-timed and incentivised formal professional development training can enhance participation and adoption.",
+      "no comment",
+      "Assessment planning",
+      "Simplifying complex concepts: For topics like international tax decisions or economic policies, AI can generate simplified explanations, analogies, and examples tailored to your students\u201a\u00c4\u00f4 level. For instance, instead of explaining the U.S.-South Africa tax issue with heavy policy jargon, it could be reframed in a way that relates directly to a student\u201a\u00c4\u00f4s daily life or future business module applications.",
+      "Please see my detailed response to the proposed policy.",
+      "Tools that support students in their research module, I have provided \"training\" to supervisors and students in supporting students to use these. I enjoy using AI to create interesting and complex research problems and assist me in designing an engaging and thought-provoking lecture.",
+      "N/A",
+      "I have found Perplexity really useful when I have prompted correctly to design self marked automated feedback ice tasks. This saves me time and gives students immediate feedback.",
+      "The development of small class tasks and interactivity amongst the students on a specific topic Ai has been a great source.",
+      "It would be beneficial for institutional licences for these products to ensure maximum usage.",
+      "Give students the knowledge and understanding of how to use AI tools to better themselves and to provide a fuller experience when lost on content in  subject. This would also help lecturers as well to understand how to look for loopholes where students are using AI tools to generate answers. Lecturers would be able to engage with students before the work is completed, and help students understand that we know when something is not right, especially for Assignment submissions.",
+      "n/a",
+      "I would love to have access to more advanced research AI tools. \nAnd would love AI tools to help with the marking load",
+      "Lesson planning & content creation\n\nAssessment question generation\n\nPersonalised learning pathways\n\nInteractive simulations & scenarios\n\nWriting assistance and Language support\n\nStudy aids",
+      "Notebook LM to make summary notes as well as videos and podcast to assist students with  revision.\nTeaching the students to use the new Teach and Learn function on ChatGPT to explore new and complex study material.",
+      "Unblock CoPilot for Office 360.",
+      "Meeting summaries",
+      "Research would be a definite requirement for GenAI. Plagiarism detection is a requirement to discern a student's thinking from their written work.",
+      "Students are way ahead of us, we need to be empowered to better manage the cheating.",
+      "none",
+      "Using AI for power point slides. Also having a way to check if students are abusing AI in tests or exams.",
+      "Planning, marking with detailed feedback.",
+      "Development of ungraded assessments. Marking.",
+      "Whilst Generative AI tools are wonderful tools for streamlining tasks and enhancing self-efficiency, most of the focus has been placed on tools that allow students to generate ful content answers. Instead, I have taught my students to focus on both generative and non-generative AI tools that specialise in certain aspects of the educational process. For example, I have made it mandatory in most ICE Tasks to make use of AI tools such as Litmaps or Connected papers for source finding, as well as Notebook LM for source engagement. In doing so, I am showing my students how to make AI useful to them as a tool for learning, for exploration, for reading, and for source synthesis so that they can still do their own evaluations, critical thinking, reflective practive and writing. This is something that I would like the institution to focus on - to provide frameworks on AI tools that are suited to enhacing skills rather than generating all the content, and to focus on supporting student integration of AI skillsets. For instance, I am busy with a paper that focuses on constructing a framework of guidelines and principles for ethical and effective student AI use so that I can use the findings to support my students in learning such AI literacy.",
+      "Pay for the tools",
+      "Using AI to create interactional videos to communicate lengthy policies.",
+      "Creating assessments that are AI proof",
+      "None that I could think of, privacy is always a concern for basic admin tasks like mark entry.",
+      "Research, lecture plans",
+      "Can't say, sorry",
+      "There has to be a way to use it for marking.",
+      "N/A",
+      "Get the paid versions & share with staff for use. As it can help with task & content creation.",
+      "Creative activity ideas, creating interactive content.",
+      "unsure",
+      "Ai has its place, as part of the creative process. I've found it most useful there. There is however a grey area that exists between idea and execution and the idea that ai tends to play it safe with everything it does. So far, this is my biggest issue with it. students tent to take less risks despite using ai as a tool.",
+      "I enjoy conversation with AI around brand insights where the is a mutual discussion regarding my view, opinion and reason",
+      "Quickly researching relevant class activities that support the content covered, that are engaging for students in new or different ways",
+      "Marking of assessments",
+      "I think that NotebookLM podcast technology could greatly improve laying the foundation for students. They could listen to summaries of learning units before class and come in with a good overview. I think that as lecturers we could then provide the detail after a schema has been created. Used correctly, ChatGPT can be used for feedback and idea generation while conducting research.",
+      "Outline for assignments",
+      "It helps with creating activities for in-class to helps students understand and apply concepts which is what I use AI for.",
+      "lecturer resources for online students.  Explanations of difficult concepts/calculations.",
+      "We are not using our data. We are not developing tools for our own usage. We are not even scratching the surface on what tools we could develop and leverage AI for our own benefit. We are not hosting/training/using out OWN AI's that are there to assist students. We sit on a wealth of info and do nothing with it.",
+      "Pay for subscriptions for CHATGPT, SCI-Space, SCOPUS, and a Paraphrasing Tool.",
+      "Alignment with your tasks and goals in the classroom and development.",
+      "Chatgpt",
+      "Notebook LM and Gemini have enabled video creation, this is very useful for the creation of short learning videos.",
+      "Programming IDEs are equipped with code generative tools like MS Copilot, but because there are no subscriptions, some features are restricted. Maybe if possible get some subscriptions to allow the integration of advanced features.",
+      "IN the numeracy modules, I find that there is still an alarming amount of information produced by AI that is entirely incorrect and unreliable. This seems to be a problem that is growing rather than reducing as the AI references it's own previous incorrect answers. How do we rely on what seems to become increasingly unreliable?",
+      "Summarising meeting minutes.",
+      "none",
+      "There are some useful software's and features for students doing research, applications that provide accurate summaries of academic papers saving time and helping make informed decisions about whether to read the whole paper or not.",
+      "n/a",
+      "Not yet",
+      "AI platforms are useful to streamline research planning processes for researchers under the IIE, and platforms are also useful for more teaching engagement.",
+      "Paid version of Claude. I believe it is one of the more ethical genAI modules out the but the free version only allows a certain number of prompts a day.",
+      "I find that enhancing my lesson plans for class is helpful, making sure the lessons align with the flipped classroom and constructivism. I find that the institution could create assessments that are AI-proof - meaning there is space to use AI, but the skills and knowledge need to be assessed, for example, oral presentations or written exams, instead of submitting essays or answering questions.",
+      "Litmaps for literature discovery and visualisation tool.",
+      "I have found novice accountants will try and use AI to summarise LUs instead of actually engaging with the textbook content and exercises; those I have spoken to and have done this have come up with nonsense answers to accounting questions, thus I would encourage a circumspect institutional approach to AI in such subjects.",
+      "Lesson Planning/Slide Generation",
+      "A short course to machine learning/data science",
+      "marking assessments",
+      "As a lecturer who teaches creative modules I believe that design students should learn how to incorporate GenAI into their studio practices in an ethical manner. They should be exposed to them in their modules.",
+      "I use generative AI for writing support, research summarization, brainstorming, and data analysis\u201a\u00c4\u00eeit saves time and boosts clarity and creativity. Institutional support could enhance this by providing reliable access to licensed tools, offering training on responsible use, and integrating AI into existing systems.",
+      "None so far.",
+      "Get us paid versions of the GEBAIN apps",
+      "Mostly use it for image generation, slide generators based on the content and ideas-based tool",
+      "transcription and data analysis tools for research",
+      "I have used GenAI for the use of Quiz questions however the use of Lumi has really supported this.",
+      "Subscriptions could be provided to staff members for certain educational AI tools to assist in making lectures more interactive and time effective. In terms of academic integrity, an AI tool that could be helpful would be one that clearly indicates how students have misused generative AI in their assessments. For example, in the Turnitin report, in addition to highlighting the sections that contain suspected AI use, it can distinguish how and why the AI that has been detected could potentially be unethical.",
+      "Expanding on safe and constructive ways to use different AI models and programs.",
+      "Perhaps critical evaluation of current content",
+      "Bring the use or limitations of AI in assessments.",
+      "Using GenAI to ensure that assignments are grammatically correct, for structuring assignments, clarification on complicated terms within an assignment, and how to effectively and ethically use GenAI.",
+      "I use it on very basic level",
+      "I use the tools as shown in training sessions and learned about from lecturing peers",
+      "N/A",
+      "Supports efficiency and quality of my output",
+      "I have used generative AI primarily for drafting and refining educational materials, such as lecture slides, assessments, and student activity guides. It has also been valuable for summarising complex texts, eg. summarising the South African Schools Act etc.  and rephrasing explanations into simpler, student-friendly language. These applications have improved both the quality of teaching resources and the efficiency with which they are produced. With institutional support, these uses could be enhanced significantly. For example, access to an institution-wide GenAI platform integrated with our LMS would allow lecturers and students to use the tool within a secure, ethical framework. Training workshops could help ensure that staff and students understand not only how to use GenAI effectively but also how to avoid pitfalls such as plagiarism or over-reliance. Institutional investment in resources such as clear usage policies would also ensure equitable access for all. This support would allow GenAI to be used more ethically, aligning with our goals of fostering innovation, improving student learning outcomes, and promoting digital literacy.",
+      "I think most academics are using AI in their own way and this makes application dangerous",
+      "Integration of AI Tec tools in my live lecture sessions and just general admin, it helps to save a lot of time that I can now use to focus on research, etc.",
+      "Having access to more apps where teachers can develop interactive activities for their learners and use in their classrooms. I would also appreciate training in this regard.",
+      "I use AI to find research gaps and research articles (Heuristica, Elicit and Consensus in particular). I also use AI tools to refine search terms and in instances where I need assistance with extreme technical terminology (e.g. a recent article was from the medical field so outside of my ability to properly understand all the jargon), I use the tools to simplify this terminology. I also use them as checks to make sure I include all the latest articles, identify seminal authors and that I do not accidentally misinterpret information or fail to include certain critical elements. When attempting a new research or data analysis technique I have used AI as a mentor to guide me through the process. I also use it to assist me in formulating case studies (though I do edit it substantially)",
+      "N/A",
+      "N/A",
+      "Self-marking assessments",
+      "I have mainly used AI to generate examples / scenarios and questions for quizzes based on content I provide but always double checking and reading all questions / answers provided as I do know what the answers should be and do not just blind copy / paste. \n\nThis just helps me save time with thinking of scenarios and examples as well as questions.\n\nI do not have any suggestions that would need institutional support - I do not use AI in class and do not want to encourage the use of AI in class.",
+      "Ai transcribers, image generation, overview of topics",
+      "Using AI for initial research and structure, a kickstart to a project, but also adding research from other more traditional sources. Using AI to help comprehend subjects and to open up more possibilities when it comes to research, strategy and creativity. AI is also a fantastic creative tool in that it can very quickly bring ideas to life, and also combine disparate ideas to create something new. The emphasis here, is it is a tool - use it but add human understanding and empathy and, where possible, show evidence of the hand of the maker. I believe we need to update our education system/s to accommodate the Age of AI, rather than try and fight it and find ways to catch students out. Use AI as building blocks in education and life, facilitate clever uses of AI in conjunction with other methods of learning and creating, and open up the opportunities for provocative questions and insightful discussions that ensure a deeper understanding on the part of the students. Likewise, as a lecturer, be free to mash up your tools and techniques when putting together learning material and activities in class. Just as we use prompts to get results from AI, AI and also be used as prompts to expand understanding, encourage more in-depth research and discussion, and so on.",
+      "To be fully proficient in all uses both to use for efficiency or improvement,  but also, to assess its usefuleness to students and lecturers in the learning process.  So far there is apparent damage to  students to mitigate already (please include in the next survey):  both manual e.g. spelling, as well as perceptual, i.e. wasted assessments as the machine completed what would have instructed them well.",
+      "For my own studies it assists on summarising content for examination purposes. It can also assist in providing structure for research purposes.",
+      "I believe AI makes people lazy to think and do research which also affects their ability to learn and enhance their knowledge and skill so I would prefer if the institution did not use AI.",
+      "I have not used Gen AI enough to be able to list the relative uses that I could want the institution to enhance and support, but in essence, it would something along the lines of being able to extract data from our system without exposing valuable data to external users/hackers, to help with identifying duplicate information to aid in minimising the occurrent data input duplicating enquiries and applications.",
+      "None.",
+      "They assist me with Drafting emails and communication; they assist with research for academic topics and how best to structure my assessments.",
+      "I have never used GenAI",
+      "AI Robots that are able to assist a student query during non-working hours",
+      "AI could help us with analysis, security and searching",
+      "Reseach tools",
+      "enhances productivity",
+      "None",
+      "I think the institution should give middle management more access to the tool as it helps creating meaningful templates and ideas to the junior staff, creating an environment that is progressive and aligns with other industries across the globe.",
+      "24-hour chatbots",
+      "Breaking down complex topics. Assisting with planning. Being used as a critique to hold outcomes to high standards",
+      "Presentation writing",
+      "Helps with better understanding the concept you working on",
+      "I believe ChatGPT can be utilized to create effective workflows and daily trackers for employees instead of staff having to manually create those for themselves which leaves room for error in terms of the formulas being used",
+      "Enhancing Research Productivity, Guiding Ethical and Responsible AI Use",
+      "I\u201a\u00c4\u00f4ve used generative AI for writing support, coding assistance, data analysis, and brainstorming ideas. It helps me work more efficiently and stay focused on higher-level tasks. With institutional support\u201a\u00c4\u00eelike access to secure, approved tools, training on ethical use, and clear policies\u201a\u00c4\u00eethese applications could become more effective and scalable. Support for integrating AI into research and learning platforms would also enhance productivity and innovation across the institution.",
+      "I have not really used AI applications because I believe they are contributing largely to laziness in a workplace",
+      "Student academic support",
+      "Note taker, Scheduling Assistant, and code generator: implement real-time collaboration features to facilitate teamwork and knowledge sharing.",
+      "GenAi could be used to compile documents, create questions for students based on their prescribed material, and perform general tasks such as generating reports, scheduling meetings and taking concise and professional notes during those meetings.",
+      "Training because you get more articles for training.",
+      "None",
+      "none",
+      "Smart email drafting.",
+      "I believe GenAi could be used for mundane tasks where we have large sets of data. This could be put to use in reducing the amount of time compiling these reports from a human. And it could very likely reduce errors(providing it is checked properly).",
+      "Creating more engaging content for students in terms of additional learning resources.",
+      "I use AI to trouble shoot systems in my work and to improve workflow. However it takes time. AI is not 100% accurate and its sometimes takes a long time to get something done right.",
+      "A copilot pro license would make the tasks in my job much faster - eg excel work",
+      "Assist us when dealing with tickets find a way that could assist in how we respond to students.",
+      "Training required for all staff and ways to enhance the processes. A document management system using ISO to make sure documents have a proper version and approvals are in place.",
+      "Helps with sentence/email construction and overall presentations.",
+      "Automated results checker, this will be helpful for applications.",
+      "Restructure assessments.",
+      "Brainstorming, sense checking. Student support applications (AI Agents for common queries).",
+      "Image generation for assignments and a draft for a study planner",
+      "Atomizing of processes carries a very large value to accurate data capturing as well as speeding up processing.",
+      "Department specific needs",
+      "No experience, can't comment",
+      "ChatGPT- I think in the field I work, it helps answer questions and resolve queries in a well mannered way. We live in a generation where everything is taken personally so this will assist in professionalism.",
+      "proof reading, effective writing",
+      "I have used ChatGPT and Copilot, paid for options would be great. Training on what can be done, and what is permitted would also be helpful.",
+      "Chat BOT - to assist students in general queries and not rely on a human response; Grammar & spelling - help with writing skills; \nRecording of results and student feedback; \nReport writing and stats from our Assist platform.",
+      "not really used it",
+      "Responses to difficult queries, data analysis",
+      "I think I would want more conversations surrounding the back end of AI - ethics of it, how it can be unreliable, where it can be useful, how to drive it without kicking your off a cliff. Some user tips and tricks for the emmeshed AI would be great i.e. how to use co-pilot for outbox.",
+      "Proof reading reports and emails to maintain level of profressionalism.",
+      "The chat / assist function to -  accuracy checker, spelling check and more professional polished versions of emailing - simple problems solving or navigating of situations. Find ways to improve yourself in your current job (skills to learn and improve)",
+      "I found Elicit and SciSpace incredibly helpful for research. I would really appreciate if the institution could create a profile with them and allow staff to use it, as there are some restrictions on those sites. These sites pull relevant and accurate academic sources instantly.",
+      "Using ChatGPT to assist in improving office procedures",
+      "Online resources",
+      "Helps redefine my thoughts and helps fill in the gap in areas where words fail me. Sometimes the mother tongue gets in the way of being able to express in the communicative language.",
+      "In my work and studies, I have found generative AI particularly useful as a learning accelerator, troubleshooting assistant, and documentation tool. For example, I often use GenAI to quickly explain complex networking concepts, generate practice labs in Packet Tracer, and create adaptive study guides for certifications like CCNA, ITIL, or Linux. It has also helped me draft professional reports, CVs, and proposals with clarity and structure, reducing the time spent on formatting and repetitive writing. In IT support tasks, GenAI assists with step-by-step troubleshooting guides and even suggests scripts or commands that speed up problem resolution. However, these benefits are currently limited by access to tools, lack of integration with institutional systems, and concerns about data accuracy and security. If the institution could support and enhance GenAI through dedicated platforms, integration with lab environments, and safe access to internal resources, students and staff would be able to scale their productivity significantly. Centralized AI infrastructure could also ensure outputs are aligned with curriculum standards and compliance frameworks. With institutional backing, GenAI could evolve from being an occasional helper into a trusted, everyday assistant that improves learning outcomes, operational efficiency, and career readiness for both staff and students.",
+      "An AI tool that deals with general enquiries. If to complex for instance (Meta AI) or any AI in which you could chat to, if too advanced can transfer you to the relevant department for assistance. Will require some sort of user verification to ensure personal information is not easily accessed by others. This could assist students with general enquiries and if cannot be assisted, guide them as to who to contact to ensure that general, timewasting queries are solved and more complex issues left for relevant departments.",
+      "N/A",
+      "I\u201a\u00c4\u00f4ve found GenAI useful for simplifying repetitive and time-consuming tasks across various areas, from admin and content creation to planning. I believe the institution could benefit from supporting its use more broadly\u201a\u00c4\u00eeparticularly in departments like HR, where there are still many manual reports and forms that could be streamlined. With the right support, GenAI could help staff across roles work more efficiently and focus on higher-impact responsibilities.",
+      "Minute taking and summarising meetings",
+      "Better workflows and training platforms.",
+      "N/A",
+      "Content creation for lecturers, activities for students, posters",
+      "effectiveness",
+      "None",
+      "n/a",
+      "n/a",
+      "GenAI could add value in the in terms of working smarter and not harder, automating certain systems/processes.",
+      "GenAI has been able to assist with responding to emails in a professional manner\nIt also has assisted with generating scripts for speaking to students over the phone which is quite helpful\nGenAI also assists with designing templates",
+      "I have used AI to make my sentences and responsed more professional",
+      "It could help staff members and students to draft emails, reports and proposals in a clear and professional way. And this will help save time and reduce errors. These tools could help students break down difficult concepts into simpler terms. Could be used to summarise coursework and make studying easier. It could help gather information fast and suggest sources or ideas for research projects. Staff members can use it to respond to queries and for preparing documents, and this will help make services more responsive to students. Lastly can help generate ideas for presentations, designs and innovative problem solving and this will encourage staff members and students to think outside the box.",
+      "Easily accessible",
+      "N/A",
+      "None so far",
+      "Academic Support and Learning",
+      "Can reduce time spent on a task",
+      "The use around planning and organizing",
+      "I don't normally use it much for work, only in my studies (research)",
+      "The institution supports the use of GenAI but in a responsible way, if it would enhance anything then the students would feel like it's safe to use AI for their schoolwork and a way to manipulate the system making the work look like their own, which is the plagiarism we are avoiding.",
+      "Using GenAI to automate admin processes such as calculating DASE hours for lecturers and creating contracts and annexures",
+      "For invite, notice, poster and video design. In addition, the institution can provide training, workshops etc. to educate staff on how to use it ethically.",
+      "AI tools in the research process e.g. SciScape and ChatGPT",
+      "Studies",
+      "Definitely idea generation, and providing alternatives for problem-solving"
+    ],
+    "jobIdeas": [
+      "I show students how to use generative AI more responsively as a tool to understanding concepts and themes.",
+      "AI could reply to questions sent by students by referring to the company policy.",
+      "The idea is to explore more AI agents' tools available.",
+      "No",
+      "I think GenAI could make my job easier by providing tools like an AI feedback assistant to speed up grading and ensure consistent comments, a curriculum co-pilot to suggest updates from the latest research and industry trends, and a student support chatbot that offers guidance and motivation to struggling learners, which together would save time, improve quality, and better support both staff and students.",
+      "No",
+      "Assessing honours and master's research, assisting in synthesising and collating policy and procedure information into creative infographics for students, and serving as a research assistant for literature reviews, evaluating qualification success and throughput data for insights and practical strategies",
+      "I mainly use AI to correct my grammar and check academic writing flow.",
+      "Perhaps an AI-assisted lesson planning tool that aligns content with learning outcomes and an AI-powered marking assistant for initial draft feedback.",
+      "It speeds up certain administration task",
+      "Not really",
+      "No but I am eager to learn.",
+      "I haven't had a chance to explore it yet, but an AI tool for completing spreadsheets would be ideal.",
+      "I see real potential for generative AI to ease workload pressures, strengthen student support, and drive innovation. For example, AI could help predict and balance staff workloads, identify at-risk students through early performance analytics, etc It could also streamline administration by drafting routine correspondence and generating feedback templates for lecturers to adapt, saving time while keeping quality high. Longer-term, an AI hub for sharing best practices and even policy simulation tools could support evidence-based decision-making. To make this feasible, we would need secure system integration, clear ethical guidelines, and practical training so staff can confidently adopt these tools.",
+      "No, would need to think about this",
+      "Marking Feedback",
+      "Nothing that was not mentioned in the suggestions.",
+      "Yes, I use it for students to develop work and ideas in class and to then build on it and integrate it through rigorous writing practices.",
+      "a GenAI-driven platform that could streamline curriculum development by analysing legal trends, student feedback, and emerging case law to recommend any changes to programmes adjustments in real time. A GenAI assistant could also automate policy drafting, accreditation reporting, and compliance reviews, saving administrative time. Additionally, a tailored chatbot for student and faculty inquiries would enhance communication efficiency. AI-assisted predictive analytics could help identify at-risk students early, enabling timely support. What I would really like to see is the integration of GenAI into legal clinics to assist students in drafting legal documents under supervision, improving experiential learning while maintaining academic integrity and professional responsibility standards.",
+      "Autonomy to decide if AI should be allowed or not in the assessments of my programme.  The latest IIE policy does.",
+      "No",
+      "Keeps information current and gives platform/ starting point of content development",
+      "I've considered a planner to help me be more efficient with my time. I find Meet Geek to be useless, quite frankly - the summaries are always awful - but I get an enormous amount of emails every day. Something that could direct my attention in whipping through them (specifically to identify those that are urgent and require immediate action).",
+      "no",
+      "One idea I would find useful is a GenAI tool that could automatically align my lecture content and assessments with curriculum outcomes, saving time while ensuring compliance. I would also value an AI-driven system that generates personalised student feedback based on their specific progress and learning style. Another helpful tool would be an AI assistant to streamline administrative tasks such as timetabling, reporting, and communication. With the right institutional support and ethical safeguards, these ideas could free up more of my time for meaningful student engagement and research.",
+      "MANY of the current marks capturing procedures and CAT processes are duplicated and tedious - wasting time and money and reducing productivity significantly. Surely AI can assist.",
+      "No, I do not.",
+      "No",
+      "No specific ideas as such. Use it a lot to check content created against outcomes etc. Not alwsys super accurate, but it very quickly points out if there isn't any alignment.",
+      "No",
+      "It is not so much GenAI uses but automation & updated workflow processes (too many middlemen - that are often not trained well-enough on how processes & systems interlink). For example, it is ridiculous that \"AIT\" has not assisted (campus-wide) in automating the plagiarism/disciplinary processes. Similarity with \"Care Calling\" as a redundant admin task [just 3rd-party or automate it with a survey or a Bot]. We already have personalised feedback mechanisms (i.e., at-risk conversations & lecturer-student check-ins). GenAI should be a minor focus compared to improving workflow processes, automation, and data curation (& knowledge management is a mess. I.e., SharePoint) [KonMari method needed].",
+      "N/A",
+      "no",
+      "Building custom AI tools as custom GPTs or agents for context-specific scenarios.",
+      "NA",
+      "Marketing automation and project management AI tools would really reduce pressure in my team.",
+      "non",
+      "AI-Enhanced strategy drafting assistant, Service Desk Agent, Curriculum co-designer",
+      "improve business and process efficiencies,",
+      "none",
+      "None",
+      "No",
+      "Yes",
+      "No I think my knowledge and understanding of AI is not high enough",
+      "We have tons of info that are in emails, pdfs, chatbots and FAQs - AI is a perfect tool to give us better access to this information and data.",
+      "distilling of information and translate that into models/frameworks/designs",
+      "We currently have a FAQ Bot for students, which helps them find answers quickly without having to visit the Student Relations Office. It would be incredibly beneficial for staff to have a similar tool. In my role, I work with disciplinaries and often need to consult lengthy policy documents. Having a bot that could instantly provide accurate answers would save significant time. For example, I could quickly find the outcome for a student caught with narcotics on campus, what the policy says on 'searching students\u201a\u00c4\u00f4 bags, or our position on promoting political parties etc. It could also answer questions such as how many leave days VC staff are entitled to. By providing instant, accurate information, such a tool would not only improve efficiency but also reduce risk and error.",
+      "Nothing that I can think of at the moment",
+      "n/a",
+      "The use of AI for Results Analysis + suitable interventions",
+      "Tracking spend against forecast. Briefing",
+      "Perhaps a support where people can troubleshoot their challenges",
+      "Not at the moment",
+      "None",
+      "The Results Reconciliation Agent cross-checks marks between ARC and SIMS and flags mismatches instantly. Sends gentle automated reminders to lecturers. Assessment Pack Tracker Agent monitors which scripts are in, which are missing, and who\u201a\u00c4\u00f4s responsible.",
+      "no",
+      "Perhaps a system that can build student case files based on various aspects of their profile; finance, academic performance such as engagement vs submission rate and marks the students gets.",
+      "No",
+      "AI can be used to simplify any task. For example, when schedules need to be made for staff or consolidation of data- this is very useful.",
+      "A tool that could combine several of my current tasks into a single intelligent platform. It would generate tailored lesson plans, create interactive learning activities aligned with curriculum outcomes, and produce assessment tools with built-in marking rubrics, all based on specific student performance data and module objectives. The system could also draft research outlines, summarise relevant academic articles, and prepare presentation slides from lecture notes, significantly reducing preparation time.",
+      "No",
+      "No",
+      "N/A",
+      "ntr",
+      "n/a",
+      "N/A",
+      "As a lecturer, I believe GenAI can be a valuable support tool to make my work more efficient and impactful. It can assist with lesson preparation by generating outlines, case studies, and examples aligned with the curriculum, as well as support assessment by drafting questions and feedback. Additionally, it can simplify complex content into student-friendly summaries, create engaging discussion prompts, and streamline administrative tasks such as emails and reports. By reducing time spent on repetitive tasks, GenAI would allow me to focus more on teaching, mentoring, and engaging with students.",
+      "No",
+      "No",
+      "Yes - Brainstorming plays a significant role in developing our content, the world is moving towards the use of AI, lets adopt please, i have been waiting for this survey for the longest time.",
+      "No",
+      "N/A",
+      "No",
+      "Start using AI to generate Task and even prepare lesson plan.",
+      "NO",
+      "yes.. I use it to summarize the slides to be easy",
+      "None",
+      "AI-Powered Administrative Assistant\n\nPain Point: A lot of time is spent on routine tasks such as drafting emails, scheduling, formatting reports, or generating teaching notes.\n\nIdea: An institution-supported GenAI assistant integrated with institutional systems (e.g., Outlook, LMS, HR portal). It could automatically generate professional responses, prepare schedules, summarize meetings, and draft official documents.\n\nBenefit: Frees up time for core academic/research tasks.",
+      "An AI assistant that converts lecture slides into interactive student activities automatically.",
+      "I propose an AI assistant to automate routine tasks like scheduling and report generation, reducing manual workload. Additionally, an AI-driven knowledge base could provide instant access to information, enhancing efficiency and decision-making.",
+      "no",
+      "An AI marking assistant, lesson plan generator, and student progress tracker would greatly simplify my workload.",
+      "I think we could use AI to help layout the lesson plans and structure more effective to ensure that I spend more time in content that in the admin and creating lesson plans.",
+      "N/A",
+      "no",
+      "Generative AI could simplify my work through tools like an AI Curriculum Designer that aligns outcomes, materials, and assessments. A Smart Student Progress Tracker could monitor performance and flag at-risk students. An AI Meeting Assistant could capture notes and action items automatically, saving time and improving follow-up.",
+      "Yes, using AI to breakdown assignments helps a lot",
+      "Integrating AI into assessments",
+      "None",
+      "Just created power slides for now",
+      "No",
+      "No",
+      "AI Collaborations",
+      "To cut down on manual tracking, one solution is a GenAI-powered assistant that automatically arranges and condenses meeting notes, action items, and follow-ups.  Another would be a program that uses data inputs and real-time project updates to generate reports or documentation.  In order to save time and guarantee consistent communication, a chatbot that has been trained on institutional policies could respond to common inquiries from coworkers or students.  AI-powered scheduling aides that manage several calendars would also make teamwork easier.  All things considered, these technologies would lessen monotonous work and free up more time for strategic or creative endeavors.",
+      "No not really as I am not reliant on AI in my job.",
+      "Include this training in the student curriculum for a couple of days to adequately train the students",
+      "If GenAI could help us with Marking of student assessments",
+      "When doing PTL claims, class visits and lecturer consultations",
+      "Breaching language barriers with students regarding their mother tongue and English",
+      "YES",
+      "No",
+      "Implementing a personalized AI task manager could optimize workflow by prioritizing tasks based on deadlines, predicting resource needs, and automating routine queries. This system would learn from past performance to minimize inefficiencies and enhance productivity, ultimately streamlining daily operations and decision-making processes.",
+      "Automation of assessment records, capturing, access and retrieval process  -  for example, the grade centre on the LMS can be linked to SIMS so that lecturers do not have to recapture marks manually. This reduces capture errors and lecturer fatigue.",
+      "no",
+      "Yes. Using GenAI to generate ideas.",
+      "Yes  I do",
+      "Please see my detailed response to the proposed policy.",
+      "All of the admin that is related to my role, such as registers, creating a \"profile\" of a lecturer and then being able to pull attendance and engagement stats on what the lecturing is seeing and doing to give me a full picture.",
+      "Anything to help with marking.",
+      "Compulsory course in ethical AI use",
+      "My colleagues and I meet on a month to month basis to chat and work through tools that help them. We share in each other's tools.",
+      "Automation of students having to complete a certain check list of learning outcomes before moving on the next.",
+      "Not as yet... but I am thinking about it.",
+      "When brainstorming, it is important to not ask AI for the complete solution, but to use it effectively to build a solution, step-by-step. It helps to align and focus a conversation that develops a solution over time and helps the person understand better, how a solution came to be.",
+      "n/a",
+      "An AI marking assistant",
+      "No",
+      "Unblock CoPilot for Office 360.",
+      "Not at the monment",
+      "None at the moment",
+      "We have to scrap online POE submission/assignments, it serves no purposes as we continue to mark AI. We also need to be able to deduct way more marks for AI usage.",
+      "entering marks - using the ARC grade centre to speak to SIS",
+      "I would like training in AI and various forms of AI to make great power point slides and ICE tasks.",
+      "Let's build assessments that can be automatically marked. Marking code is painful.",
+      "Ability for GenAI to review and mark assessments against the rubric, memo, and textbook/student material.",
+      "I have been lucky enough to receive full CoPilot Pro access to streamline my research output as well as my teaching and learning. This access has been a tremendous help in getting through tasks faster, providing me the time to critically engage with the more important aspects of my tasks and have allowed me to get through more of my work in shorter time frames. I have also made it a point to constantly use Notebook LM, Gamma AI, and SciSpace as tools to help with presentation construction (to get a basic outline to edit and enhance), literature reviews for research (to manage and synthesis my reading of large amounts of information and articles), and to streamline my narrative construction processes. If services like these were to be integrated for all academic staff, I believe it would truly benefit the institution and would allow academic staff the additional time to focus on research output. For instance, in having these tools, I am working on 3 papers this year alone, with the likelihood of publishing two this year and one in the first half of next year - as an example.",
+      "AI could record and analyze class visits for peer reviews AS A FIRST STEP. Thereafter, peers can collaboratively reflect on the recording and AI feedback. A real-life class visit can then follow where needed for further development. Many lecturers who teach for decades are resistant to trying out new approaches, so asking them to reflect on their practice (as a first step) is almost useless. This will facilitate reflection based on contemporary teaching and learning theory.",
+      "Yes, help with lesson design and being more creative.",
+      "Using AI to create interactional videos to communicate lengthy policies.",
+      "No",
+      "No",
+      "No",
+      "Please stop telling students to look for ideas using AI. They must come up with ideas themselves - that is fundamental to creativity and originality. AI must be promoted as a personal assistant not as a replacement for your personality. Our creative students are becoming formulaic because they go to AI first instead of tapping into their own experiences. BORING",
+      "Use it on Arc to organise and curate our marking. For example, AI could prioritise incomplete assignments that we can mark first to get them out the way. It could alert us to students who handed in late and need a penalty.",
+      "N/A",
+      "Yes if there can be a way that it can mark assessments for us, as the workload is extremely high!",
+      "Assessment feedback Generator, would be great to save time. Curriculum and assessment alignment checker. Adaptive learning resource creator to ensure all students are covered when teaching. Linking personalised timetables to Outlook, to update when there are changes automatically in outlook.",
+      "Assessment feedback",
+      "Track and manage student progress, attendance. Automatically customise learning paths",
+      "setting of MCQs",
+      "None other than what has already been mentioned.",
+      "No",
+      "Marking of assessments",
+      "I think it's unlikely that AI will make our jobs easier. AI may make us more efficient in some areas, but the time saved will be filled by other tasks.",
+      "No",
+      "N/A",
+      "not yet.  Still exploring",
+      "Uhm.. I'm doing a Masters in Data Science. I use AI on the daily. I have numerous ideas honestly. If you want my feedback, rather call me to discuss this.",
+      "No, not yet",
+      "I would like to streamline my role in marking and assessing",
+      "exce automated tasks",
+      "Agentic AI",
+      "Integrate Gradescope AI to Turnitin to automate the marking process and provide comprehensive individual feedback.",
+      "The ONLY thing that would make my current job easier is to eliminate unethical use of AI in ALL assessments. As lecturers, we find that our jobs have shifted focus from 5 yrs ago - we feel like human AI detectors - this is a major distraction from our core role.  We have to detect, report, follow up, remediate and rinse and repeat endlessly.",
+      "Exploring different interactive teaching methods to incorporate in teaching styles.",
+      "no",
+      "n/a",
+      "Not yet",
+      "To holistically streamline my academic portfolio, leveraging generative AI to automate initial feedback drafts on student assignments and thesis chapters using custom rubrics (adjustable for quick scans or deep critiques), dynamically generate diverse clinical vignettes and discussion prompts, and accelerate research and supervision by synthesising key trends, gaps, and theoretical conflicts from vast literature (delivering targeted weekly briefs), while also creating first drafts of routine administrative communications and ethics applications based on templates and institutional guidelines. Furthermore, AI could act as a supervision tracker by analysing student writing progress to flag methodological gaps, consistency issues, or timeline delays. A programme coordinator's aid could be provided by generating real-time analytics dashboards from LMS/evaluation data to identify course performance trends and resource gaps, a training tool by simulating complex supervisee queries or ethical dilemmas for practice, and a research catalyst by identifying potential collaborators through publication/method analysis.",
+      "I would love co-pilot for outlook so that it can suggest responses based on my previous responses as constructing emails take a long time.",
+      "Using Gen AI to prepare teaching material, asking for ideas, and creating multiple modes of teaching for accessibility and student needs. This makes sure that content is accessible and presented to the different learning styles. Using GenAI has helped me stay up to date with relevant software and industry trends as well as generate examples and case studies for students to analyse. Using GenAI to provide constructive feedback, taking the assessment brief and creating a structured overview of each section also helps me not sound like a grumpy cow. Using GenAI to create a rubric checklist for students and for myself.",
+      "I can't think of any.",
+      "I have not considered this much; novice accountants need a behaviourist approach to accounting fundamentals. It is quite pre-defined although has some flexibility provided you already understand the fundamentals, so perhaps seeing interviews with how and why accountants use accounting and IFRS standards might encourage more dedication to genuine learning; maybe that could be found on You Tube, not particularly AI.",
+      "Yes creating rubics",
+      "no",
+      "nothing at the moment",
+      "Having access to AI tools as a lecturer would definitely assist with creating more dynamic presentations, and engagement with students.",
+      "Generative AI could streamline my work by summarizing meetings into action items, auto-drafting documents from institutional resources, and linking tasks across platforms. With secure integration, these tools would cut repetitive work and free time for higher-value tasks while supporting continuous learning.",
+      "Not yet.",
+      "not at the moment",
+      "Marking support to speed up marking.",
+      "Alot of report writing and admin that can be streamlined with AI",
+      "n/a",
+      "No ideas at the moment.",
+      "N/A",
+      "Nope",
+      "Summarising textbook material to but in slides/notes. Asking it questions for projects or class activities. Giving me the code of text to embed in Arc or Creator plus.",
+      "None I can think of at the moment.",
+      "No",
+      "None",
+      "Scopus ai",
+      "N/A",
+      "Not yet",
+      "Institutional support in the form of training, ethical guidelines, and integrated AI platforms would make these tools more effective, saving staff time while improving consistency, innovation, and student support.",
+      "Not really",
+      "To assist with admin",
+      "No at the moment, no.",
+      "A tool that can provide responses to more generic queries or student submissions would be good (do not think it is feasible though). AI detection tools that identify AI use in student assessments would be great though.",
+      "N/A",
+      "N/A",
+      "Assessment Comment generation on ARC and the ability to cross check assignments on ARC for verbatim copying by students.",
+      "Automated marking, automated attendance tracking and notifications for students who are not attending, automated reports on how each student is engaging with the content and assignments etc.",
+      "No.",
+      "Generate renders efficiently with prompts from live models.",
+      "I have been experimenting with AI for several years and have frequently shared examples of my private creative work utilising AI, as well as new AI platforms, powerful prompts, etc. I have done this with students and colleagues. Given talks on the topic to students and colleagues, both on my campus and to other campuses via online guest sessions at conferences. Whilst I am a strong ambassador for AI, I don't think it is an either/or situation. It should never take over from bespoke creativity, critical thinking and ideation, but it can facilitate certain processes and is useful for filling in for certain skillsets that someone may not have, and for making certain tasks easier. That said, when it comes to ideation, I will always advocate for the power of the human imagination, and the use of a pen and paper (laptops and phones off!). It is up to the lecturers to ensure this, especially when dealing with a generation that often appears to lack initiative, and where all answers appear to reside on Pinterest.",
+      "Surely.  All routine tasks and marking.",
+      "Providing local examples of concepts for teaching purposes.",
+      "No",
+      "Same as above - would have to draft it down some more to have a more feasible idea",
+      "None.",
+      "Having an automated campus reporting structure for sims and maybe a smart assessment and feedback generator for ARC, to assist the lecturers.",
+      "no",
+      "no",
+      "Yes, we could get a system which will help get specific accounts with specific issues and prompt if for each task",
+      "Collecting customer service data is still very manual and finding a feedback monitoring AI tool could be helpful.",
+      "no",
+      "None",
+      "Perhaps an introduction of a one stop shop for HR latest trends",
+      "No",
+      "Auto-Caption Refiner, Design Brief Auto-Writer, Content Calendar Builder, Hashtag Compliance Checker, Fact Verification Assistant, Instant Platform Formatter, Analytics Explainer Bot, Content Vault Organiser",
+      "No",
+      "Not yet",
+      "I believe I do, however this is something I believe should be copyrighted and sold as an additional skillset warranting additional compensation as it would benefit the organization.",
+      "Enhanced Verification & Fact-Checking and Task Automation & Workflow Orchestration",
+      "AI Meeting Summarizer \u201a\u00c4\u00ec An AI tool that automatically summarizes meetings and creates action items. It would save time and keep everyone aligned without manual note-taking.\n\nSmart Research Assistant \u201a\u00c4\u00ec A GenAI tool that reads my drafts and suggests relevant sources or data. This would speed up research and ensure better citations.\n\nPersonalized Workflow Helper \u201a\u00c4\u00ec An AI trained on my tasks that reminds me of deadlines, drafts emails, or auto-generates reports. It would reduce repetitive work and keep me organized.",
+      "No",
+      "Agent AI",
+      "Email Filtering: Prioritize and sort emails, flag urgent messages, and draft responses.",
+      "There could be a GenAi that could be integrated into the institution's website, that could be used to search for and retrieve any document that is on the website. \n\nThis could be really helpful since there are a lot of documents on websites and they aren't stored together or on the same place, it can be really time consuming to search for and find a certain document especially when you have no idea where to start looking for it.",
+      "Yes. Gemini and ChartGPT.",
+      "None",
+      "no",
+      "A built-in \u201a\u00c4\u00fatone switcher\u201a\u00c4\u00f9 for emails would be a game-changer\u201a\u00c4\u00eeespecially for professionals like us who need to adapt communication styles depending on the recipient.",
+      "Yes, I have a few lol - Summarize event surveys into key insights. Create checklists for event logistics based on past events. Pull competitor insights or campaign trends from multiple sources in minute. Suggest headline ideas, taglines, or promotional themes",
+      "Creating scripts for Canva videos/presentations.",
+      "No",
+      "A copilot pro license would make the tasks in my job much faster - eg excel work and data analysis",
+      "No",
+      "The admission requirements ( graduation, registration) can be done by the system and a check can be initiated by an officer to save time.",
+      "No",
+      "Not now",
+      "Yes, Digital Library Implementation and Generative AI Integration.",
+      "AI Agents for common queries",
+      "Not yet",
+      "Tone checking emails - making long emails easier to read",
+      "Pulling data to a cohesive source - this will speed up processes as well as help maintain accurate data capturing. In addition, it could further expend to keep all activity of student work saved onto their profiles for open information. In addition, incorporate class engagements.",
+      "None",
+      "No",
+      "Polite Professional Email Composer\nPain Point: Drafting dozens of repetitive but slightly nuanced professional emails daily.\n\nConcept: GenAI that takes a brief note (\u201a\u00c4\u00faask Cape Town campus for delivery confirmation\u201a\u00c4\u00f9) and generates a polished, context-appropriate email in seconds.\n\nBenefits: Saves time, ensures consistency, maintains professional tone.\n\nImplementation Needs: Secure prompt input box, integration with Outlook or Gmail.",
+      "Meeting arrangements, task management of team members",
+      "no",
+      "I would like to investigate how we could use AI as a support tool in our Writing Centres.",
+      "Short, funky animation that explains our policies to the students. \nVerification of results between ARC and SIMS. \nAssisting with the timetable and scheduling of campus venues.",
+      "no",
+      "Analysis of at risk students and assistance with plan of action based upon the module requirements and the mark of the student in correlation to the assessment written outcomes needed to be understood.",
+      "One of the stress points I am phasing is with the CI, some of the processes and how we organizes data is changing - which means when we need to compile reports we are often has to reorganize large data sets to compile with CI requirements. It would be great to have an AI assistant we could use to assist these tasks without the worry of company date being shared with the outside.",
+      "NA",
+      "Perhaps a bot that is coded or set up to automatically send payment reminders or general reminders and when engaging with the student link to our system to provide information not like direct them to an FAQ or trouble shoot but answer the question - EG: I need my results a link can be sent which upon clicking opens the page where results can be found or one better send it to them in a PDF form as an attachment",
+      "Not at the moment.",
+      "Create an autonomous system that sends out engagement emails if a student has not accessed a module",
+      "Gemini",
+      "No.",
+      "Yes\u201a\u00c4\u00eeI can think of a few original GenAI concepts that could make my current (ICT support and networking-focused) role easier by removing bottlenecks and adding smart automation:",
+      "Yes. (Student Recruitment)\n\nThere should be an AI chat widget on the website on which potential students can query about there career and study options. What campus they are interested in, talk about campus specific qualifications, perhaps even those that align with their qualification and then transfer the relevant details to the Marketing Assistants to ensure that the lead does not run cold.",
+      "N/A",
+      "N/A",
+      "No",
+      "Assist with assessment plotting and common module dates across brands and how these could be aligned/clashes avoided as opposed to manual input.",
+      "ChatGPT for Ideas",
+      "No",
+      "no",
+      "None",
+      "n/a",
+      "n/a",
+      "Not at the moment.",
+      "No",
+      "GenAi could help draft quick personalised responses to common student queries e.g. missing documents and deadlines. This will help save time while still allowing us to review before sending. It could as help scan applications and highlight missing documents, incomplete information or eligibility issues; this will help reduce manual checking and speeds up processing. These tools could suggest polite and professional wording for sensitive replies like rejections, deferrals or special cases, this will help make communication faster and more consistent.",
+      "Enhances creativity",
+      "N/A",
+      "-",
+      "Research and Content Creation",
+      "n/a",
+      "None I can think of right now.",
+      "Not at the moment",
+      "No.",
+      "As above",
+      "Not at the moment",
+      "n/a",
+      "NO",
+      "None, other than what has already been mentioned and listed"
+    ],
+    "agentIdeas": [
+      "Align T&L practices that include AI as supportive tools and less as a reliant tool for learning",
+      "design policies that will guide the use of AI agents",
+      "None",
+      "AI agents like a teaching assistant for grading, a curriculum insight tool, and a student support guide could integrate with learning systems to save time, improve support, and adapt to evolving academic needs.",
+      "Automated marking",
+      "unsure, as I have not worked with an AI agent",
+      "None at this stage.",
+      "I would like to explore this further, as there may be interesting options to improve the efficiency of administrative tasks, an area I see as a significant challenge in my work.",
+      "Making AI tools more accessible, but also clear guidelines on how to ethically cite and use them.",
+      "I don't know",
+      "Is there something like a scheduling assistant? As HoF, it would be great if my diary could be automated. So it can give me a heads up when tests / assignments / marking is due etc.",
+      "AI Research Agent, AI Tutor for Theory and Numerical Modules, AI Meeting Notetaker.",
+      "I see scope for developing AI agents that act as autonomous co-pilots in key areas of faculty management. For instance, a Workload Balancer Agent could integrate timetables, HR data, and assessment schedules to proactively redistribute workloads and flag bottlenecks. A Student Success Agent could monitor LMS activity, attendance, and assessment performance to generate early alerts and personalised support suggestions for at-risk students. An Admin Automation Agent could manage routine queries, draft correspondence, and coordinate external moderation processes. Integration with existing systems (HR, LMS, accreditation databases) would be essential, and challenges such as data privacy, ethical oversight, and staff adoption would need to be managed. Over time, these agents could evolve from simply automating tasks to offering predictive insights and scenario simulations, ultimately boosting both productivity and decision-making across the faculty.",
+      "Would need to think about this",
+      "Nothing",
+      "Not sure, although I use AI, I have not used it in depth.",
+      "I really do not have any ideas to share at this stage.",
+      "AI agents could assist with determining an appropriate workload management of staff, for drafting strategic reports, and analysing student performance trends. They could also provide real-time policy guidance, automate routine compliance tasks, and manage faculty scheduling. An AI assistant for student queries could improve communication while freeing time for more strategic leadership responsibilities and engagement as we head into a new era in our institution's history.",
+      "None.",
+      "List-checking - we spend A LOT of time checking lists (textbook, MIS, software, equipment, marketing fact sheets etc.)",
+      "Consider AI agents to automate student surveys. Unnecessary time is spent reaching out to students telephonically to gauge their experience on campus.",
+      "As above. I do not want, nor need, training - unless it is a complex teaching tool. Chat GPT is NOT a complex teaching tool.",
+      "Not sure",
+      "I would benefit from an AI agent that could act as a teaching assistant, helping manage routine tasks like marking short-answer assessments, generating feedback, and tracking student progress. Another useful agent could be a research companion that scans new publications in my field, summarises key insights, and highlights gaps aligned with my interests. An administrative AI agent to handle scheduling, reporting, and communication would also ease my workload and free time for higher-value tasks. If these agents were thoughtfully integrated with institutional systems and guided by clear ethical frameworks, they could greatly enhance productivity and student support.",
+      "All CAT and assessment systems and procedures",
+      "I have no suggestions at this point.",
+      "No",
+      "I think, as mentioned, that starting to explore closed GPT/LLM systems that can \"spit\" out exactly what we need. This will obviously take time to set up in the beginning, but the time saving is immense.",
+      "Do not know",
+      "Please consider the research on AI Agents. Meredith Whittaker for example has noted there are \"profound\" security risks. Automation? Hell yes! ... Agents? Let's be academically cautious by taking a socio-technical approach to technology rather than a technocratic one (and allow students/staffs to co-construct their technological ecologies for teaching and learning, alongside their right to refuse certain technologies, datafication & surveillance given the grave risks vs subpar benefits). We aren't a tech-bro company like Meta \"move fast and break things\". We are a higher education institution that should consider the research & actual harms, alongside a care towards students, staff & society/environment over the hype of GenAI. It's worrying to see divergence away from some of our IIE goals (i.e., Holistic Thinkers, Change Advocates) towards a path of late neolibralism (metrics & efficiency) rather than broader goals of social responsibility (i.e., UN SDGs).",
+      "N/A",
+      "no",
+      "Rubric creation and alignment.",
+      "Agentic Ai applications for mid managers and MANCO members that would act as a replica of the manager to ensure quick support to staff members on strategy alignment and day to day task and effort management. Any staff member should be able to ask the agent (manager replica) questions any time and get answers they would normally get from their manager. A POC or research into the effectiveness of this approach and aligning company wide efforts with company strategy and ensure synchronization across the entire organization would probably prove fruitful.",
+      "None for AI agents.",
+      "non",
+      "Student success and retention agent",
+      "Improve productivity",
+      "none",
+      "None",
+      "NA",
+      "Zero",
+      "None specifically, I think my knowledge and understanding of AI is not high enough",
+      "There is much paperwork. pdfs, etc in our workflow. Use AI for eliminating and automating these with real time trackers to check statuses and bottlenecks.",
+      "Dont know",
+      "Using the example above, there could be dedicated FAQ Bots for different functions, such as an HR FAQ Bot, a Disciplinary Officer FAQ Bot, and an Academic Operations FAQ Bot. Imagine an automated system where, if plagiarism is flagged, both the staff member and the student receive an immediate notice. The staff member could also be provided with a recommended sanction level and a likely outcome, based on policy, once the investigation is complete. This would not only streamline processes but also ensure consistency, accuracy, and timely communication.",
+      "N/A",
+      "n/a",
+      "Sourcing credible, current studies to support the research I am undertaking",
+      "As above",
+      "Need to take into account current policies and processes in place",
+      "None at the moment",
+      "None",
+      "Tracks submission deadlines and reminds lecturers. Cross-checks marks across ARC, SIMS, and grade rosters to flag discrepancies.",
+      "I know Freddy AI is being worked on - which will be a great help for student queries.",
+      "None",
+      "Automated responses for student queries would be ideal- a lot of time is spent dealing with emailed queries that are often quick responses that link to the policies.",
+      "AI agents, such as a research assistant, curriculum design tool, student support advisor, automated assessment system, and institutional insights dashboard, could integrate with our LMS and databases to streamline academic processes, personalise learning, and inform data-driven decisions.",
+      "None",
+      "N/A",
+      "N/A",
+      "ntr",
+      "n/a",
+      "N/A",
+      "Boosting productivity",
+      "I have no ideas, i do use AI but to a certain extent",
+      "Teaching \n\nLecture Preparation Agent\n\nSummarises textbooks, research papers, and case studies into lecture notes or slides.\n\nSuggests relevant examples, case studies, or current events to make lectures engaging.\n\nAssessment & Grading Assistant\n\nHelps design fair, well-structured tests, assignments, and rubrics.\n\nProvides first-round marking for objective questions (e.g., multiple choice, short answers).\n\nGives feedback suggestions for student essays to save time.\n\nStudent Progress Tracker Agent\n\nMonitors student performance across modules.\n\nFlags at-risk students early (e.g., low participation, declining marks).\n\nSuggests tailored interventions like study guides or extra tutorials.\nStudent Engagement & Support\n\nStudent \n\nAnswers common student queries about course content, deadlines, referencing, or exam prep.\n\nProvides extra explanations in simple terms for difficult concepts.\n\nInteractive Case Study \n\nSimulates business/commerce scenarios where students can \u201a\u00c4\u00famake decisions\u201a\u00c4\u00f9 and see outcomes.\n\nUseful for modules like Management, Marketing, or Financial Decision-Making.\n\nSurvey & Feedback Optimizer\n\nDesigns engaging student surveys with gamified elements.\n\nAnalyses feedback to give you actionable insights on teaching improvements.\n\nResearch & Administrative Support\n\nResearch Assistant Agent\n\nSummarises journal articles and highlights key insights.\n\nSuggests relevant literature for your academic writing.\n\nAssists in formatting research outputs (APA, Harvard, etc.).\n\nAdmin Streamliner \n\nAutomates repetitive tasks such as attendance registers, emailing reminders, or compiling marksheets.\n\nCreates professional drafts of official communications quickly.\n\n Institutional Value\n\nCurriculum Innovation \nMaps your module against global best practices.\n\nSuggests updates aligned with industry trends (e.g., entrepreneurship, AI in business).\n\nCommunity Engagement \nAligns academic events with industry sponsors to create opportunities for students.",
+      "None",
+      "N/A",
+      "Not sure",
+      "We need workshop to understand how to use AI.",
+      "None",
+      "please provide us with AI that can assist with proper academic writing and also assist with providing accurate information that can be used openly",
+      "None",
+      "AI Research Agent\n\nFunction: Continuously scans academic databases, journals, and institutional repositories to identify relevant new research aligned to a lecturer\u201a\u00c4\u00f4s or student\u201a\u00c4\u00f4s field. It could summarize findings, generate annotated bibliographies, and highlight gaps for future research.\n\nIntegration: Linked to library subscriptions and citation managers.\n\nChallenge: Ensuring credibility of sources and avoiding over-reliance on non-peer-reviewed content.",
+      "Research assistant: scans publications, extracts key findings, and suggests relevant resources.",
+      "I suggest an AI agent for personalized tutoring that adapts to student learning styles, providing tailored resources and feedback. Additionally, an AI project manager could automate task tracking and team collaboration, enhancing productivity and project outcomes.",
+      "AI agents for assessment compliance, research support, academic integrity checks, and student assistance would improve productivity and support.",
+      "If we can use AI as a personal Assistance. To best utilize It, we need to have be embedded to our calendar, let the GenAI create lesson plans, slides, quiz, test and exam prep. Let it outsource other additional information and even more relevant information on topics that i will be teaching in Class.",
+      "N/A",
+      "not sure",
+      "AI agents could bring major benefits. An Academic Advisor Agent could guide students with module choices and careers, while an Admin Assistant Agent could manage tasks like timetables and bookings. A Research Assistant Agent could track new publications and funding opportunities, and a Student Skills Companion Agent could support learning with practice, explanations, and progress tracking.",
+      "Using AI to better understand a specific concept is helpful",
+      "none",
+      "None",
+      "Students knowing how to use and reference AI",
+      "N/A",
+      "I wants AI that guide someone to a correct answer not telling him or her",
+      "None",
+      "An AI academic coach that assists with homework planning, deadline management, and study strategy recommendations based on individual learning styles is one concept.  For essays or projects, a research assistant agent could aid with discovering pertinent sources, summarizing results, and keeping track of citations.  An AI project manager might assign tasks, give reminders, and keep track of progress for group projects.  A feedback generator might go over papers and offer thorough recommendations based on instructor remarks or grading criteria.  These artificial intelligence (AI) agents would improve academic performance, ease time management, and lessen study-related stress.",
+      "I have no input on this question.",
+      "Online short courses for the staff to learn counter measures, all added in the curriculum",
+      "Making and summarizing articles",
+      "Provide templates",
+      "Translation applications that will help students communicate in class situations. To give feedback",
+      "TO AVOID HIGH PLAGIARISM SCORE",
+      "Marking",
+      "An AI agent could streamline research by collating relevant academic papers, offering concise summaries, and suggesting related topics. It could also assist in managing schedules, providing reminders for deadlines, and offering personalized study plans based on progress, enhancing productivity and time management for students and staff alike.",
+      "See 7.2 above",
+      "None",
+      "An AI agent could automatically generate a summary of each lesson, highlighting key concepts, top questions, and action items. For example, after a recorded lesson is uploaded, the AI could provide a concise overview to help students quickly catch up or review important points. Integrating this into platforms like Teams would make the recordings more accessible and useful without adding extra work for instructors",
+      "Please see my detailed response to the proposed policy.",
+      "Possibly something like internal moderation",
+      "Anything to gather insights on students so that we reduce the number of additional hours as employees on campus.",
+      "N/A",
+      "It would be fantastic if we have systems that speak to each other - Arc results & Sims. Linking Teams & Arc - the tools on Teams in live sessions are problematic.",
+      "I have my students, complete an Ai task as and ICE task, there i can see the two different writing styles.",
+      "None as yet...",
+      "It would be interesting to help both lecturers and students use the AI tool to evaluate assignments based on the marking criteria. The feedback given to a student can help them sometimes better understand the comments made by a lecturer after an assignment is marked. This idea could help the lecturer to better see the assignment, in a better light. Helping them to provide and when needed, understand the right feedback that could assist the student (deeper thinking, more thoughtful feedback) instead of stating that something is just wrong.",
+      "n/a",
+      "An AI marking tool",
+      "Not specifically",
+      "None at the moment",
+      "Evaluation / Marking would greatly support our teaching.",
+      "I think nothing needs to be introduced the students are miles ahead of us and we need real practical assistance to lead from the front with AI and not play catch-up all the time.",
+      "the ticketing system could do with help on productivity and relevance, streamlining processes",
+      "I would love training on various apps and tools for educational and training purposes.",
+      "AI agents to give a preliminary mark and feedback, but we moderate, adjust and then still sign-off on it",
+      "Same as above",
+      "AI Agents are already accessible to staff if they make use of their MS365 Copilot. Microsoft recently made agents available for free use, which is helpful as it allows for the creation of policy category agents, and so forth. However, it is the creation of such CoPilot agents that can be tricky for people the first couple times. If sufficient how to guides or training were provided, staff and students could make use of CoPilot agents for academic policy, module specific guidelines (based on Module Outlines, etc), and so forth. This would further allow for staff to gain time that would have been spent querying policy, and would assist the student relations center with enquiring less student queries that require deeper module specific investigation.",
+      "If the plagiarism and AI transgression investigations could go through an initial evaluation with a generated report, it would provide a starting point for the plagiarism officers and cut out the initial groundwork (maybe AI is not accurate enough for this yet, but it would help if this is possible in future)",
+      "Lesson design",
+      "Meeting transcripts that are summarized.",
+      "being able to make templates of certain gamification",
+      "None",
+      "Take over admin overload",
+      "When students are looking for precedents and examples of work that is current exciting and fun they should be able to ask AI to make suggestions. Co-pilot is spectacularly bad at this. It can't look out of the box, just coming up with a generic stream of formulaic rubbish.",
+      "Agents that could suggest examples in real time while you're preparing a class. Examples of concept from the real world that have perhaps featured in the news recently, etc. Peer review agents (is that possible?)",
+      "N/A",
+      "Automate marking & rubrics",
+      "A literature scout agent, that monitors academic databases and journals. Assessment marking and feedback agent.",
+      "Timetable updates - link to Outlook",
+      "Integrate systems for mark capture, results due dates, late submissions etc.",
+      "unsure",
+      "None!",
+      "It would be great if it could reduce the amount of admin that lectures are required to manually perform e.g: once assessment rubrics are marks - AI took to calculate the grade, insert marks in the grade book etc .. etc .. these tasks waste an incredible amount of time. In addition, these task requirements expand each year VS decrease.",
+      "Marking of assessments",
+      "ChatGPT is highly useful for providing guidance in terms of finding gaps in literature, guidance towards finding useful articles, and guidance in terms of providing options for submitting to specific journals. It can also provide guidance on what might be missing or should be looked at when writing articles, and its editing function can also be useful.",
+      "Don't have any",
+      "N/A",
+      "Nothing as yet.  Still exploring",
+      "See my answer to 7.2",
+      "Provide a variety of AI Tools for Numeracy Modules",
+      "All of the above.",
+      "none",
+      "Adaptive learning",
+      "Kahoot and Quizizz AI tools could be used to enhance the learning environment by improving engagement and promoting critical thinking and could be more relevant to shaping the teaching practices.",
+      "See previous answers - in my numeracy modules, AI seems to provide increasingly incorrect information that I can't see these listed objectives becoming a reality.",
+      "Research Literature Review summary tools",
+      "paid version might be apble to mark assignments?",
+      "n/a",
+      "N/A",
+      "In the research domain, a generative research companion could supercharge literature review and writing. For instance, an AI assistant could search academic databases, identify high\u201a\u00c4\u00ebvalue psychology papers, extract key findings and quotes, and even draft summaries or reports. Tools like Elicit already show the promise, for instance, AI\u201a\u00c4\u00ebenabled systematic reviews can cut review time, quickly surface relevant studies that might be missed by manual search and provide transparent citations for every claim. Adapting such a model to the lecturer\u201a\u00c4\u00f4s speciality (fine\u201a\u00c4\u00ebtuned on psychology journals and local research outputs) would help the academic discover new angles, generate hypotheses, and draft literature reviews far faster. Technical feasibility is strong since large\u201a\u00c4\u00ebscale research databases exist; the main requirements are API access or integrated search of PsycINFO/PubMed and ensuring up\u201a\u00c4\u00ebto\u201a\u00c4\u00ebdate information. The payoff is higher research productivity and enhanced teaching.",
+      "If an AI agent could help capturing marks on SIMS that would be great! Taking marks on ARC and adding it to the relevant spot in SIMS once published on ARC.",
+      "I feel that there is a disconnect between lecturers' attitudes towards AI - some hate it, some love it. They feel guilty for using it or see how students use it and just assume it is rubbish. We are still the experts in our fields and have the experience. Using GenAI doesn't mean you switch your brain off; you have to moderate.",
+      "I am yet to explore options.",
+      "Accounting is very pre-defined, not fundamentally creative and so this does not really apply.",
+      "N/A",
+      "Simulation systems",
+      "not sure",
+      "As mentioned, dynamic presentations for lectures, and learning aid tools for students in the lecture room environment.",
+      "AI agents could support my work by automating routine tasks, generating research insights, and personalizing learning support. For example, a research assistant agent could scan institutional databases for sources, while a workflow manager could coordinate tasks across emails and calendars. With secure integration, these agents would reduce administrative burden and free time for higher-value work.",
+      "None so far.",
+      "Possibly creating models to assist with marking",
+      "none at the moment",
+      "I do we think we can first optimise the systems we currently have",
+      "No ideas at the moment.",
+      "Marking and self-evaluation",
+      "Used for mind mapping and/or brainstroming",
+      "Summarise and read emails to then proritise or set up a to do list. Deep research and finding if some key points for research.",
+      "Using GenAI to create small activities for students to do as revision. This will save a lot of time. It will provide examples from a different perspective which could be challenging or easy for the students to answer. This would all depend on the prompt provided.",
+      "None at this point",
+      "Replacing lecturer admin (capturing of marks) with an automated process",
+      "N/A",
+      "Not yet",
+      "One useful AI agent could be a Marking Assistant, trained on institutional rubrics, that pre-scores assignments, highlights strengths and weaknesses, and generates draft feedback for moderation\u201a\u00c4\u00eesaving time while maintaining academic integrity.",
+      "None",
+      "Notebook LM paid version",
+      "Ways in which we can track the students' progress throughout the semester. I still do it very manually",
+      "Tools to assist in creating of research ideas and abstracts. Tools to identify journals and conferences most suited to the main topic of your research or paper so that you can target those journals",
+      "N/A",
+      "Not sure.",
+      "Assessment Comment generation on ARC and the ability to cross check assignments on ARC for verbatim copying by students.",
+      "Automated marking of multiple choice, true and false, match the column and short answer questions for large classes - with AI lecturers should not be spending ridiculous hours marking question of this nature anymore.",
+      "Possibly only something that could pick up AI use by students.",
+      "-",
+      "In a personal capacity, I am about to experiment with AI agents to code and create apps that will be useful and save time. I am sure AI agents could be used as search engines, for SEO, certain marking and rubric creation, creating quizzes, collecting data, and so on. Mind mapping would be useful for both students and lecturers. The creation or, at least, initial thinking behind lesson planners, prompts, presentations, and so on. Any automated work, timetabling, etc.",
+      "My feeling is that long-term AI will be customised almost entirely.  All boosts to productivity and competitiveness I would expect to be introduced in most industries, including education.",
+      "Possibly identifying general trends in student interpretation of the brief and pain point experiences which could be fed back to the programme navigator for the purposes of curriculum development.",
+      "None",
+      "An AI agent that links Freshdesk with the system(SIMS) to track calls and leads, linking them to be able to track productivity without having to update on each system after every call",
+      "None.",
+      "AI Tutor, Academic research and Aca Ops data analyst",
+      "TRAINING",
+      "non for now",
+      "We could get a system which will help coordinate our work and help strike a time balance between our school and profesional work",
+      "Collecting customer service data is still very manual and finding a feedback monitoring AI tool could be helpful.",
+      "no",
+      "None",
+      "na",
+      "None",
+      "Event-to-Caption Agent - Reads raw event reports (even messy WhatsApp dumps).\n\nExtracts facts only, formats them into your on-brand caption style with hashtags.\n\nFlag any missing info so you can request it before posting.\n\nStudy Scheduler Agent - Aligns your coursework deadlines with your work schedule.\n\nBuilds a realistic study plan that avoids burnout and syncs with your free hours.",
+      "None",
+      "None",
+      "Personalized Virtual Teaching Assistant, AI-Powered Administrative Assistant, Accessibility & Inclusion Agent and Early Intervention & Retention Predictor",
+      "AI Academic Advisor Agent\nAn AI agent that tracks course progress, suggests personalized study plans, and flags academic risks early. It could integrate with the LMS to offer timely reminders and recommend resources.\nChallenges: Data privacy and accuracy of advice.\nBenefits: Improved student support and retention.AI Research Assistant Agent\nA tool that autonomously scans new publications, summarizes key findings, and suggests how they relate to ongoing research. It could also help with literature reviews and formatting citations.\nChallenges: Access to databases and context awareness.\nBenefits: Saves time, keeps research current.An autonomous assistant for staff that handles scheduling, email drafting, meeting prep, and form submissions. It could learn preferences and improve over time.\nChallenges: Integration with internal systems.\nBenefits: Increased productivity and fewer manual tasks.",
+      "N/A",
+      "NOt much",
+      "Administrative Automation: AI agents can analyze data to predict potential academic challenges, enabling targeted interventions and support.",
+      "A GenAi that would create folders on your PC and automatically rename and save all documents that you receive via email on their respective folders.",
+      "Subscription for the employer.",
+      "None",
+      "none",
+      "Explaining Gen Z Personalities to Managers Using Smart AI. Genz are entering corporate and they do things different, a smart tool can assist managers to understand their culture, language and how to handle different GenZ personalities. Tone coach for managers on how to improve their tones when dealing with GenZ. E.g Tones like you must do this' to Lets collaborate on this.",
+      "Student support \"Agent\" - this could prompt students about upcoming deadlines. Assist with common queries relating to policies and upcoming events.",
+      "No ideas yet",
+      "Not syure",
+      "We could automate many processes and allow staff time to become \"thinkers\" instead of just \"doers\"",
+      "when students log a ticket, we should have an automated respond, and then the ticket gets directed to the relevant person. i think will avoid in agents having more ticket to respond to saying that they will transfer to the relevant department",
+      "Integrating systems between the different operations departments to save time and be more efficient with regards to meeting targets.",
+      "none",
+      "No ideas at the moment",
+      "Leveraging Generative Artificial Intelligence (Gen AI) to complement traditional library systems. I propose a hybrid library model that integrates intelligent, AI-driven features with conventional resources to maximize educational outcomes.",
+      "AI Agents for common student queries",
+      "Nothing for now",
+      "Schedule assistants - co-ordinating diaries for meetings",
+      "Having autonomous systems will enhance operations as well as help cover the gaps between department communication so that no balls are dropped.",
+      "Nothing",
+      "Academic Operations Workflow Agent\n\nFunction: Automates routine operational tasks like compiling class lists, verifying submissions, or scheduling internal deadlines.\n\nIntegration: Direct link with academic operations software and calendars.\n\nChallenges: Ensuring flexibility for exceptions and unique cases.\n\nEvolution: Add predictive analytics to flag potential delays or bottlenecks.",
+      "none",
+      "I think power automate could be helpful to handle email boxes filled with queries. A chat bot to handle research process queries would be useful.",
+      "Short, funky animation that explains our policies to the students. \nVerification of results between ARC and SIMS. \nAssisting with the timetable and scheduling of campus venues. \nReport writing and stats from our Assist platform.",
+      "none",
+      "I think that embracing AI as a tool to offer a more tailor made approach to student services would allow us to give student individual support.",
+      "I really liked to use Perplexity (until the campus internet access ban is in place) so how to use it more effectively for my studies with a workshop.",
+      "NA",
+      "Perhaps use co-pilot to spot check emails prior to allowing users sending an email - this should double check spelling and accuracy and even offer options for alternative ways of saying things in a simpler or refined way",
+      "An AI academic advisor. During registration, students can use this to help them in choosing the right qualifications based on their future goals and career plans",
+      "Automatically generated reports of assist tickets and affective care stats",
+      "n/a",
+      "AI agents could significantly enhance productivity and learning at the institution by serving as autonomous lab assistants that configure and troubleshoot networking labs, intelligent tutors that create adaptive study materials for CCNA, Linux, or ITIL, and virtual helpdesk agents that resolve routine IT support issues while escalating complex ones. They could also function as career coaches, analyzing student skills and aligning them with job opportunities, and as security agents that continuously monitor systems for vulnerabilities and compliance gaps. While integration with existing platforms like Packet Tracer, LMS, and ITSM tools would maximize impact, challenges such as ensuring data security, avoiding over-reliance, and aligning outputs with curriculum or workplace standards must be addressed; over time, these agents could evolve into more advanced systems that not only automate processes but also provide predictive insights, self-healing capabilities, and personalized pathways for both academic and career growth.",
+      "General AI that can record and convert lectures into text. Allow students to be able to search the AI for answers relating to their theory but have the option of being disabled during exams and tests.",
+      "N/a",
+      "Calling systems for unused database",
+      "N/A",
+      "None",
+      "Assist with assessment plotting and common module dates across brands and how these could be aligned/clashes avoided as opposed to manual input",
+      "Idea generation",
+      "Not sure, maybe create more creativity and new ideas",
+      "none",
+      "None",
+      "n/a",
+      "n/a",
+      "Not at the moment.",
+      "N/A",
+      "An AI agent that checks applications for missing documents, sends reminders to students, and gives you a quick summary of each case so you can focus on decision making. A chatbot that answers frequently asked questions about admissions, registration, and deadlines, available 24/7 for students. An AI that drafts clear, professional responses to common student queries, leaving you to just review and send. Helps set up appointments, interviews, or consultations with students by checking availability and sending calendar invites automatically. Creates quick reports on application trends, student demographics, or outstanding queries, making it easier to present updates to management.",
+      "Don't put people out of jobs because of AI. Minimize AI Inventions",
+      "N/A",
+      "-",
+      "Research Support",
+      "n/a",
+      "None I can think of right now.",
+      "Not at the moment",
+      "No ideas.",
+      "Using GenAI to automate admin processes such as calculating DASE hours for lecturers and creating contracts and annexures",
+      "Something that streamline or make it event planning easier.",
+      "AI tools for data collection",
+      "Not sure",
+      "None, other than what has already been mentioned and listed"
+    ]
+  },
+  "assistance": {
+    "counts": [
+      {
+        "label": "Training (e.g., workshops, webinars, on-demand videos or courses to build skills in using GenAI tools).",
+        "count": 270
+      },
+      {
+        "label": "License/subscription fees (e.g., financial support or subsidies to cover the costs of accessing premium GenAI tools).",
+        "count": 253
+      },
+      {
+        "label": "Approved apps list and access (e.g., a curated list of recommended GenAI apps with provided institutional access or accounts).",
+        "count": 251
+      },
+      {
+        "label": "Resource Materials (e.g., guides, tutorials, or documentation on using GenAI tools effectively).",
+        "count": 232
+      },
+      {
+        "label": "Technical Support (e.g., troubleshooting, setup, or integration of GenAI tools).",
+        "count": 185
+      },
+      {
+        "label": "Community or Peer Support (e.g., access to forums, study groups, or mentors for collaboration and knowledge-sharing).",
+        "count": 183
+      },
+      {
+        "label": "Other (please specify any additional assistance not covered above).",
+        "count": 32
+      }
+    ]
+  }
+}

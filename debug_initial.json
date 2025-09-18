@@ -1,0 +1,45 @@
+{
+  "meta": {
+    "totalRespondents": 331,
+    "academicCount": 204,
+    "nonAcademicCount": 127
+  },
+  "respondentsOverview": {
+    "brandCounts": {
+      "IIE Rosebank College": 96,
+      "IIE Varsity College": 171,
+      "IIE MSA": 16,
+      "IIE Vega School": 45,
+      "Central Academic Team": 1,
+      "IIE School of Hospitality & Service Management": 2
+    },
+    "groupCounts": {
+      "Academic": 204,
+      "Non-academic": 127
+    },
+    "brandGroupCounts": {
+      "IIE Rosebank College": {
+        "Academic": 61,
+        "Non-academic": 35
+      },
+      "IIE Varsity College": {
+        "Academic": 99,
+        "Non-academic": 72
+      },
+      "IIE MSA": {
+        "Academic": 8,
+        "Non-academic": 8
+      },
+      "IIE Vega School": {
+        "Academic": 35,
+        "Non-academic": 10
+      },
+      "Central Academic Team": {
+        "Academic": 1
+      },
+      "IIE School of Hospitality & Service Management": {
+        "Non-academic": 2
+      }
+    }
+  }
+}

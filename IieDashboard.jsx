@@ -1,0 +1,1078 @@
+import React, { useMemo, useState } from 'react';
+import dashboardData from './dashboard_data.json';
+
+const TABS = [
+  { id: 'executive', label: 'Executive Summary' },
+  { id: 'respondents', label: 'Respondents Overview' },
+  { id: 'adoption', label: 'Overall Adoption' },
+  { id: 'academic', label: 'Academic Staff' },
+  { id: 'students', label: 'Students' },
+  { id: 'nonAcademic', label: 'Non-Academic Staff' },
+  { id: 'comparative', label: 'Comparative Analysis' },
+  { id: 'ideas', label: 'Staff Ideas' },
+  { id: 'assistance', label: 'Required Assistance' },
+  { id: 'recommendations', label: 'Recommendations' }
+];
+
+const palette = {
+  background: '#0f172a',
+  surface: '#1e293b',
+  panel: '#1f2937',
+  accent: '#38bdf8',
+  accentSoft: '#0ea5e9',
+  accentAlt: '#f97316',
+  positive: '#22c55e',
+  neutral: '#cbd5f5',
+  negative: '#ef4444',
+  text: '#e2e8f0',
+  textMuted: '#94a3b8'
+};
+
+const likertColors = {
+  Agree: '#38bdf8',
+  Neutral: '#facc15',
+  Disagree: '#f87171'
+};
+
+const adoptionColors = {
+  'Yes, I do': '#38bdf8',
+  'Yes, but no longer': '#0ea5e9',
+  'I am thinking about it': '#facc15',
+  'No, not yet': '#94a3b8',
+  'No & I will never (on principle)': '#f87171'
+};
+
+const attitudeColors = {
+  Yes: '#38bdf8',
+  'No opinion': '#facc15',
+  Never: '#f87171'
+};
+
+const boolColors = {
+  Yes: '#38bdf8',
+  No: '#f87171',
+  "I don't know": '#facc15'
+};
+
+const piePalette = ['#38bdf8', '#f97316', '#22c55e', '#a855f7', '#facc15', '#f87171', '#14b8a6', '#ef8dff'];
+
+const sectionStyle = {
+  background: palette.surface,
+  borderRadius: '20px',
+  padding: '24px',
+  marginBottom: '24px',
+  boxShadow: '0 24px 48px rgba(15, 23, 42, 0.25)'
+};
+
+const headingStyle = {
+  fontSize: '20px',
+  fontWeight: 600,
+  marginBottom: '16px',
+  color: palette.text
+};
+
+const textStyle = {
+  color: palette.text,
+  lineHeight: 1.6
+};
+
+function formatPercent(value) {
+  return `${value.toFixed ? value.toFixed(1) : value}%`;
+}
+
+function formatValue(value) {
+  return value.toLocaleString();
+}
+
+function KeyInsights({ title, items, variant = 'default' }) {
+  const panelStyle = {
+    ...sectionStyle,
+    background:
+      variant === 'highlight'
+        ? 'linear-gradient(135deg, rgba(56, 189, 248, 0.2), rgba(14, 165, 233, 0.05))'
+        : variant === 'alt'
+        ? 'linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(14, 165, 233, 0.05))'
+        : sectionStyle.background,
+    border: variant === 'highlight' ? '1px solid rgba(56, 189, 248, 0.4)' : '1px solid rgba(148, 163, 184, 0.15)'
+  };
+  return (
+    <div style={panelStyle}>
+      <h3 style={headingStyle}>{title}</h3>
+      <ul style={{ ...textStyle, paddingLeft: '20px' }}>
+        {items.map((item, idx) => (
+          <li key={idx} style={{ marginBottom: '6px' }}>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function TabNavigation({ activeTab, onSelect }) {
+  return (
+    <nav
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: '12px',
+        marginBottom: '24px'
+      }}
+    >
+      {TABS.map((tab) => {
+        const isActive = tab.id === activeTab;
+        return (
+          <button
+            key={tab.id}
+            onClick={() => onSelect(tab.id)}
+            style={{
+              padding: '12px 18px',
+              borderRadius: '999px',
+              border: 'none',
+              cursor: 'pointer',
+              background: isActive ? palette.accent : '#1f2937',
+              color: palette.text,
+              fontWeight: 600,
+              letterSpacing: '0.02em',
+              boxShadow: isActive ? '0 12px 24px rgba(56, 189, 248, 0.35)' : 'none',
+              transition: 'all 0.2s ease'
+            }}
+          >
+            {tab.label}
+          </button>
+        );
+      })}
+    </nav>
+  );
+}
+
+function Breadcrumbs({ activeTab }) {
+  const index = TABS.findIndex((tab) => tab.id === activeTab);
+  const trail = TABS.slice(0, index + 1);
+  return (
+    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '18px', color: palette.textMuted }}>
+      {trail.map((tab, idx) => (
+        <React.Fragment key={tab.id}>
+          <span>{tab.label}</span>
+          {idx < trail.length - 1 && <span style={{ opacity: 0.5 }}>/</span>}
+        </React.Fragment>
+      ))}
+    </div>
+  );
+}
+
+function PieChart({ title, data, size = 160, subtitle }) {
+  const total = data.reduce((sum, item) => sum + item.value, 0);
+  let currentAngle = 0;
+  const segments = data.map((item, idx) => {
+    const start = currentAngle;
+    const angle = (item.value / total) * 360;
+    currentAngle += angle;
+    return { ...item, start, angle, color: item.color || piePalette[idx % piePalette.length] };
+  });
+  const gradient = segments
+    .map((seg) => {
+      const start = (seg.start / 360) * 100;
+      const end = ((seg.start + seg.angle) / 360) * 100;
+      return `${seg.color} ${start}% ${end}%`;
+    })
+    .join(', ');
+  return (
+    <div style={{ ...sectionStyle, flex: 1, minWidth: '240px' }}>
+      <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+        <div
+          style={{
+            width: size,
+            height: size,
+            borderRadius: '50%',
+            background: `conic-gradient(${gradient})`,
+            position: 'relative'
+          }}
+        >
+          <div
+            style={{
+              position: 'absolute',
+              top: '50%',
+              left: '50%',
+              transform: 'translate(-50%, -50%)',
+              width: size * 0.55,
+              height: size * 0.55,
+              borderRadius: '50%',
+              background: palette.surface,
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center',
+              color: palette.text,
+              fontWeight: 600
+            }}
+          >
+            {total}
+          </div>
+        </div>
+        <div>
+          {subtitle && <p style={{ ...textStyle, marginBottom: '12px', color: palette.textMuted }}>{subtitle}</p>}
+          <ul style={{ ...textStyle, listStyle: 'none', padding: 0 }}>
+            {segments.map((seg) => (
+              <li key={seg.label} style={{ display: 'flex', alignItems: 'center', marginBottom: '6px' }}>
+                <span
+                  style={{
+                    display: 'inline-block',
+                    width: '12px',
+                    height: '12px',
+                    borderRadius: '4px',
+                    background: seg.color,
+                    marginRight: '10px'
+                  }}
+                />
+                <span style={{ flex: 1 }}>{seg.label}</span>
+                <strong style={{ color: palette.text }}>{formatPercent((seg.value / total) * 100)}</strong>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function HorizontalBarChart({ title, data, unit = 'count', maxValue, colorScale }) {
+  const computedMax = maxValue || Math.max(...data.map((d) => d.value));
+  return (
+    <div style={sectionStyle}>
+      <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+        {data.map((item, idx) => {
+          const width = (item.value / computedMax) * 100;
+          const barColor = colorScale ? colorScale(item, idx) : palette.accent;
+          return (
+            <div key={item.label}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', color: palette.textMuted, fontSize: '14px' }}>
+                <span style={{ maxWidth: '70%', color: palette.text }}>{item.label}</span>
+                <span>
+                  {unit === 'percent' ? formatPercent(item.value) : formatValue(item.value)}
+                  {item.context ? ` • ${item.context}` : ''}
+                </span>
+              </div>
+              <div style={{ background: '#243044', height: '10px', borderRadius: '6px', marginTop: '6px', overflow: 'hidden' }}>
+                <div
+                  style={{
+                    width: `${width}%`,
+                    height: '100%',
+                    background: barColor,
+                    borderRadius: '6px'
+                  }}
+                />
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function StackedBarGroup({ title, data, colorPalette }) {
+  return (
+    <div style={sectionStyle}>
+      <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        {data.map((row) => {
+          const total = Object.values(row.counts).reduce((sum, value) => sum + value, 0);
+          return (
+            <div key={row.label}>
+              <div style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                marginBottom: '6px',
+                color: palette.text
+              }}>
+                <span style={{ maxWidth: '70%' }}>{row.label}</span>
+                <span style={{ color: palette.textMuted }}>{total ? `${total}` : 'n/a'}</span>
+              </div>
+              <div style={{ display: 'flex', borderRadius: '8px', overflow: 'hidden', height: '18px', background: '#243044' }}>
+                {Object.entries(row.counts).map(([key, value]) => {
+                  if (!value) return null;
+                  const percent = (value / total) * 100;
+                  const color = colorPalette[key] || palette.accent;
+                  return (
+                    <div
+                      key={key}
+                      style={{
+                        width: `${percent}%`,
+                        background: color,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: '#0f172a',
+                        fontSize: '12px',
+                        fontWeight: 600
+                      }}
+                    >
+                      {percent >= 12 ? `${percent.toFixed(0)}%` : ''}
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function DualStackedBar({ title, left, right, colors }) {
+  return (
+    <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+      <div style={{ flex: 1, minWidth: '320px' }}>
+        <StackedBarGroup title={`${title} • Attitude`} data={left} colorPalette={colors} />
+      </div>
+      <div style={{ flex: 1, minWidth: '320px' }}>
+        <StackedBarGroup title={`${title} • Behaviour`} data={right} colorPalette={adoptionColors} />
+      </div>
+    </div>
+  );
+}
+
+function TableCard({ title, columns, rows, formatters }) {
+  return (
+    <div style={sectionStyle}>
+      <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
+      <div style={{ overflowX: 'auto' }}>
+        <table style={{ width: '100%', borderCollapse: 'collapse', color: palette.text }}>
+          <thead>
+            <tr>
+              {columns.map((col) => (
+                <th
+                  key={col}
+                  style={{
+                    textAlign: 'left',
+                    padding: '12px 16px',
+                    background: '#243044',
+                    fontWeight: 600,
+                    color: palette.textMuted,
+                    borderBottom: '1px solid rgba(148, 163, 184, 0.2)'
+                  }}
+                >
+                  {col}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row, idx) => (
+              <tr key={idx} style={{ background: idx % 2 === 0 ? 'rgba(36, 48, 68, 0.35)' : 'transparent' }}>
+                {columns.map((col) => (
+                  <td key={col} style={{ padding: '10px 16px', borderBottom: '1px solid rgba(148, 163, 184, 0.12)' }}>
+                    {formatters && formatters[col]
+                      ? formatters[col](row[col])
+                      : typeof row[col] === 'number'
+                      ? formatValue(row[col])
+                      : row[col]}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  );
+}
+
+function StatBadge({ label, value, emphasis }) {
+  return (
+    <div
+      style={{
+        padding: '16px',
+        borderRadius: '16px',
+        background: emphasis ? 'rgba(56, 189, 248, 0.12)' : '#1f2a3b',
+        border: emphasis ? '1px solid rgba(56, 189, 248, 0.4)' : '1px solid rgba(148, 163, 184, 0.15)',
+        flex: 1,
+        minWidth: '180px'
+      }}
+    >
+      <div style={{ color: palette.textMuted, fontSize: '13px', letterSpacing: '0.06em', textTransform: 'uppercase' }}>{label}</div>
+      <div style={{ color: palette.text, fontSize: '26px', fontWeight: 700 }}>{value}</div>
+    </div>
+  );
+}
+
+function InsightGrid({ stats }) {
+  return (
+    <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap', marginBottom: '24px' }}>
+      {stats.map((stat) => (
+        <StatBadge key={stat.label} {...stat} />
+      ))}
+    </div>
+  );
+}
+
+function HistogramPair({ title, left, right }) {
+  return (
+    <div style={sectionStyle}>
+      <h4 style={{ ...headingStyle, fontSize: '18px', marginBottom: '20px' }}>{title}</h4>
+      <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+        {[left, right].map((series, idx) => (
+          <div key={idx} style={{ flex: 1, minWidth: '260px' }}>
+            <h5 style={{ color: palette.textMuted, marginBottom: '12px' }}>{series.title}</h5>
+            <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-end' }}>
+              {series.data.map((bin) => (
+                <div key={bin.bin} style={{ textAlign: 'center', flex: 1 }}>
+                  <div
+                    style={{
+                      height: `${bin.count * 6}px`,
+                      background: palette.accent,
+                      borderRadius: '6px 6px 2px 2px'
+                    }}
+                  />
+                  <div style={{ marginTop: '6px', color: palette.textMuted, fontSize: '12px' }}>{bin.bin}</div>
+                  <div style={{ color: palette.text, fontSize: '12px' }}>{bin.count}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function AssistanceChart({ data }) {
+  const maxValue = Math.max(...data.map((item) => item.count));
+  return (
+    <div style={sectionStyle}>
+      <h4 style={{ ...headingStyle, fontSize: '18px' }}>Top Assistance Needs</h4>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '14px' }}>
+        {data.map((item) => (
+          <div key={item.label}>
+            <div style={{ color: palette.text, marginBottom: '6px' }}>{item.label}</div>
+            <div style={{ background: '#243044', height: '12px', borderRadius: '6px', overflow: 'hidden' }}>
+              <div
+                style={{
+                  width: `${(item.count / maxValue) * 100}%`,
+                  height: '100%',
+                  background: palette.accent,
+                  borderRadius: '6px'
+                }}
+              />
+            </div>
+            <div style={{ color: palette.textMuted, fontSize: '12px', marginTop: '4px' }}>{formatValue(item.count)} mentions</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+}
+
+function InsightList({ title, items }) {
+  return (
+    <div style={sectionStyle}>
+      <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
+      <ul style={{ ...textStyle, paddingLeft: '20px' }}>
+        {items.map((item, idx) => (
+          <li key={idx} style={{ marginBottom: '8px' }}>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function RecommendationGroup({ horizon, items }) {
+  return (
+    <div style={{ ...sectionStyle, borderLeft: `4px solid ${palette.accent}` }}>
+      <h4 style={{ ...headingStyle, fontSize: '18px' }}>{horizon}</h4>
+      <ul style={{ ...textStyle, paddingLeft: '20px' }}>
+        {items.map((item, idx) => (
+          <li key={idx} style={{ marginBottom: '8px' }}>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+function IieDashboard() {
+  const [activeTab, setActiveTab] = useState(TABS[0].id);
+  const totalRespondents = dashboardData.respondents.totalRespondents;
+  const academicCount = dashboardData.respondents.academicCount;
+  const nonAcademicCount = dashboardData.respondents.nonAcademicCount;
+
+  const executiveInsights = useMemo(() => [
+    `331 staff members responded (62% academic, 38% non-academic), equating to a 12.4% institutional participation rate with adequate ±5.4% margin of error.`,
+    `${dashboardData.overallAdoption.adoptionWork.percentages['Yes, I do']}% currently use GenAI for work while ${dashboardData.overallAdoption.adoptionPersonal.percentages['Yes, I do']}% use it personally; 263 respondents rely on GenAI in both contexts.`,
+    `ChatGPT adoption is near-universal (89% current users), with Copilot (47%) and Meta AI (50%) forming a strong productivity stack despite high ethical (67%) and reliability (49%) concerns.`,
+    `Academic staff overwhelmingly endorse GenAI-enabled teaching (86% for curriculum design) but only 28% actively apply it to assessment workflows; confidence strongly predicts usage (r = 0.48).`,
+    `Academic respondents report surging student usage (64% already see GenAI in personalised learning) alongside acute integrity concerns (81% worried about plagiarism) spurring assessment redesign.`,
+    `Training (270 votes), subsidised licensing (253) and curated app access (251) top the assistance queue, signalling readiness for structured enablement programs.`,
+    `Adoption remains uneven: academic staff show 86% active work usage versus 63% in non-academic teams, highlighting the priority for targeted operational onboarding.`
+  ], []);
+
+  const respondentInsights = [
+    `Academic respondents (204) outnumber non-academic (127) aligning with staffing ratios; Varsity College (52%) and Rosebank College (29%) dominate the sample with Vega at 14%.`,
+    `Academic participation clusters in Commerce (36%), Humanities (26%), ICT (20%) and Education (19%), providing balanced discipline coverage for strategic planning.`,
+    `Tenure skews mid-career: 58% of academics and 74% of non-academic staff have ≤10 years at The IIE, indicating a cohort comfortable with change yet requiring structured support.`,
+    `IT proficiency is solid: 50% of academics and 52% of non-academic staff self-rate as advanced, with a further 13% and 12% respectively confident enough to work in IT.`
+  ];
+
+  const adoptionInsights = [
+    `${dashboardData.overallAdoption.adoptionWork.percentages['Yes, I do']}% already rely on GenAI for work and ${dashboardData.overallAdoption.adoptionPersonal.percentages['Yes, I do']}% for personal tasks; 85% of adopters straddle both contexts.`,
+    `ChatGPT remains the anchor (89% current usage, 34 paid seats) with rapid entrants: Copilot (47% current), Meta AI via WhatsApp (50%) and DeepSeek (18%) highlight appetite for multi-model workflows.`,
+    `Research (270 users) and writing (229) lead activities, yet only 97 respondents use GenAI for technical tasks while 33 refuse entirely—signalling a skills and tooling gap.`,
+    `Ethical risks top the concern list (67% agreement) despite strong belief in efficiency (80%) and automation (74%) benefits, underscoring the need for governance paired with enablement.`,
+    `Advanced capabilities remain emergent: 25% currently use reasoning models and 23% engage AI agents, indicating headroom for structured experimentation.`
+  ];
+
+  const academicInsights = [
+    `Support for GenAI-enabled teaching is robust (86% for curriculum/content) but operational uptake lags—only 28% actively use it for assessment and 27% for documentation.`,
+    `Two-thirds of academics flag reliability (66%) and ethics/accountability (66%) as primary risks, yet 70–86% credit GenAI with gains in preparation efficiency, richer materials and administrative relief.`,
+    `Confidence fuels adoption: very confident academics average 2.45 active teaching use-cases versus 0.71 among unsure peers (r = 0.48, n = 204).`,
+    `Only 11 academics use native AI code editors and disclosure is uneven (48 always disclose, 63 rarely/never), signalling policy and tooling opportunities.`
+  ];
+
+  const studentInsights = [
+    `Academic staff endorse student access (70–82% support across scenarios) and report widespread learner adoption, notably 64% seeing GenAI for personalised learning and 57% for research planning.`,
+    `Academic honesty anxieties are acute: 81% fear undetected plagiarism and 79% highlight assessment challenges, driving 36% to redesign evaluations with a further 17% mid-transition.`,
+    `Perceived misuse clusters around uncredited copying (188 mentions) and homework completion (185), underscoring the need for transparent student policy and detection support.`,
+    `AI agents are already entering classrooms—69% of academics believe students use them—demanding proactive guidance and scenario planning.`
+  ];
+
+  const nonAcademicInsights = [
+    `Operations & support teams are the most enthusiastic (82% approval) yet fewer than one-third currently apply GenAI to meetings, media or technical tasks—revealing process integration gaps.`,
+    `Over half of non-academic respondents use GenAI for research (53%) and writing (55%), mirroring core administrative workloads.`,
+    `Ethical anxiety (65%) outweighs fears of job displacement (37%) or technical barriers (20%), reinforcing the need for governance and change management messaging.`,
+    `Conversational AI (95 users) and search copilots (63 users) anchor toolkits, with 41 already exploring AI agents for workflow automation.`
+  ];
+
+  const comparativeInsights = [
+    `IT proficiency correlates with adoption: work usage rises from 0% at low proficiency to 81% among highly proficient staff, though aggregate correlation remains modest (r = 0.11).`,
+    `Teaching confidence is the strongest behavioural predictor—usage breadth climbs steadily from 0.7 to 2.45 applications as confidence grows (r = 0.48, CI95 [0.36; 0.58]).`,
+    `Academic staff outpace non-academic peers in active work usage (86% vs 63%, χ²=22.99, p<0.05) indicating an operational enablement gap.`,
+    `Brand adoption variance is moderate (Cramér’s V = 0.16) with Vega (82%) and Varsity College (81%) leading, while MSA (69%) and Rosebank (68%) lag.`
+  ];
+
+  const ideaInsights = {
+    uses: {
+      summary: [
+        `277 respondents shared institutional use-cases: student support (29%), research & analytics (25%) and capability development (22%) dominate submissions.`,
+        `Sentiment skews pragmatic (63% neutral, 22% positive) with repeat calls for GenAI-assisted assessment design, rubric drafting and content localisation.`
+      ],
+      highlights: [
+        'Co-creating creative formative assessments and rubrics with GenAI to diversify evaluation formats.',
+        'Leveraging GenAI for market intelligence and programme innovation insights across faculties.'
+      ]
+    },
+    jobIdeas: {
+      summary: [
+        `280 ideas to ease workload emphasise student support (18%), assessment automation (16%) and workflow streamlining (13%).`,
+        `Respondents voice pain points (41% negative sentiment) around time-intensive marking, fragmented tooling and manual reporting.`
+      ],
+      highlights: [
+        'Desire for an integrated assistant that links lesson planning, assessment design and personalised feedback dashboards.',
+        'Requests for GenAI-driven change management communications and stakeholder engagement scripts.'
+      ]
+    },
+    agentIdeas: {
+      summary: [
+        `269 agent concepts target student services (21%), research support (15%) and academic integrity monitoring (14%).`,
+        `Neutral sentiment (50%) masks clear solution themes—admissions triage, knowledgebase chatbots and curriculum copilots.`
+      ],
+      highlights: [
+        'Admission workflow agent that checks documentation, summarises applicant status and automates follow-up communications.',
+        '24/7 policy-aware chatbot for assessment queries, escalating edge cases to academic leadership with context packs.'
+      ]
+    }
+  };
+
+  const assistanceInsights = [
+    `Training tops the list (270 votes) with strong demand for multi-modal enablement (workshops, webinars and on-demand content).`,
+    `Budget support matters: 253 respondents need help covering premium licences, while 251 request an institutionally curated and managed app stack.`,
+    `Enablement scaffolding—resource libraries (232 mentions), technical troubleshooting (185) and peer communities (183)—completes the support blueprint.`
+  ];
+
+  const recommendations = {
+    short: [
+      'Launch an institution-wide GenAI enablement sprint: curated training pathways, rapid-reference guides and a transparent approved-tools register.',
+      'Codify disclosure, assessment and student-use guidelines paired with exemplar communications for academics and operations teams.',
+      'Stand-up a GenAI helpdesk pod blending technical support and instructional design coaching to unblock early adopters.'
+    ],
+    medium: [
+      'Co-design faculty-specific playbooks that translate high-benefit use-cases (assessment redesign, admissions triage, research assistance) into reusable workflows.',
+      'Negotiate enterprise licensing for priority tools (ChatGPT Teams, Copilot, Meta AI integrations) aligned to compliance and data governance requirements.',
+      'Implement a confidence accelerator programme that pairs power users with cohort-based mentoring, targeting teams with low utilisation.'
+    ],
+    long: [
+      'Embed GenAI maturity metrics into strategic dashboards—track adoption depth, quality outcomes and integrity indicators to steer continuous improvement.',
+      'Build an innovation lab for reasoning models and agent ecosystems, emphasising cross-department pilots in student services, analytics and quality assurance.',
+      'Integrate GenAI capability development into talent management, ensuring progression frameworks reward ethical, high-impact AI-enabled practice.'
+    ]
+  };
+
+  const coreStats = [
+    { label: 'Total Respondents', value: formatValue(totalRespondents), emphasis: true },
+    { label: 'Academic Staff', value: `${academicCount} (${((academicCount / totalRespondents) * 100).toFixed(1)}%)` },
+    { label: 'Non-Academic Staff', value: `${nonAcademicCount} (${((nonAcademicCount / totalRespondents) * 100).toFixed(1)}%)` },
+    { label: 'Dual-context GenAI Users', value: `${dashboardData.overallAdoption.adoptionBoth.counts['Both work & personal']} (${((dashboardData.overallAdoption.adoptionBoth.counts['Both work & personal'] / dashboardData.overallAdoption.adoptionBoth.total) * 100).toFixed(1)}%)` }
+  ];
+
+  const renderTab = () => {
+    switch (activeTab) {
+      case 'executive':
+        return (
+          <div>
+            <InsightGrid stats={coreStats} />
+            <KeyInsights title="Strategic Headlines" items={executiveInsights} variant="highlight" />
+          </div>
+        );
+      case 'respondents': {
+        const brandPieData = dashboardData.respondents.brandCounts.map((item, idx) => ({
+          label: item.label,
+          value: item.count,
+          color: piePalette[idx % piePalette.length]
+        }));
+        const groupPieData = dashboardData.respondents.groupCounts.map((item, idx) => ({
+          label: item.label,
+          value: item.count,
+          color: piePalette[idx % piePalette.length]
+        }));
+        const academicExp = dashboardData.respondents.experience.academic;
+        const nonExp = dashboardData.respondents.experience.nonAcademic;
+        const facultyData = dashboardData.respondents.facultyCounts.map((item) => ({ label: item.label, value: item.count }));
+        const tableColumns = ['Brand', 'Academic', 'Non-academic', 'Total'];
+        const percentColumns = ['Brand', 'Academic', 'Non-academic'];
+        const countsRows = dashboardData.respondents.brandGroupCounts.map((row) => ({
+          Brand: row.brand,
+          Academic: row.Academic,
+          'Non-academic': row['Non-academic'],
+          Total: row.Total
+        }));
+        const percRows = dashboardData.respondents.brandGroupPercentages.map((row) => ({
+          Brand: row.brand,
+          Academic: `${row.Academic.toFixed(1)}%`,
+          'Non-academic': `${row['Non-academic'].toFixed(1)}%`
+        }));
+        const itStackData = [
+          {
+            title: 'Academic Staff',
+            stats: dashboardData.respondents.itProficiency.academic
+          },
+          {
+            title: 'Non-Academic Staff',
+            stats: dashboardData.respondents.itProficiency.nonAcademic
+          }
+        ];
+        return (
+          <div>
+            <KeyInsights title="Key Findings" items={respondentInsights} />
+            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+              <PieChart title="Respondents by Brand" data={brandPieData} subtitle="n = 331" />
+              <PieChart title="Respondents by Role Group" data={groupPieData} subtitle="Academic vs Non-academic" />
+            </div>
+            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+              <div style={{ flex: 1 }}>
+                <TableCard title="Brand × Role • Counts" columns={tableColumns} rows={countsRows} />
+              </div>
+              <div style={{ flex: 1 }}>
+                <TableCard title="Brand × Role • % of Brand" columns={percentColumns} rows={percRows} />
+              </div>
+            </div>
+            <HorizontalBarChart
+              title="Academic Faculties Represented"
+              data={facultyData}
+              colorScale={() => palette.accent}
+            />
+            <HistogramPair
+              title="Tenure Distribution"
+              left={{
+                title: 'Academic Staff • years at IIE',
+                data: academicExp.iie
+              }}
+              right={{
+                title: 'Academic Staff • prior teaching experience',
+                data: academicExp.elsewhere
+              }}
+            />
+            <HistogramPair
+              title="Administrative Tenure"
+              left={{
+                title: 'Non-Academic Staff • years at IIE',
+                data: nonExp.iie
+              }}
+              right={{
+                title: 'Non-Academic Staff • prior experience',
+                data: nonExp.elsewhere
+              }}
+            />
+            <div style={{ ...sectionStyle }}>
+              <h4 style={{ ...headingStyle, fontSize: '18px', marginBottom: '18px' }}>IT Proficiency Comparison (100% basis)</h4>
+              <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+                {itStackData.map((group) => {
+                  const entries = Object.entries(group.stats.percentages).map(([label, value], idx) => ({
+                    label,
+                    value,
+                    color: piePalette[idx % piePalette.length]
+                  }));
+                  const total = group.stats.total;
+                  return (
+                    <div key={group.title} style={{ flex: 1, minWidth: '240px' }}>
+                      <PieChart title={group.title} data={entries} subtitle={`n = ${total}`} size={140} />
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          </div>
+        );
+      }
+      case 'adoption': {
+        const adoptionPieData = [
+          {
+            title: 'GenAI for Work',
+            data: Object.entries(dashboardData.overallAdoption.adoptionWork.counts).map(([label, value], idx) => ({
+              label,
+              value,
+              color: adoptionColors[label] || piePalette[idx % piePalette.length]
+            })),
+            subtitle: `n = ${dashboardData.overallAdoption.adoptionWork.total}`
+          },
+          {
+            title: 'GenAI for Personal Use',
+            data: Object.entries(dashboardData.overallAdoption.adoptionPersonal.counts).map(([label, value], idx) => ({
+              label,
+              value,
+              color: adoptionColors[label] || piePalette[idx % piePalette.length]
+            })),
+            subtitle: `n = ${dashboardData.overallAdoption.adoptionPersonal.total}`
+          },
+          {
+            title: 'Dual-context Usage',
+            data: Object.entries(dashboardData.overallAdoption.adoptionBoth.counts).map(([label, value], idx) => ({
+              label,
+              value,
+              color: piePalette[idx % piePalette.length]
+            })),
+            subtitle: `n = ${dashboardData.overallAdoption.adoptionBoth.total}`
+          }
+        ];
+        const activitiesData = dashboardData.overallAdoption.activities.map((item) => ({
+          label: item.label,
+          value: item.used,
+          context: `${item.never} would never • ${item.notYet} not yet`
+        }));
+        const toolBarData = [...dashboardData.overallAdoption.topTools]
+          .sort((a, b) => a.used - b.used)
+          .map((item) => ({
+            label: item.tool,
+            value: item.used,
+            context: `${item.current} current`
+          }));
+        const topToolBreakdown = dashboardData.overallAdoption.topCurrentBreakdown.map((item, idx) => ({
+          title: item.tool,
+          data: [
+            { label: 'Free Tier', value: item.currentFree, color: palette.accent },
+            { label: 'Paid Tier', value: item.currentPaid, color: palette.accentAlt }
+          ],
+          subtitle: `${item.currentTotal} current users`
+        }));
+        return (
+          <div>
+            <KeyInsights title="Key Findings" items={adoptionInsights} />
+            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+              {adoptionPieData.map((pie) => (
+                <PieChart key={pie.title} {...pie} />
+              ))}
+            </div>
+            <HorizontalBarChart
+              title="Top GenAI Tools • Ever Used"
+              data={toolBarData}
+              colorScale={(item) => (item.label === 'ChatGPT' ? palette.accent : palette.accentAlt)}
+            />
+            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+              {topToolBreakdown.map((item) => (
+                <PieChart key={item.title} title={item.title} data={item.data} subtitle={item.subtitle} size={140} />
+              ))}
+            </div>
+            <HorizontalBarChart
+              title="GenAI Activities • Current or Past Users"
+              data={activitiesData}
+              colorScale={() => palette.accent}
+            />
+            <StackedBarGroup title="Concerns about GenAI" data={dashboardData.overallAdoption.concerns} colorPalette={likertColors} />
+            <StackedBarGroup title="Perceived Benefits of GenAI" data={dashboardData.overallAdoption.benefits} colorPalette={likertColors} />
+            <div style={{ display: 'flex', gap: '18px', flexWrap: 'wrap' }}>
+              {dashboardData.overallAdoption.metaUsage.map((item, idx) => (
+                <PieChart
+                  key={item.label}
+                  title={`Meta AI • ${item.label}`}
+                  data={Object.entries(item.counts).map(([label, value], colourIdx) => ({
+                    label,
+                    value,
+                    color: piePalette[colourIdx % piePalette.length]
+                  }))}
+                  subtitle={`n = ${item.total}`}
+                  size={140}
+                />
+              ))}
+            </div>
+            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+              {['reasoningModels', 'aiAgents'].map((key) => (
+                <PieChart
+                  key={key}
+                  title={key === 'reasoningModels' ? 'AI Reasoning Models' : 'AI Agents'}
+                  data={Object.entries(dashboardData.overallAdoption[key].counts).map(([label, value], idx) => ({
+                    label,
+                    value,
+                    color: piePalette[idx % piePalette.length]
+                  }))}
+                  subtitle={`n = ${dashboardData.overallAdoption[key].total}`}
+                  size={180}
+                />
+              ))}
+            </div>
+          </div>
+        );
+      }
+      case 'academic':
+        return (
+          <div>
+            <KeyInsights title="Key Findings" items={academicInsights} />
+            <DualStackedBar
+              title="Teaching Applications"
+              left={dashboardData.academicStaff.attitudes}
+              right={dashboardData.academicStaff.behaviours}
+              colors={attitudeColors}
+            />
+            <StackedBarGroup title="Academic Concerns" data={dashboardData.academicStaff.concerns} colorPalette={likertColors} />
+            <StackedBarGroup title="Academic Benefits" data={dashboardData.academicStaff.benefits} colorPalette={likertColors} />
+            <HorizontalBarChart
+              title="GenAI Tool Types in Teaching"
+              data={dashboardData.academicStaff.toolTypes.map((item) => ({
+                label: item.label,
+                value: item.used,
+                context: `${item.never} would never`
+              }))}
+            />
+            <div style={{ display: 'flex', gap: '18px', flexWrap: 'wrap' }}>
+              <PieChart
+                title="AI Code Editor Usage"
+                data={Object.entries(dashboardData.academicStaff.codeEditors.counts).map(([label, value], idx) => ({
+                  label,
+                  value,
+                  color: piePalette[idx % piePalette.length]
+                }))}
+                subtitle={`n = ${dashboardData.academicStaff.codeEditors.total}`}
+                size={150}
+              />
+              <PieChart
+                title="Disclosure to Students"
+                data={Object.entries(dashboardData.academicStaff.disclosure.counts).map(([label, value], idx) => ({
+                  label,
+                  value,
+                  color: piePalette[idx % piePalette.length]
+                }))}
+                subtitle={`n = ${dashboardData.academicStaff.disclosure.total}`}
+                size={150}
+              />
+              <PieChart
+                title="Confidence Levels"
+                data={Object.entries(dashboardData.academicStaff.confidence.counts).map(([label, value], idx) => ({
+                  label,
+                  value,
+                  color: piePalette[idx % piePalette.length]
+                }))}
+                subtitle={`n = ${dashboardData.academicStaff.confidence.total}`}
+                size={150}
+              />
+            </div>
+          </div>
+        );
+      case 'students':
+        return (
+          <div>
+            <KeyInsights title="Key Findings" items={studentInsights} />
+            <DualStackedBar
+              title="Student Learning Applications"
+              left={dashboardData.students.attitudes}
+              right={dashboardData.students.behaviours}
+              colors={attitudeColors}
+            />
+            <StackedBarGroup title="Academic Concerns for Student Usage" data={dashboardData.students.concerns} colorPalette={likertColors} />
+            <StackedBarGroup title="Perceived Benefits for Students" data={dashboardData.students.benefits} colorPalette={likertColors} />
+            <HorizontalBarChart
+              title="Tools Students Are Using (per Academic Perception)"
+              data={dashboardData.students.tools.map((item) => ({ label: item.label, value: item.count }))}
+            />
+            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+              <StackedBarGroup title="Concerns about Student Misuse" data={dashboardData.students.abuseConcerns} colorPalette={likertColors} />
+              <HorizontalBarChart
+                title="Specific Abuse Patterns"
+                data={dashboardData.students.abuseTypes.map((item) => ({ label: item.label, value: item.count }))}
+              />
+            </div>
+            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+              <PieChart
+                title="Student AI Agent Adoption"
+                data={Object.entries(dashboardData.students.agents.counts).map(([label, value], idx) => ({
+                  label,
+                  value,
+                  color: piePalette[idx % piePalette.length]
+                }))}
+                subtitle={`n = ${dashboardData.students.agents.total}`}
+                size={160}
+              />
+              <PieChart
+                title="Assessment Redesign"
+                data={Object.entries(dashboardData.students.assessment.counts).map(([label, value], idx) => ({
+                  label,
+                  value,
+                  color: piePalette[idx % piePalette.length]
+                }))}
+                subtitle={`n = ${dashboardData.students.assessment.total}`}
+                size={160}
+              />
+            </div>
+          </div>
+        );
+      case 'nonAcademic':
+        return (
+          <div>
+            <KeyInsights title="Key Findings" items={nonAcademicInsights} />
+            <DualStackedBar
+              title="Operational Applications"
+              left={dashboardData.nonAcademicStaff.attitudes}
+              right={dashboardData.nonAcademicStaff.behaviours}
+              colors={attitudeColors}
+            />
+            <StackedBarGroup title="Operational Concerns" data={dashboardData.nonAcademicStaff.concerns} colorPalette={likertColors} />
+            <StackedBarGroup title="Operational Benefits" data={dashboardData.nonAcademicStaff.benefits} colorPalette={likertColors} />
+            <HorizontalBarChart
+              title="Tools Supporting Administration"
+              data={dashboardData.nonAcademicStaff.toolTypes.map((item) => ({
+                label: item.label,
+                value: item.used,
+                context: `${item.never} would never`
+              }))}
+            />
+          </div>
+        );
+      case 'comparative': {
+        const itBars = dashboardData.comparative.itProficiency.byLevel.map((item) => ({
+          label: item.level,
+          value: item.adoptionRate,
+          context: `${item.adopters}/${item.total}`
+        }));
+        const confidenceStats = dashboardData.comparative.confidenceTeaching.byLevel;
+        const confidenceBars = Object.entries(confidenceStats).map(([label, stats]) => ({
+          label,
+          value: stats.averageUsage,
+          context: `${stats.respondents} respondents`
+        }));
+        const brandRates = dashboardData.comparative.brandAdoption.rates.map((item) => ({
+          label: item.brand,
+          value: item.adoptionRate,
+          context: `${item.currentYes}/${item.total}`
+        }));
+        const groupData = dashboardData.comparative.groupAdoption;
+        const groupBars = [
+          { label: 'Academic Staff', value: groupData.academic.rate, context: `${groupData.academic.yes}/${groupData.academic.yes + groupData.academic.other}` },
+          { label: 'Non-Academic Staff', value: groupData.nonAcademic.rate, context: `${groupData.nonAcademic.yes}/${groupData.nonAcademic.yes + groupData.nonAcademic.other}` }
+        ];
+        return (
+          <div>
+            <KeyInsights title="Key Insights" items={comparativeInsights} />
+            <HorizontalBarChart
+              title="Work Adoption by IT Proficiency"
+              data={itBars}
+              unit="percent"
+              colorScale={(item) => (item.value >= 80 ? palette.positive : palette.accent)}
+            />
+            <HorizontalBarChart
+              title="Average Teaching Use-Cases by Confidence Level"
+              data={confidenceBars}
+              unit="count"
+              colorScale={(item) => (item.label.includes('confident') ? palette.positive : palette.accentAlt)}
+            />
+            <HorizontalBarChart
+              title="Brand-level Work Adoption"
+              data={brandRates}
+              unit="percent"
+              colorScale={() => palette.accent}
+            />
+            <HorizontalBarChart
+              title="Work Adoption by Role Group"
+              data={groupBars}
+              unit="percent"
+              colorScale={(item) => (item.label.startsWith('Academic') ? palette.accent : palette.accentAlt)}
+            />
+            <InsightList
+              title="Statistical Notes"
+              items={[
+                `IT proficiency correlation overall r = ${dashboardData.comparative.itProficiency.correlation.overall.r} (n = ${dashboardData.comparative.itProficiency.correlation.overall.n}), indicating modest positive association.`,
+                `Confidence vs teaching usage r = ${dashboardData.comparative.confidenceTeaching.correlation.r} with 95% CI ${dashboardData.comparative.confidenceTeaching.correlation.ci95.join(' to ')}.`,
+                `Brand adoption chi-square = ${dashboardData.comparative.brandAdoption.chiSquare.chiSquare} (df=${dashboardData.comparative.brandAdoption.chiSquare.df}), effect size Cramér’s V = ${dashboardData.comparative.brandAdoption.effectSize}.`,
+                `Role-group adoption difference chi-square = ${dashboardData.comparative.groupAdoption.chiSquare.chiSquare} (df=${dashboardData.comparative.groupAdoption.chiSquare.df}), effect size Cramér’s V = ${dashboardData.comparative.groupAdoption.effectSize}.`
+              ]}
+            />
+          </div>
+        );
+      }
+      case 'ideas':
+        return (
+          <div>
+            <KeyInsights title="Key Insights" items={[...ideaInsights.uses.summary, ...ideaInsights.jobIdeas.summary, ...ideaInsights.agentIdeas.summary]} />
+            <KeyInsights title="Supported Uses (Q7.1)" items={ideaInsights.uses.summary.concat(['Highlighted ideas:', ...ideaInsights.uses.highlights])} variant="highlight" />
+            <KeyInsights title="Ideas to Ease Work (Q7.2)" items={ideaInsights.jobIdeas.summary.concat(['Highlighted ideas:', ...ideaInsights.jobIdeas.highlights])} variant="alt" />
+            <KeyInsights title="AI Agent Concepts (Q7.3)" items={ideaInsights.agentIdeas.summary.concat(['Highlighted ideas:', ...ideaInsights.agentIdeas.highlights])} variant="alt" />
+          </div>
+        );
+      case 'assistance':
+        return (
+          <div>
+            <KeyInsights title="Key Insights" items={assistanceInsights} />
+            <AssistanceChart data={dashboardData.assistance.counts} />
+          </div>
+        );
+      case 'recommendations':
+        return (
+          <div>
+            <RecommendationGroup horizon="Short-term (0–3 months)" items={recommendations.short} />
+            <RecommendationGroup horizon="Medium-term (3–9 months)" items={recommendations.medium} />
+            <RecommendationGroup horizon="Long-term (9–18 months)" items={recommendations.long} />
+          </div>
+        );
+      default:
+        return null;
+    }
+  };
+
+  return (
+    <div
+      style={{
+        minHeight: '100vh',
+        background: palette.background,
+        padding: '32px',
+        fontFamily: '"Inter", "Segoe UI", sans-serif',
+        color: palette.text
+      }}
+    >
+      <header style={{ marginBottom: '32px' }}>
+        <div style={{ color: palette.accent, letterSpacing: '0.12em', fontSize: '12px', textTransform: 'uppercase', marginBottom: '8px' }}>
+          Third Analysis of the IIE GenAI Survey Data
+        </div>
+        <h1 style={{ fontSize: '36px', fontWeight: 700, marginBottom: '12px' }}>GenAI Strategy Intelligence Dashboard</h1>
+        <p style={{ ...textStyle, color: palette.textMuted, maxWidth: '780px' }}>
+          Interactive executive dashboard for The Institute of Advanced Education synthesising 331 staff responses (±5.4% MoE @95% confidence) to steer GenAI strategy and implementation decisions.
+        </p>
+      </header>
+      <TabNavigation activeTab={activeTab} onSelect={setActiveTab} />
+      <Breadcrumbs activeTab={activeTab} />
+      {renderTab()}
+    </div>
+  );
+}
+
+export default IieDashboard;
