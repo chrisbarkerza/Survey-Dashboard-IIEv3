@@ -7428,6 +7428,32 @@
           count: 8
         }
       ],
+      nqfCounts: [
+        {
+          label: "NQF Level 7.",
+          count: 129
+        },
+        {
+          label: "NQF Level 6.",
+          count: 107
+        },
+        {
+          label: "NQF Level 5.",
+          count: 107
+        },
+        {
+          label: "NQF Level 8.",
+          count: 70
+        },
+        {
+          label: "NQF Level 9.",
+          count: 13
+        },
+        {
+          label: "NQF Level 10.",
+          count: 3
+        }
+      ],
       experience: {
         academic: {
           iie: [
@@ -7584,6 +7610,23 @@
             "High, I could work in an IT department.": 11.8
           },
           total: 127
+        }
+      },
+      sampleSummary: {
+        overall: {
+          respondents: 331,
+          population: 2660,
+          participationRate: 12.4
+        },
+        academic: {
+          respondents: 204,
+          population: 1390,
+          participationRate: 14.7
+        },
+        nonAcademic: {
+          respondents: 127,
+          population: 1270,
+          participationRate: 10
         }
       }
     },
@@ -8244,42 +8287,48 @@
           used: 270,
           never: 9,
           thinking: 12,
-          notYet: 40
+          notYet: 40,
+          total: 331
         },
         {
           label: "Text creation & manipulation - writing, proofing, reviewing, summarising & translating of emails, documents, contracts, reports, etc.",
           used: 229,
           never: 21,
           thinking: 24,
-          notYet: 57
+          notYet: 57,
+          total: 331
         },
         {
           label: "Educational purposes  - creating lesson plans & content, tutoring, test creation, marking, etc.",
           used: 177,
           never: 27,
           thinking: 25,
-          notYet: 102
+          notYet: 102,
+          total: 331
         },
         {
           label: "Meeting preparation & recording - agenda setting, note-taking, creation of summaries & action lists, etc.",
           used: 143,
           never: 23,
           thinking: 37,
-          notYet: 128
+          notYet: 128,
+          total: 331
         },
         {
           label: "Media creation & manipulation - making & editing of images, video, sound & designs for presentations, documents, marketing materials, etc.",
           used: 141,
           never: 28,
           thinking: 35,
-          notYet: 127
+          notYet: 127,
+          total: 331
         },
         {
           label: "Technical tasks  - data, statistical & financial analysis, coding, web development, cyber security, system administration, etc.",
           used: 97,
           never: 33,
           thinking: 37,
-          notYet: 164
+          notYet: 164,
+          total: 331
         }
       ],
       concerns: [
@@ -8738,52 +8787,62 @@
         {
           label: "Conversational AI tools (Chatbots) - e.g. ChatGPT, Claude, Gemini, Copilot, Grok, Meta AI, etc.",
           used: 154,
-          never: 7
+          never: 7,
+          total: 204
         },
         {
           label: "Search tools - Perplexity, ChatGPT Search, Claude Search, Gemini Search, Grok Search, etc.",
           used: 148,
-          never: 5
+          never: 5,
+          total: 204
         },
         {
           label: "Image creation & manipulation tools - Midjourney, Stable Diffusion, Leonardo AI, Images with ChatGPT, Imagen, etc.",
           used: 87,
-          never: 11
+          never: 11,
+          total: 204
         },
         {
           label: "Meeting  tools  - Copilot in Teams, Otter.ai, Zoom AI Companion, Take Notes with Gemini, etc.",
           used: 81,
-          never: 8
+          never: 8,
+          total: 204
         },
         {
           label: "AI Agents - ChatGPT Agent, Manus AI, Comet Web Browser, etc.",
           used: 73,
-          never: 14
+          never: 14,
+          total: 204
         },
         {
           label: "Reasoning models - OpenAI o3 or o4 , Gemini 2.5 Pro, Claude 4, Grok 4, DeepSeek R1, etc.",
           used: 66,
-          never: 12
+          never: 12,
+          total: 204
         },
         {
           label: "Education platforms - Khanmigo, MagicSchool, Mindjoy, MagicSchool.ai, NotebookLM, etc.",
           used: 58,
-          never: 15
+          never: 15,
+          total: 204
         },
         {
           label: "Video creation & manipulation tools - Runway, HeyGen, Synthesia, Pika, Adobe Firefly, Veo, Kling, etc.",
           used: 48,
-          never: 17
+          never: 17,
+          total: 204
         },
         {
           label: "Code generation tools - Github Copilot, Cursor, Windsurf, Replit, Lovable, ChatGPT, Claude, Cursor, Windsurf, etc.",
           used: 48,
-          never: 19
+          never: 19,
+          total: 204
         },
         {
           label: "Audio creation & manipulation tools - ElevenLabs, Suno, Udio, etc.",
           used: 37,
-          never: 17
+          never: 17,
+          total: 204
         }
       ],
       codeEditors: {
@@ -9489,52 +9548,62 @@
         {
           label: "Conversational AI tools (Chatbots) - e.g. ChatGPT, Claude, Gemini, Copilot, Grok, Meta AI, etc.",
           used: 95,
-          never: 7
+          never: 7,
+          total: 127
         },
         {
           label: "Search tools - Perplexity, ChatGPT Search, Claude Search, Gemini Search, Grok Search, etc.",
           used: 63,
-          never: 8
+          never: 8,
+          total: 127
         },
         {
           label: "Meeting  tools  - Copilot in Teams, Otter.ai, Zoom AI Companion, Take Notes with Gemini, etc.",
           used: 45,
-          never: 9
+          never: 9,
+          total: 127
         },
         {
           label: "AI Agents - ChatGPT Agent, Manus AI, Comet Web Browser, etc.",
           used: 41,
-          never: 11
+          never: 11,
+          total: 127
         },
         {
           label: "Image creation & manipulation tools - Midjourney, Stable Diffusion, Leonardo AI, Images with ChatGPT, Imagen, etc.",
           used: 34,
-          never: 14
+          never: 14,
+          total: 127
         },
         {
           label: "Code generation tools - Github Copilot, Cursor, Windsurf, Replit, Lovable, ChatGPT, Claude, etc.",
           used: 24,
-          never: 13
+          never: 13,
+          total: 127
         },
         {
           label: "Reasoning models - OpenAI o3 or o4 , Gemini 2.5 Pro, Claude 4, Grok 4, DeepSeek R1, etc.",
           used: 19,
-          never: 14
+          never: 14,
+          total: 127
         },
         {
           label: "Video creation & manipulation tools - Runway, HeyGen, Synthesia, Pika, Adobe Firefly, Veo, Kling, etc.",
           used: 16,
-          never: 13
+          never: 13,
+          total: 127
         },
         {
           label: "Audio creation & manipulation tools - ElevenLabs, Suno, Udio, etc.",
           used: 13,
-          never: 14
+          never: 14,
+          total: 127
         },
         {
           label: "Education platforms - Khanmigo, MagicSchool, Mindjoy, etc.",
           used: 12,
-          never: 12
+          never: 12,
+          total: 127
         }
       ]
     },
@@ -10634,6 +10703,24 @@
     "No opinion": "#facc15",
     Never: "#f87171"
   };
+  var META_SCALE = ["No", "Maybe", "Yes"];
+  var IT_PROFICIENCY_ORDER = [
+    "Low, I don't use computers often.",
+    "Moderate, I use a PC for most of my work.",
+    "Advanced, I can assist others to solve their problems.",
+    "High, I could work in an IT department."
+  ];
+  var proficiencyColors = {
+    "Low, I don't use computers often.": "#f87171",
+    "Moderate, I use a PC for most of my work.": "#facc15",
+    "Advanced, I can assist others to solve their problems.": "#38bdf8",
+    "High, I could work in an IT department.": "#22c55e"
+  };
+  var metaColors = {
+    No: "#f87171",
+    Maybe: "#facc15",
+    Yes: "#38bdf8"
+  };
   var piePalette = ["#38bdf8", "#f97316", "#22c55e", "#a855f7", "#facc15", "#f87171", "#14b8a6", "#ef8dff"];
   var sectionStyle = {
     background: palette.surface,
@@ -10705,6 +10792,29 @@
       }
     );
   }
+  function TabProgress({ activeTab }) {
+    const activeIndex = TABS.findIndex((tab) => tab.id === activeTab);
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: "6px", marginBottom: "24px", flexWrap: "wrap" }, children: TABS.map((tab, idx) => {
+      const isActive = idx === activeIndex;
+      const isComplete = idx < activeIndex;
+      const background = isActive ? palette.accent : isComplete ? "rgba(56, 189, 248, 0.35)" : "#1f2937";
+      return /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+        "div",
+        {
+          style: {
+            width: "18px",
+            height: "18px",
+            borderRadius: "50%",
+            background,
+            border: "1px solid rgba(148, 163, 184, 0.4)",
+            boxShadow: isActive ? "0 0 12px rgba(56, 189, 248, 0.5)" : "none"
+          },
+          title: tab.label
+        },
+        tab.id
+      );
+    }) });
+  }
   function Breadcrumbs({ activeTab }) {
     const index = TABS.findIndex((tab) => tab.id === activeTab);
     const trail = TABS.slice(0, index + 1);
@@ -10713,7 +10823,7 @@
       idx < trail.length - 1 && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { opacity: 0.5 }, children: "/" })
     ] }, tab.id)) });
   }
-  function PieChart({ title, data, size = 160, subtitle }) {
+  function PieChart({ title, data, size = 160, subtitle, footnote }) {
     const total = data.reduce((sum, item) => sum + item.value, 0);
     let currentAngle = 0;
     const segments = data.map((item, idx) => {
@@ -10783,10 +10893,11 @@
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("strong", { style: { color: palette.text }, children: formatPercent(seg.value / total * 100) })
           ] }, seg.label)) })
         ] })
-      ] })
+      ] }),
+      footnote && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: palette.textMuted, marginTop: "12px", fontSize: "13px" }, children: footnote })
     ] });
   }
-  function HorizontalBarChart({ title, data, unit = "count", maxValue, colorScale }) {
+  function HorizontalBarChart({ title, data, unit = "count", maxValue, colorScale, footnote }) {
     const computedMax = maxValue || Math.max(...data.map((d) => d.value));
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: sectionStyle, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { style: { ...headingStyle, fontSize: "18px" }, children: title }),
@@ -10813,10 +10924,11 @@
             }
           ) })
         ] }, item.label);
-      }) })
+      }) }),
+      footnote && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: palette.textMuted, marginTop: "12px", fontSize: "13px" }, children: footnote })
     ] });
   }
-  function StackedBarGroup({ title, data, colorPalette }) {
+  function StackedBarGroup({ title, data, colorPalette, footnote }) {
     return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: sectionStyle, children: [
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { style: { ...headingStyle, fontSize: "18px" }, children: title }),
       /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", flexDirection: "column", gap: "16px" }, children: data.map((row) => {
@@ -10854,7 +10966,78 @@
             );
           }) })
         ] }, row.label);
-      }) })
+      }) }),
+      footnote && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: palette.textMuted, marginTop: "12px", fontSize: "13px" }, children: footnote })
+    ] });
+  }
+  function StackedColumnChart({ title, series, colorPalette, footnote }) {
+    const legendKeys = Object.keys(colorPalette);
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: sectionStyle, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { style: { ...headingStyle, fontSize: "18px" }, children: title }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: "24px", alignItems: "flex-end", flexWrap: "wrap" }, children: series.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: "1 1 160px", textAlign: "center" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: {
+          display: "flex",
+          flexDirection: "column-reverse",
+          height: "220px",
+          borderRadius: "14px",
+          overflow: "hidden",
+          background: "#243044"
+        }, children: item.segments.map((segment) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+          "div",
+          {
+            style: {
+              height: `${segment.percent}%`,
+              background: colorPalette[segment.label] || palette.accent,
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              color: "#0f172a",
+              fontSize: "12px",
+              fontWeight: 600
+            },
+            children: segment.percent >= 12 ? `${segment.percent.toFixed(0)}%` : ""
+          },
+          segment.label
+        )) }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { marginTop: "10px", color: palette.text }, children: item.label }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { color: palette.textMuted, fontSize: "12px" }, children: [
+          "n = ",
+          formatValue(item.total)
+        ] })
+      ] }, item.label)) }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { marginTop: "16px", display: "flex", gap: "16px", flexWrap: "wrap", color: palette.textMuted, fontSize: "13px" }, children: legendKeys.map((key) => /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", alignItems: "center", gap: "8px" }, children: [
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { width: "12px", height: "12px", borderRadius: "4px", background: colorPalette[key] } }),
+        /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: key })
+      ] }, key)) }),
+      footnote && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: palette.textMuted, marginTop: "12px", fontSize: "13px" }, children: footnote })
+    ] });
+  }
+  function VerticalBarChart({ title, data, colorScale, footnote }) {
+    const maxValue = Math.max(...data.map((d) => d.value));
+    return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: sectionStyle, children: [
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { style: { ...headingStyle, fontSize: "18px" }, children: title }),
+      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: "24px", alignItems: "flex-end", flexWrap: "wrap" }, children: data.map((item, idx) => {
+        const heightPercent = maxValue ? item.value / maxValue * 100 : 0;
+        return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { flex: "1 1 120px", textAlign: "center" }, children: [
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { height: "220px", display: "flex", alignItems: "flex-end", justifyContent: "center" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+            "div",
+            {
+              style: {
+                width: "60%",
+                height: `${heightPercent}%`,
+                minHeight: item.value > 0 ? "4px" : "0",
+                background: colorScale ? colorScale(item, idx) : palette.accent,
+                borderRadius: "12px 12px 4px 4px",
+                position: "relative"
+              },
+              children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { style: { position: "absolute", top: "-24px", width: "100%", fontSize: "13px", color: palette.text }, children: item.valueLabel || formatPercent(item.value) })
+            }
+          ) }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { marginTop: "10px", color: palette.text }, children: item.label }),
+          item.context && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: palette.textMuted, fontSize: "12px" }, children: item.context })
+        ] }, item.label);
+      }) }),
+      footnote && /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: palette.textMuted, marginTop: "12px", fontSize: "13px" }, children: footnote })
     ] });
   }
   function DualStackedBar({ title, left, right, colors }) {
@@ -11078,6 +11261,7 @@
       { label: "Dual-context GenAI Users", value: `${dashboard_data_default.overallAdoption.adoptionBoth.counts["Both work & personal"]} (${(dashboard_data_default.overallAdoption.adoptionBoth.counts["Both work & personal"] / dashboard_data_default.overallAdoption.adoptionBoth.total * 100).toFixed(1)}%)` }
     ];
     const renderTab = () => {
+      var _a, _b, _c, _d, _e, _f, _g, _h, _i, _j, _k, _l, _m, _n;
       switch (activeTab) {
         case "executive":
           return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
@@ -11121,8 +11305,44 @@
               stats: dashboard_data_default.respondents.itProficiency.nonAcademic
             }
           ];
+          const sampleSummary = dashboard_data_default.respondents.sampleSummary;
+          const sampleStats = [
+            {
+              label: "Overall participation",
+              value: `${sampleSummary.overall.respondents}/${sampleSummary.overall.population} (${sampleSummary.overall.participationRate.toFixed(1)}%)`,
+              emphasis: true
+            },
+            {
+              label: "Academic response rate",
+              value: `${sampleSummary.academic.respondents}/${sampleSummary.academic.population} (${sampleSummary.academic.participationRate.toFixed(1)}%)`
+            },
+            {
+              label: "Non-academic response rate",
+              value: `${sampleSummary.nonAcademic.respondents}/${sampleSummary.nonAcademic.population} (${sampleSummary.nonAcademic.participationRate.toFixed(1)}%)`
+            }
+          ];
+          const nqfData = dashboard_data_default.respondents.nqfCounts.map((item) => ({ label: item.label, value: item.count }));
+          const proficiencySeries = [
+            {
+              label: "Academic Staff",
+              total: itStackData[0].stats.total,
+              segments: IT_PROFICIENCY_ORDER.map((key) => ({
+                label: key,
+                percent: itStackData[0].stats.percentages[key] || 0
+              }))
+            },
+            {
+              label: "Non-Academic Staff",
+              total: itStackData[1].stats.total,
+              segments: IT_PROFICIENCY_ORDER.map((key) => ({
+                label: key,
+                percent: itStackData[1].stats.percentages[key] || 0
+              }))
+            }
+          ];
           return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(KeyInsights, { title: "Key Findings", items: respondentInsights }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(InsightGrid, { stats: sampleStats }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: "20px", flexWrap: "wrap" }, children: [
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PieChart, { title: "Respondents by Brand", data: brandPieData, subtitle: "n = 331" }),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PieChart, { title: "Respondents by Role Group", data: groupPieData, subtitle: "Academic vs Non-academic" })
@@ -11136,7 +11356,17 @@
               {
                 title: "Academic Faculties Represented",
                 data: facultyData,
-                colorScale: () => palette.accent
+                colorScale: () => palette.accent,
+                footnote: `n = ${dashboard_data_default.respondents.academicCount} academic staff (multiple selections allowed)`
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              HorizontalBarChart,
+              {
+                title: "Academic NQF Levels",
+                data: nqfData,
+                colorScale: () => palette.accentAlt,
+                footnote: `n = ${dashboard_data_default.respondents.academicCount} academic staff (multiple selections allowed)`
               }
             ),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
@@ -11167,18 +11397,15 @@
                 }
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { ...sectionStyle }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h4", { style: { ...headingStyle, fontSize: "18px", marginBottom: "18px" }, children: "IT Proficiency Comparison (100% basis)" }),
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: "24px", flexWrap: "wrap" }, children: itStackData.map((group) => {
-                const entries = Object.entries(group.stats.percentages).map(([label, value], idx) => ({
-                  label,
-                  value,
-                  color: piePalette[idx % piePalette.length]
-                }));
-                const total = group.stats.total;
-                return /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { flex: 1, minWidth: "240px" }, children: /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PieChart, { title: group.title, data: entries, subtitle: `n = ${total}`, size: 140 }) }, group.title);
-              }) })
-            ] })
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              StackedColumnChart,
+              {
+                title: "IT Proficiency (Share of Respondents)",
+                series: proficiencySeries,
+                colorPalette: proficiencyColors,
+                footnote: "Percentages per bar sum to 100%"
+              }
+            )
           ] });
         }
         case "adoption": {
@@ -11216,6 +11443,7 @@
             value: item.used,
             context: `${item.never} would never \u2022 ${item.notYet} not yet`
           }));
+          const activitiesTotal = ((_a = dashboard_data_default.overallAdoption.activities[0]) == null ? void 0 : _a.total) || 0;
           const toolBarData = [...dashboard_data_default.overallAdoption.topTools].sort((a, b) => a.used - b.used).map((item) => ({
             label: item.tool,
             value: item.used,
@@ -11229,6 +11457,26 @@
             ],
             subtitle: `${item.currentTotal} current users`
           }));
+          const metaSeries = dashboard_data_default.overallAdoption.metaUsage.map((item) => ({
+            label: item.label,
+            total: item.total,
+            segments: META_SCALE.map((option) => ({
+              label: option,
+              percent: item.total ? (item.counts[option] || 0) / item.total * 100 : 0
+            }))
+          }));
+          const reasoningCounts = dashboard_data_default.overallAdoption.reasoningModels;
+          const reasoningData = Object.entries(reasoningCounts.counts).map(([label, value]) => ({
+            label,
+            value,
+            valueLabel: `${value}`
+          }));
+          const agentsCounts = dashboard_data_default.overallAdoption.aiAgents;
+          const agentData = Object.entries(agentsCounts.counts).map(([label, value]) => ({
+            label,
+            value,
+            valueLabel: `${value}`
+          }));
           return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(KeyInsights, { title: "Key Findings", items: adoptionInsights }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: "20px", flexWrap: "wrap" }, children: adoptionPieData.map((pie) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PieChart, { ...pie }, pie.title)) }),
@@ -11237,7 +11485,8 @@
               {
                 title: "Top GenAI Tools \u2022 Ever Used",
                 data: toolBarData,
-                colorScale: (item) => item.label === "ChatGPT" ? palette.accent : palette.accentAlt
+                colorScale: (item) => item.label === "ChatGPT" ? palette.accent : palette.accentAlt,
+                footnote: `n = ${dashboard_data_default.respondents.totalRespondents} respondents`
               }
             ),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: "16px", flexWrap: "wrap" }, children: topToolBreakdown.map((item) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(PieChart, { title: item.title, data: item.data, subtitle: item.subtitle, size: 140 }, item.title)) }),
@@ -11246,39 +11495,57 @@
               {
                 title: "GenAI Activities \u2022 Current or Past Users",
                 data: activitiesData,
-                colorScale: () => palette.accent
+                colorScale: () => palette.accent,
+                footnote: `n = ${activitiesTotal} respondents (multiple selections allowed)`
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StackedBarGroup, { title: "Concerns about GenAI", data: dashboard_data_default.overallAdoption.concerns, colorPalette: likertColors }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StackedBarGroup, { title: "Perceived Benefits of GenAI", data: dashboard_data_default.overallAdoption.benefits, colorPalette: likertColors }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: "18px", flexWrap: "wrap" }, children: dashboard_data_default.overallAdoption.metaUsage.map((item, idx) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              PieChart,
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              StackedBarGroup,
               {
-                title: `Meta AI \u2022 ${item.label}`,
-                data: Object.entries(item.counts).map(([label, value], colourIdx) => ({
-                  label,
-                  value,
-                  color: piePalette[colourIdx % piePalette.length]
-                })),
-                subtitle: `n = ${item.total}`,
-                size: 140
-              },
-              item.label
-            )) }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { display: "flex", gap: "20px", flexWrap: "wrap" }, children: ["reasoningModels", "aiAgents"].map((key) => /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              PieChart,
+                title: "Concerns about GenAI",
+                data: dashboard_data_default.overallAdoption.concerns,
+                colorPalette: likertColors,
+                footnote: `n = ${((_b = dashboard_data_default.overallAdoption.concerns[0]) == null ? void 0 : _b.total) || 0} respondents`
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              StackedBarGroup,
               {
-                title: key === "reasoningModels" ? "AI Reasoning Models" : "AI Agents",
-                data: Object.entries(dashboard_data_default.overallAdoption[key].counts).map(([label, value], idx) => ({
-                  label,
-                  value,
-                  color: piePalette[idx % piePalette.length]
-                })),
-                subtitle: `n = ${dashboard_data_default.overallAdoption[key].total}`,
-                size: 180
-              },
-              key
-            )) })
+                title: "Perceived Benefits of GenAI",
+                data: dashboard_data_default.overallAdoption.benefits,
+                colorPalette: likertColors,
+                footnote: `n = ${((_c = dashboard_data_default.overallAdoption.benefits[0]) == null ? void 0 : _c.total) || 0} respondents`
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              StackedColumnChart,
+              {
+                title: "Appetite for Meta AI Surfaces",
+                series: metaSeries,
+                colorPalette: metaColors,
+                footnote: "Percentages per bar sum to 100%"
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: "20px", flexWrap: "wrap" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                VerticalBarChart,
+                {
+                  title: "AI Reasoning Models Adoption",
+                  data: reasoningData,
+                  colorScale: () => palette.accent,
+                  footnote: `n = ${reasoningCounts.total} respondents`
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                VerticalBarChart,
+                {
+                  title: "AI Agents Adoption",
+                  data: agentData,
+                  colorScale: () => palette.accentAlt,
+                  footnote: `n = ${agentsCounts.total} respondents`
+                }
+              )
+            ] })
           ] });
         }
         case "academic":
@@ -11293,8 +11560,24 @@
                 colors: attitudeColors
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StackedBarGroup, { title: "Academic Concerns", data: dashboard_data_default.academicStaff.concerns, colorPalette: likertColors }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StackedBarGroup, { title: "Academic Benefits", data: dashboard_data_default.academicStaff.benefits, colorPalette: likertColors }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              StackedBarGroup,
+              {
+                title: "Academic Concerns",
+                data: dashboard_data_default.academicStaff.concerns,
+                colorPalette: likertColors,
+                footnote: `n = ${((_d = dashboard_data_default.academicStaff.concerns[0]) == null ? void 0 : _d.total) || 0} respondents`
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              StackedBarGroup,
+              {
+                title: "Academic Benefits",
+                data: dashboard_data_default.academicStaff.benefits,
+                colorPalette: likertColors,
+                footnote: `n = ${((_e = dashboard_data_default.academicStaff.benefits[0]) == null ? void 0 : _e.total) || 0} respondents`
+              }
+            ),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               HorizontalBarChart,
               {
@@ -11303,7 +11586,9 @@
                   label: item.label,
                   value: item.used,
                   context: `${item.never} would never`
-                }))
+                })),
+                colorScale: () => palette.accent,
+                footnote: `n \u2248 ${((_f = dashboard_data_default.academicStaff.attitudes[0]) == null ? void 0 : _f.total) || 0} academics (multiple selections allowed)`
               }
             ),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: "18px", flexWrap: "wrap" }, children: [
@@ -11349,33 +11634,83 @@
             ] })
           ] });
         case "students":
+          const studentAttitudeSeries = dashboard_data_default.students.attitudes.map((item) => ({
+            label: item.label,
+            total: item.total,
+            segments: Object.entries(item.percentages).map(([label, percent]) => ({ label, percent }))
+          }));
+          const studentBehaviourSeries = dashboard_data_default.students.behaviours.map((item) => ({
+            label: item.label,
+            total: item.total,
+            segments: Object.entries(item.percentages).map(([label, percent]) => ({ label, percent }))
+          }));
+          const misuseTotal = ((_g = dashboard_data_default.students.abuseConcerns[0]) == null ? void 0 : _g.total) || 0;
           return /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { children: [
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(KeyInsights, { title: "Key Findings", items: studentInsights }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: "20px", flexWrap: "wrap" }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                StackedColumnChart,
+                {
+                  title: "Student Access Policy (Attitude)",
+                  series: studentAttitudeSeries,
+                  colorPalette: attitudeColors,
+                  footnote: `n = ${((_h = dashboard_data_default.students.attitudes[0]) == null ? void 0 : _h.total) || 0} academic respondents (per question)`
+                }
+              ),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                StackedColumnChart,
+                {
+                  title: "Observed Student Usage (Behaviour)",
+                  series: studentBehaviourSeries,
+                  colorPalette: adoptionColors,
+                  footnote: `n = ${((_i = dashboard_data_default.students.behaviours[0]) == null ? void 0 : _i.total) || 0} academic respondents (per question)`
+                }
+              )
+            ] }),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
-              DualStackedBar,
+              StackedBarGroup,
               {
-                title: "Student Learning Applications",
-                left: dashboard_data_default.students.attitudes,
-                right: dashboard_data_default.students.behaviours,
-                colors: attitudeColors
+                title: "Academic Concerns for Student Usage",
+                data: dashboard_data_default.students.concerns,
+                colorPalette: likertColors,
+                footnote: `n = ${((_j = dashboard_data_default.students.concerns[0]) == null ? void 0 : _j.total) || 0} respondents`
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StackedBarGroup, { title: "Academic Concerns for Student Usage", data: dashboard_data_default.students.concerns, colorPalette: likertColors }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StackedBarGroup, { title: "Perceived Benefits for Students", data: dashboard_data_default.students.benefits, colorPalette: likertColors }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              StackedBarGroup,
+              {
+                title: "Perceived Benefits for Students",
+                data: dashboard_data_default.students.benefits,
+                colorPalette: likertColors,
+                footnote: `n = ${((_k = dashboard_data_default.students.benefits[0]) == null ? void 0 : _k.total) || 0} respondents`
+              }
+            ),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               HorizontalBarChart,
               {
                 title: "Tools Students Are Using (per Academic Perception)",
-                data: dashboard_data_default.students.tools.map((item) => ({ label: item.label, value: item.count }))
+                data: dashboard_data_default.students.tools.map((item) => ({ label: item.label, value: item.count })),
+                colorScale: () => palette.accent,
+                footnote: "Counts reflect number of academics reporting student use; multiple tools per respondent allowed"
               }
             ),
             /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { display: "flex", gap: "20px", flexWrap: "wrap" }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StackedBarGroup, { title: "Concerns about Student Misuse", data: dashboard_data_default.students.abuseConcerns, colorPalette: likertColors }),
+              /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+                StackedBarGroup,
+                {
+                  title: "Concerns about Student Misuse",
+                  data: dashboard_data_default.students.abuseConcerns,
+                  colorPalette: likertColors,
+                  footnote: `n = ${misuseTotal} respondents`
+                }
+              ),
               /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
                 HorizontalBarChart,
                 {
                   title: "Specific Abuse Patterns",
-                  data: dashboard_data_default.students.abuseTypes.map((item) => ({ label: item.label, value: item.count }))
+                  data: dashboard_data_default.students.abuseTypes.map((item) => ({ label: item.label, value: item.count })),
+                  colorScale: () => palette.accentAlt,
+                  footnote: "Counts indicate academics suspecting each misuse (multiple selections allowed)"
                 }
               )
             ] }),
@@ -11420,8 +11755,24 @@
                 colors: attitudeColors
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StackedBarGroup, { title: "Operational Concerns", data: dashboard_data_default.nonAcademicStaff.concerns, colorPalette: likertColors }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(StackedBarGroup, { title: "Operational Benefits", data: dashboard_data_default.nonAcademicStaff.benefits, colorPalette: likertColors }),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              StackedBarGroup,
+              {
+                title: "Operational Concerns",
+                data: dashboard_data_default.nonAcademicStaff.concerns,
+                colorPalette: likertColors,
+                footnote: `n = ${((_l = dashboard_data_default.nonAcademicStaff.concerns[0]) == null ? void 0 : _l.total) || 0} respondents`
+              }
+            ),
+            /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
+              StackedBarGroup,
+              {
+                title: "Operational Benefits",
+                data: dashboard_data_default.nonAcademicStaff.benefits,
+                colorPalette: likertColors,
+                footnote: `n = ${((_m = dashboard_data_default.nonAcademicStaff.benefits[0]) == null ? void 0 : _m.total) || 0} respondents`
+              }
+            ),
             /* @__PURE__ */ (0, import_jsx_runtime.jsx)(
               HorizontalBarChart,
               {
@@ -11430,7 +11781,9 @@
                   label: item.label,
                   value: item.used,
                   context: `${item.never} would never`
-                }))
+                })),
+                colorScale: () => palette.accent,
+                footnote: `n \u2248 ${((_n = dashboard_data_default.nonAcademicStaff.behaviours[0]) == null ? void 0 : _n.total) || 0} staff (multiple selections allowed)`
               }
             )
           ] });
@@ -11574,6 +11927,7 @@
             }
           ),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TabNavigation, { activeTab, onSelect: setActiveTab }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TabProgress, { activeTab }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Breadcrumbs, { activeTab }),
           renderTab()
         ]

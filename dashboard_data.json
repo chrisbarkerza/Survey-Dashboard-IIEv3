@@ -139,6 +139,32 @@
         "count": 8
       }
     ],
+    "nqfCounts": [
+      {
+        "label": "NQF Level 7.",
+        "count": 129
+      },
+      {
+        "label": "NQF Level 6.",
+        "count": 107
+      },
+      {
+        "label": "NQF Level 5.",
+        "count": 107
+      },
+      {
+        "label": "NQF Level 8.",
+        "count": 70
+      },
+      {
+        "label": "NQF Level 9.",
+        "count": 13
+      },
+      {
+        "label": "NQF Level 10.",
+        "count": 3
+      }
+    ],
     "experience": {
       "academic": {
         "iie": [
@@ -295,6 +321,23 @@
           "High, I could work in an IT department.": 11.8
         },
         "total": 127
+      }
+    },
+    "sampleSummary": {
+      "overall": {
+        "respondents": 331,
+        "population": 2660,
+        "participationRate": 12.4
+      },
+      "academic": {
+        "respondents": 204,
+        "population": 1390,
+        "participationRate": 14.7
+      },
+      "nonAcademic": {
+        "respondents": 127,
+        "population": 1270,
+        "participationRate": 10.0
       }
     }
   },
@@ -955,42 +998,48 @@
         "used": 270,
         "never": 9,
         "thinking": 12,
-        "notYet": 40
+        "notYet": 40,
+        "total": 331
       },
       {
         "label": "Text creation & manipulation - writing, proofing, reviewing, summarising & translating of emails, documents, contracts, reports, etc.",
         "used": 229,
         "never": 21,
         "thinking": 24,
-        "notYet": 57
+        "notYet": 57,
+        "total": 331
       },
       {
         "label": "Educational purposes  - creating lesson plans & content, tutoring, test creation, marking, etc.",
         "used": 177,
         "never": 27,
         "thinking": 25,
-        "notYet": 102
+        "notYet": 102,
+        "total": 331
       },
       {
         "label": "Meeting preparation & recording - agenda setting, note-taking, creation of summaries & action lists, etc.",
         "used": 143,
         "never": 23,
         "thinking": 37,
-        "notYet": 128
+        "notYet": 128,
+        "total": 331
       },
       {
         "label": "Media creation & manipulation - making & editing of images, video, sound & designs for presentations, documents, marketing materials, etc.",
         "used": 141,
         "never": 28,
         "thinking": 35,
-        "notYet": 127
+        "notYet": 127,
+        "total": 331
       },
       {
         "label": "Technical tasks  - data, statistical & financial analysis, coding, web development, cyber security, system administration, etc.",
         "used": 97,
         "never": 33,
         "thinking": 37,
-        "notYet": 164
+        "notYet": 164,
+        "total": 331
       }
     ],
     "concerns": [
@@ -1449,52 +1498,62 @@
       {
         "label": "Conversational AI tools (Chatbots) - e.g. ChatGPT, Claude, Gemini, Copilot, Grok, Meta AI, etc.",
         "used": 154,
-        "never": 7
+        "never": 7,
+        "total": 204
       },
       {
         "label": "Search tools - Perplexity, ChatGPT Search, Claude Search, Gemini Search, Grok Search, etc.",
         "used": 148,
-        "never": 5
+        "never": 5,
+        "total": 204
       },
       {
         "label": "Image creation & manipulation tools - Midjourney, Stable Diffusion, Leonardo AI, Images with ChatGPT, Imagen, etc.",
         "used": 87,
-        "never": 11
+        "never": 11,
+        "total": 204
       },
       {
         "label": "Meeting  tools  - Copilot in Teams, Otter.ai, Zoom AI Companion, Take Notes with Gemini, etc.",
         "used": 81,
-        "never": 8
+        "never": 8,
+        "total": 204
       },
       {
         "label": "AI Agents - ChatGPT Agent, Manus AI, Comet Web Browser, etc.",
         "used": 73,
-        "never": 14
+        "never": 14,
+        "total": 204
       },
       {
         "label": "Reasoning models - OpenAI o3 or o4 , Gemini 2.5 Pro, Claude 4, Grok 4, DeepSeek R1, etc.",
         "used": 66,
-        "never": 12
+        "never": 12,
+        "total": 204
       },
       {
         "label": "Education platforms - Khanmigo, MagicSchool, Mindjoy, MagicSchool.ai, NotebookLM, etc.",
         "used": 58,
-        "never": 15
+        "never": 15,
+        "total": 204
       },
       {
         "label": "Video creation & manipulation tools - Runway, HeyGen, Synthesia, Pika, Adobe Firefly, Veo, Kling, etc.",
         "used": 48,
-        "never": 17
+        "never": 17,
+        "total": 204
       },
       {
         "label": "Code generation tools - Github Copilot, Cursor, Windsurf, Replit, Lovable, ChatGPT, Claude, Cursor, Windsurf, etc.",
         "used": 48,
-        "never": 19
+        "never": 19,
+        "total": 204
       },
       {
         "label": "Audio creation & manipulation tools - ElevenLabs, Suno, Udio, etc.",
         "used": 37,
-        "never": 17
+        "never": 17,
+        "total": 204
       }
     ],
     "codeEditors": {
@@ -2200,52 +2259,62 @@
       {
         "label": "Conversational AI tools (Chatbots) - e.g. ChatGPT, Claude, Gemini, Copilot, Grok, Meta AI, etc.",
         "used": 95,
-        "never": 7
+        "never": 7,
+        "total": 127
       },
       {
         "label": "Search tools - Perplexity, ChatGPT Search, Claude Search, Gemini Search, Grok Search, etc.",
         "used": 63,
-        "never": 8
+        "never": 8,
+        "total": 127
       },
       {
         "label": "Meeting  tools  - Copilot in Teams, Otter.ai, Zoom AI Companion, Take Notes with Gemini, etc.",
         "used": 45,
-        "never": 9
+        "never": 9,
+        "total": 127
       },
       {
         "label": "AI Agents - ChatGPT Agent, Manus AI, Comet Web Browser, etc.",
         "used": 41,
-        "never": 11
+        "never": 11,
+        "total": 127
       },
       {
         "label": "Image creation & manipulation tools - Midjourney, Stable Diffusion, Leonardo AI, Images with ChatGPT, Imagen, etc.",
         "used": 34,
-        "never": 14
+        "never": 14,
+        "total": 127
       },
       {
         "label": "Code generation tools - Github Copilot, Cursor, Windsurf, Replit, Lovable, ChatGPT, Claude, etc.",
         "used": 24,
-        "never": 13
+        "never": 13,
+        "total": 127
       },
       {
         "label": "Reasoning models - OpenAI o3 or o4 , Gemini 2.5 Pro, Claude 4, Grok 4, DeepSeek R1, etc.",
         "used": 19,
-        "never": 14
+        "never": 14,
+        "total": 127
       },
       {
         "label": "Video creation & manipulation tools - Runway, HeyGen, Synthesia, Pika, Adobe Firefly, Veo, Kling, etc.",
         "used": 16,
-        "never": 13
+        "never": 13,
+        "total": 127
       },
       {
         "label": "Audio creation & manipulation tools - ElevenLabs, Suno, Udio, etc.",
         "used": 13,
-        "never": 14
+        "never": 14,
+        "total": 127
       },
       {
         "label": "Education platforms - Khanmigo, MagicSchool, Mindjoy, etc.",
         "used": 12,
-        "never": 12
+        "never": 12,
+        "total": 127
       }
     ]
   },

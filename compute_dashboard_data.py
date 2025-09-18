@@ -7,6 +7,10 @@ from pathlib import Path
 DATA_FILE = Path(__file__).resolve().parent / 'IIE.csv'
 OUTPUT_FILE = Path(__file__).resolve().parent / 'dashboard_data.json'
 
+TOTAL_STAFF = 2660
+ACADEMIC_POPULATION = 1390
+NON_ACADEMIC_POPULATION = 1270
+
 ROLE_COL = '1.10) Which of the following best describes your role at the institution? '
 BRAND_COL = '1.9) At which brand/department do you work? '
 
@@ -303,12 +307,14 @@ def usage_summary(rows, columns):
     for col in columns:
         counter, _ = count_by_category(rows, col, transform=lambda v: canonicalise(v))
         used = counter.get('Yes, I do', 0) + counter.get('Yes, but no longer', 0)
+        total_responses = sum(counter.values())
         output.append({
             'label': col.split('[')[-1].rstrip(']'),
             'used': used,
             'never': counter.get('No & I will never (on principle)', 0),
             'thinking': counter.get('I am thinking about it', 0),
-            'notYet': counter.get('No, not yet', 0)
+            'notYet': counter.get('No, not yet', 0),
+            'total': total_responses
         })
     output.sort(key=lambda item: item['used'], reverse=True)
     return output
@@ -323,7 +329,8 @@ def academic_tool_usage(rows, columns):
         data.append({
             'label': col.split('[')[-1].rstrip(']'),
             'used': used,
-            'never': counter.get('No & I will never (on principle)', 0)
+            'never': counter.get('No & I will never (on principle)', 0),
+            'total': sum(counter.values())
         })
     data.sort(key=lambda item: item['used'], reverse=True)
     return data
@@ -359,6 +366,11 @@ def build_data():
         for entry in split_multi(row.get('6.2) In which faculties do you teach (tick all that apply)?', '')):
             faculty_counts[entry] += 1
 
+    nqf_counts = Counter()
+    for row in academic_rows:
+        for entry in split_multi(row.get('6.1) What NQF level do you teach (tick all that apply)?', '')):
+            nqf_counts[entry] += 1
+
     experience = {
         'academic': {
             'iie': build_experience_hist(academic_rows, '6.3) How many years of teaching experience do you have at The IIE? '),
@@ -383,6 +395,24 @@ def build_data():
         'nonAcademic': it_distribution(non_rows, '5.4) What is your general IT proficiency?')
     }
 
+    sample_summary = {
+        'overall': {
+            'respondents': total,
+            'population': TOTAL_STAFF,
+            'participationRate': to_percentage(total, TOTAL_STAFF)
+        },
+        'academic': {
+            'respondents': len(academic_rows),
+            'population': ACADEMIC_POPULATION,
+            'participationRate': to_percentage(len(academic_rows), ACADEMIC_POPULATION)
+        },
+        'nonAcademic': {
+            'respondents': len(non_rows),
+            'population': NON_ACADEMIC_POPULATION,
+            'participationRate': to_percentage(len(non_rows), NON_ACADEMIC_POPULATION)
+        }
+    }
+
     respondents = {
         'totalRespondents': total,
         'academicCount': len(academic_rows),
@@ -395,8 +425,10 @@ def build_data():
         'brandGroupCounts': brand_table,
         'brandGroupPercentages': perc_table,
         'facultyCounts': [{'label': fac, 'count': amount} for fac, amount in faculty_counts.most_common()],
+        'nqfCounts': [{'label': level, 'count': amount} for level, amount in nqf_counts.most_common()],
         'experience': experience,
-        'itProficiency': it_proficiency
+        'itProficiency': it_proficiency,
+        'sampleSummary': sample_summary
     }
 
     # Overall adoption
