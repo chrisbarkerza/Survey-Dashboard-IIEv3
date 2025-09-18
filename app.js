@@ -10602,6 +10602,21 @@
     text: "#e2e8f0",
     textMuted: "#94a3b8"
   };
+  var linkButtonStyle = {
+    display: "inline-flex",
+    alignItems: "center",
+    gap: "8px",
+    padding: "12px 18px",
+    borderRadius: "14px",
+    background: "linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(14, 165, 233, 0.15))",
+    border: "1px solid rgba(56, 189, 248, 0.4)",
+    color: "#e2e8f0",
+    fontWeight: 600,
+    letterSpacing: "0.03em",
+    textDecoration: "none",
+    boxShadow: "0 12px 24px rgba(14, 165, 233, 0.25)",
+    transition: "transform 0.2s ease, box-shadow 0.2s ease"
+  };
   var likertColors = {
     Agree: "#38bdf8",
     Neutral: "#facc15",
@@ -11526,11 +11541,38 @@
           color: palette.text
         },
         children: [
-          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("header", { style: { marginBottom: "32px" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: palette.accent, letterSpacing: "0.12em", fontSize: "12px", textTransform: "uppercase", marginBottom: "8px" }, children: "Third Analysis of the IIE GenAI Survey Data" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { style: { fontSize: "36px", fontWeight: 700, marginBottom: "12px" }, children: "GenAI Strategy Intelligence Dashboard" }),
-            /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { ...textStyle, color: palette.textMuted, maxWidth: "780px" }, children: "Interactive executive dashboard for The Institute of Advanced Education synthesising 331 staff responses (\xB15.4% MoE @95% confidence) to steer GenAI strategy and implementation decisions." })
-          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+            "header",
+            {
+              style: {
+                marginBottom: "32px",
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "20px",
+                justifyContent: "space-between",
+                alignItems: "flex-start"
+              },
+              children: [
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)("div", { style: { maxWidth: "780px" }, children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("div", { style: { color: palette.accent, letterSpacing: "0.12em", fontSize: "12px", textTransform: "uppercase", marginBottom: "8px" }, children: "Third Analysis of the IIE GenAI Survey Data" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("h1", { style: { fontSize: "36px", fontWeight: 700, marginBottom: "12px" }, children: "GenAI Strategy Intelligence Dashboard" }),
+                  /* @__PURE__ */ (0, import_jsx_runtime.jsx)("p", { style: { ...textStyle, color: palette.textMuted }, children: "Interactive executive dashboard for The Institute of Advanced Education synthesising 331 staff responses (\xB15.4% MoE @95% confidence) to steer GenAI strategy and implementation decisions." })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime.jsxs)(
+                  "a",
+                  {
+                    href: "details.html",
+                    style: linkButtonStyle,
+                    rel: "noopener noreferrer",
+                    children: [
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { children: "Open Data Explorer" }),
+                      /* @__PURE__ */ (0, import_jsx_runtime.jsx)("span", { "aria-hidden": "true", style: { fontSize: "20px", lineHeight: 1 }, children: "\u2197" })
+                    ]
+                  }
+                )
+              ]
+            }
+          ),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(TabNavigation, { activeTab, onSelect: setActiveTab }),
           /* @__PURE__ */ (0, import_jsx_runtime.jsx)(Breadcrumbs, { activeTab }),
           renderTab()

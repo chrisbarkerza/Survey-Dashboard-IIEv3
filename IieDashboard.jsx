@@ -28,6 +28,22 @@ const palette = {
   textMuted: '#94a3b8'
 };
 
+const linkButtonStyle = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  gap: '8px',
+  padding: '12px 18px',
+  borderRadius: '14px',
+  background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(14, 165, 233, 0.15))',
+  border: '1px solid rgba(56, 189, 248, 0.4)',
+  color: '#e2e8f0',
+  fontWeight: 600,
+  letterSpacing: '0.03em',
+  textDecoration: 'none',
+  boxShadow: '0 12px 24px rgba(14, 165, 233, 0.25)',
+  transition: 'transform 0.2s ease, box-shadow 0.2s ease'
+};
+
 const likertColors = {
   Agree: '#38bdf8',
   Neutral: '#facc15',
@@ -1059,14 +1075,33 @@ function IieDashboard() {
         color: palette.text
       }}
     >
-      <header style={{ marginBottom: '32px' }}>
-        <div style={{ color: palette.accent, letterSpacing: '0.12em', fontSize: '12px', textTransform: 'uppercase', marginBottom: '8px' }}>
-          Third Analysis of the IIE GenAI Survey Data
+      <header
+        style={{
+          marginBottom: '32px',
+          display: 'flex',
+          flexWrap: 'wrap',
+          gap: '20px',
+          justifyContent: 'space-between',
+          alignItems: 'flex-start'
+        }}
+      >
+        <div style={{ maxWidth: '780px' }}>
+          <div style={{ color: palette.accent, letterSpacing: '0.12em', fontSize: '12px', textTransform: 'uppercase', marginBottom: '8px' }}>
+            Third Analysis of the IIE GenAI Survey Data
+          </div>
+          <h1 style={{ fontSize: '36px', fontWeight: 700, marginBottom: '12px' }}>GenAI Strategy Intelligence Dashboard</h1>
+          <p style={{ ...textStyle, color: palette.textMuted }}>
+            Interactive executive dashboard for The Institute of Advanced Education synthesising 331 staff responses (±5.4% MoE @95% confidence) to steer GenAI strategy and implementation decisions.
+          </p>
         </div>
-        <h1 style={{ fontSize: '36px', fontWeight: 700, marginBottom: '12px' }}>GenAI Strategy Intelligence Dashboard</h1>
-        <p style={{ ...textStyle, color: palette.textMuted, maxWidth: '780px' }}>
-          Interactive executive dashboard for The Institute of Advanced Education synthesising 331 staff responses (±5.4% MoE @95% confidence) to steer GenAI strategy and implementation decisions.
-        </p>
+        <a
+          href="details.html"
+          style={linkButtonStyle}
+          rel="noopener noreferrer"
+        >
+          <span>Open Data Explorer</span>
+          <span aria-hidden="true" style={{ fontSize: '20px', lineHeight: 1 }}>↗</span>
+        </a>
       </header>
       <TabNavigation activeTab={activeTab} onSelect={setActiveTab} />
       <Breadcrumbs activeTab={activeTab} />
