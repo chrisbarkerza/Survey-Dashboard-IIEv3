@@ -15,17 +15,18 @@ const TABS = [
 ];
 
 const palette = {
-  background: '#0f172a',
-  surface: '#1e293b',
-  panel: '#1f2937',
+  // Light, professional theme (inspired by details.html)
+  background: '#f1f5f9', // slate-100
+  surface: '#ffffff',
+  panel: '#f8fafc',
   accent: '#38bdf8',
   accentSoft: '#0ea5e9',
   accentAlt: '#f97316',
   positive: '#22c55e',
-  neutral: '#cbd5f5',
+  neutral: '#94a3b8',
   negative: '#ef4444',
-  text: '#e2e8f0',
-  textMuted: '#94a3b8'
+  text: '#0f172a',
+  textMuted: '#475569'
 };
 
 const linkButtonStyle = {
@@ -99,7 +100,7 @@ const sectionStyle = {
   borderRadius: '20px',
   padding: '24px',
   marginBottom: '24px',
-  boxShadow: '0 24px 48px rgba(15, 23, 42, 0.25)'
+  boxShadow: '0 8px 24px rgba(2, 6, 23, 0.08)'
 };
 
 const headingStyle = {
@@ -131,7 +132,7 @@ function KeyInsights({ title, items, variant = 'default' }) {
         : variant === 'alt'
         ? 'linear-gradient(135deg, rgba(249, 115, 22, 0.2), rgba(14, 165, 233, 0.05))'
         : sectionStyle.background,
-    border: variant === 'highlight' ? '1px solid rgba(56, 189, 248, 0.4)' : '1px solid rgba(148, 163, 184, 0.15)'
+    border: variant === 'highlight' ? '1px solid rgba(56, 189, 248, 0.35)' : '1px solid rgba(15, 23, 42, 0.08)'
   };
   return (
     <div style={panelStyle}>
@@ -226,7 +227,7 @@ function Breadcrumbs({ activeTab }) {
   );
 }
 
-function PieChart({ title, data, size = 160, subtitle, footnote }) {
+function PieChart({ title, data, size = 160, subtitle, footnote, legendPosition = 'side' }) {
   const total = data.reduce((sum, item) => sum + item.value, 0);
   let currentAngle = 0;
   const segments = data.map((item, idx) => {
@@ -243,16 +244,19 @@ function PieChart({ title, data, size = 160, subtitle, footnote }) {
     })
     .join(', ');
   return (
-    <div style={{ ...sectionStyle, flex: 1, minWidth: '240px' }}>
+    <div style={{ ...sectionStyle, flex: 1, minWidth: '260px' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
-      <div style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
+      <div style={{ display: legendPosition === 'bottom' ? 'block' : 'flex', alignItems: 'center', gap: '16px' }}>
         <div
           style={{
             width: size,
             height: size,
+            aspectRatio: '1 / 1',
+            flex: '0 0 auto',
             borderRadius: '50%',
             background: `conic-gradient(${gradient})`,
-            position: 'relative'
+            position: 'relative',
+            margin: legendPosition === 'bottom' ? '0 auto' : undefined
           }}
         >
           <div
@@ -264,7 +268,7 @@ function PieChart({ title, data, size = 160, subtitle, footnote }) {
               width: size * 0.55,
               height: size * 0.55,
               borderRadius: '50%',
-              background: palette.surface,
+              background: palette.panel,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
@@ -275,9 +279,9 @@ function PieChart({ title, data, size = 160, subtitle, footnote }) {
             {total}
           </div>
         </div>
-        <div>
+        <div style={{ marginTop: legendPosition === 'bottom' ? '12px' : 0 }}>
           {subtitle && <p style={{ ...textStyle, marginBottom: '12px', color: palette.textMuted }}>{subtitle}</p>}
-          <ul style={{ ...textStyle, listStyle: 'none', padding: 0 }}>
+          <ul style={{ ...textStyle, listStyle: 'none', padding: 0, display: legendPosition === 'bottom' ? 'flex' : 'block', gap: '16px', flexWrap: 'wrap', justifyContent: legendPosition === 'bottom' ? 'center' : 'flex-start' }}>
             {segments.map((seg) => (
               <li key={seg.label} style={{ display: 'flex', alignItems: 'center', marginBottom: '6px' }}>
                 <span
@@ -337,6 +341,18 @@ function HorizontalBarChart({ title, data, unit = 'count', maxValue, colorScale,
       {footnote && <div style={{ color: palette.textMuted, marginTop: '12px', fontSize: '13px' }}>{footnote}</div>}
     </div>
   );
+}
+
+// Automatically choose bar orientation: <=5 items → columns, else horizontal bars
+function AutoBarChart({ title, data, colorScale, unit = 'count', footnote }) {
+  const items = data || [];
+  if (items.length <= 5) {
+    const vData = items.map((d) => ({ label: d.label, value: d.value, valueLabel: unit === 'percent' ? formatPercent(d.value) : undefined, context: d.context }));
+    return (
+      <VerticalBarChart title={title} data={vData} colorScale={colorScale} footnote={footnote} />
+    );
+  }
+  return <HorizontalBarChart title={title} data={items} colorScale={colorScale} unit={unit} footnote={footnote} />;
 }
 
 function StackedBarGroup({ title, data, colorPalette, footnote }) {
@@ -451,7 +467,7 @@ function VerticalBarChart({ title, data, colorScale, footnote }) {
         {data.map((item, idx) => {
           const heightPercent = maxValue ? (item.value / maxValue) * 100 : 0;
           return (
-            <div key={item.label} style={{ flex: '1 1 120px', textAlign: 'center' }}>
+            <div key={item.label} style={{ flex: '1 1 140px', textAlign: 'center', display: 'grid', gridTemplateRows: '220px auto auto', rowGap: '8px' }}>
               <div style={{ height: '220px', display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
                 <div
                   style={{
@@ -468,8 +484,8 @@ function VerticalBarChart({ title, data, colorScale, footnote }) {
                   </span>
                 </div>
               </div>
-              <div style={{ marginTop: '10px', color: palette.text }}>{item.label}</div>
-              {item.context && <div style={{ color: palette.textMuted, fontSize: '12px' }}>{item.context}</div>}
+              <div style={{ color: palette.text, minHeight: '36px' }}>{item.label}</div>
+              {item.context && <div style={{ color: palette.textMuted, fontSize: '12px', minHeight: '16px' }}>{item.context}</div>}
             </div>
           );
         })}
@@ -873,13 +889,13 @@ function IieDashboard() {
                 <TableCard title="Brand × Role • % of Brand" columns={percentColumns} rows={percRows} />
               </div>
             </div>
-            <HorizontalBarChart
+            <AutoBarChart
               title="Academic Faculties Represented"
               data={facultyData}
               colorScale={() => palette.accent}
               footnote={`n = ${dashboardData.respondents.academicCount} academic staff (multiple selections allowed)`}
             />
-            <HorizontalBarChart
+            <AutoBarChart
               title="Academic NQF Levels"
               data={nqfData}
               colorScale={() => palette.accentAlt}
@@ -1001,12 +1017,12 @@ function IieDashboard() {
               colorScale={(item) => (item.label === 'ChatGPT' ? palette.accent : palette.accentAlt)}
               footnote={`n = ${dashboardData.respondents.totalRespondents} respondents`}
             />
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px' }}>
               {topToolBreakdown.map((item) => (
-                <PieChart key={item.title} title={item.title} data={item.data} subtitle={item.subtitle} size={140} />
+                <PieChart key={item.title} title={item.title} data={item.data} subtitle={item.subtitle} size={160} legendPosition="bottom" />
               ))}
             </div>
-            <HorizontalBarChart
+            <AutoBarChart
               title="GenAI Activities • Current or Past Users"
               data={activitiesData}
               colorScale={() => palette.accent}
@@ -1154,7 +1170,7 @@ function IieDashboard() {
               colorPalette={likertColors}
               footnote={`n = ${dashboardData.students.benefits[0]?.total || 0} respondents`}
             />
-            <HorizontalBarChart
+            <AutoBarChart
               title="Tools Students Are Using (per Academic Perception)"
               data={dashboardData.students.tools.map((item) => ({ label: item.label, value: item.count }))}
               colorScale={() => palette.accent}
@@ -1167,7 +1183,7 @@ function IieDashboard() {
                 colorPalette={likertColors}
                 footnote={`n = ${misuseTotal} respondents`}
               />
-              <HorizontalBarChart
+              <AutoBarChart
                 title="Specific Abuse Patterns"
                 data={dashboardData.students.abuseTypes.map((item) => ({ label: item.label, value: item.count }))}
                 colorScale={() => palette.accentAlt}
@@ -1220,7 +1236,7 @@ function IieDashboard() {
               colorPalette={likertColors}
               footnote={`n = ${dashboardData.nonAcademicStaff.benefits[0]?.total || 0} respondents`}
             />
-            <HorizontalBarChart
+            <AutoBarChart
               title="Tools Supporting Administration"
               data={dashboardData.nonAcademicStaff.toolTypes.map((item) => ({
                 label: item.label,
