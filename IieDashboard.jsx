@@ -1151,12 +1151,40 @@ function IieDashboard() {
         return (
           <div>
             <KeyInsights title="Key Findings" items={academicInsights} />
-            <DualStackedBar
-              title="Teaching Applications"
-              left={dashboardData.academicStaff.attitudes}
-              right={dashboardData.academicStaff.behaviours}
-              colors={attitudeColors}
-            />
+            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+              <div style={{ flex: 1, minWidth: '400px' }}>
+                <StackedColumnChart
+                  title="Teaching Applications • Attitude"
+                  series={dashboardData.academicStaff.attitudes.map((row) => ({
+                    label: row.label,
+                    total: row.total,
+                    segments: Object.entries(row.counts).map(([key, value]) => ({
+                      label: key,
+                      percent: row.total ? (value / row.total) * 100 : 0
+                    }))
+                  }))}
+                  colorPalette={attitudeColors}
+                  segmentOrder={['Yes', 'No opinion', 'Never']}
+                  footnote={`n = ${dashboardData.academicStaff.attitudes[0]?.total || 0} academic respondents (per question)`}
+                />
+              </div>
+              <div style={{ flex: 1, minWidth: '400px' }}>
+                <StackedColumnChart
+                  title="Teaching Applications • Behaviour"
+                  series={dashboardData.academicStaff.behaviours.map((row) => ({
+                    label: row.label,
+                    total: row.total,
+                    segments: Object.entries(row.counts).map(([key, value]) => ({
+                      label: key,
+                      percent: row.total ? (value / row.total) * 100 : 0
+                    }))
+                  }))}
+                  colorPalette={adoptionColors}
+                  segmentOrder={['Yes, I do', 'Yes, but no longer', 'I am thinking about it', 'No, not yet', 'No & I will never (on principle)']}
+                  footnote={`n = ${dashboardData.academicStaff.behaviours[0]?.total || 0} academic respondents (per question)`}
+                />
+              </div>
+            </div>
             <StackedColumnChart
               title="Academic Concerns"
               series={dashboardData.academicStaff.concerns.map((row) => ({ label: row.label, total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
@@ -1232,7 +1260,7 @@ function IieDashboard() {
                 title="Student Access Policy (Attitude)"
                 series={studentAttitudeSeries}
                 colorPalette={attitudeColors}
-                segmentOrder={['Yes','No opinion','Never'].reverse()}
+                segmentOrder={['Yes','No opinion','Never']}
                 footnote={`n = ${dashboardData.students.attitudes[0]?.total || 0} academic respondents (per question)`}
               />
               <StackedColumnChart
