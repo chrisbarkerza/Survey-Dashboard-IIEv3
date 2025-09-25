@@ -123,6 +123,10 @@ function formatValue(value) {
   return value.toLocaleString();
 }
 
+function truncateTitle(title) {
+  return title.split(' - ')[0];
+}
+
 function KeyInsights({ title, items, variant = 'default' }) {
   const panelStyle = {
     ...sectionStyle,
@@ -382,7 +386,7 @@ function StackedBarGroup({ title, data, colorPalette, footnote, showLegend, segm
                 marginBottom: '6px',
                 color: palette.text
               }}>
-                <span style={{ maxWidth: '70%' }}>{row.label}</span>
+                <span style={{ maxWidth: '70%' }}>{truncateTitle(row.label)}</span>
                 <span style={{ color: palette.textMuted }}>{total ? `${total}` : 'n/a'}</span>
               </div>
               <div style={{ display: 'flex', borderRadius: '8px', overflow: 'hidden', height: '18px' }}>
@@ -452,11 +456,9 @@ function StackedColumnChart({ title, series, colorPalette, footnote, segmentOrde
               flexDirection: 'column-reverse',
               height: '100%',
               width: '80%',
-              borderRadius: '14px',
-              overflow: 'hidden',
-              background: '#e2e8f0'
+              background: 'transparent'
             }}>
-              {(segmentOrder ? [...item.segments].sort((a,b)=>segmentOrder.indexOf(a.label)-segmentOrder.indexOf(b.label)) : item.segments).map((segment) => (
+              {(segmentOrder ? [...item.segments].sort((a,b)=>segmentOrder.indexOf(a.label)-segmentOrder.indexOf(b.label)) : item.segments).map((segment, segIdx, segArr) => (
                 <div
                   key={segment.label}
                   style={{
@@ -467,10 +469,11 @@ function StackedColumnChart({ title, series, colorPalette, footnote, segmentOrde
                     justifyContent: 'center',
                     color: '#0f172a',
                     fontSize: '12px',
-                    fontWeight: 600
+                    fontWeight: 600,
+                    borderRadius: segIdx === segArr.length - 1 ? '14px 14px 0 0' : '0'
                   }}
                 >
-                  {segment.percent >= 12 ? `${segment.percent.toFixed(0)}%` : ''}
+                  {segment.percent >= 12 ? (segment.percent === 100 ? item.total : `${segment.percent.toFixed(0)}%`) : ''}
                 </div>
               ))}
             </div>
@@ -508,28 +511,35 @@ function VerticalBarChart({ title, data, colorScale, footnote, columns, unit = '
         display: columns ? 'grid' : 'flex',
         gridTemplateColumns: columns ? `repeat(${columns}, minmax(140px, 1fr))` : undefined,
         gap: '24px',
-        alignItems: 'flex-end',
+        alignItems: columns ? 'end' : 'flex-end',
         flexWrap: columns ? undefined : 'wrap'
       }}>
         {data.map((item, idx) => {
           const heightPercent = maxValue ? (item.value / maxValue) * 100 : 0;
           return (
-            <div key={item.label} style={{ flex: '1 1 140px', textAlign: 'center', display: 'grid', gridTemplateRows: '220px auto auto', rowGap: '8px' }}>
-              <div style={{ height: '220px', display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
-                <div
-                  style={{
-                    width: '60%',
-                    height: `${heightPercent}%`,
-                    minHeight: item.value > 0 ? '4px' : '0',
-                    background: colorScale ? colorScale(item, idx) : palette.accent,
-                    borderRadius: '12px 12px 4px 4px',
-                    position: 'relative'
-                  }}
-                >
-                  <span style={{ position: 'absolute', top: '-24px', left: '0', width: '100%', textAlign: 'center', fontSize: '13px', color: palette.text, fontWeight: '600' }}>
-                    {item.valueLabel ?? (unit === 'percent' ? formatPercent(item.value) : formatValue(item.value))}
-                  </span>
-                </div>
+            <div key={item.label} style={{
+              flex: '1 1 140px',
+              textAlign: 'center',
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'flex-end',
+              minHeight: '280px'
+            }}>
+              <div
+                style={{
+                  width: '60%',
+                  height: `${(item.value / maxValue) * 220}px`,
+                  minHeight: item.value > 0 ? '4px' : '0',
+                  background: colorScale ? colorScale(item, idx) : palette.accent,
+                  borderRadius: '12px 12px 4px 4px',
+                  position: 'relative',
+                  marginBottom: '8px'
+                }}
+              >
+                <span style={{ position: 'absolute', top: '-24px', left: '0', width: '100%', textAlign: 'center', fontSize: '13px', color: palette.text, fontWeight: '600' }}>
+                  {item.valueLabel ?? (unit === 'percent' ? formatPercent(item.value) : formatValue(item.value))}
+                </span>
               </div>
               <div style={{ color: palette.text, minHeight: '36px' }}>{item.label}</div>
               {item.context && <div style={{ color: palette.textMuted, fontSize: '12px', minHeight: '16px' }}>{item.context}</div>}
@@ -853,7 +863,7 @@ function IieDashboard() {
         }));
         const academicExp = dashboardData.respondents.experience.academic;
         const nonExp = dashboardData.respondents.experience.nonAcademic;
-        const facultyData = dashboardData.respondents.facultyCounts.map((item) => ({ label: item.label, value: item.count }));
+        const facultyData = dashboardData.respondents.facultyCounts.map((item) => ({ label: truncateTitle(item.label), value: item.count }));
         const tableColumns = ['Brand', 'Academic', 'Non-academic', 'Total'];
         const percentColumns = ['Brand', 'Academic', 'Non-academic'];
         const countsRows = dashboardData.respondents.brandGroupCounts.map((row) => ({
@@ -893,7 +903,7 @@ function IieDashboard() {
             value: `${sampleSummary.nonAcademic.respondents}/${sampleSummary.nonAcademic.population} (${sampleSummary.nonAcademic.participationRate.toFixed(1)}%)`
           }
         ];
-        const nqfData = dashboardData.respondents.nqfCounts.map((item) => ({ label: item.label, value: item.count }));
+        const nqfData = dashboardData.respondents.nqfCounts.map((item) => ({ label: truncateTitle(item.label), value: item.count }));
         const proficiencySeries = [
           {
             label: 'Academic Staff',
@@ -1012,7 +1022,7 @@ function IieDashboard() {
           }
         ];
         const activitiesData = dashboardData.overallAdoption.activities.map((item) => ({
-          label: item.label,
+          label: truncateTitle(item.label),
           value: item.used,
           context: `${item.never} would never • ${item.notYet} not yet`
         }));
@@ -1087,6 +1097,7 @@ function IieDashboard() {
                   data={toolBarCurrentPct}
                   colorScale={() => palette.accentAlt}
                   unit="percent"
+                  footnote={`n = ${dashboardData.respondents.totalRespondents} respondents`}
                 />
               </div>
             </div>
@@ -1105,14 +1116,14 @@ function IieDashboard() {
             </div>
             <StackedColumnChart
               title="Concerns about GenAI"
-              series={dashboardData.overallAdoption.concerns.map((row) => ({ label: row.label, total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
+              series={dashboardData.overallAdoption.concerns.map((row) => ({ label: truncateTitle(row.label), total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}
               footnote={`n = ${dashboardData.overallAdoption.concerns[0]?.total || 0} respondents`}
             />
             <StackedColumnChart
               title="Perceived Benefits of GenAI"
-              series={dashboardData.overallAdoption.benefits.map((row) => ({ label: row.label, total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
+              series={dashboardData.overallAdoption.benefits.map((row) => ({ label: truncateTitle(row.label), total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}
               footnote={`n = ${dashboardData.overallAdoption.benefits[0]?.total || 0} respondents`}
@@ -1156,7 +1167,7 @@ function IieDashboard() {
                 <StackedColumnChart
                   title="Teaching Applications • Attitude"
                   series={dashboardData.academicStaff.attitudes.map((row) => ({
-                    label: row.label,
+                    label: truncateTitle(row.label),
                     total: row.total,
                     segments: Object.entries(row.counts).map(([key, value]) => ({
                       label: key,
@@ -1172,7 +1183,7 @@ function IieDashboard() {
                 <StackedColumnChart
                   title="Teaching Applications • Behaviour"
                   series={dashboardData.academicStaff.behaviours.map((row) => ({
-                    label: row.label,
+                    label: truncateTitle(row.label),
                     total: row.total,
                     segments: Object.entries(row.counts).map(([key, value]) => ({
                       label: key,
@@ -1187,14 +1198,14 @@ function IieDashboard() {
             </div>
             <StackedColumnChart
               title="Academic Concerns"
-              series={dashboardData.academicStaff.concerns.map((row) => ({ label: row.label, total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
+              series={dashboardData.academicStaff.concerns.map((row) => ({ label: truncateTitle(row.label), total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}
               footnote={`n = ${dashboardData.academicStaff.concerns[0]?.total || 0} respondents`}
             />
             <StackedColumnChart
               title="Academic Benefits"
-              series={dashboardData.academicStaff.benefits.map((row) => ({ label: row.label, total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
+              series={dashboardData.academicStaff.benefits.map((row) => ({ label: truncateTitle(row.label), total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}
               footnote={`n = ${dashboardData.academicStaff.benefits[0]?.total || 0} respondents`}
@@ -1202,7 +1213,7 @@ function IieDashboard() {
             <HorizontalBarChart
               title="GenAI Tool Types in Teaching"
               data={dashboardData.academicStaff.toolTypes.map((item) => ({
-                label: item.label,
+                label: truncateTitle(item.label),
                 value: item.used,
                 context: `${item.never} would never`
               }))}
@@ -1242,12 +1253,12 @@ function IieDashboard() {
         );
       case 'students':
         const studentAttitudeSeries = dashboardData.students.attitudes.map((item) => ({
-          label: item.label,
+          label: truncateTitle(item.label),
           total: item.total,
           segments: Object.entries(item.percentages).map(([label, percent]) => ({ label, percent }))
         }));
         const studentBehaviourSeries = dashboardData.students.behaviours.map((item) => ({
-          label: item.label,
+          label: truncateTitle(item.label),
           total: item.total,
           segments: Object.entries(item.percentages).map(([label, percent]) => ({ label, percent }))
         }));
@@ -1255,26 +1266,24 @@ function IieDashboard() {
         return (
           <div>
             <KeyInsights title="Key Findings" items={studentInsights} />
-            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-              <StackedColumnChart
-                title="Student Access Policy (Attitude)"
-                series={studentAttitudeSeries}
-                colorPalette={attitudeColors}
-                segmentOrder={['Yes','No opinion','Never']}
-                footnote={`n = ${dashboardData.students.attitudes[0]?.total || 0} academic respondents (per question)`}
-              />
-              <StackedColumnChart
-                title="Observed Student Usage (Behaviour)"
-                series={studentBehaviourSeries}
-                colorPalette={adoptionColors}
-                segmentOrder={['Yes, I do','I am thinking about it','No, not yet','Yes, but no longer','No & I will never (on principle)']}
-                footnote={`n = ${dashboardData.students.behaviours[0]?.total || 0} academic respondents (per question)`}
-              />
-            </div>
+            <StackedColumnChart
+              title="Student Access Policy (Attitude)"
+              series={studentAttitudeSeries}
+              colorPalette={attitudeColors}
+              segmentOrder={['Yes','No opinion','Never']}
+              footnote={`n = ${dashboardData.students.attitudes[0]?.total || 0} academic respondents (per question)`}
+            />
+            <StackedColumnChart
+              title="Observed Student Usage (Behaviour)"
+              series={studentBehaviourSeries}
+              colorPalette={adoptionColors}
+              segmentOrder={['Yes, I do','I am thinking about it','No, not yet','Yes, but no longer','No & I will never (on principle)']}
+              footnote={`n = ${dashboardData.students.behaviours[0]?.total || 0} academic respondents (per question)`}
+            />
             <StackedColumnChart
               title="Academic Concerns for Student Usage"
               series={dashboardData.students.concerns.map((row) => ({
-                label: row.label,
+                label: truncateTitle(row.label),
                 total: row.total,
                 segments: Object.entries(row.counts).map(([key, value]) => ({
                   label: key,
@@ -1288,7 +1297,7 @@ function IieDashboard() {
             <StackedColumnChart
               title="Perceived Benefits for Students"
               series={dashboardData.students.benefits.map((row) => ({
-                label: row.label,
+                label: truncateTitle(row.label),
                 total: row.total,
                 segments: Object.entries(row.counts).map(([key, value]) => ({
                   label: key,
@@ -1301,43 +1310,37 @@ function IieDashboard() {
             />
             <AutoBarChart
               title="Tools Students Are Using (per Academic Perception)"
-              data={dashboardData.students.tools.map((item) => ({ label: item.label, value: item.count }))}
+              data={dashboardData.students.tools.map((item) => ({ label: truncateTitle(item.label), value: item.count }))}
               colorScale={() => palette.accent}
               footnote="Counts reflect number of academics reporting student use; multiple tools per respondent allowed"
             />
-            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-              <div style={{ flex: 1, minWidth: '400px' }}>
-                <StackedColumnChart
-                  title="Concerns about Student Misuse"
-                  series={dashboardData.students.abuseConcerns.map((row) => ({
-                    label: row.label,
-                    total: row.total,
-                    segments: Object.entries(row.counts).map(([key, value]) => ({
-                      label: key,
-                      percent: row.total ? (value / row.total) * 100 : 0
-                    }))
-                  }))}
-                  colorPalette={likertColors}
-                  segmentOrder={['Agree','Neutral','Disagree']}
-                  footnote={`n = ${misuseTotal} respondents`}
-                />
-              </div>
-              <div style={{ flex: 1, minWidth: '320px' }}>
-                {(() => {
-                  const vData = dashboardData.students.abuseTypes.map((item) => ({ label: item.label, value: item.count }));
-                  return (
-                    <VerticalBarChart
-                      title="Specific Abuse Patterns"
-                      data={vData}
-                      colorScale={() => palette.accentAlt}
-                      footnote="Counts indicate academics suspecting each misuse (multiple selections allowed)"
-                      columns={5}
-                      unit="count"
-                    />
-                  );
-                })()}
-              </div>
-            </div>
+            <StackedColumnChart
+              title="Concerns about Student Misuse"
+              series={dashboardData.students.abuseConcerns.map((row) => ({
+                label: truncateTitle(row.label),
+                total: row.total,
+                segments: Object.entries(row.counts).map(([key, value]) => ({
+                  label: key,
+                  percent: row.total ? (value / row.total) * 100 : 0
+                }))
+              }))}
+              colorPalette={likertColors}
+              segmentOrder={['Agree','Neutral','Disagree']}
+              footnote={`n = ${misuseTotal} respondents`}
+            />
+            <StackedColumnChart
+              title="Specific Abuse Patterns"
+              series={dashboardData.students.abuseTypes.map((item) => ({
+                label: truncateTitle(item.label),
+                total: item.count,
+                segments: [{
+                  label: 'count',
+                  percent: 100
+                }]
+              }))}
+              colorPalette={{ 'count': palette.accentAlt }}
+              footnote="Counts indicate academics suspecting each misuse (multiple selections allowed)"
+            />
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
               {(() => {
                 const agentCounts = dashboardData.students.agents.counts;
@@ -1376,30 +1379,66 @@ function IieDashboard() {
         return (
           <div>
             <KeyInsights title="Key Findings" items={nonAcademicInsights} />
-            <DualStackedBar
-              title="Operational Applications"
-              left={dashboardData.nonAcademicStaff.attitudes}
-              right={dashboardData.nonAcademicStaff.behaviours}
-              colors={attitudeColors}
+            <StackedColumnChart
+              title="Operational Applications • Attitude"
+              series={dashboardData.nonAcademicStaff.attitudes.map((row) => ({
+                label: truncateTitle(row.label),
+                total: row.total,
+                segments: Object.entries(row.counts).map(([key, value]) => ({
+                  label: key,
+                  percent: row.total ? (value / row.total) * 100 : 0
+                }))
+              }))}
+              colorPalette={attitudeColors}
+              segmentOrder={['Yes', 'No opinion', 'Never']}
+              footnote={`n = ${dashboardData.nonAcademicStaff.attitudes[0]?.total || 0} non-academic respondents (per question)`}
             />
-            <StackedBarGroup
+            <StackedColumnChart
+              title="Operational Applications • Behaviour"
+              series={dashboardData.nonAcademicStaff.behaviours.map((row) => ({
+                label: truncateTitle(row.label),
+                total: row.total,
+                segments: Object.entries(row.counts).map(([key, value]) => ({
+                  label: key,
+                  percent: row.total ? (value / row.total) * 100 : 0
+                }))
+              }))}
+              colorPalette={adoptionColors}
+              segmentOrder={['Yes, I do', 'Yes, but no longer', 'I am thinking about it', 'No, not yet', 'No & I will never (on principle)']}
+              footnote={`n = ${dashboardData.nonAcademicStaff.behaviours[0]?.total || 0} non-academic respondents (per question)`}
+            />
+            <StackedColumnChart
               title="Operational Concerns"
-              data={dashboardData.nonAcademicStaff.concerns}
+              series={dashboardData.nonAcademicStaff.concerns.map((row) => ({
+                label: truncateTitle(row.label),
+                total: row.total,
+                segments: Object.entries(row.counts).map(([key, value]) => ({
+                  label: key,
+                  percent: row.total ? (value / row.total) * 100 : 0
+                }))
+              }))}
               colorPalette={likertColors}
+              segmentOrder={['Agree','Neutral','Disagree']}
               footnote={`n = ${dashboardData.nonAcademicStaff.concerns[0]?.total || 0} respondents`}
-              showLegend
             />
-            <StackedBarGroup
+            <StackedColumnChart
               title="Operational Benefits"
-              data={dashboardData.nonAcademicStaff.benefits}
+              series={dashboardData.nonAcademicStaff.benefits.map((row) => ({
+                label: truncateTitle(row.label),
+                total: row.total,
+                segments: Object.entries(row.counts).map(([key, value]) => ({
+                  label: key,
+                  percent: row.total ? (value / row.total) * 100 : 0
+                }))
+              }))}
               colorPalette={likertColors}
+              segmentOrder={['Agree','Neutral','Disagree']}
               footnote={`n = ${dashboardData.nonAcademicStaff.benefits[0]?.total || 0} respondents`}
-              showLegend
             />
             <AutoBarChart
               title="Tools Supporting Administration"
               data={dashboardData.nonAcademicStaff.toolTypes.map((item) => ({
-                label: item.label,
+                label: truncateTitle(item.label),
                 value: item.used,
                 context: `${item.never} would never`
               }))}
