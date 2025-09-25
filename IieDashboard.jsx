@@ -306,11 +306,12 @@ function PieChart({ title, data, size = 160, subtitle, footnote, legendPosition 
   );
 }
 
-function HorizontalBarChart({ title, data, unit = 'count', maxValue, colorScale, footnote, showLegend, legendPalette }) {
+function HorizontalBarChart({ title, data, unit = 'count', maxValue, colorScale, footnote, showLegend, legendPalette, footnoteUnderTitle = false }) {
   const computedMax = maxValue || Math.max(...data.map((d) => d.value));
   return (
     <div style={sectionStyle}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
+      {footnoteUnderTitle && footnote && <div style={{ color: palette.textMuted, marginBottom: '16px', fontSize: '13px' }}>{footnote}</div>}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {data.map((item, idx) => {
           const width = (item.value / computedMax) * 100;
@@ -321,14 +322,14 @@ function HorizontalBarChart({ title, data, unit = 'count', maxValue, colorScale,
                 <span style={{ maxWidth: '70%', color: palette.text }}>{item.label}</span>
                 <span>{item.context || ''}</span>
               </div>
-              <div style={{ position: 'relative', height: '12px', marginTop: '14px' }}>
+              <div style={{ position: 'relative', height: '12px', marginTop: '14px', paddingRight: '50px' }}>
                 <div style={{
                   width: `${width}%`,
                   height: '12px',
                   background: barColor,
                   borderRadius: '6px'
                 }} />
-                <div style={{ position: 'absolute', top: '-18px', left: 0, width: `${width}%`, textAlign: 'center', color: palette.text, fontSize: '13px' }}>
+                <div style={{ position: 'absolute', top: '-2px', left: `min(${width}%, calc(100% - 50px))`, marginLeft: '8px', color: palette.text, fontSize: '13px', fontWeight: '600', whiteSpace: 'nowrap' }}>
                   {unit === 'percent' ? formatPercent(item.value) : formatValue(item.value)}
                 </div>
               </div>
@@ -346,19 +347,19 @@ function HorizontalBarChart({ title, data, unit = 'count', maxValue, colorScale,
           ))}
         </div>
       )}
-      {footnote && <div style={{ color: palette.textMuted, marginTop: '8px', fontSize: '13px' }}>{footnote}</div>}
+      {!footnoteUnderTitle && footnote && <div style={{ color: palette.textMuted, marginTop: '8px', fontSize: '13px' }}>{footnote}</div>}
     </div>
   );
 }
 
 // Automatically choose bar orientation: <=5 items → columns, else horizontal bars
-function AutoBarChart({ title, data, colorScale, unit = 'count', footnote }) {
+function AutoBarChart({ title, data, colorScale, unit = 'count', footnote, footnoteUnderTitle = false }) {
   const items = data || [];
   if (items.length <= 5) {
     const vData = items.map((d) => ({ label: d.label, value: d.value, context: d.context }));
     return <VerticalBarChart title={title} data={vData} colorScale={colorScale} footnote={footnote} unit={unit} />;
   }
-  return <HorizontalBarChart title={title} data={items} colorScale={colorScale} unit={unit} footnote={footnote} />;
+  return <HorizontalBarChart title={title} data={items} colorScale={colorScale} unit={unit} footnote={footnote} footnoteUnderTitle={footnoteUnderTitle} />;
 }
 
 function StackedBarGroup({ title, data, colorPalette, footnote, showLegend, segmentOrder }) {
@@ -525,7 +526,7 @@ function VerticalBarChart({ title, data, colorScale, footnote, columns, unit = '
                     position: 'relative'
                   }}
                 >
-                  <span style={{ position: 'absolute', top: '-24px', width: '100%', fontSize: '13px', color: palette.text }}>
+                  <span style={{ position: 'absolute', top: '-24px', left: '0', width: '100%', textAlign: 'center', fontSize: '13px', color: palette.text, fontWeight: '600' }}>
                     {item.valueLabel ?? (unit === 'percent' ? formatPercent(item.value) : formatValue(item.value))}
                   </span>
                 </div>
@@ -632,25 +633,32 @@ function HistogramPair({ title, left, right, compact = false, sync = false }) {
   return (
     <div style={sectionStyle}>
       <h4 style={{ ...headingStyle, fontSize: '18px', marginBottom: '20px' }}>{title}</h4>
-      <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap' }}>
+      <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'flex-end' }}>
         {(() => {
           const scale = (bins) => Math.max(1, ...bins.map((b) => b.count));
           const max = sync ? Math.max(scale(left.data), scale(right.data)) : undefined;
           const hMul = compact ? 3 : 6;
+          const maxHeight = sync ? (hMul * (max || 1)) : undefined;
           return [left, right].map((series, idx) => (
             <div key={idx} style={{ flex: 1, minWidth: '260px' }}>
               <h5 style={{ color: palette.textMuted, marginBottom: '12px' }}>{series.title}</h5>
-              <div style={{ display: 'flex', gap: '10px', alignItems: 'flex-end' }}>
+              <div style={{
+                display: 'flex',
+                gap: '10px',
+                alignItems: 'flex-end',
+                height: maxHeight ? `${maxHeight + 40}px` : 'auto'
+              }}>
                 {series.data.map((bin) => (
-                  <div key={bin.bin} style={{ textAlign: 'center', flex: 1 }}>
+                  <div key={bin.bin} style={{ textAlign: 'center', flex: 1, display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
                     <div
                       style={{
                         height: `${(bin.count / (max || scale(series.data))) * (hMul * (max || scale(series.data)))}px`,
                         background: palette.accent,
-                        borderRadius: '6px 6px 2px 2px'
+                        borderRadius: '6px 6px 2px 2px',
+                        marginBottom: '6px'
                       }}
                     />
-                    <div style={{ marginTop: '6px', color: palette.textMuted, fontSize: '12px' }}>{bin.bin}</div>
+                    <div style={{ color: palette.textMuted, fontSize: '12px', marginBottom: '2px' }}>{bin.bin}</div>
                     <div style={{ color: palette.text, fontSize: '12px' }}>{bin.count}</div>
                   </div>
                 ))}
@@ -927,6 +935,7 @@ function IieDashboard() {
                   data={facultyData}
                   colorScale={() => palette.accent}
                   footnote={`n = ${dashboardData.respondents.academicCount} academic staff (multiple selections allowed)`}
+                  footnoteUnderTitle={true}
                 />
               </div>
               <div style={{ flex: 1, minWidth: '320px' }}>
@@ -935,6 +944,7 @@ function IieDashboard() {
                   data={nqfData}
                   colorScale={() => palette.accentAlt}
                   footnote={`n = ${dashboardData.respondents.academicCount} academic staff (multiple selections allowed)`}
+                  footnoteUnderTitle={true}
                 />
               </div>
             </div>
@@ -1011,8 +1021,7 @@ function IieDashboard() {
           .sort((a, b) => b.used - a.used)
           .map((item) => ({
             label: item.tool,
-            value: item.used,
-            context: `${item.current} current`
+            value: item.used
           }));
         const toolBarCurrentPct = [...dashboardData.overallAdoption.topTools]
           .sort((a, b) => b.used - a.used)
@@ -1020,7 +1029,7 @@ function IieDashboard() {
             label: item.tool,
             value: item.used ? (item.current / item.used) * 100 : 0
           }));
-        const topToolBreakdown = dashboardData.overallAdoption.topCurrentBreakdown.map((item, idx) => ({
+        const topToolBreakdown = dashboardData.overallAdoption.topCurrentBreakdown.map((item) => ({
           title: item.tool,
           data: [
             { label: 'Free Tier', value: item.currentFree, color: palette.accent },
@@ -1063,19 +1072,16 @@ function IieDashboard() {
               <PieChart key={pie.title} title={pie.title} data={pie.data} size={160} />
             ))}
           </div>
-            <HorizontalBarChart
-              title="Top GenAI Tools • Ever Used"
-              data={toolBarData}
-              colorScale={(item) => (item.label === 'ChatGPT' ? palette.accent : palette.accentAlt)}
-              footnote={`n = ${dashboardData.respondents.totalRespondents} respondents`}
-            />
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px' }}>
-              {topToolBreakdown.map((item) => (
-                <PieChart key={item.title} title={item.title} data={item.data} size={160} legendPosition="bottom" />
-              ))}
-            </div>
-            <div style={{ display: 'flex', gap: '16px', flexWrap: 'wrap' }}>
-              <div style={{ flex: 1, minWidth: '320px' }}>
+            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+              <div style={{ flex: 1, width: 'calc(50% - 10px)', minWidth: '400px', overflow: 'hidden' }}>
+                <HorizontalBarChart
+                  title="Top GenAI Tools • Ever Used"
+                  data={toolBarData}
+                  colorScale={(item) => (item.label === 'ChatGPT' ? palette.accent : palette.accentAlt)}
+                  footnote={`n = ${dashboardData.respondents.totalRespondents} respondents`}
+                />
+              </div>
+              <div style={{ flex: 1, width: 'calc(50% - 10px)', minWidth: '400px', overflow: 'hidden' }}>
                 <AutoBarChart
                   title="% of Users Still Using"
                   data={toolBarCurrentPct}
@@ -1084,12 +1090,19 @@ function IieDashboard() {
                 />
               </div>
             </div>
-            <AutoBarChart
-              title="GenAI Activities • Current or Past Users"
-              data={activitiesData}
-              colorScale={() => palette.accent}
-              footnote={`n = ${activitiesTotal} respondents (multiple selections allowed)`}
-            />
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: '16px' }}>
+              {topToolBreakdown.map((item) => (
+                <PieChart key={item.title} title={item.title} data={item.data} size={160} legendPosition="bottom" />
+              ))}
+            </div>
+            <div style={{ overflow: 'hidden' }}>
+              <AutoBarChart
+                title="GenAI Activities • Current or Past Users"
+                data={activitiesData}
+                colorScale={() => palette.accent}
+                footnote={`n = ${activitiesTotal} respondents (multiple selections allowed)`}
+              />
+            </div>
             <StackedColumnChart
               title="Concerns about GenAI"
               series={dashboardData.overallAdoption.concerns.map((row) => ({ label: row.label, total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
@@ -1112,20 +1125,24 @@ function IieDashboard() {
               footnote="Percentages per bar sum to 100%"
             />
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-              <VerticalBarChart
-                title="AI Reasoning Models Adoption"
-                data={reasoningData}
-                colorScale={() => palette.accent}
-                footnote={`n = ${reasoningCounts.total} respondents • Legend: Not yet, Yes, Thinking, Yes (past), Never`}
-                columns={5}
-              />
-              <VerticalBarChart
-                title="AI Agents Adoption"
-                data={agentData}
-                colorScale={() => palette.accentAlt}
-                footnote={`n = ${agentsCounts.total} respondents • Legend: Not yet, Yes, Thinking, Yes (past), Never`}
-                columns={5}
-              />
+              <div style={{ flex: 1, minWidth: '400px' }}>
+                <VerticalBarChart
+                  title="AI Reasoning Models Adoption"
+                  data={reasoningData}
+                  colorScale={() => palette.accent}
+                  footnote={`n = ${reasoningCounts.total} respondents • Legend: Not yet, Yes, Thinking, Yes (past), Never`}
+                  columns={5}
+                />
+              </div>
+              <div style={{ flex: 1, minWidth: '400px' }}>
+                <VerticalBarChart
+                  title="AI Agents Adoption"
+                  data={agentData}
+                  colorScale={() => palette.accentAlt}
+                  footnote={`n = ${agentsCounts.total} respondents • Legend: Not yet, Yes, Thinking, Yes (past), Never`}
+                  columns={5}
+                />
+              </div>
             </div>
           </div>
         );
