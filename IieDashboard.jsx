@@ -1276,8 +1276,12 @@ function IieDashboard() {
             <StackedColumnChart
               title="Observed Student Usage (Behaviour)"
               series={studentBehaviourSeries}
-              colorPalette={adoptionColors}
-              segmentOrder={['Yes, I do','I am thinking about it','No, not yet','Yes, but no longer','No & I will never (on principle)']}
+              colorPalette={{
+                'Yes': '#38bdf8',
+                'I don\'t know': '#facc15',
+                'No': '#f87171'
+              }}
+              segmentOrder={['Yes','I don\'t know','No']}
               footnote={`n = ${dashboardData.students.behaviours[0]?.total || 0} academic respondents (per question)`}
             />
             <StackedColumnChart
