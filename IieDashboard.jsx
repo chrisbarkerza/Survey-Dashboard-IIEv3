@@ -1271,16 +1271,32 @@ function IieDashboard() {
                 footnote={`n = ${dashboardData.students.behaviours[0]?.total || 0} academic respondents (per question)`}
               />
             </div>
-            <StackedBarGroup
+            <StackedColumnChart
               title="Academic Concerns for Student Usage"
-              data={dashboardData.students.concerns}
+              series={dashboardData.students.concerns.map((row) => ({
+                label: row.label,
+                total: row.total,
+                segments: Object.entries(row.counts).map(([key, value]) => ({
+                  label: key,
+                  percent: row.total ? (value / row.total) * 100 : 0
+                }))
+              }))}
               colorPalette={likertColors}
+              segmentOrder={['Agree','Neutral','Disagree']}
               footnote={`n = ${dashboardData.students.concerns[0]?.total || 0} respondents`}
             />
-            <StackedBarGroup
+            <StackedColumnChart
               title="Perceived Benefits for Students"
-              data={dashboardData.students.benefits}
+              series={dashboardData.students.benefits.map((row) => ({
+                label: row.label,
+                total: row.total,
+                segments: Object.entries(row.counts).map(([key, value]) => ({
+                  label: key,
+                  percent: row.total ? (value / row.total) * 100 : 0
+                }))
+              }))}
               colorPalette={likertColors}
+              segmentOrder={['Agree','Neutral','Disagree']}
               footnote={`n = ${dashboardData.students.benefits[0]?.total || 0} respondents`}
             />
             <AutoBarChart
@@ -1290,13 +1306,22 @@ function IieDashboard() {
               footnote="Counts reflect number of academics reporting student use; multiple tools per respondent allowed"
             />
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
-              <StackedBarGroup
-                title="Concerns about Student Misuse"
-                data={dashboardData.students.abuseConcerns}
-                colorPalette={likertColors}
-                footnote={`n = ${misuseTotal} respondents`}
-                showLegend
-              />
+              <div style={{ flex: 1, minWidth: '400px' }}>
+                <StackedColumnChart
+                  title="Concerns about Student Misuse"
+                  series={dashboardData.students.abuseConcerns.map((row) => ({
+                    label: row.label,
+                    total: row.total,
+                    segments: Object.entries(row.counts).map(([key, value]) => ({
+                      label: key,
+                      percent: row.total ? (value / row.total) * 100 : 0
+                    }))
+                  }))}
+                  colorPalette={likertColors}
+                  segmentOrder={['Agree','Neutral','Disagree']}
+                  footnote={`n = ${misuseTotal} respondents`}
+                />
+              </div>
               <div style={{ flex: 1, minWidth: '320px' }}>
                 {(() => {
                   const vData = dashboardData.students.abuseTypes.map((item) => ({ label: item.label, value: item.count }));
@@ -1499,7 +1524,7 @@ function IieDashboard() {
           </div>
           <h1 style={{ fontSize: '36px', fontWeight: 700, marginBottom: '12px' }}>GenAI Strategy Intelligence Dashboard</h1>
           <p style={{ ...textStyle, color: palette.textMuted }}>
-            Interactive executive dashboard for The Institute of Advanced Education synthesising 331 staff responses (±5.4% MoE @95% confidence) to steer GenAI strategy and implementation decisions.
+            Interactive executive dashboard for The Institute of Independent Education synthesising 331 staff responses (±5.4% MoE @95% confidence) to steer GenAI strategy and implementation decisions.
           </p>
         </div>
         <a
