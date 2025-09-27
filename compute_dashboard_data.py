@@ -150,6 +150,8 @@ def strip_numeric_prefix(value: str) -> str:
 
 def normalise_text(value: str) -> str:
     value = value.replace('\u2019', "'").replace('\u2018', "'").replace('\u2013', '-').strip()
+    # Fix double-encoding issue with "I don't know"
+    value = value.replace('‚Äô', "'")  # Fix the specific encoding issue
     value = value.replace('I am thinking of it', 'I am thinking about it')
     value = value.replace('Yes I do', 'Yes, I do')
     value = value.replace('Yes I do.', 'Yes, I do')

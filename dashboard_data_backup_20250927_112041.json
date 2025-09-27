@@ -1650,12 +1650,12 @@
         "label": "Personalised learning support - preparing concept explanations in preferred style, devising mathematical problem guidance, seeking real-world application examples & use cases, etc.",
         "counts": {
           "No": 11,
-          "I don't know": 63,
+          "I don't know": 0,
           "Yes": 130
         },
         "percentages": {
           "No": 5.4,
-          "I don't know": 30.9,
+          "I don't know": 0.0,
           "Yes": 63.7
         },
         "total": 204
@@ -1664,12 +1664,12 @@
         "label": "Study material generation - creating study guides, preparing revision notes, devising practice questions at chosen level, etc.",
         "counts": {
           "No": 18,
-          "I don't know": 90,
+          "I don't know": 0,
           "Yes": 96
         },
         "percentages": {
           "No": 8.8,
-          "I don't know": 44.1,
+          "I don't know": 0.0,
           "Yes": 47.1
         },
         "total": 204
@@ -1678,12 +1678,12 @@
         "label": "Academic planning & research - planning assignments, conducting & summarising research, creating supporting visual aids for inclusion in assignments, etc.",
         "counts": {
           "No": 13,
-          "I don't know": 74,
+          "I don't know": 0,
           "Yes": 117
         },
         "percentages": {
           "No": 6.4,
-          "I don't know": 36.3,
+          "I don't know": 0.0,
           "Yes": 57.4
         },
         "total": 204
@@ -1692,12 +1692,12 @@
         "label": "Self-assessment & improvement - creating interactive rehearsal quizzes, seeking essay feedback & improvement suggestions, etc.",
         "counts": {
           "No": 17,
-          "I don't know": 100,
+          "I don't know": 0,
           "Yes": 87
         },
         "percentages": {
           "No": 8.3,
-          "I don't know": 49.0,
+          "I don't know": 0.0,
           "Yes": 42.6
         },
         "total": 204
@@ -2497,17 +2497,17 @@
       "Unsure",
       "Tutoring, Self Quiz (YouLearn ai), research assistance, lesson prep, marking, my colleagues use Canva and the video creating a lot, activities/test/case study creation (QA control for accuarcy is required)",
       "Access to paid GenAI to aid the training of lecturers and students to use AI ethically.  Especially research AIs.",
-      "I've found Generative AI valuable for enhancing teaching materials, developing engaging class activities and streamlining administrative tasks. I'd like the institution to support access to reliable AI tools, training for effective use, and integration into teaching and learning systems.",
+      "I\u201a\u00c4\u00f4ve found Generative AI valuable for enhancing teaching materials, developing engaging class activities and streamlining administrative tasks. I\u201a\u00c4\u00f4d like the institution to support access to reliable AI tools, training for effective use, and integration into teaching and learning systems.",
       "Platforms like copilot for slide creation, AI tracking and communication tools in ARC to help track at risk students, non-completion etc.",
       "It helps me process multiple projects at once and helps me work out where to to focus my energy.",
       "I am going to be perfectly honest, I just don't know what applications and uses are out there. I have used AI to improve grammar on emails, and for inspired teaching I created a video. I also used ChatGPT when I was lecturing BUEL6212 to make fun scenarios around students' business ventures. I have not had much meaningful engagement with AI outside of that.",
       "Using AI as an AI research agent and as an AI personal assistant for everyday administration.",
-      "It also saves me a lot of time with admin, like drafting emails or reports. I'd love for the institution to support this further by giving us secure access, some clear guidelines, and training so staff and students can use it confidently, and by looking at ways to build it into our learning systems so everyone can benefit.",
+      "It also saves me a lot of time with admin, like drafting emails or reports. I\u201a\u00c4\u00f4d love for the institution to support this further by giving us secure access, some clear guidelines, and training so staff and students can use it confidently, and by looking at ways to build it into our learning systems so everyone can benefit.",
       "Taking meeting minutes for example MeetGeek",
       "For research",
       "Ethical ways to use AI to enhance productivity",
       "Development of activities, and scaffolding of writing to enhance writing practices.",
-      "GenAI has definitely streamlined my doctoral research, improved my academic writing, and supported creative project development. I'd like our Institution to enhance access to advanced GenAI tools, integrate them into coursework, and offer training on ethical ands responsible use, ensuring all students can benefit from these technologies in learning, collaboration, and innovation across disciplines.",
+      "GenAI has definitely streamlined my doctoral research, improved my academic writing, and supported creative project development. I\u201a\u00c4\u00f4d like our Institution to enhance access to advanced GenAI tools, integrate them into coursework, and offer training on ethical ands responsible use, ensuring all students can benefit from these technologies in learning, collaboration, and innovation across disciplines.",
       "For undergraduate students, class attendance tracking.  For Master's students, Notebook LM (at an advanced stage of their degree, not in the beginning).  However, there are other non-AI software in the postgraduate space that require investment, such as PLS_SEM, AMOS and SPSS.",
       "I use Gen AI to develop practical projects for creative formative assessments and for rubrics. BUT I have developed a model, based on extensive research that informs my thinking and I put a lot of critical thought into the assessments. I co-create with Gen AI",
       "Grammarly - to support editing of research output. The institution could make the paid version available to improve productivity in minimum time. Consider the add in paid version of Classpoint in PowerPoint to support the delivery of lectures in ensuring lectures are interactive.",
@@ -2544,7 +2544,7 @@
       "Troubleshooting",
       "None yet",
       "None",
-      "Create a policy explainer / knowledge base agent where staff and students can ask \u201a\u00c4\u00faWhat's the rule for X?\u201a\u00c4\u00f9 and get an instant, accurate summary. Reading calendars, deadlines, and inboxes to generate daily \u201a\u00c4\u00faTop 5 priorities\u201a\u00c4\u00f9 lists.",
+      "Create a policy explainer / knowledge base agent where staff and students can ask \u201a\u00c4\u00faWhat\u201a\u00c4\u00f4s the rule for X?\u201a\u00c4\u00f9 and get an instant, accurate summary. Reading calendars, deadlines, and inboxes to generate daily \u201a\u00c4\u00faTop 5 priorities\u201a\u00c4\u00f9 lists.",
       "stream line tasks to save time. Assist in reporting needs",
       "Flag students who are performing academically lower than the average so the the student relations team can contact these student immediately for support and not first have to investigate. Also, the use of a ChatGBT function for our students to use to answer basic questions of policy for example.",
       "The design or drafting of legal documentation in preparation for students moot court simulations",
@@ -2559,7 +2559,7 @@
       "A lot",
       "Using AI to enhance the quality of internal documents",
       "nothing",
-      "Academic \n\nPersonalised Learning Materials \u201a\u00c4\u00ec Generate case studies, quizzes, lecture notes, and simplified explanations for students at different levels.\n\nStudent Feedback & Assessment \u201a\u00c4\u00ec Provide first-draft feedback on assignments, suggest improvements, or create rubrics to save lecturers' time.\n\nLanguage & Accessibility \u201a\u00c4\u00ec Translate material into multiple languages, simplify complex concepts, and convert text into more accessible formats.\n\nResearch Assistance \u201a\u00c4\u00ec Support literature reviews, summarisation of journal articles, and even initial structuring of proposals, particularly the research practice students. \n\nAdministrative Efficiency\n\nDrafting Official Documents \u201a\u00c4\u00ec Speeches, proposals, reports, and policy summaries prepared more efficiently, although this might also contribute to students being lazy \n\nSurvey & Data Analysis \u201a\u00c4\u00ec Automate analysis of student surveys, highlight trends, and suggest actions.\n\nScheduling & Planning \u201a\u00c4\u00ec Streamline timetable or event planning with smart automation, it will even motivate more students to attend classes \n\n Student Engagement & Skills Development\n\nTutoring & Revision \u201a\u00c4\u00ec AI-powered study guides, flashcards, or simulations to reinforce classroom learning.\n\nCareer Development \u201a\u00c4\u00ec Assist students with CV writing, interview prep, and entrepreneurial ideas as some 3rd years are getting ready for work.\n\nInnovation Labs \u201a\u00c4\u00ec Encourage students to co-create projects (apps, business ideas, research) using GenAI as a creative partner.\n\n Community & Institutional Growth\n\nMarketing & Outreach \u201a\u00c4\u00ec Generate professional content for newsletters, social media, and community engagement.\n\nPartnerships & Proposals \u201a\u00c4\u00ec Draft partnership documents, sponsorship proposals, and project justifications.\n\nInclusivity \u201a\u00c4\u00ec Ensure that all students, including those with disabilities, benefit from personalized learning pathways.",
+      "Academic \n\nPersonalised Learning Materials \u201a\u00c4\u00ec Generate case studies, quizzes, lecture notes, and simplified explanations for students at different levels.\n\nStudent Feedback & Assessment \u201a\u00c4\u00ec Provide first-draft feedback on assignments, suggest improvements, or create rubrics to save lecturers\u201a\u00c4\u00f4 time.\n\nLanguage & Accessibility \u201a\u00c4\u00ec Translate material into multiple languages, simplify complex concepts, and convert text into more accessible formats.\n\nResearch Assistance \u201a\u00c4\u00ec Support literature reviews, summarisation of journal articles, and even initial structuring of proposals, particularly the research practice students. \n\nAdministrative Efficiency\n\nDrafting Official Documents \u201a\u00c4\u00ec Speeches, proposals, reports, and policy summaries prepared more efficiently, although this might also contribute to students being lazy \n\nSurvey & Data Analysis \u201a\u00c4\u00ec Automate analysis of student surveys, highlight trends, and suggest actions.\n\nScheduling & Planning \u201a\u00c4\u00ec Streamline timetable or event planning with smart automation, it will even motivate more students to attend classes \n\n Student Engagement & Skills Development\n\nTutoring & Revision \u201a\u00c4\u00ec AI-powered study guides, flashcards, or simulations to reinforce classroom learning.\n\nCareer Development \u201a\u00c4\u00ec Assist students with CV writing, interview prep, and entrepreneurial ideas as some 3rd years are getting ready for work.\n\nInnovation Labs \u201a\u00c4\u00ec Encourage students to co-create projects (apps, business ideas, research) using GenAI as a creative partner.\n\n Community & Institutional Growth\n\nMarketing & Outreach \u201a\u00c4\u00ec Generate professional content for newsletters, social media, and community engagement.\n\nPartnerships & Proposals \u201a\u00c4\u00ec Draft partnership documents, sponsorship proposals, and project justifications.\n\nInclusivity \u201a\u00c4\u00ec Ensure that all students, including those with disabilities, benefit from personalized learning pathways.",
       "None",
       "Have workshops or a course on arc on how to use AI academically",
       "Not applicable",
@@ -2575,7 +2575,7 @@
       "I think that we can salvage the use of generative AI to enhance our lesson preparation. For me i used AI to get \"Fun Fact\", \"Did you know\", and quizzes for my slides to maximize learning experience. Also, case studies that can help identify areas of the lesson that is applicable in real life.",
       "N/A",
       "Marking",
-      "You've used GenAI for teaching (content creation, assessments, simulations), research (summaries, literature reviews, data analysis), and admin (document prep, communication). Institutional support could include infrastructure (licensed tools, LMS integration), training, and scalable systems.",
+      "You\u201a\u00c4\u00f4ve used GenAI for teaching (content creation, assessments, simulations), research (summaries, literature reviews, data analysis), and admin (document prep, communication). Institutional support could include infrastructure (licensed tools, LMS integration), training, and scalable systems.",
       "Copilot helps a lot in Programming modules, however it is helpful when integrated with Github so VMs should have that.",
       "providing personalised tutoring support to students,enhance learning and productivity on the side of the students",
       "Notebook LM",
@@ -2595,7 +2595,7 @@
       "Content, assessment and rubric creation and enrichment; brainstorming; proofreading, etc. Properly-timed and incentivised formal professional development training can enhance participation and adoption.",
       "no comment",
       "Assessment planning",
-      "Simplifying complex concepts: For topics like international tax decisions or economic policies, AI can generate simplified explanations, analogies, and examples tailored to your students' level. For instance, instead of explaining the U.S.-South Africa tax issue with heavy policy jargon, it could be reframed in a way that relates directly to a student's daily life or future business module applications.",
+      "Simplifying complex concepts: For topics like international tax decisions or economic policies, AI can generate simplified explanations, analogies, and examples tailored to your students\u201a\u00c4\u00f4 level. For instance, instead of explaining the U.S.-South Africa tax issue with heavy policy jargon, it could be reframed in a way that relates directly to a student\u201a\u00c4\u00f4s daily life or future business module applications.",
       "Please see my detailed response to the proposed policy.",
       "Tools that support students in their research module, I have provided \"training\" to supervisors and students in supporting students to use these. I enjoy using AI to create interesting and complex research problems and assist me in designing an engaging and thought-provoking lecture.",
       "N/A",
@@ -2701,7 +2701,7 @@
       "Helps with better understanding the concept you working on",
       "I believe ChatGPT can be utilized to create effective workflows and daily trackers for employees instead of staff having to manually create those for themselves which leaves room for error in terms of the formulas being used",
       "Enhancing Research Productivity, Guiding Ethical and Responsible AI Use",
-      "I've used generative AI for writing support, coding assistance, data analysis, and brainstorming ideas. It helps me work more efficiently and stay focused on higher-level tasks. With institutional support\u201a\u00c4\u00eelike access to secure, approved tools, training on ethical use, and clear policies\u201a\u00c4\u00eethese applications could become more effective and scalable. Support for integrating AI into research and learning platforms would also enhance productivity and innovation across the institution.",
+      "I\u201a\u00c4\u00f4ve used generative AI for writing support, coding assistance, data analysis, and brainstorming ideas. It helps me work more efficiently and stay focused on higher-level tasks. With institutional support\u201a\u00c4\u00eelike access to secure, approved tools, training on ethical use, and clear policies\u201a\u00c4\u00eethese applications could become more effective and scalable. Support for integrating AI into research and learning platforms would also enhance productivity and innovation across the institution.",
       "I have not really used AI applications because I believe they are contributing largely to laziness in a workplace",
       "Student academic support",
       "Note taker, Scheduling Assistant, and code generator: implement real-time collaboration features to facilitate teamwork and knowledge sharing.",
@@ -2740,7 +2740,7 @@
       "In my work and studies, I have found generative AI particularly useful as a learning accelerator, troubleshooting assistant, and documentation tool. For example, I often use GenAI to quickly explain complex networking concepts, generate practice labs in Packet Tracer, and create adaptive study guides for certifications like CCNA, ITIL, or Linux. It has also helped me draft professional reports, CVs, and proposals with clarity and structure, reducing the time spent on formatting and repetitive writing. In IT support tasks, GenAI assists with step-by-step troubleshooting guides and even suggests scripts or commands that speed up problem resolution. However, these benefits are currently limited by access to tools, lack of integration with institutional systems, and concerns about data accuracy and security. If the institution could support and enhance GenAI through dedicated platforms, integration with lab environments, and safe access to internal resources, students and staff would be able to scale their productivity significantly. Centralized AI infrastructure could also ensure outputs are aligned with curriculum standards and compliance frameworks. With institutional backing, GenAI could evolve from being an occasional helper into a trusted, everyday assistant that improves learning outcomes, operational efficiency, and career readiness for both staff and students.",
       "An AI tool that deals with general enquiries. If to complex for instance (Meta AI) or any AI in which you could chat to, if too advanced can transfer you to the relevant department for assistance. Will require some sort of user verification to ensure personal information is not easily accessed by others. This could assist students with general enquiries and if cannot be assisted, guide them as to who to contact to ensure that general, timewasting queries are solved and more complex issues left for relevant departments.",
       "N/A",
-      "I've found GenAI useful for simplifying repetitive and time-consuming tasks across various areas, from admin and content creation to planning. I believe the institution could benefit from supporting its use more broadly\u201a\u00c4\u00eeparticularly in departments like HR, where there are still many manual reports and forms that could be streamlined. With the right support, GenAI could help staff across roles work more efficiently and focus on higher-impact responsibilities.",
+      "I\u201a\u00c4\u00f4ve found GenAI useful for simplifying repetitive and time-consuming tasks across various areas, from admin and content creation to planning. I believe the institution could benefit from supporting its use more broadly\u201a\u00c4\u00eeparticularly in departments like HR, where there are still many manual reports and forms that could be streamlined. With the right support, GenAI could help staff across roles work more efficiently and focus on higher-impact responsibilities.",
       "Minute taking and summarising meetings",
       "Better workflows and training platforms.",
       "N/A",
@@ -2814,7 +2814,7 @@
       "No I think my knowledge and understanding of AI is not high enough",
       "We have tons of info that are in emails, pdfs, chatbots and FAQs - AI is a perfect tool to give us better access to this information and data.",
       "distilling of information and translate that into models/frameworks/designs",
-      "We currently have a FAQ Bot for students, which helps them find answers quickly without having to visit the Student Relations Office. It would be incredibly beneficial for staff to have a similar tool. In my role, I work with disciplinaries and often need to consult lengthy policy documents. Having a bot that could instantly provide accurate answers would save significant time. For example, I could quickly find the outcome for a student caught with narcotics on campus, what the policy says on 'searching students' bags, or our position on promoting political parties etc. It could also answer questions such as how many leave days VC staff are entitled to. By providing instant, accurate information, such a tool would not only improve efficiency but also reduce risk and error.",
+      "We currently have a FAQ Bot for students, which helps them find answers quickly without having to visit the Student Relations Office. It would be incredibly beneficial for staff to have a similar tool. In my role, I work with disciplinaries and often need to consult lengthy policy documents. Having a bot that could instantly provide accurate answers would save significant time. For example, I could quickly find the outcome for a student caught with narcotics on campus, what the policy says on 'searching students\u201a\u00c4\u00f4 bags, or our position on promoting political parties etc. It could also answer questions such as how many leave days VC staff are entitled to. By providing instant, accurate information, such a tool would not only improve efficiency but also reduce risk and error.",
       "Nothing that I can think of at the moment",
       "n/a",
       "The use of AI for Results Analysis + suitable interventions",
@@ -2822,7 +2822,7 @@
       "Perhaps a support where people can troubleshoot their challenges",
       "Not at the moment",
       "None",
-      "The Results Reconciliation Agent cross-checks marks between ARC and SIMS and flags mismatches instantly. Sends gentle automated reminders to lecturers. Assessment Pack Tracker Agent monitors which scripts are in, which are missing, and who's responsible.",
+      "The Results Reconciliation Agent cross-checks marks between ARC and SIMS and flags mismatches instantly. Sends gentle automated reminders to lecturers. Assessment Pack Tracker Agent monitors which scripts are in, which are missing, and who\u201a\u00c4\u00f4s responsible.",
       "no",
       "Perhaps a system that can build student case files based on various aspects of their profile; finance, academic performance such as engagement vs submission rate and marks the students gets.",
       "No",
@@ -3124,7 +3124,7 @@
       "None",
       "please provide us with AI that can assist with proper academic writing and also assist with providing accurate information that can be used openly",
       "None",
-      "AI Research Agent\n\nFunction: Continuously scans academic databases, journals, and institutional repositories to identify relevant new research aligned to a lecturer's or student's field. It could summarize findings, generate annotated bibliographies, and highlight gaps for future research.\n\nIntegration: Linked to library subscriptions and citation managers.\n\nChallenge: Ensuring credibility of sources and avoiding over-reliance on non-peer-reviewed content.",
+      "AI Research Agent\n\nFunction: Continuously scans academic databases, journals, and institutional repositories to identify relevant new research aligned to a lecturer\u201a\u00c4\u00f4s or student\u201a\u00c4\u00f4s field. It could summarize findings, generate annotated bibliographies, and highlight gaps for future research.\n\nIntegration: Linked to library subscriptions and citation managers.\n\nChallenge: Ensuring credibility of sources and avoiding over-reliance on non-peer-reviewed content.",
       "Research assistant: scans publications, extracts key findings, and suggests relevant resources.",
       "I suggest an AI agent for personalized tutoring that adapts to student learning styles, providing tailored resources and feedback. Additionally, an AI project manager could automate task tracking and team collaboration, enhancing productivity and project outcomes.",
       "AI agents for assessment compliance, research support, academic integrity checks, and student assistance would improve productivity and support.",
@@ -3202,7 +3202,7 @@
       "paid version might be apble to mark assignments?",
       "n/a",
       "N/A",
-      "In the research domain, a generative research companion could supercharge literature review and writing. For instance, an AI assistant could search academic databases, identify high\u201a\u00c4\u00ebvalue psychology papers, extract key findings and quotes, and even draft summaries or reports. Tools like Elicit already show the promise, for instance, AI\u201a\u00c4\u00ebenabled systematic reviews can cut review time, quickly surface relevant studies that might be missed by manual search and provide transparent citations for every claim. Adapting such a model to the lecturer's speciality (fine\u201a\u00c4\u00ebtuned on psychology journals and local research outputs) would help the academic discover new angles, generate hypotheses, and draft literature reviews far faster. Technical feasibility is strong since large\u201a\u00c4\u00ebscale research databases exist; the main requirements are API access or integrated search of PsycINFO/PubMed and ensuring up\u201a\u00c4\u00ebto\u201a\u00c4\u00ebdate information. The payoff is higher research productivity and enhanced teaching.",
+      "In the research domain, a generative research companion could supercharge literature review and writing. For instance, an AI assistant could search academic databases, identify high\u201a\u00c4\u00ebvalue psychology papers, extract key findings and quotes, and even draft summaries or reports. Tools like Elicit already show the promise, for instance, AI\u201a\u00c4\u00ebenabled systematic reviews can cut review time, quickly surface relevant studies that might be missed by manual search and provide transparent citations for every claim. Adapting such a model to the lecturer\u201a\u00c4\u00f4s speciality (fine\u201a\u00c4\u00ebtuned on psychology journals and local research outputs) would help the academic discover new angles, generate hypotheses, and draft literature reviews far faster. Technical feasibility is strong since large\u201a\u00c4\u00ebscale research databases exist; the main requirements are API access or integrated search of PsycINFO/PubMed and ensuring up\u201a\u00c4\u00ebto\u201a\u00c4\u00ebdate information. The payoff is higher research productivity and enhanced teaching.",
       "If an AI agent could help capturing marks on SIMS that would be great! Taking marks on ARC and adding it to the relevant spot in SIMS once published on ARC.",
       "I feel that there is a disconnect between lecturers' attitudes towards AI - some hate it, some love it. They feel guilty for using it or see how students use it and just assume it is rubbish. We are still the experts in our fields and have the experience. Using GenAI doesn't mean you switch your brain off; you have to moderate.",
       "I am yet to explore options.",
