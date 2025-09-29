@@ -1377,17 +1377,14 @@ function IieDashboard() {
               segmentOrder={['Agree','Neutral','Disagree']}
               footnote={`What is your level of concern about possible GenAi misuse by students in the following areas?\n\nn = ${misuseTotal} respondents`}
             />
-            <StackedColumnChart
+            <HorizontalBarChart
               title="Student Abuse Suspicions"
-              series={dashboardData.students.abuseTypes.map((item) => ({
+              data={dashboardData.students.abuseTypes.map((item) => ({
                 label: truncateTitle(item.label),
-                total: item.count,
-                segments: [{
-                  label: 'count',
-                  percent: 100
-                }]
+                value: item.count,
+                context: ``
               }))}
-              colorPalette={{ 'count': palette.accentAlt }}
+              colorScale={() => palette.accentAlt}
               footnote="What forms of misuse have you suspected or detected in student work?\n\nCounts indicate academics suspecting each misuse (multiple selections allowed)"
             />
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
