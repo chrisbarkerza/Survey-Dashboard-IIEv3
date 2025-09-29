@@ -272,7 +272,7 @@ function PieChart({ title, data, size = 160, subtitle, footnote, legendPosition 
 
   return (
     <div style={{ ...sectionStyle, flex: 1, minWidth: '260px', pageBreakInside: 'avoid', breakInside: 'avoid' }}>
-      <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
+      <h4 style={{ ...headingStyle, fontSize: '18px', marginBottom: '16px', minHeight: '22px', lineHeight: '22px' }}>{title}</h4>
       <div style={{ display: legendPosition === 'bottom' ? 'block' : 'flex', alignItems: 'center', gap: '16px' }}>
         <div
           style={{
@@ -976,7 +976,7 @@ function IieDashboard() {
           <div>
             <KeyInsights title="Key Findings" items={respondentInsights} />
             <InsightGrid stats={sampleStats} />
-            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', alignItems: 'flex-start' }}>
               <PieChart title="Respondents by Brand" data={brandPieData} />
               <PieChart title="Respondents by Role Group" data={groupPieData} />
             </div>
