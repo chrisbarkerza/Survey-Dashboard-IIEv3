@@ -821,10 +821,10 @@ function IieDashboard() {
   ];
 
   const comparativeInsights = [
-    `IT proficiency correlates with adoption: work usage rises from 0% at low proficiency to 81% among highly proficient staff, though aggregate correlation remains modest (r = 0.11).`,
-    `Teaching confidence is the strongest behavioural predictor—usage breadth climbs steadily from 0.7 to 2.45 applications as confidence grows (r = 0.48, CI95 [0.36; 0.58]).`,
-    `Academic staff outpace Non-Academic peers in active work usage (86% vs 63%, χ²=22.99, p<0.05) indicating an operational enablement gap.`,
-    `Brand adoption variance is moderate (Cramér’s V = 0.16) with Vega (82%) and Varsity College (81%) leading, while MSA (69%) and Rosebank (68%) lag.`
+    `IT proficiency correlates with adoption: work usage rises from 0% at low proficiency to 81% among highly proficient staff, though aggregate correlation remains modest.`,
+    `Teaching confidence is the strongest behavioural predictor—usage breadth climbs steadily from 0.7 to 2.45 applications as confidence grows.`,
+    `Academic staff outpace non-academic peers in active work usage (86% vs 63%) indicating an operational enablement gap.`,
+    `Brand adoption variance is moderate with Vega (82%) and Varsity College (81%) leading, while MSA (69%) and Rosebank (68%) lag.`
   ];
 
   const ideaInsights = {
@@ -1558,28 +1558,28 @@ function IieDashboard() {
               data={itBars}
               unit="percent"
               subtitle={`n = ${dashboardData.respondents.totalRespondents} respondents`}
-              colorScale={(item) => (item.value >= 80 ? palette.positive : palette.accent)}
+              colorScale={() => '#38bdf8'}
             />
             <HorizontalBarChart
               title="Average Teaching Use-Cases by Confidence Level"
               data={confidenceBars}
               unit="count"
               subtitle={`n = ${dashboardData.respondents.academicCount} respondents`}
-              colorScale={(item) => (item.label.includes('confident') ? palette.positive : palette.accentAlt)}
+              colorScale={() => '#f97316'}
             />
             <HorizontalBarChart
               title="Brand-level Work Adoption"
               data={brandRates}
               unit="percent"
               subtitle={`n = ${dashboardData.respondents.totalRespondents} respondents`}
-              colorScale={() => palette.accent}
+              colorScale={() => '#38bdf8'}
             />
             <HorizontalBarChart
               title="Work Adoption by Role Group"
               data={groupBars}
               unit="percent"
               subtitle={`n = ${dashboardData.respondents.totalRespondents} respondents`}
-              colorScale={(item) => (item.label.startsWith('Academic') ? palette.accent : palette.accentAlt)}
+              colorScale={() => '#22c55e'}
             />
             <InsightList
               title="Statistical Notes"
