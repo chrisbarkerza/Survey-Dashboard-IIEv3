@@ -775,8 +775,8 @@ function IieDashboard() {
   const nonAcademicCount = dashboardData.respondents.nonAcademicCount;
 
   const executiveInsights = useMemo(() => [
-    `331 staff members responded (62% Academic, 38% Non-Academic), equating to a 12.4% institutional participation rate with adequate ±5.4% margin of error.`,
-    `${dashboardData.overallAdoption.adoptionWork.percentages['Yes, I do']}% currently use GenAI for work while ${dashboardData.overallAdoption.adoptionPersonal.percentages['Yes, I do']}% use it personally; 263 respondents rely on GenAI in both contexts.`,
+    `331 staff members responded (62% Academic, 38% Non-Academic), equating to a 12.4% institutional participation rate with adequate ±5.4% margin of error @ 95% confidence.`,
+    `${dashboardData.overallAdoption.adoptionWork.percentages['Yes, I do']}% currently use GenAI tools for work while ${dashboardData.overallAdoption.adoptionPersonal.percentages['Yes, I do']}% use it personally; 263 respondents use GenAI tools in both contexts.`,
     `ChatGPT adoption is near-universal (89% current users), with Copilot (47%) and Meta AI (50%) forming a strong productivity stack despite high ethical (67%) and reliability (49%) concerns.`,
     `Academic staff overwhelmingly endorse GenAI-enabled teaching (86% for curriculum design) but only 28% actively apply it to assessment workflows; confidence strongly predicts usage (r = 0.48).`,
     `Academic respondents report surging student usage (64% already see GenAI in personalised learning) alongside acute integrity concerns (81% worried about plagiarism) spurring assessment redesign.`,
@@ -1334,7 +1334,7 @@ function IieDashboard() {
           <div>
             <KeyInsights title="Key Findings" items={studentInsights} />
             <StackedColumnChart
-              title="Student Applications"
+              title="Student Applications - Attitude"
               series={studentAttitudeSeries}
               colorPalette={attitudeColors}
               segmentOrder={['Yes','No opinion','Never']}
@@ -1342,7 +1342,7 @@ function IieDashboard() {
               footnote="Should we as an organisation allow STUDENTS to use GenAi tools for LEARNING purposes in the following applications?"
             />
             <StackedColumnChart
-              title="Observed Student Usage (Behaviour)"
+              title="Observed Student Applicaitons - Behaviour"
               series={studentBehaviourSeries}
               colorPalette={{
                 'Yes': '#38bdf8',
@@ -1354,7 +1354,7 @@ function IieDashboard() {
               footnote="Are your STUDENTS ALREADY using GenAi tools for LEARNING in the following applications?"
             />
             <StackedColumnChart
-              title="Academic Concerns for Student Usage"
+              title="Academic Concerns"
               series={dashboardData.students.concerns.map((row) => ({
                 label: truncateTitle(row.label),
                 total: row.total,
@@ -1369,7 +1369,7 @@ function IieDashboard() {
               footnote="Regardless of your answers above, what is your perception of the drawbacks of STUDENTS using GenAi tools for LEARNING purposes?"
             />
             <StackedColumnChart
-              title="Academic benefits"
+              title="Academic Benefits"
               series={dashboardData.students.benefits.map((row) => ({
                 label: truncateTitle(row.label),
                 total: row.total,
@@ -1388,7 +1388,7 @@ function IieDashboard() {
               data={dashboardData.students.tools.map((item) => ({ label: truncateTitle(item.label), value: item.count }))}
               colorScale={() => palette.accent}
               subtitle={`n = ${dashboardData.students.attitudes[0]?.total || 0} respondents`}
-              footnote="Counts reflect number of Academics reporting student use; multiple tools per respondent allowed"
+              footnote=""
             />
             <StackedColumnChart
               title="Student Misuse Concerns"
