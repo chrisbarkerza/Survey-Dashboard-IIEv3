@@ -100,7 +100,10 @@ const sectionStyle = {
   borderRadius: '20px',
   padding: '24px',
   marginBottom: '24px',
-  boxShadow: '0 8px 24px rgba(2, 6, 23, 0.08)'
+  boxShadow: '0 8px 24px rgba(2, 6, 23, 0.08)',
+  // Print-specific properties to prevent page breaks
+  pageBreakInside: 'avoid',
+  breakInside: 'avoid'
 };
 
 const headingStyle = {
@@ -139,7 +142,7 @@ function KeyInsights({ title, items, variant = 'default' }) {
     border: variant === 'highlight' ? '1px solid rgba(56, 189, 248, 0.35)' : '1px solid rgba(15, 23, 42, 0.08)'
   };
   return (
-    <div style={panelStyle}>
+    <div style={{ ...panelStyle, pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h3 style={headingStyle}>{title}</h3>
       <ul style={{ ...textStyle, paddingLeft: '20px' }}>
         {items.map((item, idx) => (
@@ -248,7 +251,7 @@ function PieChart({ title, data, size = 160, subtitle, footnote, legendPosition 
     })
     .join(', ');
   return (
-    <div style={{ ...sectionStyle, flex: 1, minWidth: '260px' }}>
+    <div style={{ ...sectionStyle, flex: 1, minWidth: '260px', pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
       <div style={{ display: legendPosition === 'bottom' ? 'block' : 'flex', alignItems: 'center', gap: '16px' }}>
         <div
@@ -313,7 +316,7 @@ function PieChart({ title, data, size = 160, subtitle, footnote, legendPosition 
 function HorizontalBarChart({ title, data, unit = 'count', maxValue, colorScale, footnote, showLegend, legendPalette, footnoteUnderTitle = false }) {
   const computedMax = maxValue || Math.max(...data.map((d) => d.value));
   return (
-    <div style={sectionStyle}>
+    <div style={{ ...sectionStyle, pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
       {footnoteUnderTitle && footnote && <div style={{ color: palette.textMuted, marginBottom: '16px', fontSize: '13px' }}>{footnote}</div>}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
@@ -368,7 +371,7 @@ function AutoBarChart({ title, data, colorScale, unit = 'count', footnote, footn
 
 function StackedBarGroup({ title, data, colorPalette, footnote, showLegend, segmentOrder }) {
   return (
-    <div style={sectionStyle}>
+    <div style={{ ...sectionStyle, pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
         {data.map((row) => {
@@ -445,7 +448,7 @@ function StackedColumnChart({ title, series, colorPalette, footnote, segmentOrde
     gap: '24px'
   };
   return (
-    <div style={sectionStyle}>
+    <div style={{ ...sectionStyle, pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
       {/* Row 1: bars only (fixed height, equal columns) */}
       <div style={{ ...grid, alignItems: 'end' }}>
@@ -505,7 +508,7 @@ function StackedColumnChart({ title, series, colorPalette, footnote, segmentOrde
 function VerticalBarChart({ title, data, colorScale, footnote, columns, unit = 'count' }) {
   const maxValue = Math.max(...data.map((d) => d.value));
   return (
-    <div style={sectionStyle}>
+    <div style={{ ...sectionStyle, pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
       <div style={{
         display: columns ? 'grid' : 'flex',
@@ -567,7 +570,7 @@ function DualStackedBar({ title, left, right, colors }) {
 
 function TableCard({ title, columns, rows, formatters }) {
   return (
-    <div style={sectionStyle}>
+    <div style={{ ...sectionStyle, pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
       <div style={{ overflowX: 'auto' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', color: palette.text }}>
@@ -579,9 +582,9 @@ function TableCard({ title, columns, rows, formatters }) {
                   style={{
                     textAlign: 'left',
                     padding: '12px 16px',
-                    background: '#243044',
+                    background: palette.accent,
                     fontWeight: 600,
-                    color: palette.textMuted,
+                    color: '#0f172a',
                     borderBottom: '1px solid rgba(148, 163, 184, 0.2)'
                   }}
                 >
@@ -592,7 +595,7 @@ function TableCard({ title, columns, rows, formatters }) {
           </thead>
           <tbody>
             {rows.map((row, idx) => (
-              <tr key={idx} style={{ background: idx % 2 === 0 ? 'rgba(36, 48, 68, 0.35)' : 'transparent' }}>
+              <tr key={idx} style={{ background: idx % 2 === 0 ? 'rgba(56, 189, 248, 0.1)' : 'transparent' }}>
                 {columns.map((col) => (
                   <td key={col} style={{ padding: '10px 16px', borderBottom: '1px solid rgba(148, 163, 184, 0.12)' }}>
                     {formatters && formatters[col]
@@ -641,7 +644,7 @@ function InsightGrid({ stats }) {
 
 function HistogramPair({ title, left, right, compact = false, sync = false }) {
   return (
-    <div style={sectionStyle}>
+    <div style={{ ...sectionStyle, pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px', marginBottom: '20px' }}>{title}</h4>
       <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'flex-end' }}>
         {(() => {
@@ -690,7 +693,7 @@ function AssistanceChart({ data }) {
 
 function InsightList({ title, items }) {
   return (
-    <div style={sectionStyle}>
+    <div style={{ ...sectionStyle, pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
       <ul style={{ ...textStyle, paddingLeft: '20px' }}>
         {items.map((item, idx) => (
@@ -705,7 +708,7 @@ function InsightList({ title, items }) {
 
 function RecommendationGroup({ horizon, items }) {
   return (
-    <div style={{ ...sectionStyle, borderLeft: `4px solid ${palette.accent}` }}>
+    <div style={{ ...sectionStyle, borderLeft: `4px solid ${palette.accent}`, pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{horizon}</h4>
       <ul style={{ ...textStyle, paddingLeft: '20px' }}>
         {items.map((item, idx) => (
@@ -742,8 +745,8 @@ function IieDashboard() {
   ];
 
   const adoptionInsights = [
-    `${dashboardData.overallAdoption.adoptionWork.percentages['Yes, I do']}% already rely on GenAI for work and ${dashboardData.overallAdoption.adoptionPersonal.percentages['Yes, I do']}% for personal tasks; 85% of adopters straddle both contexts.`,
-    `ChatGPT remains the anchor (89% current usage, 34 paid seats) with rapid entrants: Copilot (47% current), Meta AI via WhatsApp (50%) and DeepSeek (18%) highlight appetite for multi-model workflows.`,
+    `${dashboardData.overallAdoption.adoptionWork.percentages['Yes, I do']}% already use GenAI for work and ${dashboardData.overallAdoption.adoptionPersonal.percentages['Yes, I do']}% for personal tasks; 85% of adopters straddle both contexts.`,
+    `ChatGPT remains the anchor (89% current usage, 34 paid seats) with rapid entrants: Copilot (47% current), Meta AI (50%) and DeepSeek (18%) highlight appetite for multi-model workflows.`,
     `Research (270 users) and writing (229) lead activities, yet only 97 respondents use GenAI for technical tasks while 33 refuse entirely—signalling a skills and tooling gap.`,
     `Ethical risks top the concern list (67% agreement) despite strong belief in efficiency (80%) and automation (74%) benefits, underscoring the need for governance paired with enablement.`,
     `Advanced capabilities remain emergent: 25% currently use reasoning models and 23% engage AI agents, indicating headroom for structured experimentation.`
@@ -1024,7 +1027,7 @@ function IieDashboard() {
         const activitiesData = dashboardData.overallAdoption.activities.map((item) => ({
           label: truncateTitle(item.label),
           value: item.used,
-          context: `${item.notYet} not yet`
+          context: ``
         }));
         const activitiesTotal = dashboardData.overallAdoption.activities[0]?.total || 0;
         const toolBarData = [...dashboardData.overallAdoption.topTools]
@@ -1087,7 +1090,7 @@ function IieDashboard() {
                 <HorizontalBarChart
                   title="Top GenAI Tools • Ever Used"
                   data={toolBarData}
-                  colorScale={(item) => (item.label === 'ChatGPT' ? palette.accent : palette.accentAlt)}
+                  colorScale={() => palette.accentAlt}
                   footnote={`n = ${dashboardData.respondents.totalRespondents} respondents`}
                 />
               </div>
@@ -1097,7 +1100,7 @@ function IieDashboard() {
                   data={toolBarCurrentPct}
                   colorScale={() => palette.accentAlt}
                   unit="percent"
-                  footnote={`n = ${dashboardData.respondents.totalRespondents} respondents`}
+                  footnote={`As a percentage of users who ever used the tool\n\nn = ${dashboardData.respondents.totalRespondents} respondents`}
                 />
               </div>
             </div>
@@ -1122,7 +1125,7 @@ function IieDashboard() {
               footnote={`Regardless of your answers above, what is your perception of the drawbacks of the use of GenAi tools?\n\nn = ${dashboardData.overallAdoption.concerns[0]?.total || 0} respondents`}
             />
             <StackedColumnChart
-              title="Perceived Benefits of GenAI"
+              title="Benefits"
               series={dashboardData.overallAdoption.benefits.map((row) => ({ label: truncateTitle(row.label), total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}

@@ -16,6 +16,95 @@
       #root {
         min-height: 100vh;
       }
+
+      /* Print-specific styles to prevent charts from splitting across pages */
+      @media print {
+        /* Prevent page breaks inside chart containers */
+        .chart-container,
+        [style*="sectionStyle"],
+        [style*="background: #ffffff"] {
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+          margin-bottom: 20px !important;
+        }
+
+        /* Ensure charts and their components stay together */
+        div[style*="borderRadius"] {
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+        }
+
+        /* Keep insight panels together */
+        div[style*="KeyInsights"] {
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+        }
+
+        /* Prevent breaking of flex containers with charts */
+        div[style*="display: flex"] {
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+        }
+
+        /* Grid containers for charts */
+        div[style*="display: grid"] {
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+        }
+
+        /* Table containers */
+        div[style*="overflowX: auto"] {
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+        }
+
+        /* Optimize spacing for print */
+        body {
+          background: white !important;
+          color: black !important;
+        }
+
+        /* Ensure proper margins for print */
+        div[style*="padding: 24px"] {
+          margin-bottom: 15px !important;
+          page-break-inside: avoid !important;
+          break-inside: avoid !important;
+        }
+
+        /* Tab navigation - hide for print or make compact */
+        nav {
+          display: none !important;
+        }
+
+        /* Improve text contrast for print */
+        * {
+          color-adjust: exact !important;
+          -webkit-print-color-adjust: exact !important;
+        }
+
+        /* Force side-by-side charts to stack vertically for print */
+        div[style*="display: flex"][style*="gap: 20px"],
+        div[style*="display: flex"][style*="flexWrap: wrap"] {
+          flex-direction: column !important;
+          gap: 15px !important;
+        }
+
+        /* Ensure flex items take full width in print */
+        div[style*="flex: 1"][style*="minWidth"] {
+          flex: none !important;
+          width: 100% !important;
+          min-width: auto !important;
+        }
+
+        /* Stack grid layouts vertically for print */
+        div[style*="display: grid"] {
+          display: block !important;
+        }
+
+        div[style*="display: grid"] > * {
+          margin-bottom: 15px !important;
+        }
+      }
     </style>
   </head>
   <body>
