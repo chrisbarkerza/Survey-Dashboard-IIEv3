@@ -243,13 +243,33 @@ function PieChart({ title, data, size = 160, subtitle, footnote, legendPosition 
     currentAngle += angle;
     return { ...item, start, angle, color: item.color || piePalette[idx % piePalette.length] };
   });
-  const gradient = segments
-    .map((seg) => {
-      const start = (seg.start / 360) * 100;
-      const end = ((seg.start + seg.angle) / 360) * 100;
-      return `${seg.color} ${start}% ${end}%`;
-    })
-    .join(', ');
+
+  // Helper function to create SVG path for pie segment
+  const createArcPath = (centerX, centerY, radius, startAngle, endAngle) => {
+    const start = polarToCartesian(centerX, centerY, radius, endAngle);
+    const end = polarToCartesian(centerX, centerY, radius, startAngle);
+    const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+    return [
+      "M", centerX, centerY,
+      "L", start.x, start.y,
+      "A", radius, radius, 0, largeArcFlag, 0, end.x, end.y,
+      "Z"
+    ].join(" ");
+  };
+
+  const polarToCartesian = (centerX, centerY, radius, angleInDegrees) => {
+    const angleInRadians = (angleInDegrees - 90) * Math.PI / 180.0;
+    return {
+      x: centerX + (radius * Math.cos(angleInRadians)),
+      y: centerY + (radius * Math.sin(angleInRadians))
+    };
+  };
+
+  const radius = size / 2;
+  const centerX = radius;
+  const centerY = radius;
+  const innerRadius = radius * 0.55;
+
   return (
     <div style={{ ...sectionStyle, flex: 1, minWidth: '260px', pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
@@ -260,27 +280,49 @@ function PieChart({ title, data, size = 160, subtitle, footnote, legendPosition 
             height: size,
             aspectRatio: '1 / 1',
             flex: '0 0 auto',
-            borderRadius: '50%',
-            background: `conic-gradient(${gradient})`,
             position: 'relative',
             margin: legendPosition === 'bottom' ? '0 auto' : undefined
           }}
         >
+          <svg width={size} height={size} style={{ overflow: 'visible' }}>
+            {segments.map((segment, idx) => {
+              if (segment.value === 0) return null;
+              let startAngle = 0;
+              for (let i = 0; i < idx; i++) {
+                startAngle += (segments[i].value / total) * 360;
+              }
+              const endAngle = startAngle + (segment.value / total) * 360;
+
+              return (
+                <path
+                  key={idx}
+                  d={createArcPath(centerX, centerY, radius, startAngle, endAngle)}
+                  fill={segment.color}
+                  stroke="none"
+                />
+              );
+            })}
+            {/* Inner circle */}
+            <circle
+              cx={centerX}
+              cy={centerY}
+              r={innerRadius}
+              fill={palette.panel}
+              stroke="none"
+            />
+          </svg>
           <div
             style={{
               position: 'absolute',
               top: '50%',
               left: '50%',
               transform: 'translate(-50%, -50%)',
-              width: size * 0.55,
-              height: size * 0.55,
-              borderRadius: '50%',
-              background: palette.panel,
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
               color: palette.text,
-              fontWeight: 600
+              fontWeight: 600,
+              pointerEvents: 'none'
             }}
           >
             {total}

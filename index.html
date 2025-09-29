@@ -82,6 +82,27 @@
           -webkit-print-color-adjust: exact !important;
         }
 
+        /* Ensure SVG elements preserve colors in PDF export */
+        svg, svg * {
+          color-adjust: exact !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        /* Ensure SVG paths maintain their fill colors */
+        svg path {
+          color-adjust: exact !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
+        /* Ensure SVG circles maintain their fill colors */
+        svg circle {
+          color-adjust: exact !important;
+          -webkit-print-color-adjust: exact !important;
+          print-color-adjust: exact !important;
+        }
+
         /* Force side-by-side charts to stack vertically for print */
         div[style*="display: flex"][style*="gap: 20px"],
         div[style*="display: flex"][style*="flexWrap: wrap"] {
