@@ -35,13 +35,13 @@ const linkButtonStyle = {
   gap: '8px',
   padding: '12px 18px',
   borderRadius: '14px',
-  background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.25), rgba(14, 165, 233, 0.15))',
-  border: '1px solid rgba(56, 189, 248, 0.4)',
-  color: '#e2e8f0',
+  background: 'linear-gradient(135deg, rgba(56, 189, 248, 0.8), rgba(14, 165, 233, 0.6))',
+  border: '1px solid rgba(56, 189, 248, 0.9)',
+  color: '#ffffff',
   fontWeight: 600,
   letterSpacing: '0.03em',
   textDecoration: 'none',
-  boxShadow: '0 12px 24px rgba(14, 165, 233, 0.25)',
+  boxShadow: '0 12px 24px rgba(14, 165, 233, 0.4)',
   transition: 'transform 0.2s ease, box-shadow 0.2s ease'
 };
 
