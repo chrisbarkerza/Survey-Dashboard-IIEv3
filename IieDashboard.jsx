@@ -688,10 +688,11 @@ function InsightGrid({ stats }) {
   );
 }
 
-function HistogramPair({ title, left, right, compact = false, sync = false }) {
+function HistogramPair({ title, subtitle, left, right, compact = false, sync = false }) {
   return (
     <div style={{ ...sectionStyle, pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px', marginBottom: '20px' }}>{title}</h4>
+      {subtitle && <p style={{ ...textStyle, marginBottom: '12px', color: palette.textMuted, fontSize: '13px' }}>{subtitle}</p>}
       <div style={{ display: 'flex', gap: '24px', flexWrap: 'wrap', alignItems: 'flex-end' }}>
         {(() => {
           const scale = (bins) => Math.max(1, ...bins.map((b) => b.count));
@@ -1011,6 +1012,7 @@ function IieDashboard() {
             </div>
             <HistogramPair
               title="Academic Tenure Distribution"
+              subtitle={`n = ${dashboardData.respondents.academicCount} respondents`}
               left={{
                 title: 'Academic Staff • years at IIE',
                 data: academicExp.iie
@@ -1023,6 +1025,7 @@ function IieDashboard() {
             />
             <HistogramPair
               title="Non-Academic Tenure Distribution"
+              subtitle={`n = ${dashboardData.respondents.nonAcademicCount} respondents`}
               left={{
                 title: 'Non-Academic Staff • years at IIE',
                 data: nonExp.iie
