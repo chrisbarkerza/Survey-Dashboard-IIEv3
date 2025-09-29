@@ -355,11 +355,12 @@ function PieChart({ title, data, size = 160, subtitle, footnote, legendPosition 
   );
 }
 
-function HorizontalBarChart({ title, data, unit = 'count', maxValue, colorScale, footnote, showLegend, legendPalette, footnoteUnderTitle = false }) {
+function HorizontalBarChart({ title, data, unit = 'count', maxValue, colorScale, footnote, showLegend, legendPalette, footnoteUnderTitle = false, subtitle }) {
   const computedMax = maxValue || Math.max(...data.map((d) => d.value));
   return (
     <div style={{ ...sectionStyle, pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
+      {subtitle && <p style={{ ...textStyle, marginBottom: '12px', color: palette.textMuted, fontSize: '13px' }}>{subtitle}</p>}
       {footnoteUnderTitle && footnote && <div style={{ color: palette.textMuted, marginBottom: '16px', fontSize: '13px' }}>{footnote}</div>}
       <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
         {data.map((item, idx) => {
@@ -402,13 +403,13 @@ function HorizontalBarChart({ title, data, unit = 'count', maxValue, colorScale,
 }
 
 // Automatically choose bar orientation: <=5 items → columns, else horizontal bars
-function AutoBarChart({ title, data, colorScale, unit = 'count', footnote, footnoteUnderTitle = false }) {
+function AutoBarChart({ title, data, colorScale, unit = 'count', footnote, footnoteUnderTitle = false, subtitle }) {
   const items = data || [];
   if (items.length <= 5) {
     const vData = items.map((d) => ({ label: d.label, value: d.value, context: d.context }));
-    return <VerticalBarChart title={title} data={vData} colorScale={colorScale} footnote={footnote} unit={unit} />;
+    return <VerticalBarChart title={title} data={vData} colorScale={colorScale} footnote={footnote} unit={unit} subtitle={subtitle} />;
   }
-  return <HorizontalBarChart title={title} data={items} colorScale={colorScale} unit={unit} footnote={footnote} footnoteUnderTitle={footnoteUnderTitle} />;
+  return <HorizontalBarChart title={title} data={items} colorScale={colorScale} unit={unit} footnote={footnote} footnoteUnderTitle={footnoteUnderTitle} subtitle={subtitle} />;
 }
 
 function StackedBarGroup({ title, data, colorPalette, footnote, showLegend, segmentOrder }) {
@@ -481,7 +482,7 @@ function StackedBarGroup({ title, data, colorPalette, footnote, showLegend, segm
   );
 }
 
-function StackedColumnChart({ title, series, colorPalette, footnote, segmentOrder }) {
+function StackedColumnChart({ title, series, colorPalette, footnote, segmentOrder, subtitle }) {
   const legendKeys = Object.keys(colorPalette);
   const cols = Math.max(1, series.length);
   const grid = {
@@ -492,6 +493,7 @@ function StackedColumnChart({ title, series, colorPalette, footnote, segmentOrde
   return (
     <div style={{ ...sectionStyle, pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
+      {subtitle && <p style={{ ...textStyle, marginBottom: '12px', color: palette.textMuted, fontSize: '13px' }}>{subtitle}</p>}
       {/* Row 1: bars only (fixed height, equal columns) */}
       <div style={{ ...grid, alignItems: 'end' }}>
         {series.map((item) => (
@@ -547,11 +549,12 @@ function StackedColumnChart({ title, series, colorPalette, footnote, segmentOrde
   );
 }
 
-function VerticalBarChart({ title, data, colorScale, footnote, columns, unit = 'count' }) {
+function VerticalBarChart({ title, data, colorScale, footnote, columns, unit = 'count', subtitle }) {
   const maxValue = Math.max(...data.map((d) => d.value));
   return (
     <div style={{ ...sectionStyle, pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
+      {subtitle && <p style={{ ...textStyle, marginBottom: '12px', color: palette.textMuted, fontSize: '13px' }}>{subtitle}</p>}
       <div style={{
         display: columns ? 'grid' : 'flex',
         gridTemplateColumns: columns ? `repeat(${columns}, minmax(140px, 1fr))` : undefined,
@@ -610,10 +613,11 @@ function DualStackedBar({ title, left, right, colors }) {
   );
 }
 
-function TableCard({ title, columns, rows, formatters }) {
+function TableCard({ title, columns, rows, formatters, subtitle }) {
   return (
     <div style={{ ...sectionStyle, pageBreakInside: 'avoid', breakInside: 'avoid' }}>
       <h4 style={{ ...headingStyle, fontSize: '18px' }}>{title}</h4>
+      {subtitle && <p style={{ ...textStyle, marginBottom: '12px', color: palette.textMuted, fontSize: '13px' }}>{subtitle}</p>}
       <div style={{ overflowX: 'auto' }}>
         <table style={{ width: '100%', borderCollapse: 'collapse', color: palette.text }}>
           <thead>
@@ -729,7 +733,7 @@ function HistogramPair({ title, left, right, compact = false, sync = false }) {
 function AssistanceChart({ data }) {
   const series = data.map((d) => ({ label: d.label, value: d.count, context: `` }));
   return (
-    <HorizontalBarChart title="Top Assistance Needs" data={series} colorScale={() => palette.accent} />
+    <HorizontalBarChart title="Top Assistance Needs" data={series} subtitle={`n = ${dashboardData.respondents.totalRespondents} respondents`} colorScale={() => palette.accent} />
   );
 }
 
@@ -770,20 +774,20 @@ function IieDashboard() {
   const nonAcademicCount = dashboardData.respondents.nonAcademicCount;
 
   const executiveInsights = useMemo(() => [
-    `331 staff members responded (62% academic, 38% non-academic), equating to a 12.4% institutional participation rate with adequate ±5.4% margin of error.`,
+    `331 staff members responded (62% Academic, 38% Non-Academic), equating to a 12.4% institutional participation rate with adequate ±5.4% margin of error.`,
     `${dashboardData.overallAdoption.adoptionWork.percentages['Yes, I do']}% currently use GenAI for work while ${dashboardData.overallAdoption.adoptionPersonal.percentages['Yes, I do']}% use it personally; 263 respondents rely on GenAI in both contexts.`,
     `ChatGPT adoption is near-universal (89% current users), with Copilot (47%) and Meta AI (50%) forming a strong productivity stack despite high ethical (67%) and reliability (49%) concerns.`,
     `Academic staff overwhelmingly endorse GenAI-enabled teaching (86% for curriculum design) but only 28% actively apply it to assessment workflows; confidence strongly predicts usage (r = 0.48).`,
     `Academic respondents report surging student usage (64% already see GenAI in personalised learning) alongside acute integrity concerns (81% worried about plagiarism) spurring assessment redesign.`,
     `Training (270 votes), subsidised licensing (253) and curated app access (251) top the assistance queue, signalling readiness for structured enablement programs.`,
-    `Adoption remains uneven: academic staff show 86% active work usage versus 63% in non-academic teams, highlighting the priority for targeted operational onboarding.`
+    `Adoption remains uneven: Academic staff show 86% active work usage versus 63% in Non-Academic teams, highlighting the priority for targeted operational onboarding.`
   ], []);
 
   const respondentInsights = [
-    `Academic respondents (204) outnumber Non-academic (127) aligning with staffing ratios; Varsity College (52%) and Rosebank College (29%) dominate the sample with Vega at 14%.`,
-    `Academic participation clusters in Commerce (36%), Humanities (26%), ICT (20%), Education (19%), NQF level 7 (63%) and NQF levels 5&6 (52%), providing balanced discipline coverage for strategic planning.`,
+    `Academic respondents (204) outnumber Non-Academic (127) aligning with staffing ratios; Varsity College (52%) and Rosebank College (29%) dominate the sample with Vega at 14%.`,
+    `Academic participation clusters in Commerce (36%), Humanities (26%), ICT (20%), Education (19%), NQF level 7 (63%) and NQF levels 5 & 6 (52%), providing balanced discipline coverage for strategic planning.`,
     `58% of Academics and 57% of Non-Academic staff have ≤5 years at The IIE.`,
-    `IT proficiency is solid: 50% of academics and 52% of non-academic staff self-rate as advanced, with a further 13% and 12% respectively confident enough to work in IT.`
+    `IT proficiency is solid: 50% of Academics and 52% of Non-Academic staff self-rate as advanced, with a further 13% and 12% respectively confident enough to work in IT.`
   ];
 
   const adoptionInsights = [
@@ -796,21 +800,21 @@ function IieDashboard() {
 
   const academicInsights = [
     `Support for GenAI-enabled teaching is robust (86% for curriculum/content) but operational uptake lags—only 28% actively use it for assessment and 27% for documentation.`,
-    `Two-thirds of academics flag reliability (66%) and ethics/accountability (66%) as primary risks, yet 70–86% credit GenAI with gains in preparation efficiency, richer materials and administrative relief.`,
-    `Confidence fuels adoption: very confident academics average 2.45 active teaching use-cases versus 0.71 among unsure peers (r = 0.48, n = 204).`,
-    `Only 11 academics use native AI code  editors and disclosure to students is uneven (48 always disclose, 63 rarely/never), signalling policy and tooling opportunities.`
+    `Two-thirds of Academics flag reliability (66%) and ethics/accountability (66%) as primary risks, yet 70–86% credit GenAI with gains in preparation efficiency, richer materials and administrative relief.`,
+    `Confidence fuels adoption: very confident Academics average 2.45 active teaching use-cases versus 0.71 among unsure peers (r = 0.48, n = 204).`,
+    `Only 11 Academics use native AI code  editors and disclosure to students is uneven (48 always disclose, 63 rarely/never), signalling policy and tooling opportunities.`
   ];
 
   const studentInsights = [
     `Academic staff endorse student access (70–82% support across scenarios) and report widespread learner adoption, notably 64% seeing GenAI for personalised learning and 57% for research planning.`,
     `Academic honesty anxieties are acute: 81% fear undetected plagiarism and 79% highlight assessment challenges, driving 36% to redesign evaluations with a further 17% mid-transition.`,
     `Perceived misuse clusters around uncredited copying (188 mentions) and homework completion (185), underscoring the need for transparent student policy and detection support.`,
-    `AI agents are already entering classrooms—69% of academics believe students use them—demanding proactive guidance and scenario planning.`
+    `AI agents are already entering classrooms—69% of Academics believe students use them—demanding proactive guidance and scenario planning.`
   ];
 
   const nonAcademicInsights = [
     `Operations & support teams are the most enthusiastic (82% approval) yet fewer than one-third currently apply GenAI to meetings, media or technical tasks—revealing process integration gaps.`,
-    `Over half of non-academic respondents use GenAI for research (53%) and writing (55%), mirroring core administrative workloads.`,
+    `Over half of Non-Academic respondents use GenAI for research (53%) and writing (55%), mirroring core administrative workloads.`,
     `Ethical anxiety (65%) outweighs fears of job displacement (37%) or technical barriers (20%), reinforcing the need for governance and change management messaging.`,
     `Conversational AI (95 users) and search tools (63 users) anchor toolkits, with 41 already exploring AI agents for workflow automation.`
   ];
@@ -818,7 +822,7 @@ function IieDashboard() {
   const comparativeInsights = [
     `IT proficiency correlates with adoption: work usage rises from 0% at low proficiency to 81% among highly proficient staff, though aggregate correlation remains modest (r = 0.11).`,
     `Teaching confidence is the strongest behavioural predictor—usage breadth climbs steadily from 0.7 to 2.45 applications as confidence grows (r = 0.48, CI95 [0.36; 0.58]).`,
-    `Academic staff outpace non-academic peers in active work usage (86% vs 63%, χ²=22.99, p<0.05) indicating an operational enablement gap.`,
+    `Academic staff outpace Non-Academic peers in active work usage (86% vs 63%, χ²=22.99, p<0.05) indicating an operational enablement gap.`,
     `Brand adoption variance is moderate (Cramér’s V = 0.16) with Vega (82%) and Varsity College (81%) leading, while MSA (69%) and Rosebank (68%) lag.`
   ];
 
@@ -845,12 +849,12 @@ function IieDashboard() {
     },
     agentIdeas: {
       summary: [
-        `269 agent concepts target student services (21%), research support (15%) and academic integrity monitoring (14%).`,
+        `269 agent concepts target student services (21%), research support (15%) and Academic integrity monitoring (14%).`,
         `Neutral sentiment (50%) masks clear solution themes—admissions triage, knowledgebase chatbots and curriculum copilots.`
       ],
       highlights: [
         'Admission workflow agent that checks documentation, summarises applicant status and automates follow-up communications.',
-        '24/7 policy-aware chatbot for assessment queries, escalating edge cases to academic leadership with context packs.'
+        '24/7 policy-aware chatbot for assessment queries, escalating edge cases to Academic leadership with context packs.'
       ]
     }
   };
@@ -864,7 +868,7 @@ function IieDashboard() {
   const recommendations = {
     short: [
       'Launch an institution-wide GenAI enablement sprint: curated training pathways, rapid-reference guides and a transparent approved-tools register.',
-      'Codify disclosure, assessment and student-use guidelines paired with exemplar communications for academics and operations teams.',
+      'Codify disclosure, assessment and student-use guidelines paired with exemplar communications for Academics and operations teams.',
       'Stand-up a GenAI helpdesk pod blending technical support and instructional design coaching to unblock early adopters.'
     ],
     medium: [
@@ -881,9 +885,9 @@ function IieDashboard() {
 
   const coreStats = [
     { label: 'Total Respondents', value: formatValue(totalRespondents), emphasis: true },
-    { label: 'Academic Staff', value: `${academicCount} (${((academicCount / totalRespondents) * 100).toFixed(1)}%)` },
-    { label: 'Non-Academic Staff', value: `${nonAcademicCount} (${((nonAcademicCount / totalRespondents) * 100).toFixed(1)}%)` },
-    { label: 'Dual-context GenAI Users', value: `${dashboardData.overallAdoption.adoptionBoth.counts['Both work & personal']} (${((dashboardData.overallAdoption.adoptionBoth.counts['Both work & personal'] / dashboardData.overallAdoption.adoptionBoth.total) * 100).toFixed(1)}%)` }
+    { label: 'Academic Staff', value: `${academicCount} (${(totalRespondents > 0 ? ((academicCount / totalRespondents) * 100) : 0).toFixed(1)}%)` },
+    { label: 'Non-Academic Staff', value: `${nonAcademicCount} (${(totalRespondents > 0 ? ((nonAcademicCount / totalRespondents) * 100) : 0).toFixed(1)}%)` },
+    { label: 'Dual-context GenAI Users', value: `${dashboardData.overallAdoption.adoptionBoth.counts['Both work & personal'] || 0} (${(dashboardData.overallAdoption.adoptionBoth.total > 0 ? (((dashboardData.overallAdoption.adoptionBoth.counts['Both work & personal'] || 0) / dashboardData.overallAdoption.adoptionBoth.total) * 100) : 0).toFixed(1)}%)` }
   ];
 
   const renderTab = () => {
@@ -909,18 +913,18 @@ function IieDashboard() {
         const academicExp = dashboardData.respondents.experience.academic;
         const nonExp = dashboardData.respondents.experience.nonAcademic;
         const facultyData = dashboardData.respondents.facultyCounts.map((item) => ({ label: truncateTitle(item.label), value: item.count }));
-        const tableColumns = ['Brand', 'Academic', 'Non-academic', 'Total'];
-        const percentColumns = ['Brand', 'Academic', 'Non-academic'];
+        const tableColumns = ['Brand', 'Academic', 'Non-Academic', 'Total'];
+        const percentColumns = ['Brand', 'Academic', 'Non-Academic'];
         const countsRows = dashboardData.respondents.brandGroupCounts.map((row) => ({
           Brand: row.brand,
           Academic: row.Academic,
-          'Non-academic': row['Non-academic'],
+          'Non-Academic': row['Non-Academic'],
           Total: row.Total
         }));
         const percRows = dashboardData.respondents.brandGroupPercentages.map((row) => ({
           Brand: row.brand,
-          Academic: `${row.Academic.toFixed(1)}%`,
-          'Non-academic': `${row['Non-academic'].toFixed(1)}%`
+          Academic: `${(row.Academic || 0).toFixed(1)}%`,
+          'Non-Academic': `${(row['Non-Academic'] || 0).toFixed(1)}%`
         }));
         const itStackData = [
           {
@@ -936,16 +940,16 @@ function IieDashboard() {
         const sampleStats = [
           {
             label: 'Overall participation',
-            value: `${sampleSummary.overall.respondents}/${sampleSummary.overall.population} (${sampleSummary.overall.participationRate.toFixed(1)}%)`,
+            value: `${sampleSummary.overall?.respondents || 0}/${sampleSummary.overall?.population || 0} (${(sampleSummary.overall?.participationRate || 0).toFixed(1)}%)`,
             emphasis: true
           },
           {
             label: 'Academic response rate',
-            value: `${sampleSummary.academic.respondents}/${sampleSummary.academic.population} (${sampleSummary.academic.participationRate.toFixed(1)}%)`
+            value: `${sampleSummary.academic?.respondents || 0}/${sampleSummary.academic?.population || 0} (${(sampleSummary.academic?.participationRate || 0).toFixed(1)}%)`
           },
           {
-            label: 'Non-academic response rate',
-            value: `${sampleSummary.nonAcademic.respondents}/${sampleSummary.nonAcademic.population} (${sampleSummary.nonAcademic.participationRate.toFixed(1)}%)`
+            label: 'Non-Academic response rate',
+            value: `${sampleSummary.nonAcademic?.respondents || 0}/${sampleSummary.nonAcademic?.population || 0} (${(sampleSummary.nonAcademic?.participationRate || 0).toFixed(1)}%)`
           }
         ];
         const nqfData = dashboardData.respondents.nqfCounts.map((item) => ({ label: truncateTitle(item.label), value: item.count }));
@@ -989,7 +993,8 @@ function IieDashboard() {
                   title="Academic Faculties Represented"
                   data={facultyData}
                   colorScale={() => palette.accent}
-                  footnote={`n = ${dashboardData.respondents.academicCount} academic staff (multiple selections allowed)`}
+                  subtitle={`n = ${dashboardData.respondents.academicCount} respondents`}
+                  footnote="Multiple selections allowed"
                   footnoteUnderTitle={true}
                 />
               </div>
@@ -998,13 +1003,14 @@ function IieDashboard() {
                   title="Academic NQF Levels"
                   data={nqfData}
                   colorScale={() => palette.accentAlt}
-                  footnote={`n = ${dashboardData.respondents.academicCount} academic staff (multiple selections allowed)`}
+                  subtitle={`n = ${dashboardData.respondents.academicCount} respondents`}
+                  footnote="Multiple selections allowed"
                   footnoteUnderTitle={true}
                 />
               </div>
             </div>
             <HistogramPair
-              title="Tenure Distribution"
+              title="Academic Tenure Distribution"
               left={{
                 title: 'Academic Staff • years at IIE',
                 data: academicExp.iie
@@ -1016,7 +1022,7 @@ function IieDashboard() {
               compact
             />
             <HistogramPair
-              title="Non-Academic Staff Distribution"
+              title="Non-Academic Tenure Distribution"
               left={{
                 title: 'Non-Academic Staff • years at IIE',
                 data: nonExp.iie
@@ -1029,9 +1035,10 @@ function IieDashboard() {
             />
             <StackedColumnChart
               title="IT Proficiency (Share of Respondents)"
+              subtitle={`n = ${dashboardData.respondents.totalRespondents} respondents`}
               series={proficiencySeries}
               colorPalette={proficiencyColors}
-              footnote="What is your general IT proficiency?\n\nPercentages per bar sum to 100%"
+              footnote="What is your general IT proficiency?"
             />
           </div>
         );
@@ -1133,7 +1140,7 @@ function IieDashboard() {
                   title="Top GenAI Tools • Ever Used"
                   data={toolBarData}
                   colorScale={() => palette.accentAlt}
-                  footnote={`n = ${dashboardData.respondents.totalRespondents} respondents`}
+                  subtitle={`n = ${dashboardData.respondents.totalRespondents} respondents`}
                 />
               </div>
               <div style={{ flex: 1, width: 'calc(50% - 10px)', minWidth: '400px', overflow: 'hidden' }}>
@@ -1142,7 +1149,8 @@ function IieDashboard() {
                   data={toolBarCurrentPct}
                   colorScale={() => palette.accentAlt}
                   unit="percent"
-                  footnote={`As a percentage of users who ever used the tool\n\nn = ${dashboardData.respondents.totalRespondents} respondents`}
+                  subtitle={`n = ${dashboardData.respondents.totalRespondents} respondents`}
+                  footnote="As a percentage of users who ever used the tool"
                 />
               </div>
             </div>
@@ -1156,7 +1164,8 @@ function IieDashboard() {
                 title="GenAI Activities • Current or Past Users"
                 data={activitiesData}
                 colorScale={() => palette.accent}
-                footnote={`n = ${activitiesTotal} respondents (multiple selections allowed)`}
+                subtitle={`n = ${activitiesTotal} respondents`}
+                footnote="Multiple selections allowed"
               />
             </div>
             <StackedColumnChart
@@ -1164,29 +1173,33 @@ function IieDashboard() {
               series={dashboardData.overallAdoption.concerns.map((row) => ({ label: truncateTitle(row.label), total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}
-              footnote={`Regardless of your answers above, what is your perception of the drawbacks of the use of GenAi tools?\n\nn = ${dashboardData.overallAdoption.concerns[0]?.total || 0} respondents`}
+              subtitle={`n = ${dashboardData.overallAdoption.concerns[0]?.total || 0} respondents`}
+              footnote="Regardless of your answers above, what is your perception of the drawbacks of the use of GenAi tools?"
             />
             <StackedColumnChart
               title="Benefits"
               series={dashboardData.overallAdoption.benefits.map((row) => ({ label: truncateTitle(row.label), total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}
-              footnote={`Regardless of your answers above, what is your perception of the benefits of the use of GenAi tools?\n\nn = ${dashboardData.overallAdoption.benefits[0]?.total || 0} respondents`}
+              subtitle={`n = ${dashboardData.overallAdoption.benefits[0]?.total || 0} respondents`}
+              footnote="Regardless of your answers above, what is your perception of the benefits of the use of GenAi tools?"
             />
             <StackedColumnChart
               title="Appetite for Meta AI Surfaces"
               series={metaSeries}
               colorPalette={metaColors}
               segmentOrder={['Yes','Maybe','No']}
-              footnote="Do you plan to use Meta AI tools in the near future? Both for work and/or personal use!\n\nPercentages per bar sum to 100%"
+              subtitle={`n = ${dashboardData.overallAdoption.metaUsage[0]?.total || 0} respondents`}
+              footnote="Do you plan to use Meta AI tools in the near future? Both for work and/or personal use!"
             />
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
               <div style={{ flex: 1, minWidth: '400px' }}>
                 <VerticalBarChart
                   title="AI Reasoning Models Adoption"
+                  subtitle={`n = ${reasoningCounts.total} respondents`}
                   data={reasoningData}
                   colorScale={() => palette.accent}
-                  footnote={`n = ${reasoningCounts.total} respondents • Legend: Not yet, Yes, Thinking, Yes (past), Never`}
+                  footnote="Legend: Not yet, Yes, Thinking, Yes (past), Never"
                   columns={5}
                 />
               </div>
@@ -1195,7 +1208,8 @@ function IieDashboard() {
                   title="AI Agents Adoption"
                   data={agentData}
                   colorScale={() => palette.accentAlt}
-                  footnote={`n = ${agentsCounts.total} respondents • Legend: Not yet, Yes, Thinking, Yes (past), Never`}
+                  subtitle={`n = ${agentsCounts.total} respondents`}
+                  footnote="Legend: Not yet, Yes, Thinking, Yes (past), Never"
                   columns={5}
                 />
               </div>
@@ -1221,7 +1235,8 @@ function IieDashboard() {
                   }))}
                   colorPalette={attitudeColors}
                   segmentOrder={['Yes', 'No opinion', 'Never']}
-                  footnote={`Should we as an organisation allow the use of GenAi tools for TEACHING purposes in the following applications?\n\nn = ${dashboardData.academicStaff.attitudes[0]?.total || 0} academic respondents `}
+                  subtitle={`n = ${dashboardData.academicStaff.attitudes[0]?.total || 0} respondents`}
+                  footnote="Should we as an organisation allow the use of GenAi tools for TEACHING purposes in the following applications?"
                 />
               </div>
               <div style={{ flex: 1, minWidth: '400px' }}>
@@ -1237,7 +1252,8 @@ function IieDashboard() {
                   }))}
                   colorPalette={adoptionColors}
                   segmentOrder={['Yes, I do', 'Yes, but no longer', 'I am thinking about it', 'No, not yet', 'No & I will never (on principle)']}
-                  footnote={`Have you ALREADY used GenAi tools IN YOUR TEACHING for the following applications?\n\nn = ${dashboardData.academicStaff.behaviours[0]?.total || 0} academic respondents `}
+                  subtitle={`n = ${dashboardData.academicStaff.behaviours[0]?.total || 0} respondents`}
+                  footnote="Have you ALREADY used GenAi tools IN YOUR TEACHING for the following applications?"
                 />
               </div>
             </div>
@@ -1246,14 +1262,16 @@ function IieDashboard() {
               series={dashboardData.academicStaff.concerns.map((row) => ({ label: truncateTitle(row.label), total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}
-              footnote={`Regardless of your answers above, what is your perception of the drawbacks of the use of GenAi tools for TEACHING purposes?\n\nn = ${dashboardData.academicStaff.concerns[0]?.total || 0} respondents`}
+              subtitle={`n = ${dashboardData.academicStaff.concerns[0]?.total || 0} respondents`}
+              footnote="Regardless of your answers above, what is your perception of the drawbacks of the use of GenAi tools for TEACHING purposes?"
             />
             <StackedColumnChart
               title="Academic Benefits"
               series={dashboardData.academicStaff.benefits.map((row) => ({ label: truncateTitle(row.label), total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}
-              footnote={`Regardless of your answers above, what is your perception of the benefits of the use of GenAi tools for TEACHING purposes?\n\nn = ${dashboardData.academicStaff.benefits[0]?.total || 0} respondents`}
+              subtitle={`n = ${dashboardData.academicStaff.benefits[0]?.total || 0} respondents`}
+              footnote="Regardless of your answers above, what is your perception of the benefits of the use of GenAi tools for TEACHING purposes?"
             />
             <HorizontalBarChart
               title="Tools Supporting Teaching"
@@ -1263,7 +1281,8 @@ function IieDashboard() {
                 context: ``
               }))}
               colorScale={() => palette.accent}
-              footnote={`n ≈ ${dashboardData.academicStaff.attitudes[0]?.total || 0} academics (multiple selections allowed)`}
+              subtitle={`n ≈ ${dashboardData.academicStaff.attitudes[0]?.total || 0} respondents`}
+              footnote="Multiple selections allowed"
             />
             <div style={{ display: 'flex', gap: '18px', flexWrap: 'wrap' }}>
               <PieChart
@@ -1316,7 +1335,8 @@ function IieDashboard() {
               series={studentAttitudeSeries}
               colorPalette={attitudeColors}
               segmentOrder={['Yes','No opinion','Never']}
-              footnote={`Should we as an organisation allow STUDENTS to use GenAi tools for LEARNING purposes in the following applications?\n\nn = ${dashboardData.students.attitudes[0]?.total || 0} academic respondents `}
+              subtitle={`n = ${dashboardData.students.attitudes[0]?.total || 0} respondents`}
+              footnote="Should we as an organisation allow STUDENTS to use GenAi tools for LEARNING purposes in the following applications?"
             />
             <StackedColumnChart
               title="Observed Student Usage (Behaviour)"
@@ -1327,7 +1347,8 @@ function IieDashboard() {
                 'No': '#f87171'
               }}
               segmentOrder={['Yes','I don\'t know','No']}
-              footnote={`Are your STUDENTS ALREADY using GenAi tools for LEARNING in the following applications?\n\nn = ${dashboardData.students.behaviours[0]?.total || 0} academic respondents `}
+              subtitle={`n = ${dashboardData.students.behaviours[0]?.total || 0} respondents`}
+              footnote="Are your STUDENTS ALREADY using GenAi tools for LEARNING in the following applications?"
             />
             <StackedColumnChart
               title="Academic Concerns for Student Usage"
@@ -1341,7 +1362,8 @@ function IieDashboard() {
               }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}
-              footnote={`Regardless of your answers above, what is your perception of the drawbacks of STUDENTS using GenAi tools for LEARNING purposes?\n\nn = ${dashboardData.students.concerns[0]?.total || 0} respondents`}
+              subtitle={`n = ${dashboardData.students.concerns[0]?.total || 0} respondents`}
+              footnote="Regardless of your answers above, what is your perception of the drawbacks of STUDENTS using GenAi tools for LEARNING purposes?"
             />
             <StackedColumnChart
               title="Academic benefits"
@@ -1355,13 +1377,15 @@ function IieDashboard() {
               }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}
-              footnote={`Regardless of your answers above, what is your perception of the benefits of STUDENTS using GenAi tools for LEARNING purposes?\n\nn = ${dashboardData.students.benefits[0]?.total || 0} respondents`}
+              subtitle={`n = ${dashboardData.students.benefits[0]?.total || 0} respondents`}
+              footnote="Regardless of your answers above, what is your perception of the benefits of STUDENTS using GenAi tools for LEARNING purposes?"
             />
             <AutoBarChart
               title="Tools Supporting Students"
               data={dashboardData.students.tools.map((item) => ({ label: truncateTitle(item.label), value: item.count }))}
               colorScale={() => palette.accent}
-              footnote="Counts reflect number of academics reporting student use; multiple tools per respondent allowed"
+              subtitle={`n = ${dashboardData.students.attitudes[0]?.total || 0} respondents`}
+              footnote="Counts reflect number of Academics reporting student use; multiple tools per respondent allowed"
             />
             <StackedColumnChart
               title="Student Misuse Concerns"
@@ -1375,7 +1399,8 @@ function IieDashboard() {
               }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}
-              footnote={`What is your level of concern about possible GenAi misuse by students in the following areas?\n\nn = ${misuseTotal} respondents`}
+              subtitle={`n = ${misuseTotal} respondents`}
+              footnote="What is your level of concern about possible GenAi misuse by students in the following areas?"
             />
             <HorizontalBarChart
               title="Student Abuse Suspicions"
@@ -1385,7 +1410,8 @@ function IieDashboard() {
                 context: ``
               }))}
               colorScale={() => palette.accentAlt}
-              footnote="What forms of misuse have you suspected or detected in student work?\n\nCounts indicate academics suspecting each misuse (multiple selections allowed)"
+              subtitle={`n = ${dashboardData.students.attitudes[0]?.total || 0} respondents`}
+              footnote="What forms of misuse have you suspected or detected in student work? Multiple selections allowed"
             />
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
               {(() => {
@@ -1399,7 +1425,7 @@ function IieDashboard() {
                 const agentPalette = { 'Yes': '#22c55e', "I don't know": '#f59e0b', 'No': '#ef4444' };
                 return (
                   <div style={{ flex: 1, minWidth: '320px' }}>
-                    <StackedColumnChart title="AI Agent Adoption" series={agentSeries} colorPalette={agentPalette} segmentOrder={['Yes',"I don't know",'No']} footnote="Are your STUDENTS using AI agents for academic work?" />
+                    <StackedColumnChart title="AI Agent Adoption" series={agentSeries} colorPalette={agentPalette} segmentOrder={['Yes',"I don't know",'No']} subtitle={`n = ${totalA} respondents`} footnote="Are your STUDENTS using AI agents for Academic work?" />
                   </div>
                 );
               })()}
@@ -1414,7 +1440,7 @@ function IieDashboard() {
                 const paletteAssess = { 'Yes, I do': '#22c55e', 'I am thinking about it': '#0ea5e9', 'No, not yet': '#f59e0b', 'Not applicable': '#a855f7', 'No & I will never (on principle)': '#ef4444' };
                 return (
                   <div style={{ flex: 1, minWidth: '320px' }}>
-                    <StackedColumnChart title="Assessment Redesign" series={aSeries} colorPalette={paletteAssess} segmentOrder={['Yes, I do','I am thinking about it','No, not yet','Not applicable','No & I will never (on principle)']} footnote="Have you adapted your assessment design to mitigate for GenAi use by STUDENTS?" />
+                    <StackedColumnChart title="Assessment Redesign" series={aSeries} colorPalette={paletteAssess} segmentOrder={['Yes, I do','I am thinking about it','No, not yet','Not applicable','No & I will never (on principle)']} subtitle={`n = ${total} respondents`} footnote="Have you adapted your assessment design to mitigate for GenAi use by STUDENTS?" />
                   </div>
                 );
               })()}
@@ -1437,7 +1463,8 @@ function IieDashboard() {
               }))}
               colorPalette={attitudeColors}
               segmentOrder={['Yes', 'No opinion', 'Never']}
-              footnote={`Should we as an organisation allow the use of GenAi tools for ADMINISTRATION purposes in the following departments?\n\nn = ${dashboardData.nonAcademicStaff.attitudes[0]?.total || 0} non-academic respondents `}
+              subtitle={`n = ${dashboardData.nonAcademicStaff.attitudes[0]?.total || 0} respondents`}
+              footnote="Should we as an organisation allow the use of GenAi tools for ADMINISTRATION purposes in the following departments?"
             />
             <StackedColumnChart
               title="Operational Applications • Behaviour"
@@ -1451,7 +1478,8 @@ function IieDashboard() {
               }))}
               colorPalette={adoptionColors}
               segmentOrder={['Yes, I do', 'Yes, but no longer', 'I am thinking about it', 'No, not yet', 'No & I will never (on principle)']}
-              footnote={`Have you ALREADY used GenAi tools IN YOUR CURRENT JOB for the following applications?\n\nn = ${dashboardData.nonAcademicStaff.behaviours[0]?.total || 0} non-academic respondents `}
+              subtitle={`n = ${dashboardData.nonAcademicStaff.behaviours[0]?.total || 0} respondents`}
+              footnote="Have you ALREADY used GenAi tools IN YOUR CURRENT JOB for the following applications?"
             />
             <StackedColumnChart
               title="Operational Concerns"
@@ -1465,7 +1493,8 @@ function IieDashboard() {
               }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}
-              footnote={`What is your perception of the drawbacks of the use of GenAi tools for ADMINISTRATION purposes?\n\nn = ${dashboardData.nonAcademicStaff.concerns[0]?.total || 0} respondents`}
+              subtitle={`n = ${dashboardData.nonAcademicStaff.concerns[0]?.total || 0} respondents`}
+              footnote="What is your perception of the drawbacks of the use of GenAi tools for ADMINISTRATION purposes?"
             />
             <StackedColumnChart
               title="Operational Benefits"
@@ -1479,7 +1508,8 @@ function IieDashboard() {
               }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}
-              footnote={`What is your perception of the benefits of the use of GenAi tools for ADMINISTRATION purposes?\n\nn = ${dashboardData.nonAcademicStaff.benefits[0]?.total || 0} respondents`}
+              subtitle={`n = ${dashboardData.nonAcademicStaff.benefits[0]?.total || 0} respondents`}
+              footnote="What is your perception of the benefits of the use of GenAi tools for ADMINISTRATION purposes?"
             />
             <AutoBarChart
               title="Tools Supporting Administration"
@@ -1489,7 +1519,8 @@ function IieDashboard() {
                 context: ``
               }))}
               colorScale={() => palette.accent}
-              footnote={`What tools have you used for these applications mentioned in the previous question?\n\nn ≈ ${dashboardData.nonAcademicStaff.behaviours[0]?.total || 0} staff (multiple selections allowed)`}
+              subtitle={`n ≈ ${dashboardData.nonAcademicStaff.behaviours[0]?.total || 0} respondents`}
+              footnote="What tools have you used for these applications mentioned in the previous question? Multiple selections allowed"
               footnoteUnderTitle={true}
             />
           </div>
@@ -1523,24 +1554,28 @@ function IieDashboard() {
               title="Work Adoption by IT Proficiency"
               data={itBars}
               unit="percent"
+              subtitle={`n = ${dashboardData.respondents.totalRespondents} respondents`}
               colorScale={(item) => (item.value >= 80 ? palette.positive : palette.accent)}
             />
             <HorizontalBarChart
               title="Average Teaching Use-Cases by Confidence Level"
               data={confidenceBars}
               unit="count"
+              subtitle={`n = ${dashboardData.respondents.academicCount} respondents`}
               colorScale={(item) => (item.label.includes('confident') ? palette.positive : palette.accentAlt)}
             />
             <HorizontalBarChart
               title="Brand-level Work Adoption"
               data={brandRates}
               unit="percent"
+              subtitle={`n = ${dashboardData.respondents.totalRespondents} respondents`}
               colorScale={() => palette.accent}
             />
             <HorizontalBarChart
               title="Work Adoption by Role Group"
               data={groupBars}
               unit="percent"
+              subtitle={`n = ${dashboardData.respondents.totalRespondents} respondents`}
               colorScale={(item) => (item.label.startsWith('Academic') ? palette.accent : palette.accentAlt)}
             />
             <InsightList
