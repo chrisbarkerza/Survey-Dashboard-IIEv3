@@ -810,7 +810,7 @@ def build_data():
         'nonAcademicStaff': non_data,
         'comparative': comparative,
         'ideas': {
-            'uses': collect_open('7.1) What uses have you found for GenAI that you would want the institution to support, and enhance?'),
+            'uses': collect_open('7.1) What uses have you found for GenAi that you would want the institution to support, and enhance?'),
             'jobIdeas': collect_open('7.2) Do you have any (GenAi) ideas of your own that would make your current job easier? '),
             'agentIdeas': collect_open('7.3) What ideas do you have for AI agents that could benefit your work or studies at the institution?')
         },

@@ -776,10 +776,10 @@ function IieDashboard() {
 
   const executiveInsights = useMemo(() => [
     `331 staff members responded (62% Academic, 38% Non-Academic), equating to a 12.4% institutional participation rate with adequate ±5.4% margin of error @ 95% confidence.`,
-    `${dashboardData.overallAdoption.adoptionWork.percentages['Yes, I do']}% currently use GenAI tools for work while ${dashboardData.overallAdoption.adoptionPersonal.percentages['Yes, I do']}% use it personally; 263 respondents use GenAI tools in both contexts.`,
+    `${dashboardData.overallAdoption.adoptionWork.percentages['Yes, I do']}% currently use GenAi tools for work while ${dashboardData.overallAdoption.adoptionPersonal.percentages['Yes, I do']}% use it personally; 263 respondents use GenAi tools in both contexts.`,
     `ChatGPT adoption is near-universal (89% current users), with Copilot (47%) and Meta AI (50%) forming a strong productivity stack despite high ethical (67%) and reliability (49%) concerns.`,
-    `Academic staff overwhelmingly endorse GenAI-enabled teaching (86% for curriculum design) but only 28% actively apply it to assessment workflows; confidence strongly predicts usage (r = 0.48).`,
-    `Academic respondents report surging student usage (64% already see GenAI in personalised learning) alongside acute integrity concerns (81% worried about plagiarism) spurring assessment redesign.`,
+    `Academic staff overwhelmingly endorse GenAi-enabled teaching (86% for curriculum design) but only 28% actively apply it to assessment workflows; confidence strongly predicts usage (r = 0.48).`,
+    `Academic respondents report surging student usage (64% already see GenAi in personalised learning) alongside acute integrity concerns (81% worried about plagiarism) spurring assessment redesign.`,
     `Training (270 votes), subsidised licensing (253) and curated app access (251) top the assistance queue, signalling readiness for structured enablement programs.`,
     `Adoption remains uneven: Academic staff show 86% active work usage versus 63% in Non-Academic teams, highlighting the priority for targeted operational onboarding.`
   ], []);
@@ -792,30 +792,30 @@ function IieDashboard() {
   ];
 
   const adoptionInsights = [
-    `${dashboardData.overallAdoption.adoptionWork.percentages['Yes, I do']}% already use GenAI for work and ${dashboardData.overallAdoption.adoptionPersonal.percentages['Yes, I do']}% for personal tasks; 85% of adopters straddle both contexts.`,
+    `${dashboardData.overallAdoption.adoptionWork.percentages['Yes, I do']}% already use GenAi for work and ${dashboardData.overallAdoption.adoptionPersonal.percentages['Yes, I do']}% for personal tasks; 85% of adopters straddle both contexts.`,
     `ChatGPT remains the anchor (89% current usage, 34 paid seats) with rapid entrants: Copilot (47% current), Meta AI (50%) and DeepSeek (18%) highlight appetite for multi-model workflows.`,
-    `Research (270 users) and writing (229) lead activities, yet only 97 respondents use GenAI for technical tasks while 33 refuse entirely—signalling a skills and tooling gap.`,
+    `Research (270 users) and writing (229) lead activities, yet only 97 respondents use GenAi for technical tasks while 33 refuse entirely—signalling a skills and tooling gap.`,
     `Ethical risks top the concern list (67% agreement) despite strong belief in efficiency (80%) and automation (74%) benefits, underscoring the need for governance paired with enablement.`,
     `Advanced capabilities remain emergent: 25% currently use reasoning models and 23% engage AI agents, indicating headroom for structured experimentation.`
   ];
 
   const academicInsights = [
-    `Support for GenAI-enabled teaching is robust (86% for curriculum/content) but operational uptake lags—only 28% actively use it for assessment and 27% for documentation.`,
-    `Two-thirds of Academics flag reliability (66%) and ethics/accountability (66%) as primary risks, yet 70–86% credit GenAI with gains in preparation efficiency, richer materials and administrative relief.`,
+    `Support for GenAi-enabled teaching is robust (86% for curriculum/content) but operational uptake lags—only 28% actively use it for assessment and 27% for documentation.`,
+    `Two-thirds of Academics flag reliability (66%) and ethics/accountability (66%) as primary risks, yet 70–86% credit GenAi with gains in preparation efficiency, richer materials and administrative relief.`,
     `Confidence fuels adoption: very confident Academics average 2.45 active teaching use-cases versus 0.71 among unsure peers (r = 0.48, n = 204).`,
     `Only 11 Academics use native AI code  editors and disclosure to students is uneven (48 always disclose, 63 rarely/never), signalling policy and tooling opportunities.`
   ];
 
   const studentInsights = [
-    `Academic staff endorse student access (70–82% support across scenarios) and report widespread learner adoption, notably 64% seeing GenAI for personalised learning and 57% for research planning.`,
+    `Academic staff endorse student access (70–82% support across scenarios) and report widespread learner adoption, notably 64% seeing GenAi for personalised learning and 57% for research planning.`,
     `Academic honesty anxieties are acute: 81% fear undetected plagiarism and 79% highlight assessment challenges, driving 36% to redesign evaluations with a further 17% mid-transition.`,
     `Perceived misuse clusters around uncredited copying (188 mentions) and homework completion (185), underscoring the need for transparent student policy and detection support.`,
     `AI agents are already entering classrooms—69% of Academics believe students use them—demanding proactive guidance and scenario planning.`
   ];
 
   const nonAcademicInsights = [
-    `Operations & support teams are the most enthusiastic (82% approval) yet fewer than one-third currently apply GenAI to meetings, media or technical tasks—revealing process integration gaps.`,
-    `Over half of Non-Academic respondents use GenAI for research (53%) and writing (55%), mirroring core administrative workloads.`,
+    `Operations & support teams are the most enthusiastic (82% approval) yet fewer than one-third currently apply GenAi to meetings, media or technical tasks—revealing process integration gaps.`,
+    `Over half of Non-Academic respondents use GenAi for research (53%) and writing (55%), mirroring core administrative workloads.`,
     `Ethical anxiety (65%) outweighs fears of job displacement (37%) or technical barriers (20%), reinforcing the need for governance and change management messaging.`,
     `Conversational AI (95 users) and search tools (63 users) anchor toolkits, with 41 already exploring AI agents for workflow automation.`
   ];
@@ -831,11 +831,11 @@ function IieDashboard() {
     uses: {
       summary: [
         `277 respondents shared institutional use-cases: student support (29%), research & analytics (25%) and capability development (22%) dominate submissions.`,
-        `Sentiment skews pragmatic (63% neutral, 22% positive) with repeat calls for GenAI-assisted assessment design, rubric drafting and content localisation.`
+        `Sentiment skews pragmatic (63% neutral, 22% positive) with repeat calls for GenAi-assisted assessment design, rubric drafting and content localisation.`
       ],
       highlights: [
-        'Co-creating creative formative assessments and rubrics with GenAI to diversify evaluation formats.',
-        'Leveraging GenAI for market intelligence and programme innovation insights across faculties.'
+        'Co-creating creative formative assessments and rubrics with GenAi to diversify evaluation formats.',
+        'Leveraging GenAi for market intelligence and programme innovation insights across faculties.'
       ]
     },
     jobIdeas: {
@@ -845,7 +845,7 @@ function IieDashboard() {
       ],
       highlights: [
         'Desire for an integrated assistant that links lesson planning, assessment design and personalised feedback dashboards.',
-        'Requests for GenAI-driven change management communications and stakeholder engagement scripts.'
+        'Requests for GenAi-driven change management communications and stakeholder engagement scripts.'
       ]
     },
     agentIdeas: {
@@ -868,19 +868,19 @@ function IieDashboard() {
 
   const recommendations = {
     short: [
-      'Launch an institution-wide GenAI enablement sprint: curated training pathways, rapid-reference guides and a transparent approved-tools register.',
+      'Launch an institution-wide GenAi enablement sprint: curated training pathways, rapid-reference guides and a transparent approved-tools register.',
       'Codify disclosure, assessment and student-use guidelines paired with exemplar communications for Academics and operations teams.',
-      'Stand-up a GenAI helpdesk pod blending technical support and instructional design coaching to unblock early adopters.'
+      'Set up GenAi Studio lab* blending technical support and instructional design coaching to unblock early adopters.'
     ],
     medium: [
       'Co-design faculty-specific playbooks that translate high-benefit use-cases (assessment redesign, admissions triage, research assistance) into reusable workflows.',
-      'Negotiate enterprise licensing for priority tools (ChatGPT Teams, Copilot, Meta AI integrations) aligned to compliance and data governance requirements.',
+      'Negotiate enterprise licensing for priority tools (if possible) aligned to compliance and data governance requirements.',
       'Implement a confidence accelerator programme that pairs power users with cohort-based mentoring, targeting teams with low utilisation.'
     ],
     long: [
-      'Embed GenAI maturity metrics into strategic dashboards—track adoption depth, quality outcomes and integrity indicators to steer continuous improvement.',
-      'Build an innovation lab for reasoning models and agent ecosystems, emphasising cross-department pilots in student services, analytics and quality assurance.',
-      'Integrate GenAI capability development into talent management, ensuring progression frameworks reward ethical, high-impact AI-enabled practice.'
+      'Embed GenAi maturity metrics into strategic dashboards—track adoption depth, quality outcomes and integrity indicators to steer continuous improvement.',
+      'Expand GenAi studio lab* for reasoning models and agent ecosystems, emphasising cross-department pilots in student services, analytics and quality assurance.',
+      'Integrate GenAi capability development into talent management, ensuring progression frameworks reward ethical, high-impact AI-enabled practice.'
     ]
   };
 
@@ -888,7 +888,7 @@ function IieDashboard() {
     { label: 'Total Respondents', value: formatValue(totalRespondents), emphasis: true },
     { label: 'Academic Staff', value: `${academicCount} (${(totalRespondents > 0 ? ((academicCount / totalRespondents) * 100) : 0).toFixed(1)}%)` },
     { label: 'Non-Academic Staff', value: `${nonAcademicCount} (${(totalRespondents > 0 ? ((nonAcademicCount / totalRespondents) * 100) : 0).toFixed(1)}%)` },
-    { label: 'Dual-context GenAI Users', value: `${dashboardData.overallAdoption.adoptionBoth.counts['Both work & personal'] || 0} (${(dashboardData.overallAdoption.adoptionBoth.total > 0 ? (((dashboardData.overallAdoption.adoptionBoth.counts['Both work & personal'] || 0) / dashboardData.overallAdoption.adoptionBoth.total) * 100) : 0).toFixed(1)}%)` }
+    { label: 'Dual-context GenAi Users', value: `${dashboardData.overallAdoption.adoptionBoth.counts['Both work & personal'] || 0} (${(dashboardData.overallAdoption.adoptionBoth.total > 0 ? (((dashboardData.overallAdoption.adoptionBoth.counts['Both work & personal'] || 0) / dashboardData.overallAdoption.adoptionBoth.total) * 100) : 0).toFixed(1)}%)` }
   ];
 
   const renderTab = () => {
@@ -1049,7 +1049,7 @@ function IieDashboard() {
       case 'adoption': {
         const adoptionPieData = [
           {
-            title: 'GenAI for Work',
+            title: 'GenAi for Work',
             data: Object.entries(dashboardData.overallAdoption.adoptionWork.counts).map(([label, value], idx) => ({
               label,
               value,
@@ -1058,7 +1058,7 @@ function IieDashboard() {
             subtitle: `n = ${dashboardData.overallAdoption.adoptionWork.total}`
           },
           {
-            title: 'GenAI for Personal Use',
+            title: 'GenAi for Personal Use',
             data: Object.entries(dashboardData.overallAdoption.adoptionPersonal.counts).map(([label, value], idx) => ({
               label,
               value,
@@ -1140,7 +1140,7 @@ function IieDashboard() {
             <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap' }}>
               <div style={{ flex: 1, width: 'calc(50% - 10px)', minWidth: '400px', overflow: 'hidden' }}>
                 <HorizontalBarChart
-                  title="Top GenAI Tools • Ever Used"
+                  title="Top GenAi Tools • Ever Used"
                   data={toolBarData}
                   colorScale={() => palette.accentAlt}
                   subtitle={`n = ${dashboardData.respondents.totalRespondents} respondents`}
@@ -1164,7 +1164,7 @@ function IieDashboard() {
             </div>
             <div style={{ overflow: 'hidden' }}>
               <AutoBarChart
-                title="GenAI Activities • Current or Past Users"
+                title="GenAi Activities • Current or Past Users"
                 data={activitiesData}
                 colorScale={() => palette.accent}
                 subtitle={`n = ${activitiesTotal} respondents`}
@@ -1172,7 +1172,7 @@ function IieDashboard() {
               />
             </div>
             <StackedColumnChart
-              title="Concerns about GenAI"
+              title="Concerns about GenAi"
               series={dashboardData.overallAdoption.concerns.map((row) => ({ label: truncateTitle(row.label), total: row.total, segments: Object.entries(row.percentages).map(([k,v])=>({label:k, percent:v})) }))}
               colorPalette={likertColors}
               segmentOrder={['Agree','Neutral','Disagree']}
@@ -1644,11 +1644,11 @@ function IieDashboard() {
       >
         <div style={{ maxWidth: '780px' }}>
           <div style={{ color: palette.accent, letterSpacing: '0.12em', fontSize: '12px', textTransform: 'uppercase', marginBottom: '8px' }}>
-            Third Analysis of the IIE GenAI Survey Data
+            Third Analysis of the IIE GenAi Survey Data
           </div>
-          <h1 style={{ fontSize: '36px', fontWeight: 700, marginBottom: '12px' }}>GenAI Strategy Intelligence Dashboard</h1>
+          <h1 style={{ fontSize: '36px', fontWeight: 700, marginBottom: '12px' }}>GenAi Strategy Intelligence Dashboard</h1>
           <p style={{ ...textStyle, color: palette.textMuted }}>
-            Interactive executive dashboard for The Institute of Independent Education synthesising 331 staff responses to steer GenAI strategy and implementation decisions.
+            Interactive executive dashboard for The Institute of Independent Education synthesising 331 staff responses to steer GenAi strategy and implementation decisions.
           </p>
         </div>
         <a
