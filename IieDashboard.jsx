@@ -786,7 +786,7 @@ function IieDashboard() {
 
   const respondentInsights = [
     `Academic respondents (204) outnumber Non-Academic (127) aligning with staffing ratios; Varsity College (52%) and Rosebank College (29%) dominate the sample with Vega at 14%.`,
-    `Academic participation clusters in Commerce (36%), Humanities (26%), ICT (20%), Education (19%), NQF level 7 (63%) and NQF levels 5 & 6 (52%), providing balanced discipline coverage for strategic planning.`,
+    `Academic participation clusters in Commerce (36%), Humanities (26%), ICT (20%), Education (19%), NQF level 7 (63%) and NQF levels 5 & 6 (52% each), providing balanced discipline coverage for strategic planning.`,
     `58% of Academics and 57% of Non-Academic staff have ≤5 years at The IIE.`,
     `IT proficiency is solid: 50% of Academics and 52% of Non-Academic staff self-rate as advanced, with a further 13% and 12% respectively confident enough to work in IT.`
   ];
